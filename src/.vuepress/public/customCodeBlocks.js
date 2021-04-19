@@ -20,7 +20,7 @@ function checkForCodeBlocks() {
 	// check if they are over 500px;
 	//if not hide the show more button
 	var codeBlocks = document.getElementsByClassName("extra-class");
-	console.log("we checked! "+codeBlocks.length);
+	//console.log("we checked! "+codeBlocks.length);
 	var i;
 	for (i = 0; i < codeBlocks.length; i++) {
 		if(codeBlocks[i].classList.contains("has-been-checked")) {

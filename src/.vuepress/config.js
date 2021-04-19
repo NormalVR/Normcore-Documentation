@@ -28,6 +28,7 @@ module.exports = {
       { text: 'normcore.io', link: 'https://normcore.io' },
       { text: 'Go to dashboard', link: 'https://normcore.io/dashboard' },
     ],
+    smoothScroll: true,
     sidebar: [
       {
         title: 'Home',
