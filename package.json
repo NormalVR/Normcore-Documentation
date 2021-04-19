@@ -1,0 +1,17 @@
+{
+  "name": "@normcore-website/documentation",
+  "version": "1.0.0",
+  "description": "Normcore Website Documentation",
+  "author": "Max Weisel <max@normalvr.com>",
+  "private": true,
+  "scripts": {
+    "build": "vuepress build ./src",
+    "watch": "vuepress watch ./src",
+    "dev": "vuepress dev ./src"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "markdown-it-html5-embed": "^1.0.0",
+    "vuepress": "^1.8.2"
+  }
+}
