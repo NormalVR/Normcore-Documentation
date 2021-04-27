@@ -5,6 +5,9 @@ title: Synchronizing Custom Data
 # Synchronizing Custom Data
 In this guide, I’m going to walk you through how to synchronize custom data in your Unity application using custom Realtime Components.
 
+// TODO: Pair this guide down and link out to the RealtimeComponent / RealtimeModel docs.
+//       The goal is to reduce this as much as possible so it feels simple + easy.
+
 ## What are RealtimeComponents
 
 Realtime Components are the most common way to synchronize data in your application. A **RealtimeComponent** script is responsible for keeping a specific part of your scene in sync. The most common built-in component is **RealtimeTransform**, which synchronizes the transform of a GameObject.

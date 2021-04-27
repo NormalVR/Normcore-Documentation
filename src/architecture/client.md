@@ -1,8 +1,8 @@
 ---
 layout: docs
-title: How Normcore Works
+title: Unity Client
 ---
-# How Normcore Works
+# Unity Client
 This document describes the overall architecture of Normcore and how state is synchronized between players.
 
 ## Rooms
@@ -29,4 +29,7 @@ Normcore uses an MVC (Model, View, Controller) based architecture, in order to h
 
 The datastore holds a collection of RealtimeModel objects and ensures that they’re kept in sync between clients. In Unity, each GameObject represents the visual state of your app, so we consider it to be the View. And finally, the RealtimeComponent scripts act as the controller.
 
-![](./how-normcore-works/mvc-diagram.svg "A diagram of the MVC lifecycle that Normcore is modeled after, with the equivalent of each component in Realtime.")
+![](./client/mvc-diagram.svg "A diagram of the MVC lifecycle that Normcore is modeled after, with the equivalent of each component in Realtime.")
+
+// TODO: Add a diagram to illustrate the Realtime API / Room API / Transport separation
+// TODO: What happened to that diagram with the internet cloud on it? That would be good here or in an Overview page

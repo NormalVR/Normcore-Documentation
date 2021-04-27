@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Ownership + Permissions
+title: Ownership + Lifetime Flags
 ---
 # Server Authority + Ownership + Lifetime Flags
 At some point, every multiplayer application requires the server to act as an authority on the state of a room. You may have objects that only specific users can access, physics state that you would like to enforce, or data that should be reset when a user disconnects from a room.
@@ -25,7 +25,7 @@ The most common RealtimeView prefab is a player prefab and it's also a prime exa
 
 Let's take a look at the hierarchy here:
 
-![](./server-authority-ownership-and-lifetime-flags/model-hierarchy.svg)
+![](./ownership-and-lifetime-flags/model-hierarchy.svg)
 
 Starting with the hierarchy, we have a VR Player game object at the root, and it has a child game object for the head and hands. Each game object has a `RealtimeView` and a `RealtimeTransform` and potentially another `RealtimeComponent` or two.
 
@@ -79,7 +79,7 @@ Even though this example calls `RequestOwnership()` after the object is instanti
 
 If you're trying to debug ownership settings at runtime. The `RealtimeView` inspector includes Request Ownership and Clear Ownership buttons that are the same as calling `RequestOwnership()` or `ClearOwnership()` in code.
 
-![](./server-authority-ownership-and-lifetime-flags/realtimeview-inspector-ownership.png)
+![](./ownership-and-lifetime-flags/realtimeview-inspector-ownership.png)
 
 
 
