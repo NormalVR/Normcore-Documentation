@@ -27,6 +27,8 @@ You'll notice that in the Realtime inspector, there's a field for an "App key". 
 
 Click on Create a new Application, give it a name, and grab your shiny new app key.
 
+// TODO: Switch this to the hoverbird player controller example. It's so much cooler, and still pretty simple!
+
 Once you’ve got your app key, paste it into the App Key field on the Realtime component, and hit Play. You should see Realtime spinning up a room in the console, followed by a CubePlayer instantiated in the scene:
 
 ![](./getting-started/cube-player.png "A CubePlayer is instantiated for your local player when you connect.")

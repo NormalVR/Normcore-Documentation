@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: Cloud Architecture
+title: Cloud Infrastructure
 ---
-# Normcore Cloud Architecture
+# Cloud Infrastructure
 There are three components that make up a Normcore Cloud backend, the **matcher**, **clusters**, and **rooms**.
 
-![](./cloud-architecture/architecture-diagram.png)
+![](./cloud/architecture-diagram.png)
 
 ## Connecting to a room
 The best way to understand the Normcore Cloud architecture is to look at the process of connecting to a room.

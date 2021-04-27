@@ -41,15 +41,14 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 2,
         children: [
-          { title: 'What is Normcore?', path: '/test' },
-          { title: 'Getting started', path: '/test' },
-          { title: 'How Normcore works', path: '/test' },
-          { title: 'Common questions', path: '/test' },
+          '/essentials/what-is-normcore.md',
+          '/essentials/getting-started.md',
+          '/essentials/common-questions.md',
         ]
       },
       {
         title: "Pricing",
-        path: '/test',
+        path: '/pricing',
         collapsable: false,
         sidebarDepth: 2,
       },
@@ -58,11 +57,19 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 2,
         children: [
-          { title: 'Creating a player controller', path: '/test' },
-          { title: 'XR Avatars and Voice Chat', path: '/test' },
-          { title: 'Creating a multiplayer drawing app', path: '/test' },
-          { title: 'Using AR as a spectator view', path: '/test' },
-          { title: 'Upgrading from Normcore 1 to Normcore 2', path: '/test' },
+          '/guides/creating-a-player-controller',
+          '/guides/xr-avatars-and-voice-chat',
+          '/guides/creating-a-multiplayer-drawing-app',
+          '/guides/using-ar-as-a-spectator-view',
+          '/guides/upgrading-from-normcore-1-to-normcore-2',
+          {
+            title: 'Recipes',
+            collapsable: false,
+            sidebarDepth: 2,
+            children: [
+              '/guides/recipes/timers-and-playback',
+            ]
+          }
         ]
       },
       {
@@ -70,38 +77,46 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 2,
         children: [
-          { title: 'Overview', path: '/test' },
-          { title: 'Client', path: '/test' },
-          { title: 'Server', path: '/test' },
-          { title: 'Transport', path: '/test' },
+          '/architecture/client',
+          '/architecture/cloud',
+          '/architecture/transport',
         ]
       },
       {
         title: "Realtime API",
+        path: '/realtime',
         collapsable: false,
         sidebarDepth: 2,
         children: [
-          { title: 'Realtime', path: '/test' },
-          { title: 'RealtimeView', path: '/test' },
-          { title: 'RealtimeComponent', path: '/test' },
-          { title: 'RealtimeTransform', path: '/test' },
-          { title: 'Synchronizing Custom Data', path: '/test' },
-          { title: 'Networked Physics', path: '/test' },
-          { title: 'FAQ', path: '/test' },
+          '/realtime/realtime',
+          '/realtime/realtimeview',
+          '/realtime/realtimecomponent',
+          '/realtime/realtimetransform',
+          '/realtime/synchronizing-custom-data',
+          '/realtime/networked-physics',
+          '/realtime/common-questions',
+          {
+            title: 'XR',
+            collapsable: false,
+            children: [
+              '/realtime/xr/avatars',
+              '/realtime/xr/voicechat'
+            ]
+          }
         ]
       },
       {
         title: "Room + Datastore API",
+        path: '/room',
         collapsable: false,
         sidebarDepth: 2,
         children: [
-          { title: 'Room', path: '/test' },
-          { title: 'Datastore', path: '/test' },
-          { title: 'RealtimeModel', path: '/test' },
-          { title: 'Collections', path: '/test' },
-          { title: 'Ownership + Lifetime Flags', path: '/test' },
-          { title: 'RPCs', path: '/test' },
-          { title: 'FAQ', path: '/test' },
+          '/room/room',
+          '/room/datastore',
+          '/room/realtimemodel',
+          '/room/collections',
+          '/room/ownership-and-lifetime-flags',
+          '/room/common-questions',
         ]
       },
       {
@@ -113,36 +128,25 @@ module.exports = {
         ]
       },
       {
-        title: "Servers",
+        title: "Normcore Private",
+        path: '/normcore-private',
         collapsable: false,
         sidebarDepth: 2,
         children: [
-          { title: 'Architecture', path: '/test' },
-          { title: 'Matcher', path: '/test' },
-          { title: 'Clusters', path: '/test' },
-          { title: 'Rooms', path: '/test' },
-          { title: 'Authoritative Servers', path: '/test' },
-          { title: 'Normcore Private', path: '/test' },
-          { title: 'FAQ', path: '/test' },
+          '/normcore-private/authoritative-servers',
+          '/normcore-private/webhooks',
+          '/normcore-private/on-premises/google-cloud-installation',
+          '/normcore-private/common-questions',
         ]
       },
       {
         title: "Platforms",
+        path: '/platforms',
         collapsable: false,
         sidebarDepth: 2,
         children: [
-          { title: 'Native', path: '/test' },
-          { title: 'WebGL', path: '/test' },
-        ]
-      },
-      {
-        title: "XR",
-        collapsable: false,
-        sidebarDepth: 2,
-        children: [
-          { title: 'Creating a XR avatar with voice chat', path: '/test' },
-          { title: 'RealtimeAvatar + Manager', path: '/test' },
-          { title: 'RealtimeAvatarVoice', path: '/test' },
+          '/platforms/webgl',
+          '/platforms/common-questions',
         ]
       },
       {
