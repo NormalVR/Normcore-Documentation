@@ -154,11 +154,11 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 2,
         children: [
+          { title: 'Realtime', path: '/reference/classes/Normal.Realtime.Realtime' },
           { title: 'AudioSendStream', path: '/test' },
           { title: 'AudioReceiveStream', path: '/test' },
           { title: 'Datastore', path: '/test' },
           { title: 'IRealtimeComponent', path: '/test' },
-          { title: 'Realtime', path: '/test' },
           { title: 'RealtimeView', path: '/test' },
           { title: 'RealtimeComponent', path: '/test' },
           { title: 'RealtimeTransform', path: '/test' },
