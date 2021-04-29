@@ -77,6 +77,10 @@ Although the hoverbird controls don't work on mobile, try opening it on iOS or A
 
 ## Known Issues
 
+#### WebGL audio streams don't respect the name of the room
+
+There's a bug in how the webgl plug-in reserves the media room that results in all webgl clients joining the media room name "undefined".
+
 #### SendRPCMessage does not work
 
 This feature is intentionally disabled in the webgl preview. We plan to deprecate this API in Normcore 3 in order to replace it with a more feature-rich version. If you need this functionality in your project, let us know and we can provide a version with the legacy RPC API enabled.
