@@ -1,7 +1,8 @@
 <template>
   <main class="page">
     <slot name="top" />
-    <Content class="theme-default-content" />
+    <!-- Reference pages are auto-generated and we don't output any content on the page. If that ever changes, bring this tag back. -->
+    <!-- <Content class="theme-default-content" /> -->
     <div class="theme-default-content">
       <div>
         <h1>{{ $page.frontmatter.class_name }}</h1>
