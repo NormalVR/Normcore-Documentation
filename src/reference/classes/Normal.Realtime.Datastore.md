@@ -3,116 +3,64 @@ title: Datastore
 layout: Reference
 category: API Reference
 class_name: Datastore
-class_summary: ''
-class_remarks: ''
+class_summary: The datastore for a Normcore Room. This class holds all models that belong to a room's datastore.
+class_remarks: This class should never need to be used directly and will be marked internal in the next major version.
 class_members:
 - name: Events
   members:
   - name: prefabRealtimeViewModelAdded
-    definition: prefabRealtimeViewModelAdded
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    definition: event PrefabViewModelAdded prefabRealtimeViewModelAdded
+    summary: Internal. Do not use.
+    remarks: This will switch from public to internal in the next major version.
   - name: prefabRealtimeViewModelRemoved
-    definition: prefabRealtimeViewModelRemoved
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    definition: event PrefabViewModelRemoved prefabRealtimeViewModelRemoved
+    summary: Internal. Do not use.
+    remarks: This will switch from public to internal in the next major version.
 - name: Properties
   members:
   - name: roomModel
-    definition: roomModel
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    definition: RealtimeModel roomModel { get; }
+    summary: The room model that was supplied to Realtime.Connect or Room.Connect.
+    remarks: This will switch from public to internal in the next major version.
   - name: sceneViewModels
-    definition: sceneViewModels
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    definition: StringKeyDictionary<RealtimeViewModel> sceneViewModels { get; }
+    summary: Internal. Do not use.
+    remarks: This will switch from public to internal in the next major version.
   - name: prefabViewModels
-    definition: prefabViewModels
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    definition: RealtimeSet<RealtimeViewModel> prefabViewModels { get; }
+    summary: Internal. Do not use.
+    remarks: This will switch from public to internal in the next major version.
   - name: writeBuffer
-    definition: writeBuffer
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    definition: WriteBuffer writeBuffer { get; }
 - name: Methods
   members:
   - name: Reset
     definition: void Reset(Room room, RealtimeModel roomModel = null)
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    summary: Internal. Do not use.
+    remarks: This will switch from public to internal in the next major version.
   - name: GetSceneRealtimeViewModelForUUID
     definition: RealtimeViewModel GetSceneRealtimeViewModelForUUID(byte[] sceneViewUUID)
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    summary: Internal. Do not use.
+    remarks: This will switch from public to internal in the next major version.
   - name: ConnectSceneRealtimeViewModel
     definition: void ConnectSceneRealtimeViewModel(string sceneViewUUID, RealtimeViewModel sceneViewViewModel, Action<bool, RealtimeViewModel> completionHandler)
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    summary: Internal. Do not use.
+    remarks: This will switch from public to internal in the next major version.
   - name: AddPrefabRealtimeViewModel
     definition: void AddPrefabRealtimeViewModel(RealtimeViewModel prefabViewModel)
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
   - name: RemovePrefabRealtimeViewModel
     definition: bool RemovePrefabRealtimeViewModel(RealtimeViewModel model)
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
   - name: Deserialize
     definition: void Deserialize(byte[] buffer)
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
   - name: SerializeDeltaUpdates
     definition: void SerializeDeltaUpdates(bool reliable, uint updateID, double roomTime)
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
   - name: DeserializeDeltaUpdates
     definition: uint DeserializeDeltaUpdates(byte[] buffer, bool reliable, bool updateIsFromUs, double currentRoomTime)
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
   - name: WriteLength
     definition: int WriteLength(StreamContext context)
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
   - name: Write
     definition: void Write(WriteStream stream, StreamContext context)
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
   - name: Read
     definition: void Read(ReadStream stream, StreamContext context)
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
 
 ---

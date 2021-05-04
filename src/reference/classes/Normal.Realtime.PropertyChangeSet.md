@@ -9,30 +9,20 @@ class_members:
 - name: Properties
   members:
   - name: anyPropertiesChanged
-    definition: anyPropertiesChanged
+    definition: bool anyPropertiesChanged { get; }
     summary: True if any of the properties have changed.
-    remarks: ''
-    returns: ''
-    parameters: []
   - name: Item
-    definition: Item
+    definition: bool Item { get; }
     summary: True if the indexed property has changed.
-    remarks: ''
-    returns: ''
-    parameters: []
 - name: Methods
   members:
   - name: Clear
     definition: void Clear()
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    summary: Internal. Do not use.
+    remarks: This is used by auto-generated RealtimeModel serialization code and is required to be public, but is not a public API.
   - name: SetPropertyChanged
     definition: void SetPropertyChanged(uint propertyID)
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    summary: Internal. Do not use.
+    remarks: This is used by auto-generated RealtimeModel serialization code and is required to be public, but is not a public API.
 
 ---

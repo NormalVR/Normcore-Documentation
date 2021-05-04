@@ -3,96 +3,54 @@ title: IRealtimeComponent
 layout: Reference
 category: API Reference
 class_name: IRealtimeComponent
-class_summary: ''
-class_remarks: ''
+class_summary: An object that represents a RealtimeComponent. Typically this is a RealtimeView or anything that subclasses RealtimeComponent&lt;TModel&gt;.
+class_remarks: This interface should not be implemented directly. Subclass RealtimeComponent<TModel> instead.
 class_members:
 - name: Properties
   members:
   - name: realtimeView
-    definition: realtimeView
+    definition: RealtimeView realtimeView { get; }
     summary: The RealtimeView that owns this component. Accessing this property before Start is unreliable.
-    remarks: ''
-    returns: ''
-    parameters: []
   - name: realtime
-    definition: realtime
-    summary: The Realtime instance that is managing this component. On prefab views, this property is available after  Awake. On scene views or their children, this is not available until Start.
-    remarks: ''
-    returns: ''
-    parameters: []
+    definition: Realtime realtime { get; }
+    summary: The Realtime instance that is managing this component. On prefab views, this property is available after Awake. On scene views or their children, this is not available until Start.
   - name: room
-    definition: room
-    summary: The current room of the Realtime instance that is managing this component. This might be null if  the Realtime instance hasn't connected yet. Accessing this property before Start is unreliable.
-    remarks: ''
-    returns: ''
-    parameters: []
+    definition: Room room { get; }
+    summary: The current room of the Realtime instance that is managing this component. This might be null if the Realtime instance hasn't connected yet. Accessing this property before Start is unreliable.
   - name: ownerIDSelf
-    definition: ownerIDSelf
+    definition: int ownerIDSelf { get; }
     summary: The client ID of the component owner.
-    remarks: ''
-    returns: ''
-    parameters: []
   - name: ownerIDInHierarchy
-    definition: ownerIDInHierarchy
+    definition: int ownerIDInHierarchy { get; }
     summary: The client ID of the component's hierarchy owner (the root owner of the component).
-    remarks: ''
-    returns: ''
-    parameters: []
   - name: isUnownedSelf
-    definition: isUnownedSelf
+    definition: bool isUnownedSelf { get; }
     summary: True if the component is not owned by any client.
-    remarks: ''
-    returns: ''
-    parameters: []
   - name: isUnownedInHierarchy
-    definition: isUnownedInHierarchy
+    definition: bool isUnownedInHierarchy { get; }
     summary: True if the component and all of its parent views are not owned by any client.
-    remarks: ''
-    returns: ''
-    parameters: []
   - name: isOwnedLocallySelf
-    definition: isOwnedLocallySelf
+    definition: bool isOwnedLocallySelf { get; }
     summary: True if the component is owned by the local client.
-    remarks: ''
-    returns: ''
-    parameters: []
   - name: isOwnedLocallyInHierarchy
-    definition: isOwnedLocallyInHierarchy
+    definition: bool isOwnedLocallyInHierarchy { get; }
     summary: True if the component and all of its parent views are owned by the local client.
-    remarks: ''
-    returns: ''
-    parameters: []
   - name: isOwnedRemotelySelf
-    definition: isOwnedRemotelySelf
+    definition: bool isOwnedRemotelySelf { get; }
     summary: True if the component is owned by a remote client.
-    remarks: ''
-    returns: ''
-    parameters: []
   - name: isOwnedRemotelyInHierarchy
-    definition: isOwnedRemotelyInHierarchy
+    definition: bool isOwnedRemotelyInHierarchy { get; }
     summary: True if this component and all of its parent views are owned by a remote client.
-    remarks: ''
-    returns: ''
-    parameters: []
 - name: Methods
   members:
   - name: RequestOwnership
     definition: void RequestOwnership()
     summary: Request ownership of the component, if it is unowned.
-    remarks: ''
-    returns: ''
-    parameters: []
   - name: SetOwnership
     definition: void SetOwnership(int clientID)
     summary: Set ownership of the component, if it is unowned.
-    remarks: ''
-    returns: ''
-    parameters: []
   - name: ClearOwnership
     definition: void ClearOwnership()
     summary: Clear ownership of the component, if it is owned by the local client.
-    remarks: ''
-    returns: ''
-    parameters: []
 
 ---
