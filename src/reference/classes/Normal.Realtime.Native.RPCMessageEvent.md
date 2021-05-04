@@ -3,28 +3,14 @@ title: RPCMessageEvent
 layout: Reference
 category: API Reference
 class_name: RPCMessageEvent
-class_summary: ''
-class_remarks: ''
 class_members:
 - name: Fields
   members:
   - name: clientID
-    definition: clientID
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    definition: public int clientID
   - name: messageLength
-    definition: messageLength
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    definition: public UIntPtr messageLength
   - name: reliable
-    definition: reliable
-    summary: ''
-    remarks: ''
-    returns: ''
-    parameters: 
+    definition: public byte reliable
 
 ---
