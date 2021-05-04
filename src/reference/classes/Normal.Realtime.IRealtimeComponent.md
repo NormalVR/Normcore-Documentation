@@ -3,7 +3,7 @@ title: IRealtimeComponent
 layout: Reference
 category: API Reference
 class_name: IRealtimeComponent
-class_summary: An object that represents a RealtimeComponent. Typically this is a RealtimeView or anything that subclasses RealtimeComponent&lt;TModel&gt;.
+class_summary: An object that represents a RealtimeComponent. Typically this is a RealtimeView or anything that subclasses RealtimeComponent<TModel>.
 class_remarks: This interface should not be implemented directly. Subclass RealtimeComponent<TModel> instead.
 class_members:
 - name: Properties
