@@ -4,7 +4,6 @@ title: Room + Datastore API
 ---
 # Room + Datastore API
 
-// TODO: Make sure the Client Architecture doc describes the Realtime/Room relationship
 Make sure you're up to speed on the [Client Architecture](../architecture/client) documentation before diving in this section.
 
 The Room and Datastore API are the foundation that the [Realtime API](../realtime) is built upon. This layer is the raw data layer that synchronizes all state between each client.
@@ -17,4 +16,6 @@ There is nothing Unity-specific about the Room + Datastore API. It deals with da
 
 It's very rare you will need to work entirely through the Room + Datastore API, but pieces of it (such as [RealtimeModel](./realtimemodel.md)) are occasionally exposed and so it's useful to understand how the overall API works.
 
-// TODO: Graphic of Room + Datastore + Media API + RealtimeModel + Transport all the way down so folks can get an idea of how it all fits together
+TODOs
+- Make sure the Client Architecture doc describes the Realtime/Room relationship
+- Graphic of Room + Datastore + Media API + RealtimeModel + Transport all the way down so folks can get an idea of how it all fits together
