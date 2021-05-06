@@ -8,7 +8,7 @@ title: Room
 NOTE: If you're using the (Realtime API)[../realtime], you should rarely need to interact with the Room + Datastore API directly. Realtime is designed to manage a Room and Datastore for you. If you're calling something like `realtime.room.Connect()` you're making a mistake. Call `realtime.Connect()` and use the Realtime API directly instead.
 
 ## Intro
-Building on the (Room + Datastore API)[./] overview, Room is the class that manages everything related to a room including the connection to the room server, the local datastore snapshot, audio streams, and any RPC messages.
+Building on the [Room + Datastore API](./) overview, Room is the class that manages everything related to a room including the connection to the room server, the local datastore snapshot, audio streams, and any RPC messages.
 
 If you're using Realtime, you should rarely need to interact with the Room class directly. If you're planning on writing your own high-level synchronization, Room is how you'll connect to a room server instance and send messages to other clients.
 

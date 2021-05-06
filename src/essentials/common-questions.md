@@ -20,6 +20,16 @@ We're proud to say Normcore has implemented the /best/ solutions available in th
 ## Is Normcore only for VR / AR / Games?
 Far from it! We have some nice scripts that make VR / AR / XR easier, and our voice chat is designed to be incredibly low-latency, but nothing in Normcore requires you to build a VR / AR / XR project.
 
-## Does Normcore support X, Y, Z?
+## How many players can I fit in a single room?
+It depends! but we typically see 4-100 players per room. However, it really depends on how much bandwidth your application uses. VR applications typically use 10x more bandwidth than a typical FPS or racing game. If you're making an MMORPG or a title where you expect more than 100 players per room, we recommend splitting large spaces across multiple Normcore [rooms](../architecture/client#rooms), or using [Normcore Private](https://normcore.io/normcore-private) with custom room CPU/bandwidth limits.
 
-Good question! Hop on our [discord](https://normcore.io/discord) and ask!
+## How many rooms can Normcore host concurrently?
+Over 1,000,000. Normcore's backend autoscales based on current usage patterns, and supports bursting into cloud instances. If we don't have enough servers of our own to host your game, we can seamlessly start bursting into cloud instances on Google Cloud, AWS, and Digital Ocean.
+
+If you expect more than 20,000 concurrent users for the launch of your title, [contact us](https://normcore.io/contact) so we can reserve capacity for your launch.
+
+## Can I connect to multiple rooms at the same time?
+Yes! Normcore lets you connect to multiple room servers simultaneously. Use them to split large MMORPG spaces up, or group traffic to host large events.
+
+## Does Normcore support X, Y, Z?
+Good question! If the topic isn't covered on our docs, join our [discord](https://normcore.io/discord) and ask us!

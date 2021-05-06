@@ -80,6 +80,7 @@ module.exports = {
           '/architecture/client',
           '/architecture/cloud',
           '/architecture/transport',
+          '/architecture/common-questions',
         ]
       },
       {
