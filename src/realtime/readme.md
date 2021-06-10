@@ -10,30 +10,37 @@ The Realtime API is the Normcore API used for all real-time synchronization in U
 
 The lower-level [Room + Datastore API](../room) manages the connection to the room server and the datastore. Realtime is a layer built on top of that. Realtime manages the Room + Datastore API for you and makes it easier to synchronize the state of your scene with the datastore.
 
-## Connecting to a room server
-In order to connect to a room, call `Connect()` along with the room name, and a [`ConnectOptions`](../reference/connectoptions.md) struct. All clients the connect to the same room name will end up connected to the same room server. The only required field is the `appKey` this will be used to look up the application and track usage in your account.
+## Connecting to a room
+Realtime will automatically connect to a room when your application starts if "Join Room On Start" is enabled. It's also possible to join a room by calling the `Connect()` method along with the name of the room you would like to join. All clients that connect to the same room name will end up connected to the same room server.
 
 ## Synchronizing a GameObject
-1. Put a RealtimeTransform + RealtimeView on a game object in the scene.
-2. Export a build. Use the editor to RequestOwnership and move the object.
+Normcore uses [RealtimeComponents](./realtimecomponent) in order to synchronize objects in the scene. Normcore includes a few pre-built components, and also includes a rich API for creating your own.
 
-- Explain what RealtimeComponents are
-- Link to RealtimeTransform to talk about the ownership stuff
+As a quick example, let's synchronize the position of a game object using the RealtimeTransform component:
+1. Create an empty scene. Add Realtime to an empty game object and configure the appKey so it can connect.
+2. Create a Cube game object in the scene, and add a RealtimeTransform component to it.
+3. Export a build and open it next to the editor. Hit Play in Unity.
+4. Click the "Request Ownership" button on the RealtimeTransform inspector (not the RealtimeView inspector)
+5. Drag the cube around in the scene and notice how it updates on the build automatically.
+
+It's worth noting, RealtimeTransform uses ownership in a unique way (TODO: Link to RealtimeTransform or ownership document that explains the difference)
 
 ## Prefabs
-Any prefab can be used with Normcore as long as it has a RealtimeView on the root of the game object. In our documentation, a "Realtime Prefab" refers to a prefab that's synchronized via the Realtime API using RealtimeViews and components.
+Any prefab can be used with Normcore as long as it has a [RealtimeView](./realtimeview) on the root of the game object. In our documentation, a "Realtime Prefab" refers to a prefab that's synchronized via the Realtime API using RealtimeViews and components.
 
 ### Creaing a prefab
-Works the same way as creating a regular ol' prefab except you need to make sure it has a RealtimeView on the root and it's in a Resources folder. Why a Resources folder? Well because Unity will strip prefabs that are not in a Resources folder and remote clients won't be able to instantiate the prefab.
-- We should maybe have a terminology page that defines what Local Client vs Remote Client is.
+Realtime prefabs work the same way as regular prefabs in Unity, except for a few minor differences:
+1. They must be instantiated with `Realtime.Instantiate()` to ensure the prefab is instantiated on all clients.
+2. They must have a RealtimeView component on the root GameObject of the prefab.
+3. The prefab must live in a Resources folder in order to ensure it can be loaded at runtime.
+  - Note: If you would like to avoid using Resources, it is possible to use the Addressables API or a custom loader by implementing a [RealtimePrefabLoadDelegate](../reference/blah)
 
 ### Instantiating a prefab
-Once you've created a Realtime Prefab, you can instantiate it at runtime by using [`Realtime.Instantiate()`](../reference/realtime#instantiate). This will create models for all RealtimeComponents on the prefab and insert it into the datastore along with the metadata needed for other clients to instantiate the same prefab and link up all of the models and components.
+Once you've created a Realtime Prefab, you can instantiate it at runtime by using [`Realtime.Instantiate()`](../reference/realtime#instantiate). This will create a fresh instance of the prefab on all clients, and connect all RealtimeComponents together so that any state they synchronize will automatically be replicated to all clients.
+
+
 
 TODOs
-- Maybe some copy about how this is the Unity-specific layer? I do think a nice graphic at the top of this section will really help the copy on this page make more sense.
-- Talk about how the Realtime component manages the connection. And RealtimeView and RealtimeComponents synchronize data (just talk about it at a high level and link to the relevant sections)
-- Write about what a RealtimePrefab is and how to put one together. Introduce it by saying Realtime components in the scene are wired to the datastore automatically, but prefabs need to be wired up at runtime. Realtime.Instantiate() does this.
+- I do think a nice graphic at the top of this section will really help the copy on this page make more sense.
 - Put architecture image here that shows the relationship. Maybe link to the Architecture page too?
 - Make sure the Client Architecture doc describes the Realtime/Room relationship
-- Do we need anything else here? Look at the Room overview docs and also look at the intro guides.

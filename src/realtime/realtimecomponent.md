@@ -10,10 +10,12 @@ The flow of data looks something like this:
 
 ![](./synchronizing-custom-data/data-flow.svg "The flow of data in a Normcore application")
 
-A RealtimeComponent keeps a game object in sync with its corresponding model in the datastore. When the game object changes, it updates the model, and when the model changes, it updates the game object to match. This means that in the diagram above, when Player 1 moves a game object, RealtimeTransform can set the new position on its model in the datastore. When Player 2 gets a notification that the model changed, it can update the position of the matching game object in its scene.
+A RealtimeComponent keeps a game object in sync with its corresponding model in the datastore. When the game object changes, the component updates the model, and when the model changes, the component updates the game object to match. This means that in the diagram above, when Player 1 moves a game object, RealtimeTransform can set the new position on its model in the datastore. When Player 2 gets a notification that the model changed, it can update the position of the same game object in its scene.
 
 ## Model
-Every RealtimeComponent has a model that holds all state that needs to be synchronized to the scene. When an object is first created, Realtime will create a fresh RealtimeModel for each RealtimeComponent to store data in (TODO: Talk about model subclasses?). If the object already exists on the server, the model will be prepopulated with the current state before it is given to the RealtimeComponent.
+All RealtimeComponents store the state they need to synchronize in a [RealtimeModel](../room/realtimemodel) subclass. The model is automatically synchronized across all clients by Normcore, so all a RealtimeComponent needs to do is synchronize the scene and the model to match.
+
+When a RealtimeComponent is first created, Realtime will create a fresh model instance for each RealtimeComponent to store data in. If the object already exists on the server, the model will be prepopulated with the current state before it is given to the RealtimeComponent.
 
 ### When using views and components in a scene, views and components follow this life-cycle:
 1. Awake() + Start() both run. RealtimeView registers with Realtime.
@@ -30,14 +32,26 @@ Every RealtimeComponent has a model that holds all state that needs to be synchr
 5. Start() is run by Unity.
 
 ### Using a model
-Once your model is set, you can use it!
-- Look at the synchronizing custom data for a more thorough walkthrough of how to write a custom RealtimeComponent
-
-#### Setting default values
-If you'd like to set default values that are unique for each instantiation when freshly instantiating an object, we generally recommend having the code that called Realtime.Instantiate() set initial values on the RealtimeComponent. However, another way you can do it is using the RealtimeModel.isFreshModel boolean:
+Once your model is set by OnRealtimeModelReplaced, it's ready for use! In any method on your RealtimeComponent subclass, you can synchronzie state to and from the model like so:
 
 ```csharp
+public void SetColor(Color color) {
+    // Update the model
+    model.color = color;
+}
 
+private void Update() {
+    // Update the scene to match the model
+    meshRenderer.material.color = model.color;
+}
+```
+
+When you're ready to write your own RealtimeComponents, check out our [Synchronizing custom data](./synchronizing-custom-data) guide.
+
+#### Setting default values
+We recommend the code that calls `Realtime.Instantiate()` set all of the default values on a RealtimeComponent that are unique to that instantiation, but if you would like to synchronize unique default values (such as initial position of an object), you can set them inside of `OnRealtimeModelReplaced` like so:
+
+```csharp
 void OnRealtimeModelReplaced(blah) {
   if (currentModel != null) {
     if (currentModel.isFreshModel) {
@@ -53,5 +67,3 @@ void OnRealtimeModelReplaced(blah) {
   }
 }
 ```
-
-
