@@ -4,9 +4,7 @@ title: RealtimeView
 ---
 # RealtimeView
 
-// TODO: Do a pass on this. Add links to relevant documentation. Talk about how the scene view UUID isn't public and shouldn't be used directly. It's only displayed so you can compare it between projects. Link to ownership document. Make sure the settings outlined here are up to date.
-
-RealtimeViews are used to link a RealtimeComponent and its model to the datastore. When a prefab is instantiated, RealtimeView creates a model for each RealtimeComponent on the prefab and puts it into the datastore. Then when the prefab is instantiated on other clients, RealtimeView will connect the model in the datastore with its respective RealtimeComponent on the prefab.
+A RealtimeView is used to identify a game object and its [RealtimeComponents](./realtimecomponent) across multiple clients. When a prefab is instantiated, RealtimeView creates a model for each RealtimeComponent on the prefab and puts it into the datastore. Then when the prefab is instantiated on other clients, RealtimeView will connect the model in the datastore with its respective RealtimeComponent on the prefab.
 
 ## Editor Interface
 
@@ -16,7 +14,7 @@ The Inspector in Unity looks something like this:
 
 ### Components
 
-The components section lists all RealtimeComponents on this game object and their component ID. If you’ve made a custom model, you’ll recognize this as the property ID on a model. Each component is assigned a unique ID by RealtimeView. That ID is used to identify this component when communicating with other clients. It’s also used when restoring prefabs that have been marked persistent. It’s very important that these IDs are unique and that they do not get re-used by different components.
+The components section lists all RealtimeComponents on this game object and their component ID. If you’ve made a custom model, you’ll recognize this works like the property ID on a model. Each component is assigned a unique ID by the RealtimeView. That ID is used to identify this component when communicating with other clients. It’s also used when restoring prefabs that have been marked persistent. It’s very important that these IDs are unique to this RealtimeView instance and that they do not get re-used by different components.
 
 ### Child Views
 
@@ -26,11 +24,11 @@ In general you should never need to manually assign unique view IDs. Normcore wi
 
 ### Scene View UUID
 
-The Scene View UUID property will only appear on RealtimeViews that are in the scene. This is a globally unique identifier that is used to synchronize this view’s model in the datastore. When two clients first connect to a room, they use this identifier to ensure that both instances of the same RealtimeView share the same model.
+The Scene View UUID property will only appear on RealtimeViews that are in the scene. This is a globally unique identifier that is used to synchronize this view’s model in the datastore. When two clients first connect to a room, they use this identifier to ensure that both instances of the same RealtimeView share the same model. Once connected, the scene view UUID is never used again. All child views and realtime prefab views do not have a UUID.
 
 ### Ownership
 
-Every RealtimeView has a permissions model that’s enforced by the server. If this view is owned by a particular client, other clients are unable to change any permissions on the view, its components, or child views and their components.
+Every RealtimeView has an [ownership and permissions model](../room/ownership-and-lifetime-flags) that’s enforced by the server. If this view is owned by a particular client, other clients are unable to change any permissions on the view, its components, or child views and their components.
 
 There are two buttons for Requesting and Clearing ownership that will enable in play mode. There is also an API (described below) that offers more control over taking over ownership and when other clients are allowed to steal ownership at runtime.
 
@@ -40,21 +38,21 @@ There are two buttons for Requesting and Clearing ownership that will enable in 
 
 This property references the instance of Realtime that this RealtimeView should use to synchronize its model. Most apps will only have a single instance of Realtime in the scene, and RealtimeView will automatically populate this variable using that instance. However, if you plan to have multiple instances in the same scene, you may manually wire up which instance this RealtimeView should use here.
 
+When additively loading a scene, this field can be left blank and it will be filled in automatically at runtime. If you plan to additively load a scene onto another scene with multiple Realtime instances, you'll want to use the [`sceneViewWillRegisterWithRealtime`](../reference/realtimeview#sceneViewWillRegisterWithRealtime) delegate to provide the instance to use.
+
 #### Ownership + Lifetime Flags
 
 There are three properties here that are only applicable to RealtimeViews that exist in the scene (as opposed to RealtimeViews that are instantiated via a prefab).
 
-**Owned by Creating Client:** A boolean that specifies whether Realtime should request ownership when this view is created, which can be useful for establishing a master client if needed.
+**Owned by Creating Client:** A boolean that specifies whether Realtime should request ownership when this view is created, which can be useful for establishing a main client if needed.
 
-**Prevent Ownership Takeover:** At runtime, clients can call RequestOwnership() on the RealtimeView to take over ownership of the model. You can use this checkbox to prevent that. When checked, only models that have no owner can be taken over. This is also a setting that you can change at runtime.
+**Prevent Ownership Takeover:** At runtime, clients can call `RequestOwnership()` on the RealtimeView to take over ownership of the model. You can use this checkbox to prevent that. When checked, only models that have no owner can be taken over. This is also a setting that you can change at runtime.
 
-**Destroy When Owner Or Last Client Leaves:** A boolean that specifies whether to destroy this RealtimeView when its owner leaves the room, or if there is no owner, to destroy when the last client leaves.
+**Destroy Last Client Leaves:** A boolean that specifies whether to destroy this RealtimeView when the last client leaves. If you have a RealtimeView that manages the state of your multiplayer game, such as who’s turn it is, and what level you’re on, you can choose to clear the view and its models from the datastore when the last client leaves. It will then be recreated by the first client to join in a new session.
 
-The former case is great for things like avatars. If a player’s connection is lost, the server will take care of destroying this RealtimeView when the owner disconnects.
+If you leave this unchecked, the object will persist between sessions. Let’s say you’re building a collaboration space with a whiteboard. You can leave this unchecked so that the state of your whiteboard is saved between sessions.
 
-The latter case is great for resetting singleton state. If you have a RealtimeView that manages the state of your multiplayer game, such as who’s turn it is, and what level you’re on, you can choose to clear the model when the last client leaves. It will then be recreated by the first client to join in a new session.
-
-Last, if you leave this unchecked, the object will persist between sessions. Let’s say you’re building a collaboration space with a whiteboard. You can leave this unchecked so that the state of your whiteboard is saved between sessions.
+If you're using RealtimeView on a prefab, these values can be set via the `InstantiateOptions` struct passed to `Realtime.Instantiate()`
 
 #### Reset View UUID
 
@@ -71,3 +69,7 @@ Normcore will try to manage component and view IDs for you automatically. It doe
 Therefore, there are rare circumstances where you will need to manually set a component or view’s ID. To do that, click the Update Component & View IDs button. This will enable you to manually manage component and view IDs above.
 
 Please note!: If you reuse a component ID with a different component, or you mix up a child view ID, your application may be unable to read persistent data stored by previous clients. Normcore will detect this at runtime and will automatically disconnect before it corrupts the datastore. Please use this feature at your own risk!
+
+## C# Interface
+
+See [RealtimeView Reference](../reference/realtimeview)
