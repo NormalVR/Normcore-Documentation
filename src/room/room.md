@@ -4,16 +4,20 @@ title: Room
 ---
 # Room
 
-#### A note about Realtime vs Room API
-NOTE: If you're using the (Realtime API)[../realtime], you should rarely need to interact with the Room + Datastore API directly. Realtime is designed to manage a Room and Datastore for you. If you're calling something like `realtime.room.Connect()` you're making a mistake. Call `realtime.Connect()` and use the Realtime API directly instead.
+#### Note about Realtime vs Room API
+If you're using the [Realtime API](../realtime),you should rarely need to interact with the Room + Datastore API directly. Realtime is designed to manage a room and datastore for you. If you're calling `realtime.room.Connect()` you're making a mistake. Instead, call `realtime.Connect()` and use the Realtime API directly.
 
 ## Intro
-Building on the [Room + Datastore API](./) overview, Room is the class that manages everything related to a room including the connection to the room server, the local datastore snapshot, audio streams, and any RPC messages.
+Building on the [Room + Datastore API](./) overview, Room is the class that manages everything related to a room, including the connection to the room server, the local datastore snapshot, audio streams, and any RPC messages.
 
-If you're using Realtime, you should rarely need to interact with the Room class directly. If you're planning on writing your own high-level synchronization, Room is how you'll connect to a room server instance and send messages to other clients.
+If you're using Realtime, you should rarely need to interact with the Room class directly. If you're planning on writing your own high-level synchronization, however, Room is how you'll connect to a room server instance and send messages to other clients.
 
 ## Run-loop
-Room is not a MonoBehaviour or Unity object that receives events from Unity like `Update()`. This means you need to manually call `Tick()` every frame. When you call `Tick()` all work that Room needs to do for that frame will take place. That includes checking for connection timeouts, sending datastore updates to the server, and triggering any network events that were received over the network since the last `Tick()` call.
+Room is not a MonoBehaviour or Unity object that receives events from Unity like `Update()`. This means you will need to manually call `Tick()` every frame. When you call `Tick()`, any work that Room needs to do for that frame will take place, including: 
+
+* Checking for connection timeouts
+* Sending datastore updates to the server
+* Triggering any network events that were received over the network since the last `Tick()` call
 
 ## Connecting to a room server
 Once you have Room set up to receive a `Tick()` call each frame, you're ready to connect to a room server. The process is simple, if you want to connect to a room, call `Connect()` along with the room name, and a [`ConnectOptions`](../reference/connectoptions.md) struct. The only required field is the `appKey` this will be used to look up the application and track usage in your account.
@@ -38,6 +42,7 @@ Normcore's new MediaStream API is now available in private preview for Normcore 
 
 ## RPC
 // TODO: Find the other doc where we say don't use RPC messages and link to that here (or maybe it was copy written in google docs?)
+
 RPC messages in Normcore are available as a last-resort. When using RPC messages, consistent synchronization becomes harder if you have players that can join a room late. Any state that is modified in response to an RPC message will need to be manually synchronized by you.
 
 If you're looking to fire one-shot events, take a look at our [Firing Events](../guides/firing-events) recipe. It demonstrates how to use the Normcore datastore to trigger one-shot events on all clients.

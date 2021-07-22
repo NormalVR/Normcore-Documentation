@@ -3,26 +3,28 @@ layout: docs
 title: Pricing
 ---
 # Pricing
-Normcore provides servers to host your games that scale automatically, and provide the lowest latency experience possible in any region around the globe. Our pricing information is always available at https://normcore.io/pricing.
+Normcore provides auto-scaling servers that can host any project. We also provide the lowest latency  possible in any every region around the globe.
 
-//TODO: Can we embed the plans here easily?
+### Our pricing model
+We offer [three pricing tiers](https://normcore.io/pricing) to meet your needs.
 
-## How do you charge for Normcore?
-Pay only for what you need. Normcore bills you for two things:
-Room hours
-Bandwidth
+// TODO: Insert Graphic
 
-Room hours are the total hours that a room server is running and clients are connected. If no one is actively connected to a room, you’re not being charged.
+We charge based solely on room hours and bandwidth:
 
-Bandwidth is the amount of network traffic sent to and from Normcore’s servers.
+**Room hours.** Room hours refer to the total number of hours that a room server is running and clients are connected. If no one is actively connected to a room, you are not being charged.
 
+**Bandwidth.** Bandwidth refers to the amount of data sent to and from Normcore's servers.
 
-## How do the plans work?
-Worried about getting a surprise bill at the end of the month? That’s why we created plans.
+### Fixed option versus unlimited option
+**Fixed.** Our prototype and Pro plans include fixed allotments of room hours and bandwidth. When you hit these limits, Normcore Pauses your apoplications to precent you from incurring any additional charges.
 
-Each plan includes a fixed amount of room hours and bandwidth. With our Prototype and Pro plans, when you hit the limit, Normcore will pause your applications to prevent you from incurring any usage charges.
+**Unlimited.** Our Unlimited plan includes the same allotment of room hours and bandwidth as the Pro plan. However, it also allows you to go beyond those limits. We bill for any excess hours and bandwidth at a fixed rate. Usage numbers reset at the beginning of each month.
 
-With the Unlimited plan, you still get the same included room hours and bandwidth as the Pro plan, however, once you hit the limit, we’ll start billing you at a fixed rate for only the room hours and bandwidth that you use each month.
+### Tracking Usage
+Your Normcore dashboard is updated to show your most recent room-hour and bandwidth measurements every 24 hours at 12 AM, GMT.
 
-## Can I change my plan at any time?
-You sure can! You can always change your plan at any time in your billing cycle. If you switch from Pro to Unlimited, the changes take effect immediately.
+### Changing plans
+We welcome you to change plans at any time in your billing cycle so Normcore can best meet your needs. Changes in room-hour and bandwidth limits take place immediately. For instance, you will be able to exceed the fixed limits right away if you switch from Pro to Unlimited, even in the middle of a billing cycle.
+
+Note: If you are interested in Normcore Private pricing, please reach out to us [here](http://normcore.io/contact).

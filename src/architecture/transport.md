@@ -3,47 +3,86 @@ layout: docs
 title: Transport
 ---
 # Transport
-Hey, it's Max here, Chief Blob Officer.
+A lot of people ask us why we support only WebRTC and not other transports. There's one reason: the WebRTC protocol is simply the best one out there.
 
-A lot of people ask me, Max, why don't you support X transport? Well, there's really one pretty simple reason: the webrtc protocol is simply the best.
+## A note on WebRTC as a protocol
+WebRTC is not, in fact, just for web apps. This comes as a suprise to many developers. WebRTC can be utilized the same way native apps utilize WebSockets. However WebSockets are simple to implement. WebRTC? It's almost impossible to implement from scratch. It's challenging to even compile from another implementation, like Google's. But we'll stick with WebRTC because no other transport can provide such a high-qualtiy experience.
 
-## Why doesn't Normcore provide multiple transport options?
-When I say webrtc here, I don't mean the browser API, but rather the webrtc spec (TODO: link!). In the same way websockets are a spec that you can use outside of the browser. So is webrtc. And webrtc is /awesome/. Well, let me rephrase that, it's a complete pain in the ass, and libwebrtc is one of the hardest libraries to cross-compile out of anything I've ever tried to compile in my career. As a developer using webrtc directly, it /sucks/, but once it's compiling and working, it is /awesome/.
+## Why WebRTC is the best transport option
+***
+WebRTC briungs together the features of all the other transports and surpasses them. It provides everything you need.
 
-Why is it awesome, well there's a laundry list of features, UDP & TCP support, congestion control, reliable + ordered packet transport, stream multi-plexing, audio/video streaming, and of course, it's treated as a first-class citizen in the browser. It is not possible to send data over UDP from a browser if you're not using webrtc.
-
-Here's a little comparison chart of webrtc vs other protocols:
-
-Protocols:
-webrtc
-websockets
-UNet (Deprecated)
-ENet (Photon)
-
-
-Things to measure:
-TCP / UDP
-Congestion Control
-TLS/DTLS Encryption
+|               | UDP + TCP | Unreliable and Reliable message types | Browser Support | TLS/DTLS | Congestion Control | Video/Audio |
+|:-------------:|:---------:|:-------------------------------------:|:---------------:|:--------:|:------------------:|:-----------:|
+| WebRTC        |     ✅     |                   ✅                   |        ✅        |     ✅    |          ✅         |      ✅      |
+| WebSockets    |     ❌     |                   ❌                   |        ✅        |     ✅    |          ✅         |      ❌      |
+| Photon (eNet) |           |                   ✅                   |        ❌        |     ❌    |          ❌         |      ❌      |
+| Blah Blah     |           |                                       |                 |          |                    |             |
 
 
-## Why do those things matter?
-### Why TCP and UDP support matters
-By default, you should /always/ try to use UDP if you can. With TCP, if a packet is dropped along the way, all other packets are kept from your application until that packet is resent. This introduces incredible amounts of jitter and delay in how your data arrives. It also can cause a snowball effect. Unless your application has started sending less data, packets can continue to drop and stall the queue of messages. With UDP, if a packet is dropped, it's up to you to determine if it should be resent.
+### WebRTC supports UDP and TCP
+We recommend that you always use UDP if you can. If a TCP packet is dropped along the way, all other packets are stopped until that packet is resent. TCP works like a tunnel that is one car wide. If one car stalls—if one packet is dropped—all the others will get backed up. But sometimes it’s OK to bypass that broken car by building a route around it. That’s what UDP allows—for the flow of traffic to continue without the stalled car. 
 
-webrtc introduces reliability on top of UDP to make it function like a TCP connection when it needs to, but allow unreliable packets (such as transform snapshots, or a video frame) to be dropped so they don't stop other messages from getting delivered.
+For instance, in multiplayer games, these cars could contain audio data or messages about turning on a light switch or where to move objects. If they contain audio data and a packet stalls (gets dropped), it’s best to leave it behind. A small blip of lost audio will be less disruptive than all of the jitter and delay introduced when all following packets are help up in order to resend it. Most of the time, users will understand audio in spite of a small missing chunk. Alternately, the missing chunk of can be recreated using the audio data before and after it.
 
-Ok, so why do we /also/ want TCP support then? Well, we want it as a fallback. Most corporate networks block UDP traffic. If that happens, you want to be able to fallback to TCP, but also perform things like congestion control. If webrtc detects that packets are stalling over TCP, Normcore can reduce the amount of traffic to prevent congestion that degrades your user experience.
+The thing is, UDP can only send packets unreliably. WebRTC introduces reliable channels on top of UDP. WebRTC offers an abstraction that functions in some ways like TCP, but that is actually tailored for real-time, latency-sensitive applications. The use of WebRTC allows unreliable packets—such as transform snapshots or video frames—to be dropped so that attempted resends don't interrupt subsequent incoming messages. 
+If a packet is dropped with a WebRTC channel on top of UDP, it's up to you to determine if a packet should be resent immediately or bypassed. Therefore, if the dropped packed is a light switch or a moved object—in other words, data essential and irreplaceable to the game—you can still ensure it’s resent. Anything nonessential, like audio, can be dropped indefinitely.
 
-### Why Congestion Control matters
-Who doesn't want to be a good citizen on the internet, but more importantly, it helps you deliver a higher quality experience. Normcore can automatically adjust how often it synchronizes the datastore to ensure the smoothest possible connection for your users and reduce packet loss.
+WebRTC does support TCP as a fallback. Many corporate networks block UDP traffic. If that happens to your traffic, WebRTC allows you to fall back to TCP while still performing actions like congestion control. If WebRTC detects that packets are stalling over TCP, Normcore can reduce the amount of traffic sent in order to prevent packets from building up. This circumvents any congestion issues that could degrade your users’ experience.
 
-### Why TLS / DTLS matters
-Have you ever heard the saying "never implement your own encryption?" - There's a good reason for this saying, and it's because it's /incredibly/ difficult to get right. libwebrtc uses DTLS (the UDP equivalent of TLS that's used in every secure browser connection). It's a widely accepted industry standard for providing secure connections. TLS/DTLS is used in just about every computer on the planet every day. If a bug is found, it's fixed immediately. You're not waiting for someone to target your application, and then for someone on your team to notice and fix the bug. Bugs in proprietary encryption protocols can go completely unnoticed.
+### WebRTC is treated as a first-class citizen by the browser
+Are you uncertain about supporting the web? Keep in mind that:
 
-## FAQ
-### I thought webrtc only worked in the browser?
-Nope! It works everywhere, it's just such a complete pain in the ass to compile Google's libwebrtc that most people don't bother trying. Not to worry! The developers at Normal have done all of that work for you : )
+* Any productivity app will require the web. Productivity apps focused on collaboration can’t expect every user to download a native app. Providing web access is therefore essential to retaining clients.
+* Game developers may not want to ship on the web, but supporting browsers means you can create secondary experiences, such as live spectating.
 
-### 
+These are only two of many types of developers who might need to support the web. Yet the only way to support the web as a real-time application is to send data over UDP using WebRTC. Browsers require the WebRTC protocol in order to send unreliable data. 
 
+It’s an impossibly daunting task to switch protocols partway through a project or after its release. This is why we always choose WebRTC from the start.
+
+### WebRTC implements congestion control
+Congestion control will make you a good citizen on your local network and on the internet—it will also make your users’ experience much better. With WebRTC, Normcore can automatically adjust the rate at which updates are sent to the server so as to utilize the maximum bandwidth available while still keeping updates smooth for users with poor connections.
+
+### WebRTC uses TLS/DTLS encryption
+Implementing encryption correctly is nearly impossible for most developers. It’s a general rule that one should never implement one’s own cryptography. In most cases, the same can be said about implementing even proprietary encryption protocols.  
+
+WebRTC uses DTLS encryption, the UDP equivalent of TLS. TLS/DTLS is used in every secure browser connection around the globe. It is widely accepted as the industry standard for providing secure connections.
+
+There are two central reasons you should always use TLS/DTLS encryption for your products:
+
+1. **Bugs will be caught and fixed immediately.** Bugs in proprietary encryption protocols often go completely unnoticed. Meanwhile, if a bug appears in TLS/DTLS encryption, it will be noticed and fixed immediately.
+2. **You will not accidentally leak sensitive information.** Sensitive information can be inadvertently saved in multiple places, causing leaks if a connection is not encrypted. This is no longer an issue when using TLS/DTLS, which encrypts an entire connection; TLS/DTLS fully secures your project.
+
+### WebRTC includes the audio/video features you need
+If you want to add audio or video streaming to your product, WebRTC is again the obvious choice. Audio and video features require:
+
+* compression
+* jitter buffers
+* echo cancellation
+* noise suppression
+* sample rate conversion
+* hardware encoding/decoding 
+
+WebRTC already includes these elements and more, and it implements them better than any other protocol available. It powers Google Meet. It powers Zoom. WebRTC is the only way to achieve industry-standard audio and video quality in your products. 
+
+### Why doesn't everyone use WebRTC?
+If WebRTC is so great, why do so few companies use it?
+
+**First, implementing all of WebRTC from scratch is almost impossible.** WebRTC has lots of incredibly useful features, but all these features take an incredibly long time to implement. Further, each implementation of WebRTC needs to be made compliant with other implementations or it will not be able to support browsers and other clients. This places an obvious barrier on WebRTC access.
+
+**Second, using an off-the-shelf implementation is notoriously difficult.** The only viable option for implementing WebRTC is to compile from an existing implementation, such as Google’s libwebrtc. Google’s libwebrtc implements the full WebRTC protocol—but it is not easy to use. Many developers would [rather rewrite their own protocols from scratch](https://gafferongames.com/post/why_cant_i_send_udp_packets_from_a_browser/) than try to get WebRTC to compile. For those developers who still want to use WebRTC, [entire companies are dedicated solely to compiling it for them](https://webrtcbydralex.com/index.php/2018/10/14/libwebrtc-is-open-source-how-hard-can-it-be/). 
+
+// TODO: It looks like this webrtcbyalex.com domain is expired - can we use another source?
+
+Compare WebRTC to a car engine. It would be an engine robust enough to power a top-of-the-line, Formula One racecar (Google Chrome is the racecar in this case). If you want to build a great car yourself, you might want that engine for yourself. But you can only have it if you are able to remove it from the racecar and install it in your own car. To install it, you need to unhook everything, reconfigure the space under the hood of your own vehicle, and find all the parts needed to reconnect the engine in its new home. 
+
+Compiling WebRTC is a little like transferring this racecar engine. It’s a big, messy job. But if you pull it off, the reward is great.
+
+**Third, WebRTC upkeep is rigorous.** Google updates libwebrtc 200 times per week. It also cuts new releases every six weeks, releases that are sometimes non-backwards-compatible. This means that any tricks you’ve used to automate compilation need to be reapplied every six weeks. 
+
+Failure to stay on top of these updates and releases can leave you out of security fixes. We’ve made it our job to ensure that these updates are deployed across all of our platforms so there is never an interruption for your users. 
+
+On top of that, if you want to support multiple platforms, you’ll be compiling separately for each one. Normal has successfully compiled WebRTC for all of the 10+ platforms we support. We were able to do this because it’s our specialty. But we don’t recommend trying this at home.
+
+## Normcore with WebRTC
+WebRTC is wildly useful as a protocol. It’s also energy-intensive to build, hard to link against, and upkeep intensive. Still, WebRTC is well worth the effort, or we wouldn’t have chosen it. Normcore applications perform beautifully, surpassing their peers on every platform including the web. Best of all, Normcore manages the transport protocol so you don’t have to. You can access all the benefits of WebRTC—without any of the extra work.
