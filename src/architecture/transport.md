@@ -10,7 +10,7 @@ WebRTC is not, in fact, just for web apps. This comes as a suprise to many devel
 
 ## Why WebRTC is the best transport option
 ***
-WebRTC briungs together the features of all the other transports and surpasses them. It provides everything you need.
+WebRTC brings together the features of all the other transports and surpasses them. It provides everything you need.
 
 |               | UDP + TCP | Unreliable and Reliable message types | Browser Support | TLS/DTLS | Congestion Control | Video/Audio |
 |:-------------:|:---------:|:-------------------------------------:|:---------------:|:--------:|:------------------:|:-----------:|
