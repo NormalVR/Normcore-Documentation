@@ -21,7 +21,7 @@ If you haven't already, create a fresh Google Cloud project and open the Kuberne
 
 ![](./setup/enable-gke.png)
 
-Switch back to terminal and use `gcloud init `to configure the Google Cloud SDK for your project.
+Switch back to terminal and use `gcloud init ` to configure the Google Cloud SDK for your project.
 
 ![](./setup/gcloud-init.png)
 
@@ -62,7 +62,7 @@ gcloud container clusters create my-cluster                      \
 
 While we’re waiting for the cluster to spin up, if you do not have the kubectl command installed, install it now by running `gcloud components install kubectl` in another tab.
 
-Once your cluster is up and running, we’ll get the credentials from Google Cloud needed to access it. Make sure to specify the region or zone using the `--region` or `--zone `flags depending on your cluster type.
+Once your cluster is up and running, we’ll get the credentials from Google Cloud needed to access it. Make sure to specify the region or zone using the `--region` or `--zone ` flags depending on your cluster type.
 
 ```
 gcloud container clusters get-credentials my-cluster --region us-east4
@@ -187,7 +187,7 @@ gcloud compute firewall-rules create normcore-room --allow udp
 
 Now that everything is set up, the last step is to point your domain at the matcher service. Using your favorite DNS provider, create an A-name record for your domain and point it at the IP address that we reserved for the matcher service.
 
-## Test it out!
+## Test it out
 
 All of the hard work is done! Let's test it out. Fire up your favorite Normcore project and set the Custom Matcher URL to your new Normcore Private installation. The format should be `wss://<DOMAIN NAME>:3000/`, or in our case, `wss://default.normcore.normalvr.com:3000/`.
 

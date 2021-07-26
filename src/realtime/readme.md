@@ -4,7 +4,7 @@ title: Realtime API
 ---
 # Realtime API
 
-Make sure you're up to speed on the [Client Architecture](../architecture/client) documentation before diving in this section.
+*Make sure you're up to speed on the [Client Architecture](../architecture/client) documentation before diving in this section.*
 
 The Realtime API is the API that Normcore uses for all real-time synchronization in Unity. It's the layer that synchronizes all objects in your scene to the Normcore datastore.
 
@@ -32,7 +32,7 @@ It's worth noting that RealtimeTransform uses ownership in a unique way.
 ## Prefabs
 Any prefab can be used with Normcore as long as it has a [RealtimeView](./realtimeview) on the root of the game object. In our documentation, a "realtime prefab" refers to a prefab that's synchronized via the Realtime API using RealtimeViews and components.
 
-### Creaing a prefab
+### Creating a prefab
 Realtime prefabs work the same way as regular prefabs in Unity except for a few minor differences:
 
 1. A realtime prefab must be instantiated with `Realtime.Instantiate()` to ensure it is instantiated on all clients.

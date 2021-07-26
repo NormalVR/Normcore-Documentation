@@ -4,13 +4,15 @@ title: Realtime
 ---
 # Realtime
 
-As mentioned in the [Realtime API Overview](./), Realtime is the component that manages your connection to a [room](../room/room), as well as any [RealtimeViews](./realtimeview) that should be connected to the room’s datastore. Use the Realtime component to connect to a room, instantiate Realtime prefabs, and query any state about the room.
+As mentioned in the [Realtime API Overview](./), Realtime is the component that manages your connection to a [room](../room/room) as well as any [RealtimeViews](./realtimeview) that should be connected to the room’s datastore. Use the Realtime component to connect to a room, instantiate Realtime prefabs, and query any state about the room.
 
 It's generally a good idea to think of a Realtime instance as a connection to a single room. If you would like to use multiple rooms in your multiplayer project, you can do so by adding an extra Realtime instance to your scene.
 
 ## Editor interface
 ![](./assets/realtime.png "The Realtime inspector in Unity.")
+
 This is what the Realtime component looks like in Unity. 
+
 // TODO: Update this screenshot
 
 ### App Settings
