@@ -4,7 +4,7 @@ title: RealtimeView
 ---
 # RealtimeView
 
-A RealtimeView is used to identify a game object and its [RealtimeComponents](./realtimecomponent) across multiple clients. en a prefab is instantiated, RealtimeView creates a model for each RealtimeComponent on the prefab and puts it into the datastore. Then, when the prefab is instantiated on other clients, RealtimeView will connect the model in the datastore with its respective RealtimeComponent on the prefab.
+A RealtimeView is used to identify a game object and its [RealtimeComponents](./realtimecomponent) across multiple clients. When a prefab is instantiated, RealtimeView creates a model for each RealtimeComponent on the prefab and puts it into the datastore. Then, when the prefab is instantiated on other clients, RealtimeView will connect the model in the datastore with its respective RealtimeComponent on the prefab.
 
 ## Editor interface
 

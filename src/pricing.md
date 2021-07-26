@@ -3,7 +3,7 @@ layout: docs
 title: Pricing
 ---
 # Pricing
-Normcore provides auto-scaling servers that can host any project. We also provide the lowest latency  possible in any every region around the globe.
+Normcore provides auto-scaling servers that can host any project. We also provide the lowest latency possible in  every region around the globe.
 
 ### Our pricing model
 We offer [three pricing tiers](https://normcore.io/pricing) to meet your needs.
@@ -17,7 +17,7 @@ We charge based solely on room hours and bandwidth:
 **Bandwidth.** Bandwidth refers to the amount of data sent to and from Normcore's servers.
 
 ### Fixed option versus unlimited option
-**Fixed.** Our prototype and Pro plans include fixed allotments of room hours and bandwidth. When you hit these limits, Normcore Pauses your apoplications to precent you from incurring any additional charges.
+**Fixed.** Our Prototype and Pro plans include fixed allotments of room hours and bandwidth. When you hit these limits, Normcore pauses your applications to prevent you from incurring any additional charges.
 
 **Unlimited.** Our Unlimited plan includes the same allotment of room hours and bandwidth as the Pro plan. However, it also allows you to go beyond those limits. We bill for any excess hours and bandwidth at a fixed rate. Usage numbers reset at the beginning of each month.
 

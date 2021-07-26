@@ -14,7 +14,7 @@ A Realtime component keeps a game object in sync with its corresponding model in
 
 ## Model
 ***
-All RealtimeComponents store the state they need to synchronize in a [RealtimeModel](../room/realtimemodel) subclass. The model is automatically synchronized across all clients by Normcore, so all a RealtimeComponent needs to do is synchronize the scene and the model to match.
+All RealtimeComponents store the state they need to synchronize in a [RealtimeModel](../room/realtimemodel) subclass. The model is automatically synchronized across all clients by Normcore, so all the RealtimeComponent needs to do is synchronize the scene and the model to match.
 
 When a RealtimeComponent is first created, Realtime will create a fresh model instance in which each RealtimeComponent can store data. If the object already exists on the server, the model will be prepopulated with the current state before it is given to the RealtimeComponent.
 

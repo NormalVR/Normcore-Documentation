@@ -14,13 +14,13 @@ The lower-level [Room + Datastore API](../room) manages the connection to the ro
 Realtime will automatically connect to a room when your application starts if "Join Room On Start" is enabled. It's also possible to join a room by calling the `Connect()` method along with the name of the room you would like to join. All clients that connect to the same room name will end up connected to the same room server.
 
 ## Synchronizing a GameObject
-Normcore uses [RealtimeComponents](./realtimecomponent) to synchronize objects in the scene. It includes a few pre-built components, and also includes a rich API for creating your own.
+Normcore uses [RealtimeComponents](./realtimecomponent) to synchronize objects in a scene. It includes a few pre-built components and also includes a rich API for creating your own.
 
 To synchronize the position of a game object using the RealtimeTransform component:
 
 1. Create an empty scene. Add Realtime to an empty game object and configure the appKey so it can connect.
 2. Create a Cube game object in the scene, and add a RealtimeTransform component to it.
-3. Export a build and open it next to the editor. Hit Play in Unity.
+3. Export a build, and open it next to the editor. Hit Play in Unity.
 4. Click the "Request Ownership" button on the RealtimeTransform inspector (not the RealtimeView inspector)
 5. Drag the cube around in the scene and notice how it updates on the build automatically.
 
