@@ -36,7 +36,7 @@ Once a room is in a connected state, the datastore is synchronized with the room
 Check out the [Datastore](./datastore) and [RealtimeModel](./realtimemodel) reference for more information on working with the Datastore directly.
 
 ## Media streams
-Normcore provides high-quality, low-latency audio streams via [`CreateAudioInputStream()`](../reference/room#createaudioinputstream). Calling this API returns an `AudioInputStream`  that can be used to send audio data to all clients. Once called, all clients will be able to retrieve a corresponding [`AudioOutputStream`](../reference/audiooutputstream) object.  To do so, they should use [`GetAudioOutputStream()`](../reference/room#getaudiooutputstream) along with the `clientID` and `streamID` from the `AudioInputStream` object.
+Normcore provides high-quality, low-latency audio streams via [`CreateAudioInputStream()`](../reference/room#createaudioinputstream). Calling this API returns an `AudioInputStream`  that can be used to send audio data to all clients. Once called, all clients will be able to retrieve a corresponding [`AudioOutputStream`](../reference/audiooutputstream) object. To do so, they should use [`GetAudioOutputStream()`](../reference/room#getaudiooutputstream) along with the `clientID` and `streamID` from the `AudioInputStream` object.
 
 Normcore's new MediaStream API is now available in private preview for Normcore Private customers. If you would like to use video streaming in your Normcore Private app, get in touch with your account manager for more information.
 
