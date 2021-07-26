@@ -44,9 +44,9 @@ RealtimeAvatar sets the ownership of the root RealtimeView to the local client. 
 
 ## RealtimeTransform
 ***
-### Can I reparent Realtime Transform?
+### Can I reparent RealtimeTransform?
 RealtimeTransform cannot support reparenting. Take a look at the [RealtimeTransform](../realtime/RealtimeTransform) docs for more information.
- 
+
 ### My RealtimeTransform gets stuck, and I can't move it. What can I do about this?
 RealtimeTransform requires an owner in order to designate which client is responsible for its movement. Try calling `RequestOwnership();` this should help. Take a look at the [RealtimeTransform](../realtime/RealtimeTransform) docs for more information.
 
@@ -85,7 +85,7 @@ If you are using a plugin like VRIK and your avatar setup uses a camera rig, you
 
 ## More questions
 ***
-### What happens to my objects whena  room server shuts down?
+### What happens to my objects when a room server shuts down?
 When the last player leaves a room, the room server will remain running for about 30 seconds before it's shut down. When this happens, any objects that are not flagged to destroy will be written to persistent storage. The next time someone joins this room, they will be restored instantly.
 
 ### I have a script on my player. Why is it updating all players in the room?

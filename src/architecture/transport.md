@@ -6,7 +6,7 @@ title: Transport
 A lot of people ask us why we support only WebRTC and not other transports. There's one reason: the WebRTC protocol is simply the best one out there.
 
 ## A note on WebRTC as a protocol
-WebRTC is not, in fact, just for web apps. This comes as a suprise to many developers. WebRTC can be utilized the same way native apps utilize WebSockets. However WebSockets are simple to implement. WebRTC? It's almost impossible to implement from scratch. It's challenging to even compile from another implementation, like Google's. But we'll stick with WebRTC because no other transport can provide such a high-qualtiy experience.
+WebRTC is not, in fact, just for web apps. This comes as a suprise to many developers. WebRTC can be utilized the same way native apps utilize WebSockets. However WebSockets are simple to implement. WebRTC? It's almost impossible to implement from scratch. It's challenging to even compile from another implementation, like Google's. But we'll stick with WebRTC because no other transport can provide such a high-quality experience.
 
 ## Why WebRTC is the best transport option
 ***
@@ -25,7 +25,7 @@ We recommend that you always use UDP if you can. If a TCP packet is dropped alon
 
 For instance, in multiplayer games, these cars could contain audio data or messages about turning on a light switch or where to move objects. If they contain audio data and a packet stalls (gets dropped), it’s best to leave it behind. A small blip of lost audio will be less disruptive than all of the jitter and delay introduced when all following packets are help up in order to resend it. Most of the time, users will understand audio in spite of a small missing chunk. Alternately, the missing chunk of can be recreated using the audio data before and after it.
 
-The thing is, UDP can only send packets unreliably. WebRTC introduces reliable channels on top of UDP. WebRTC offers an abstraction that functions in some ways like TCP, but that is actually tailored for real-time, latency-sensitive applications. The use of WebRTC allows unreliable packets—such as transform snapshots or video frames—to be dropped so that attempted resends don't interrupt subsequent incoming messages. 
+The thing is, UDP can *only* send packets unreliably. WebRTC introduces reliable channels on top of UDP. WebRTC offers an abstraction that functions in some ways like TCP, but that is actually tailored for real-time, latency-sensitive applications. The use of WebRTC allows unreliable packets—such as transform snapshots or video frames—to be dropped so that attempted resends don't interrupt subsequent incoming messages. 
 If a packet is dropped with a WebRTC channel on top of UDP, it's up to you to determine if a packet should be resent immediately or bypassed. Therefore, if the dropped packed is a light switch or a moved object—in other words, data essential and irreplaceable to the game—you can still ensure it’s resent. Anything nonessential, like audio, can be dropped indefinitely.
 
 WebRTC does support TCP as a fallback. Many corporate networks block UDP traffic. If that happens to your traffic, WebRTC allows you to fall back to TCP while still performing actions like congestion control. If WebRTC detects that packets are stalling over TCP, Normcore can reduce the amount of traffic sent in order to prevent packets from building up. This circumvents any congestion issues that could degrade your users’ experience.
@@ -68,7 +68,7 @@ WebRTC already includes these elements and more, and it implements them better t
 ### Why doesn't everyone use WebRTC?
 If WebRTC is so great, why do so few companies use it?
 
-**First, implementing all of WebRTC from scratch is almost impossible.** WebRTC has lots of incredibly useful features, but all these features take an incredibly long time to implement. Further, each implementation of WebRTC needs to be made compliant with other implementations or it will not be able to support browsers and other clients. This places an obvious barrier on WebRTC access.
+**First, implementing all of WebRTC from scratch is almost impossible.** WebRTC has lots of *incredibly useful features*, but all these features take an *incredibly long time* to implement. Further, each implementation of WebRTC needs to be made compliant with other implementations or it will not be able to support browsers and other clients. This places an obvious barrier on WebRTC access.
 
 **Second, using an off-the-shelf implementation is notoriously difficult.** The only viable option for implementing WebRTC is to compile from an existing implementation, such as Google’s libwebrtc. Google’s libwebrtc implements the full WebRTC protocol—but it is not easy to use. Many developers would [rather rewrite their own protocols from scratch](https://gafferongames.com/post/why_cant_i_send_udp_packets_from_a_browser/) than try to get WebRTC to compile. For those developers who still want to use WebRTC, [entire companies are dedicated solely to compiling it for them](https://webrtcbydralex.com/index.php/2018/10/14/libwebrtc-is-open-source-how-hard-can-it-be/). 
 
