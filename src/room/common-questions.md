@@ -46,7 +46,7 @@ Normcore instantiates all prefabs on all clients and synchronizes their state au
 
 Another option is to create a model with an int property that you increment whenever you want to "fire" an event. If you choose this option, be sure that the data you'd pass to the method exists in other fields on the model.
 
-### How should I replace my RPC methods then?
+### How should I replace my RPC methods, then?
 Use an event + RealtimeCallback.
 
 // TODO: Example

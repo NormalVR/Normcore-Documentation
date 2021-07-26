@@ -5,7 +5,7 @@ title: Datastore
 # Datastore
 
 #### Note about Realtime vs Room API
-If you're using the Realtime API, you should rarely need to interact with the Room + Datastore API directly. Realtime is designed to manage a room and datastore for you. If you're calling  `realtime.room.Connect()` you're making a mistake. Call `realtime.Connect()` you're making a mistake. Instead, call realtime.Connect() and use the Realtime API directly.
+If you're using the Realtime API, you should rarely need to interact with the Room + Datastore API directly. Realtime is designed to manage a room and datastore for you. If you're calling  `realtime.room.Connect()` you're making a mistake. Instead, call realtime.Connect() and use the Realtime API directly.
 
 ## Intro
 Building on the Room + Datastore API overview, Datastore is a class designed to mirror the state of the datastore on the room server. It is responsible for detecting any changes to `RealtimeModel` objects within the datastore, serializing and sending their updates to the room server. When another client makes a change to its datastore, the change is sent to the room server, which may then perform validation or transformation of the data before relaying it to all clients.
