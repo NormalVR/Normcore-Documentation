@@ -3,27 +3,31 @@ layout: docs
 title: Transport
 ---
 # Transport
-A lot of people ask us why we support only WebRTC and not other transports. There's one reason: the WebRTC protocol is simply the best one out there.
+A lot of people ask us why we support only WebRTC and not other transports. There's one reason: **WebRTC is simply the best**.
 
 ## A note on WebRTC as a protocol
-WebRTC is not, in fact, just for web apps. This comes as a suprise to many developers. WebRTC can be utilized the same way native apps utilize WebSockets. However WebSockets are simple to implement. WebRTC? It's almost impossible to implement from scratch. It's challenging to even compile from another implementation, like Google's. But we'll stick with WebRTC because no other transport can provide such a high-quality experience.
+WebRTC is not just for browser apps and games. WebRTC can be utilized the same way native apps utilize WebSockets. However, while WebSockets are fairly simple to implement. WebRTC is close to impossible to implement from scratch. It’s challenging even to compile from existing implementations (Especially Google's libwebrtc). But we still stick with WebRTC because no other transport can provide the same high-quality experience.
 
 ## Why WebRTC is the best transport option
 ***
 WebRTC brings together the features of all the other transports and surpasses them. It provides everything you need.
 
-|               | UDP + TCP | Unreliable and Reliable message types | Browser Support | TLS/DTLS | Congestion Control | Video/Audio |
-|:-------------:|:---------:|:-------------------------------------:|:---------------:|:--------:|:------------------:|:-----------:|
-| WebRTC        |     ✅     |                   ✅                   |        ✅        |     ✅    |          ✅         |      ✅      |
-| WebSockets    |     ❌     |                   ❌                   |        ✅        |     ✅    |          ✅         |      ❌      |
-| Photon (eNet) |           |                   ✅                   |        ❌        |     ❌    |          ❌         |      ❌      |
-| Blah Blah     |           |                                       |                 |          |                    |             |
+|                         | WebRTC (Normcore) | WebSockets (Croquet) | eNet (Photon) | Telepathy (Mirror) | kcp2k (Mirror) |
+|:-----------------------:|:-----------------:|:--------------------:|:-------------:|:------------------:|:--------------:|
+| UDP                     | ✅                | ❌                    | ✅            | ❌                 | ✅              |
+| TCP Fallback            | ✅                | ✅                    | ❌            | ✅                 | ❌              |
+| Reliable messages       | ✅                | ✅                    | ✅            | ❌                 | ✅              |
+| Unreliable messages     | ✅                | ❌                    | ✅            | ✅                 | ✅              |
+| TLS/DTLS encryption     | ✅                | ✅                    | ❌            | ❌                 | ❌              |
+| Congestion/Flow control | ✅                | ✅                    | ❌            | ❌                 | ✅              |
+| Video/Audio Streaming   | ✅                | ❌                    | ❌            | ❌                 | ❌              |
+| Browser compatibility   | ✅                | ✅                    | ❌            | ❌                 | ❌              |
 
 
 ### WebRTC supports UDP and TCP
 We recommend that you always use UDP if you can. If a TCP packet is dropped along the way, all other packets are stopped until that packet is resent. TCP works like a tunnel that is one car wide. If one car stalls—if one packet is dropped—all the others will get backed up. But sometimes it’s OK to bypass that broken car by building a route around it. That’s what UDP allows—for the flow of traffic to continue without the stalled car. 
 
-For instance, in multiplayer games, these cars could contain audio data or messages about turning on a light switch or where to move objects. If they contain audio data and a packet stalls (gets dropped), it’s best to leave it behind. A small blip of lost audio will be less disruptive than all of the jitter and delay introduced when all following packets are help up in order to resend it. Most of the time, users will understand audio in spite of a small missing chunk. Alternately, the missing chunk of can be recreated using the audio data before and after it.
+For instance, in multiplayer games, these cars could contain audio data or messages about turning on a light switch or where to move objects. If they contain audio data and a packet stalls (gets dropped), it’s best to leave it behind. A small blip of lost audio will be less disruptive than all of the jitter and delay introduced when all following packets are held up in order to resend it. Most of the time, users will understand audio in spite of a small missing chunk. Alternately, the missing chunk of can be recreated using the audio data before and after it.
 
 The thing is, UDP can *only* send packets unreliably. WebRTC introduces reliable channels on top of UDP. WebRTC offers an abstraction that functions in some ways like TCP, but that is actually tailored for real-time, latency-sensitive applications. The use of WebRTC allows unreliable packets—such as transform snapshots or video frames—to be dropped so that attempted resends don't interrupt subsequent incoming messages. 
 If a packet is dropped with a WebRTC channel on top of UDP, it's up to you to determine if a packet should be resent immediately or bypassed. Therefore, if the dropped packed is a light switch or a moved object—in other words, data essential and irreplaceable to the game—you can still ensure it’s resent. Anything nonessential, like audio, can be dropped indefinitely.
