@@ -21,7 +21,7 @@ To synchronize the position of a game object using the RealtimeTransform compone
 1. Create an empty scene. Add Realtime to an empty game object and configure the appKey so it can connect.
 2. Create a Cube game object in the scene, and add a RealtimeTransform component to it.
 3. Export a build, and open it next to the editor. Hit Play in Unity.
-4. Click the "Request Ownership" button on the RealtimeTransform inspector (not the RealtimeView inspector)
+4. Click the "Request Ownership" button on the RealtimeTransform inspector (not the RealtimeView inspector).
 5. Drag the cube around in the scene and notice how it updates on the build automatically.
 
 It's worth noting that RealtimeTransform uses ownership in a unique way. 
