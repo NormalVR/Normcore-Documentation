@@ -14,7 +14,7 @@ RealtimeTransform is a built-in RealtimeComponent that can be used to synchroniz
 When you add a RealtimeTransform component to a GameObject, it monitors the transform of the object and synchronizes it to a model in the datastore. However, given that all clients have their own copy of the transform, RealtimeTransform uses ownership of the component to designate one client as the source of truth. This means that in order to move an object with a RealtimeTransform component on it, you must be the owner of the RealtimeTransform component.
 
 ### Ownership
-You can request ownership of a RealtimeTransform component by calling `RequestOwnership() `or by using the Request Ownership button in the editor inspector.
+You can request ownership of a RealtimeTransform component by calling `RequestOwnership()` or by using the Request Ownership button in the editor inspector.
 
 A RealtimeTransform is available for immediate use after `RequestOwnership()` is called. Normcore will assume the call succeeds, and will roll back any state changes automatically if the call is rejected by the server. (Typically, a rejection can only happen if the RealtimeView or a parent RealtimeView is owned by a different client.)
 

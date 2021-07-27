@@ -27,7 +27,7 @@ If you’re dealing with a prefab, all views and components are initialized with
 No. Normcore uses metadata on the prefab in order to connect RealtimeComponents on all clients.
 
 ### Why would a RealtimeComponent's model remain null?
-The model is set by Realtime when you connect the room. This will only fail if Realtime doesn't receive a reference to the RealtimeComponent. This can happen if:
+The model is set by Realtime when you connect to the room. This will only fail if Realtime doesn't receive a reference to the RealtimeComponent. This can happen if:
 
 1. The model was instantiated with Unity’s Instantiate API instead of Normcore’s Realtime.Instantiate. The solution is to call Realtime.Instantiate().
 2. The prefab in Unity is corrupt, so the RealtimeComponent does not appear in the component list on the RealtimeView, and models are not created for those components.
@@ -40,7 +40,7 @@ The model is set by Realtime when you connect the room. This will only fail if R
 ### I’m trying to store my player’s health in a RealtimeComponent on my avatar. How can I let other players modify this values or others?
 RealtimeAvatar sets the ownership of the root RealtimeView to the local client. This is to ensure that only the local client can modify the avatar. Only the local player can update values in RealtimeComponents on their own avatars. This is intentional! We recommend that you don’t try to clear ownership of the avatar—you’re going to be in a world of hurt if you do. 
 
-///TODO: Link to Nathaniel’s guide on storing it in the scene?
+// TODO: Link to Nathaniel’s guide on storing it in the scene?
 
 ## RealtimeTransform
 ***
