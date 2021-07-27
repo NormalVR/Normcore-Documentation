@@ -1,10 +1,10 @@
 ---
 layout: docs
-title: Room + Datastore API
+title: Room + Datastore API Overview
 ---
 # Room + Datastore API
 
-*Make sure you're up to speed on the [Client Architecture](../architecture/client)documentation before diving into this section.*
+*Make sure you're up to speed on the [Client Architecture](../architecture/client) documentation before diving into this section.*
 
 The Room + Datastore API is the foundation upon which the [Realtime API](./realtime) is built. This layer is the raw data layer that synchronizes all state between each client.
 

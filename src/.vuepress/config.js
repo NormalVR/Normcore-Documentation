@@ -85,10 +85,10 @@ module.exports = {
       },
       {
         title: "Realtime API",
-        path: '/realtime',
         collapsable: false,
         sidebarDepth: 2,
         children: [
+          '/realtime/',
           '/realtime/realtime',
           '/realtime/realtimeview',
           '/realtime/realtimecomponent',
@@ -108,10 +108,10 @@ module.exports = {
       },
       {
         title: "Room + Datastore API",
-        path: '/room',
         collapsable: false,
         sidebarDepth: 2,
         children: [
+          '/room/',
           '/room/room',
           '/room/datastore',
           '/room/realtimemodel',
@@ -130,10 +130,10 @@ module.exports = {
       },
       {
         title: "Normcore Private",
-        path: '/normcore-private',
         collapsable: false,
         sidebarDepth: 2,
         children: [
+          '/normcore-private',
           '/normcore-private/authoritative-servers',
           '/normcore-private/webhooks',
           '/normcore-private/on-premises/google-cloud-installation',
@@ -142,10 +142,10 @@ module.exports = {
       },
       {
         title: "Platforms",
-        path: '/platforms',
         collapsable: false,
         sidebarDepth: 2,
         children: [
+          '/platforms/',
           '/platforms/webgl',
           '/platforms/common-questions',
         ]
