@@ -23,7 +23,6 @@ Each field is required to be a primitive component. Models are designed to synch
 *Tip: If you're new to RealtimeModel, check out the [Synchronizing Custom Data](../realtime/synchronizing-custom-data) guide, it provides an excellent overview of how to use a RealtimeModel in practice.*
 
 ## RealtimeModel / RealtimeProperty attributes
-***
 The RealtimeModel attribute is used to signal to Normcore that this is a model class and that it should be available for model compilation. The RealtimeProperty attribute notates how the field should be synchronized.
 
 ### PropertyID
@@ -40,7 +39,6 @@ Reliable properties are good for things that you update once and that should the
 The last option is an optional argument that specifies whether you would like a change event added to the model. When this is set to true, a C# event that will fire when a property is changed locally or remotely is added to the model by the model compiler. This is a useful signal to update your scene to match the model.
 
 ## Compiling a model
-***
 Once a model is written, it can be compiled in the Unity editor by highlighting the class and clicking "Compile Model." It's worth noting that if your project does not compile, Normcore's model compiler will be unable to load any of the state of your model. This will be fixed in a forthcoming Normcore update.
 
 ### Tip: Removing / renaming a property without breaking compilation

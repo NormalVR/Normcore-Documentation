@@ -11,7 +11,6 @@ If you're using the Realtime API, you should rarely need to interact with the Ro
 Building on the Room + Datastore API overview, Datastore is a class designed to mirror the state of the datastore on the room server. It is responsible for detecting any changes to `RealtimeModel` objects within the datastore, serializing and sending their updates to the room server. When another client makes a change to its datastore, the change is sent to the room server, which may then perform validation or transformation of the data before relaying it to all clients.
 
 ## Models
-***
 The datastore is a collection of `RealtimeModel` objects. These objects make up all of the synchronized states of your application. The root-level model in the datastore is the `roomModel` that's passed to `Room.Connect()`. Any models not part of RealtimeComponents that you would like to store in the datastore need to be a child of this model.
 
 Any state changes to this model are replicated to the roomModel on all clients. If you would like to dynamically add or remove models from the datastore at runtime, you'll want to use a (collection)[./collections], such as `RealtimeSet`.

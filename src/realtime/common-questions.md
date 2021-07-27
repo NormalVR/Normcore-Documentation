@@ -5,7 +5,6 @@ title: Common Questions
 # Common Questions
 
 ## RealtimeView
-***
 ### Can I disable RealtimeView?
 No. Scene RealtimeViews register with Realtime in Start(). If they are disabled, they will never register: Realtime will neither initialize them nor connect them to the datastore.
 
@@ -22,7 +21,6 @@ If you’d like to introduce this functionality, you can create a RealtimeCompon
 If you’re dealing with a prefab, all views and components are initialized with their models. They will be ready to work with by the time Start() is called on any script on the prefab. Awake() must be called by Unity before Normcore can initialize any components on the game object. If you’re dealing with a RealtimeView that exists in a scene file, you’ll need to wait until realtime.connected is true, or the didConnectToRoom event has fired. RealtimeView uses Start() internally to register with Realtime, and it’s possible your start method ran before RealtimeView.Start().
 
 ## RealtimeComponents
-***
 ### Can I add RealtimeComponents at runtime?
 No. Normcore uses metadata on the prefab in order to connect RealtimeComponents on all clients.
 
@@ -43,7 +41,6 @@ RealtimeAvatar sets the ownership of the root RealtimeView to the local client. 
 // TODO: Link to Nathaniel’s guide on storing it in the scene?
 
 ## RealtimeTransform
-***
 ### Can I reparent RealtimeTransform?
 RealtimeTransform cannot support reparenting. Take a look at the [RealtimeTransform](../realtime/RealtimeTransform) docs for more information.
 
@@ -68,7 +65,6 @@ Third, you could add a Rigidbody on an object for client A, but forget to do so 
 There’s no easy way to switch between these syncing modes at runtime; therefore, we don’t currently support adding or removing a Rigidbody at runtime. Instead, we recommend people instantiate an invisible game object with a Rigidbody on it and then copy the transform position/rotation in Update if they need the ability to synchronize a transform to be dynamic at runtime.
 
 ## Voice chat
-***
 ### Voice chat doesn't work! Why?
 Check your default microphone device settings. If you're on a platform that requires microphone permissions (Mac, iOS, or Android), make sure your microphone permissions and Microphone Usage Description is set correctly in Unity. Normcore will print an error message to console if something fails. We highly recommend checking your player logs for more information if audio is not working.
 
@@ -76,7 +72,6 @@ Check your default microphone device settings. If you're on a platform that requ
 Adjust it on the AudioSource. RealtimeAvatarVoice plays audio back using Unity’s audio engine so all of the Unity audio APIs work correctly. At runtime, RealtimeAvatarVoice will create an AudioSource if one is not present, but if you’d like to configure it in the editor, add your own AudioSource component and RealtimeAvatarVoice will detect and use that instance.
 
 ## XR
-***
 ### Why doesn’t my avatar disappear on remote clients when I disconnect?
 The root RealtimeView is set to `destroyWhenOwnerLeaves` by default. If you change this value, or if you clear the owner of the avatar itself, then it will not be cleaned up properly by the server.
 
@@ -84,7 +79,6 @@ The root RealtimeView is set to `destroyWhenOwnerLeaves` by default. If you chan
 If you are using a plugin like VRIK and your avatar setup uses a camera rig, you’ll need to wire it up to RealtimeAvatarManager’s Root, Head, and Hand transform inputs. This will ensure that your RealtimeAvatar instance matches the transforms of your camera rig instead of using the default Unity XR APIs.
 
 ## More questions
-***
 ### What happens to my objects when a room server shuts down?
 When the last player leaves a room, the room server will remain running for about 30 seconds before it's shut down. When this happens, any objects that are not flagged to destroy will be written to persistent storage. The next time someone joins this room, they will be restored instantly.
 

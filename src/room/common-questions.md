@@ -5,7 +5,6 @@ title: Common Questions
 # Common Questions
 
 ## RealtimeModel
-***
 ### I made changes to my properties, but when I recompile, the freshly compiled model isn’t updated. Why?
 Make sure your project has no compilation errors. If your project has any errors, any changes you make to the model will not be visible to the model editor.
 
@@ -31,7 +30,6 @@ Datastores are limited to 10mb, and a single datastore update is limited to 125k
 This error generally happens when multiple clients attempt to delete the same model from a RealtimeSet at the same time. If you’re not using RealtimeSet directly in your project, this can happen if multiple clients call Realtime.Destroy() on the same object at the same time. In order to prevent this, we generally recommend having the client that owns the object destroy it: if (realtimeView.isOwnedLocally) Realtime.Destroy(gameObject);
 
 ## Ownership
-***
 ### How can I check who is holding an object?
 We recommend using the owner of the RealtimeTransform component to do this. When you grab an object, you’ll need to call Re**QuestOwnership() on the RealtimeTransform in order for others to see your updates to to that object. Other clients can then use the ownerID property on RealtimeTransform to see who is holding it. 
 

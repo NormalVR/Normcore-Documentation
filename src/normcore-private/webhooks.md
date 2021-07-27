@@ -8,7 +8,6 @@ Normcore Private Cloud and On-Premises both support using the Webhooks API to ve
 If you're bundling Normcore in your own SDK, this API is the recommended way to validate application keys against your own database.
 
 ## Configuration
-***
 ### Cloud
 The webhook URL is configured when your Normcore Private Cloud installation is created by Normal. In order to change your webhook URL, file a support ticket or use your dedicated Slack channel to ping one of our engineers.
 

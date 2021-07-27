@@ -7,7 +7,6 @@ title: Collections
 Normcore provides several collections that can be used to synchronize data in real-time. These collections are designed to be atomic even with multiple clients making simultaneous changes to them, so they have restrictions you may not see in a typical C# collection.
 
 ## Transactional collections
-***
 Transactional collections do not reflect a change to the collection until the server has confirmed the change. They also reject your change if another client has modified the same key before your change is received by the server. This is implemented by storing a version for the collection and for each key internally.
 
 ### StringKeyDictionary
@@ -16,7 +15,6 @@ StringKeyDictionary works very similarly to a `Dictionary<string, ModelType>`. A
 // TODO: Link to the reference page for the collection
 
 ## Non-transactional collections
-***
 Non-transactional collections work like RealtimeModels in that, first, changes are reflected instantly, and second, the server merges changes using a last-client-wins approach. If you need to control how a merge conflict is handled, use a transactional collection instead.
 
 ### RealtimeSet

@@ -121,7 +121,6 @@ public partial class MyModel {
 The only change needed is the addition of `createMetaModel:` true in the `RealtimeModel` attribute constructor. This tells Normcore to compile your model with a meta-model, which is where all ownership state will be stored so it may be sent to the server.
 
 ## Lifetime flags
-***
 Lifetime flags tell the server how long the state for a model should be retained. Models can be set to persist between sessions, or they can be automatically deleted when the owner or the last client leaves the room.
 
 If you're writing a collaborative application, you may want things like objects or brush strokes to persist between sessions. However, you might want a model that represents game state like the current score to reset to zero after everyone leaves. If you have prefabs that represent players, you may want them to be destroyed when a player disconnects. Lifetime flags are used to denote how the server should treat each model in the datastore.
@@ -175,7 +174,6 @@ This example gets a reference to the `Realtime` component and registers for the 
 And that's it. No custom logic is needed to destroy the prefab; the server takes care of that for us and notifies the remaining clients.
 
 ## What is a meta-model?
-***
 I am so glad you asked. We at Normal work hard on this stuff, and if we do our jobs perfectly, no one will even notice all of our effort. This isn't the coolest hidden gem of Normcore, but it is a neat implementation detail. (Yes, I am encouraging you to ask me more questions about how the internals of Normcore work if you ever see me on the street. There are a lot of cool details hidden in Normcore!)
 
 Models in Normcore store state, and as far as the server is concerned, it doesn't really matter what that state represents. The server just needs to ensure that the state is in sync with all other clients. However, there comes a time in every model's life when it has some state that the server does care about. Maybe it's instructions on how to add an item to a collection or on which client can make changes to a model. This is where the meta-model comes in.

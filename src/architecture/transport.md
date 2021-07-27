@@ -9,7 +9,6 @@ A lot of people ask us why we support only WebRTC and not other transports. Ther
 WebRTC is not just for browser apps and games. WebRTC can be utilized the same way native apps utilize WebSockets. However, while WebSockets are fairly simple to implement. WebRTC is close to impossible to implement from scratch. It’s challenging even to compile from existing implementations (Especially Google's libwebrtc). But we still stick with WebRTC because no other transport can provide the same high-quality experience.
 
 ## Why WebRTC is the best transport option
-***
 WebRTC brings together the features of all the other transports and surpasses them. It provides everything you need.
 
 |                         | WebRTC (Normcore) | WebSockets (Croquet) | eNet (Photon) | Telepathy (Mirror) | kcp2k (Mirror) |

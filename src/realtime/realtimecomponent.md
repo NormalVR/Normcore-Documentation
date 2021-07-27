@@ -13,7 +13,6 @@ The flow of data looks something like this:
 A Realtime component keeps a game object in sync with its corresponding model in the datastore. When the game object changes, the component updates the model, and when the model changes, the component updates the game object to match. This means that in the diagram above, when Player 1 moves a game object, RealtimeTransform can set the new position on its model in the datastore. When Player 2 gets a notification that the model has changed, it can update the position of the same game object in its scene.
 
 ## Model
-***
 All RealtimeComponents store the state they need to synchronize in a [RealtimeModel](../room/realtimemodel) subclass. The model is automatically synchronized across all clients by Normcore, so all the RealtimeComponent needs to do is synchronize the scene and the model to match.
 
 When a RealtimeComponent is first created, Realtime will create a fresh model instance in which each RealtimeComponent can store data. If the object already exists on the server, the model will be prepopulated with the current state before it is given to the RealtimeComponent.

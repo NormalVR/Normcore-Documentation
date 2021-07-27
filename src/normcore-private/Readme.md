@@ -6,7 +6,6 @@ title: Normcore Private
 Normcore Private is a private copy of Normcore's hosting infrastructure designed to be customized for a specific application. With Normcore Private, you can adjust CPU limits to host more players per room, use the Webhooks API to authenticate users, and host custom authoritative game servers.
 
 ## Features
-***
 With Normcore Private, you can:
 * Run Normcore yourself
 * Tweak scaling settings
