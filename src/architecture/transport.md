@@ -5,10 +5,10 @@ title: Transport
 # Transport
 A lot of people ask us why we support only WebRTC and not other transports. There's one reason: **WebRTC is simply the best**.
 
-## A note on WebRTC as a protocol
+### A note on WebRTC as a protocol
 WebRTC is not just for browser apps and games. WebRTC can be utilized the same way native apps utilize WebSockets. However, while WebSockets are fairly simple to implement. WebRTC is close to impossible to implement from scratch. It’s challenging even to compile from existing implementations (Especially Google's libwebrtc). But we still stick with WebRTC because no other transport can provide the same high-quality experience.
 
-## Why WebRTC is the best transport option
+### Why WebRTC is the best transport option
 WebRTC brings together the features of all the other transports and surpasses them. It provides everything you need.
 
 |                         | WebRTC (Normcore) | WebSockets (Croquet) | eNet (Photon) | Telepathy (Mirror) | kcp2k (Mirror) |
@@ -85,5 +85,5 @@ Failure to stay on top of these updates and releases can leave you out of securi
 
 On top of that, if you want to support multiple platforms, you’ll be compiling separately for each one. Normal has successfully compiled WebRTC for all of the 10+ platforms we support. We were able to do this because it’s our specialty. But we don’t recommend trying this at home.
 
-## Normcore with WebRTC
+### Normcore with WebRTC
 WebRTC is wildly useful as a protocol. It’s also energy-intensive to build, hard to link against, and upkeep intensive. Still, WebRTC is well worth the effort, or we wouldn’t have chosen it. Normcore applications perform beautifully, surpassing their peers on every platform including the web. Best of all, Normcore manages the transport protocol so you don’t have to. You can access all the benefits of WebRTC—without any of the extra work.
