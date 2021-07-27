@@ -3,7 +3,7 @@ layout: docs
 title: Pricing
 ---
 # Pricing
-Normcore provides auto-scaling servers that can host any project. We also provide the lowest latency possible in  every region around the globe.
+Normcore is a hosted platform that provides servers around the globe.
 
 ### Our pricing model
 We offer [three pricing tiers](https://normcore.io/pricing) to meet your needs.
@@ -12,7 +12,7 @@ We offer [three pricing tiers](https://normcore.io/pricing) to meet your needs.
 
 We charge based solely on room hours and bandwidth:
 
-**Room hours.** Room hours refer to the total number of hours that a room server is running and clients are connected. If no one is actively connected to a room, you are not being charged.
+**Room hours.** Room hours refer to the total number of hours that a room server is running and clients are connected. If no one is actively connected to a room, the room server shuts down after 30 seconds, and you stop being charged for the room.
 
 **Bandwidth.** Bandwidth refers to the amount of data sent to and from Normcore's servers.
 
@@ -25,6 +25,6 @@ We charge based solely on room hours and bandwidth:
 Your Normcore dashboard is updated to show your most recent room-hour and bandwidth measurements every 24 hours at 12 AM, GMT.
 
 ### Changing plans
-We welcome you to change plans at any time in your billing cycle so Normcore can best meet your needs. Changes in room-hour and bandwidth limits take place immediately. For instance, you will be able to exceed the fixed limits right away if you switch from Pro to Unlimited, even in the middle of a billing cycle.
+We welcome you to change plans at any time in your billing cycle so Normcore can best meet your needs. Changes in room-hour and bandwidth limits take place immediately. For instance, you will be able to exceed the fixed limits right away if you switch from Pro to Unlimited, even in the middle of a billing cycle. However, if you switch from Pro to Free, the change will occur at the end of the month to allow you to take advantage of the bandwidth and room hours that you've already paid for.
 
 Note: If you are interested in Normcore Private pricing, please reach out to us [here](http://normcore.io/contact).
