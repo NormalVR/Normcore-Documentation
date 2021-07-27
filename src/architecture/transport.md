@@ -19,7 +19,7 @@ WebRTC brings together the features of all the other transports and surpasses th
 | Reliable messages       | ✅                | ✅                    | ✅            | ❌                 | ✅              |
 | Unreliable messages     | ✅                | ❌                    | ✅            | ✅                 | ✅              |
 | TLS/DTLS encryption     | ✅                | ✅                    | ❌            | ❌                 | ❌              |
-| Congestion/Flow control | ✅                | ✅                    | ❌            | ❌                 | ✅              |
+| Congestion/Flow control | ✅                | ✅                    | ❌            | ✅                 | ✅              |
 | Video/Audio Streaming   | ✅                | ❌                    | ❌            | ❌                 | ❌              |
 | Browser compatibility   | ✅                | ✅                    | ❌            | ❌                 | ❌              |
 
@@ -27,7 +27,7 @@ WebRTC brings together the features of all the other transports and surpasses th
 ### WebRTC supports UDP and TCP
 We recommend that you always use UDP if you can. If a TCP packet is dropped along the way, all other packets are stopped until that packet is resent. TCP works like a tunnel that is one car wide. If one car stalls—if one packet is dropped—all the others will get backed up. But sometimes it’s OK to bypass that broken car by building a route around it. That’s what UDP allows—for the flow of traffic to continue without the stalled car. 
 
-For instance, in multiplayer games, these cars could contain audio data or messages about turning on a light switch or where to move objects. If they contain audio data and a packet stalls (gets dropped), it’s best to leave it behind. A small blip of lost audio will be less disruptive than all of the jitter and delay introduced when all following packets are held up in order to resend it. Most of the time, users will understand audio in spite of a small missing chunk. Alternately, the missing chunk of can be recreated using the audio data before and after it.
+For instance, in multiplayer games, these cars could contain audio data or messages about turning on a light switch or where to move objects. If they contain audio data and a packet stalls (gets dropped), it’s best to leave it behind. A small blip of lost audio will be less disruptive than all of the jitter and delay introduced when all following packets are held up in order to resend it. Most of the time, users will understand audio in spite of a small missing chunk, and sometimes the missing chunk of can be recreated using the audio data before and after it.
 
 The thing is, UDP can *only* send packets unreliably. WebRTC introduces reliable channels on top of UDP. WebRTC offers an abstraction that functions in some ways like TCP, but that is actually tailored for real-time, latency-sensitive applications. The use of WebRTC allows unreliable packets—such as transform snapshots or video frames—to be dropped so that attempted resends don't interrupt subsequent incoming messages. 
 If a packet is dropped with a WebRTC channel on top of UDP, it's up to you to determine if a packet should be resent immediately or bypassed. Therefore, if the dropped packed is a light switch or a moved object—in other words, data essential and irreplaceable to the game—you can still ensure it’s resent. Anything nonessential, like audio, can be dropped indefinitely.
@@ -50,12 +50,12 @@ Congestion control will make you a good citizen on your local network and on the
 ### WebRTC uses TLS/DTLS encryption
 Implementing encryption correctly is nearly impossible for most developers. It’s a general rule that one should never implement one’s own cryptography. In most cases, the same can be said about implementing even proprietary encryption protocols.  
 
-WebRTC uses DTLS encryption, the UDP equivalent of TLS. TLS/DTLS is used in every secure browser connection around the globe. It is widely accepted as the industry standard for providing secure connections.
+WebRTC uses DTLS encryption, a form of TLS that works over UDP. TLS/DTLS is used in every secure browser connection around the globe. It is widely accepted as the industry standard for providing secure connections.
 
 There are two central reasons you should always use TLS/DTLS encryption for your products:
 
-1. **Bugs will be caught and fixed immediately.** Bugs in proprietary encryption protocols often go completely unnoticed. Meanwhile, if a bug appears in TLS/DTLS encryption, it will be noticed and fixed immediately.
-2. **You will not accidentally leak sensitive information.** Sensitive information can be inadvertently saved in multiple places, causing leaks if a connection is not encrypted. This is no longer an issue when using TLS/DTLS, which encrypts an entire connection; TLS/DTLS fully secures your project.
+1. **Bugs will be caught and fixed immediately.** Bugs in proprietary encryption protocols often go completely unnoticed. Meanwhile, if a bug appears in TLS/DTLS encryption, it will be noticed and fixed immediately due to their widespread use.
+2. **You will not accidentally leak sensitive information.** Many networking plug-ins offer encryption, but make it a tool that you can run on your sensitive messages. In practice, sensitive information is often inadvertantly saved in multiple places and ends up in unencrypted messages. This is not an issue when using TLS/DTLS, which encrypts the entire connection; TLS/DTLS fully secures your project.
 
 ### WebRTC includes the audio/video features you need
 If you want to add audio or video streaming to your product, WebRTC is again the obvious choice. Audio and video features require:
@@ -74,9 +74,7 @@ If WebRTC is so great, why do so few companies use it?
 
 **First, implementing all of WebRTC from scratch is almost impossible.** WebRTC has lots of *incredibly useful features*, but all these features take an *incredibly long time* to implement. Further, each implementation of WebRTC needs to be made compliant with other implementations or it will not be able to support browsers and other clients. This places an obvious barrier on WebRTC access.
 
-**Second, using an off-the-shelf implementation is notoriously difficult.** The only viable option for implementing WebRTC is to compile from an existing implementation, such as Google’s libwebrtc. Google’s libwebrtc implements the full WebRTC protocol—but it is not easy to use. Many developers would [rather rewrite their own protocols from scratch](https://gafferongames.com/post/why_cant_i_send_udp_packets_from_a_browser/) than try to get WebRTC to compile. For those developers who still want to use WebRTC, [entire companies are dedicated solely to compiling it for them](https://webrtcbydralex.com/index.php/2018/10/14/libwebrtc-is-open-source-how-hard-can-it-be/). 
-
-// TODO: It looks like this webrtcbyalex.com domain is expired - can we use another source?
+**Second, using an off-the-shelf implementation is notoriously difficult.** The only viable option for implementing WebRTC is to compile from an existing implementation, such as Google’s libwebrtc. Google’s libwebrtc implements the full WebRTC protocol—but it is not easy to use. Many developers would [rather rewrite their own protocols from scratch](https://gafferongames.com/post/why_cant_i_send_udp_packets_from_a_browser/#what-about-webrtc) than try to get WebRTC to compile. For those developers who still want to use WebRTC, [entire companies are dedicated solely to compiling it for them](https://web.archive.org/web/20181020093837/https://webrtcbydralex.com/index.php/2018/10/14/libwebrtc-is-open-source-how-hard-can-it-be/). 
 
 Compare WebRTC to a car engine. It would be an engine robust enough to power a top-of-the-line, Formula One racecar (Google Chrome is the racecar in this case). If you want to build a great car yourself, you might want that engine for yourself. But you can only have it if you are able to remove it from the racecar and install it in your own car. To install it, you need to unhook everything, reconfigure the space under the hood of your own vehicle, and find all the parts needed to reconnect the engine in its new home. 
 
