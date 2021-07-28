@@ -3,24 +3,11 @@ layout: docs
 title: Synchronizing Custom Data
 ---
 # Synchronizing Custom Data
-In this guide, I’m going to walk you through how to synchronize custom data in your Unity application using custom Realtime Components.
-
-// TODO: Pair this guide down and link out to the RealtimeComponent / RealtimeModel docs.
-//       The goal is to reduce this as much as possible so it feels simple + easy.
-
-## What are RealtimeComponents
-
-Realtime Components are the most common way to synchronize data in your application. A **RealtimeComponent** script is responsible for keeping a specific part of your scene in sync. The most common built-in component is **RealtimeTransform**, which synchronizes the transform of a GameObject.
-
-The flow of data looks something like this:
-
-![](./synchronizing-custom-data/data-flow.svg "The flow of data in a Normcore application")
-
-A RealtimeComponent keeps a game object in sync with its corresponding model in the datastore. When the game object changes, it updates the model, and when the model changes, it updates the game object to match. This means that in the diagram above, when Player 1 moves a game object, RealtimeTransform can set the new position on its model in the datastore. When Player 2 gets a notification that the model changed, it can update the position of the matching game object in its scene.
+In this guide, I’m going to walk you through how to synchronize custom data in your Unity application using custom [realtime components](./realtimecomponent).
 
 ## Creating a custom RealtimeComponent
 
-For this example, I’m going to make a component that synchronizes the color of an object. In order to create a custom component, you’ll also need to create a model to put in the datastore. Let’s start by making a script for the component, and one for the model. We’ll call these `ColorSync.cs` and `ColorSyncModel.cs` respectively.
+For this example, I’m going to make a realtime component that synchronizes the color of an object. In order to create a custom component, you’ll also need to create a model to put in the datastore. Let’s start by making a script for the component, and one for the model. We’ll call these `ColorSync.cs` and `ColorSyncModel.cs` respectively.
 
 ### Creating a RealtimeModel
 
@@ -36,7 +23,7 @@ public class ColorSyncModel {
 }
 ```
 
-Now, this isn't enough to synchronize our model with the datastore. We need a few methods to expose this property publicly, detect changes to the color, and send any changes to the server. Luckily, Normcore comes with a plugin that will write all of that logic for us and ensure that it's written with correctness and performance in mind. In order to use it, we're going to add a `[RealtimeModel]` attribute to our class, and a `[RealtimeProperty]` attribute to the `_color variable.` 
+Now, this isn't enough to synchronize our model with the datastore. We need a few methods to expose this property publicly, detect changes to the color, and send any changes to the server. Luckily, Normcore comes with a plugin that will write all of that logic for us and ensure that it's written with correctness and performance in mind. In order to use it, we're going to add a `[RealtimeModel]` attribute to our class, and a `[RealtimeProperty]` attribute to the `_color` variable. 
 Your class should look something like this:
 
 ```csharp {5,7}
