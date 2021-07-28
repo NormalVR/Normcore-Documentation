@@ -2,7 +2,7 @@
 layout: docs
 title: WebGL
 ---
-*Note: This feature is currently in beta and is not available in the public version of the SDK.*
+*Note: This feature is currently in enterprise-only beta and is not available in the public version of Normcore.*
 
 # WebGL
 Normcore WebGL support is designed to allow any Normcore project to be compiled for WebGL with no modifications to the source project. WebGL applications are treated as a first-class citizen and given the same network performance as native Normcore applications.
@@ -78,13 +78,5 @@ Although the hoverbird controls don't work on mobile, try opening it on iOS or A
 #### SendRPCMessage does not work
 This feature is intentionally disabled in the WebGL preview. We plan to deprecate this API in Normcore 3 in order to replace it with a more feature-rich version. If you need this functionality in your project, let us know and we can provide a version with the legacy RPC API enabled.
 
-
-#### Audio does not work between Native and WebGL clients
-Browsers currently do not interpret streams created by the native client as using the correct audio codec. An updated native plugin with a fix for this issue will ship soon.
-
 #### Voice chat spatialization does not work on the web
-
 Unfortunately, Unity's audio engine, FMOD, [does not run on the web](https://docs.unity3d.com/Manual/webgl-audio.html). All voice-chat audio is played directly through the browser rather than through Unity.
-
-#### Closing an audio stream doesn't always close the stream on web
-We're investigating a race condition in which the audio stream object is cleaned up before the message to close it reaches the underlying WebRTC peer connection.

@@ -3,36 +3,34 @@ layout: docs
 title: Platforms
 ---
 # Platforms
-Normcore currently supports all platforms supported by Unity 2020 LTS. However, some platforms (denoted by an *) are only available to Normcore Private customers so as to cover support costs and ensure we’re compliant with console partner restrictions. 
+Normcore currently supports all platforms supported by Unity 2020 LTS. However, some platforms (denoted by an *) are only available to Normcore Private customers so as to cover support costs and ensure we’re compliant with console partner restrictions.
 
-Mobile Platforms
+**Mobile Platforms**
 * iOS
 * Android
-* tvOS (Private Only)
+* tvOS*
 
-
-Desktop Platforms
+**Desktop Platforms**
 * Windows
 * Mac
 * Linux
-* Universal Windows Platform (Private Only)
+* Universal Windows Platform*
 
-Web Platforms
-* WebGL (Private Only)
-* Project Tiny (Private Only)
+**Web Platforms**
+* WebGL*
+* Project Tiny*
 
-Console Platforms
-* PlayStation 4, PlayStation 5 (Private Only)
-* Xbox One, Xbox Series X/S (Private Only)
-* Nintendo Switch (Private Only)
+**Console Platforms**
+* PlayStation 4, PlayStation 5*
+* Xbox One, Xbox Series X/S*
+* Nintendo Switch*
 * Stadia
 
-Virtual Reality Platforms
+**Virtual Reality Platforms**
 * Oculus Rift, Oculus Quest, Oculus Quest 2
+* PlayStation VR*
 * ARKit
 * ARCode
-* HoloLens (Private Only)
+* HoloLens*
 * Magic Leap
-* SteamVR
-
-// TODO: Find a better way to denote Private Only
+* SteamVR, OpenVR

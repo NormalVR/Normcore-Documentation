@@ -133,7 +133,7 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 2,
         children: [
-          '/normcore-private',
+          '/normcore-private/',
           '/normcore-private/authoritative-servers',
           '/normcore-private/webhooks',
           '/normcore-private/on-premises/google-cloud-installation',
