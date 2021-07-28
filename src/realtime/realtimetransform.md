@@ -49,3 +49,28 @@ In order to allow objects at rest to be automatically owned by colliding objects
 *Note: When implementing logic like picking up an object, we recommend marking the rigidbody kinematic. While a rigidbody is kinematic, ownership will not be cleared automatically, and the default sleep settings can be used.*
 
 *Tip: Check out the [Networked Physics](./networked-physics) guide for more detailed info on how RealtimeTransform works in Rigidbody mode.*
+
+## Extra notes
+
+RealtimeTransform is a complex piece of machinery. There are a few gotchas that are worth noting when you start using this component.
+
+#### You cannot add a RealtimeTransform component at runtime.
+This is true of all [RealtimeComponents](./realtimecomponent) in fact. There is no easy method for Normcore to detect the component and recreate it on all other clients. If you need functionality like this, we recommend creating an empty prefab with a RealtimeTransform component on it. When you need to temporarily track the position of an object, instantiate the prefab and synchronize the position between it and the object you're trying to move dynamically. Once you're done moving the object, destroy the prefab and you're done!
+
+#### You can't add or remove a Rigidbody component at Runtime.
+Transform mode and Rigidbody mode work very differently under the hood. They synchronize different values, and apply interpolation differently based on the information available.
+
+It is not easy to smoothly transition between both modes and so it's a feature that is not supported in Normcore.
+
+If you need this functionality, we recommend using the technique above of creating an empty prefab with a RealtimeTransform and Rigidbody component on it that you can instantiate and destroy at runtime that acts as a vehicle for adding Rigidbody functionality.
+
+#### Don't reparent game objects with RealtimeTransform on them!
+RealtimeTransform does not track the parent of a RealtimeTransform and cannot synchronize it at runtime.
+
+Additionally, if a RealtimeTransform is reparented under another game object, and that game object is destroyed, it will take the RealtimeTransform with it, leading to inconsistent state between clients.
+
+A common case where folks want this functionality is in order to pick up an object. Instead of reparenting, create an empty game object on your player character at the pick-up point. Then use a script that synchronizes the world position of the pick-up point object and the RealtimeTransform object that you would like to pick up.
+
+Visually this give you the same result and will avoid bugs related to reparenting.
+
+*Tip: If the RealtimeTransform object has a Rigidbody on it, make sure to use the `MovePosition()` and `MoveRotation()` methods in `FixedUpdate()`*
