@@ -3,7 +3,7 @@ layout: docs
 title: Networked Physics
 ---
 # Networked Physics
-What's uuuuuuuuuuuuup. Unless you're casually perusing the docs, you're probably here because you put a `RealtimeTransform` component on something and it's not working the way you expect. Well, you're in luck. This page is designed to explain how `RealtimeTransform` works and some of the thinking necessary to get it to do what you want.
+What's uuuuuuuuuuuuup. Unless you're casually perusing the docs, you're probably here because you put a [`RealtimeTransform`](./realtimetransform) component on something and it's not working the way you expect. Well, you're in luck. This page is designed to explain how `RealtimeTransform` works and some of the thinking necessary to get it to do what you want.
 
 ## How physics works in Unity
 
