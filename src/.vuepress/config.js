@@ -67,7 +67,7 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 2,
             children: [
-              '/guides/recipes/timers-and-playback',
+              '/guides/recipes/timers-and-synchronized-playback',
             ]
           }
         ]
