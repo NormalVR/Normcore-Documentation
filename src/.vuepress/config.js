@@ -68,6 +68,7 @@ module.exports = {
             sidebarDepth: 2,
             children: [
               '/guides/recipes/timers-and-synchronized-playback',
+              '/guides/recipes/using-addressables'
             ]
           }
         ]
@@ -157,6 +158,8 @@ module.exports = {
         children: [
           { title: 'Datastore', path: '/reference/classes/Normal.Realtime.Datastore' },
           { title: 'IRealtimeComponent', path: '/reference/classes/Normal.Realtime.IRealtimeComponent' },
+          { title: 'IRealtimePrefabInstantiateDelegate', path: '/reference/classes/Normal.Realtime.IRealtimePrefabInstantiateDelegate' },
+          { title: 'IRealtimePrefabLoadDelegate', path: '/reference/classes/Normal.Realtime.IRealtimePrefabLoadDelegate' },
           { title: 'MetaModel', path: '/reference/classes/Normal.Realtime.Serialization.MetaModel' },
           { title: 'NormcoreAppSettings', path: '/reference/classes/Normal.NormcoreAppSettings' },
           { title: 'NormcoreProjectSettings', path: '/reference/classes/Normal.NormcoreProjectSettings' },
@@ -168,6 +171,7 @@ module.exports = {
           { title: 'RealtimeExecutionOrder', path: '/reference/classes/Normal.Realtime.RealtimeExecutionOrder' },
           { title: 'RealtimeModel', path: '/reference/classes/Normal.Realtime.RealtimeModel' },
           { title: 'RealtimeModelEvent', path: '/reference/classes/Normal.Realtime.RealtimeModelEvent' },
+          { title: 'RealtimePrefabMetadata', path: '/reference/classes/Normal.Realtime.RealtimePrefabMetadata' },
           { title: 'RealtimeSet', path: '/reference/classes/Normal.Realtime.Serialization.RealtimeSet`1' },
           { title: 'RealtimeTransform', path: '/reference/classes/Normal.Realtime.RealtimeTransform' },
           { title: 'RealtimeView', path: '/reference/classes/Normal.Realtime.RealtimeView' },
