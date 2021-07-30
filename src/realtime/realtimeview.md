@@ -52,13 +52,6 @@ If you end up in a scenario in which there is a duplicate Scene View UUID, you c
 
 *Note: Once reset, this view will not be able to communicate with scene views that had the old ID. It will also not be able to retrieve persistent data stored under the previous Scene View UUID. Use this button carefully!*
 
-#### Update Component & View IDs
-Normcore will try to manage component and view IDs for you automatically. It does this to prevent the use of duplicate IDs and to avoid reusing old IDs. However, if you’ve deleted a RealtimeComponent or child view, saved your application, and reopened and readded the component or child view, Normcore will be unable to detect and reassign the old ID.
-
-Therefore, there are rare circumstances in which you will need to manually set a component’s or view’s ID. To do so, click the “Update Component & View IDs” button. This will enable you to manually manage the component and view IDs above.
-
-*Warning: If you reuse an old component ID with a different component, or if you mix up a child view ID, your application may be unable to read persistent data stored by previous clients. Normcore will detect this at runtime and will automatically disconnect before this corrupts the datastore. Please use this feature at your own risk!*
-
 #### Ownership
 Every RealtimeView has an [ownership and permissions model](../room/ownership-and-lifetime-flags) that’s enforced by the server. If this view is owned by a particular client, other clients will be unable to change any permissions on the view, its components, or its child views and their components.
 
