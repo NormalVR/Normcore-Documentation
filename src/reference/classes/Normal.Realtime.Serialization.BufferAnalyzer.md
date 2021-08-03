@@ -11,6 +11,6 @@ class_members:
 - name: Methods
   members:
   - name: AnalyzeBuffer
-    definition: string AnalyzeBuffer(ReadBuffer buffer, bool readUpdateID)
+    definition: string AnalyzeBuffer(ReadBuffer buffer, bool readUpdateID, bool readPacketTime = true)
 
 ---

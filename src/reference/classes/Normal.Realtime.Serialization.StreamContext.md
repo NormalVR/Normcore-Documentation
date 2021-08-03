@@ -8,6 +8,8 @@ class_members:
   members:
   - name: dispatcher
     definition: public StreamEventDispatcher dispatcher
+  - name: inflightUpdateNotifier
+    definition: public InflightUpdateNotifier inflightUpdateNotifier
   - name: fullModel
     definition: public bool fullModel
   - name: reliableChannel

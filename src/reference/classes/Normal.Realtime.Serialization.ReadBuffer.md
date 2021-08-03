@@ -36,5 +36,7 @@ class_members:
     definition: void SkipBytes(int length)
   - name: Copy
     definition: ReadBuffer Copy()
+  - name: ToString
+    definition: string ToString()
 
 ---

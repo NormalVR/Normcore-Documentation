@@ -55,6 +55,14 @@ class_members:
     summary: An event that is fired when Realtime is disconnected from a room.
 - name: Properties
   members:
+  - name: roomToJoinOnStart
+    definition: string roomToJoinOnStart { get; }
+    summary: The name of the room to join on start if one was configured in the inspector.
+    remarks: This setting can only be configured in the editor inspector. If you'd like to change this name at runtime, disable join room on start, and use the Connect() method on Realtime instead.
+  - name: joinRoomOnStart
+    definition: bool joinRoomOnStart { get; }
+    summary: A boolean indicating whether Realtime will try to automatically connect on Start().
+    remarks: This setting can only be configured in the editor inspector. If you'd like to change this name at runtime, disable join room on start, and use the Connect() method on Realtime instead.
   - name: normcoreAppSettings
     definition: NormcoreAppSettings normcoreAppSettings { get; set; }
     summary: The app settings object reference used when Realtime connects. Changing this while the Realtime instance is connected will not have any effect until the next time it connects.

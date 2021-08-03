@@ -32,6 +32,20 @@ class_members:
     definition: bool ReadNextPropertyID(UInt32& propertyID, WireType& wireType)
   - name: ReadNull
     definition: void ReadNull()
+  - name: ReadBool
+    definition: bool ReadBool()
+  - name: ReadByte
+    definition: byte ReadByte()
+  - name: ReadSByte
+    definition: sbyte ReadSByte()
+  - name: ReadUShort
+    definition: ushort ReadUShort()
+  - name: ReadShort
+    definition: short ReadShort()
+  - name: ReadUInt
+    definition: uint ReadUInt()
+  - name: ReadInt
+    definition: int ReadInt()
   - name: ReadVarint32
     definition: uint ReadVarint32()
   - name: ReadFloat
@@ -54,5 +68,11 @@ class_members:
     definition: void ReadCollection(IStreamReader value, StreamContext context, bool didForceWriteFullModel = false)
   - name: SkipProperty
     definition: void SkipProperty()
+  - name: StartLengthDelimitedStruct
+    definition: void StartLengthDelimitedStruct()
+  - name: ReadStructFloat
+    definition: float ReadStructFloat()
+  - name: FinishLengthDelimitedStruct
+    definition: void FinishLengthDelimitedStruct()
 
 ---
