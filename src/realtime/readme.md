@@ -40,7 +40,7 @@ Realtime prefabs work the same way as regular prefabs in Unity except for a few 
 2. A realtime prefab must have a **RealtimeView** component on the root GameObject.
 3. A realtime prefab must live in a **Resources** folder to ensure it can be loaded at runtime.
 
-*Note: If you would like to avoid using Resources, it is possible to use the Addressables API or a custom loader by implementing a [RealtimePrefabLoadDelegate](../reference/blah)*
+*Note: If you would like to avoid using Resources, it is possible to use the Addressables API or a custom loader by implementing a [RealtimePrefabLoadDelegate](../guides/recipes/using-addressables)*
 
 //TODO: update link to RealtimePrefabLoadDelegate
 
