@@ -6,7 +6,7 @@ title: Using Addressables
 
 By default, Normcore loads all realtime prefabs using `Resources.Load<GameObject>()`. For larger projects, this can cause performance issues when loading prefabs from disk. It can also be a pain run a large project with multiple Resources folders.
 
-Normcore includes two interfaces that can be used to hook the prefab loading and instantiation pipeline: [**IRealtimePrefabLoadDelegate**](../../reference/classes/Normal.Realtime.IRealtimePrefabLoadDelegate) and [**IRealtimePrefabInstantiateDelegate**](../../reference/classes/Normal.Realtime.IRealtimePrefabInstantiateDelegate). In order to implement Addressables support, we only need to hook prefab loading.
+Normcore includes two interfaces that can be used to hook the prefab loading and instantiation pipeline: [**IRealtimePrefabLoadDelegate**](../../reference/classes/Normal.Realtime.IRealtimePrefabLoadDelegate) and [**IRealtimePrefabInstantiateDelegate**](../../reference/classes/Normal.Realtime.IRealtimePrefabInstantiateDelegate). Addressables support can be easily added by implementing a prefab load delegate.
 
 The built-in default implementation looks like this:
 
@@ -26,7 +26,7 @@ public class DefaultRealtimePrefabDelegate : MonoBehaviour, IRealtimePrefabLoadD
 }
 ```
 
-And we can redirect prefab loading calls by creating our own **IRealtimePrefabLoadDelegate**:
+And prefab loading can be hooked to use Addressables instead by creating our own **IRealtimePrefabLoadDelegate**:
 
 ```csharp
 using UnityEngine;
@@ -43,7 +43,13 @@ public class CustomPrefabLoadDelegate : MonoBehaviour, IRealtimePrefabLoadDelega
 }
 ```
 
-While this works, it has a few problems. Namely that it's going to be just as slow as `Resources.Load<GameObject>()` and it will never correctly unload the addressables asset. Instead, what we want to do is preload any addressables we plan to use with Normcore and unload them when the manager is destroyed:
+This realtime prefab load delegate will technically work, but it has a few issues.
+
+First, it's going to be just as slow as `Resources.Load<GameObject>()`. The first time a realtime prefab is instantiated the asset will be loaded from disk which can cause stuttering. Second, it will never unload the addressables asset.
+
+A better approach would be to create a component that preloads all of the realtime prefabs we plan to use and then unloads them when we're done.
+
+Here's a recipe that does exactly that. It let's us specify a list of assets to preload and it implements the IRealtimePrefabLoadDelegate protocol to allow them to be referenced by Realtime. If a prefab isn't preloaded it will be loaded synchronously, similarly to how the default `Resources.Load<GameObject>()` implementation works.
 
 ```csharp
 using System.Collections.Generic;
@@ -54,13 +60,13 @@ using Normal.Realtime;
 
 public class CustomPrefabLoadDelegate : MonoBehaviour, IRealtimePrefabLoadDelegate {
     [SerializeField]
-    private List<AssetReference> _realtimePrefabsToLoad = new List<AssetReference>();
+    private List<AssetReference> _realtimePrefabsToPreload = new List<AssetReference>();
     private Dictionary<string, AsyncOperationHandle<GameObject>> _assets;
 
     private void Start() {
         // Preload all assets
         _assets = new Dictionary<string, AsyncOperationHandle<GameObject>>();
-        foreach (AssetReference assetToLoad in _realtimePrefabsToLoad) {
+        foreach (AssetReference assetToLoad in _realtimePrefabsToPreload) {
             if (assetToLoad.RuntimeKeyIsValid() == false)
                 continue;
 
@@ -102,9 +108,9 @@ public class CustomPrefabLoadDelegate : MonoBehaviour, IRealtimePrefabLoadDelega
 }
 ```
 
-This version includes a list of AddressableAssets that are preloaded when the scene is loaded in order to make prefab instantiation as fast as possible. If a prefab isn't preloaded, it will be loaded synchronously similarly to how the default `Resources.Load<GameObject>()` implementation works.
+Throw this in a file called **CustomRealtimePrefabLoadDelegate.cs** and then add the component to the same game object as your **Realtime** component.
 
-Add the **CustomRealtimePrefabLoadDelegate** component to the same game object as your **Realtime** component and let's test it out by creating a script to instantiate an addressable asset:
+To test this out, let's create a quick test component that instantiates an addressables prefab. Instantiation works the same was as before, except we pass the asset key as the name of the prefab:
 
 ```csharp
 using UnityEngine;
@@ -112,26 +118,27 @@ using UnityEngine.AddressableAssets;
 using Normal.Realtime;
 
 public class AddressablesTest : MonoBehaviour {
+    [SerializeField] private Realtime       _realtime;
     [SerializeField] private AssetReference _testAsset;
-
-    [SerializeField] private Realtime _realtime;
 
     private void Awake() {
         _realtime.didConnectToRoom += DidConnectToRoom;
     }
 
     private void DidConnectToRoom(Realtime realtime) {
-        // Get the RuntimeKey as a string
+        // Get the RuntimeKey as a string and instantiate
         string assetKey = _testAsset.RuntimeKey as string;
 
         // Instantiate the object
         GameObject gameObject = Realtime.Instantiate(assetKey, Realtime.InstantiateOptions.defaults);
-
-        // Done!
     }
 }
 ```
 
-Throw this on an empty game object in your scene and wire up the asset and realtime references and hit Play!
+Throw this script on an empty game object in the scene and wire up the realtime and test asset references. Make sure to add your test prefab to the list of realtime prefabs for our custom load delegate to preload. Once that's configured, enter play mode to test it out:
 
-It everything works properly, you should see your addressables asset loaded in the scene :)
+![](./using-addressables/addressables-test.mp4)
+
+As soon as Realtime connects to the room server, our test script will `Realtime.Instantiate` our test asset, and we'll see it show up in the scene.
+
+Download the complete <a :href="$withBase('/downloads/Normcore%20Addressables%20Recipe.zip')">Normcore Addressables Recipe</a> project and try it out for yourself.
