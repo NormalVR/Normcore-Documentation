@@ -21,6 +21,6 @@ class_members:
     remarks: When implementing object pooling, use this method to return the prefab to the pool.
     parameters:
     - name: prefabInstance
-      description: ''
+      description: The prefab instance to destroy or return to the pool for reuse.
 
 ---

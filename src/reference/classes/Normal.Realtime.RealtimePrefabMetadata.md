@@ -10,6 +10,6 @@ class_members:
   members:
   - name: prefabName
     definition: public string prefabName
-    summary: The name of the prefab asset to load.
+    summary: The name of the prefab asset to load. This is the same prefabName string that is passed to Realtime.Instantiate().
 
 ---

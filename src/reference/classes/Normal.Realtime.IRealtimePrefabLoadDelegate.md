@@ -11,6 +11,7 @@ class_members:
   - name: LoadRealtimePrefab
     definition: GameObject LoadRealtimePrefab(RealtimePrefabMetadata prefabMetadata)
     summary: Called by Room to load a prefab for a given prefab name. The default implementation calls Resources.Load<GameObject>(prefabName).
+    returns: The realtime prefab to clone for instantiation.
     parameters:
     - name: prefabMetadata
       description: The metadata stored in the datastore to reference this realtime prefab.
