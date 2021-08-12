@@ -11,15 +11,15 @@ title: RPC Events
 
 That said, they can be useful for one-shot effects, or things that don't require a client that joins late to be aware of them or the state they alter in your application.
 
-This recipe shows how to use a model to send an RPC-like event message that can be fired from all clients.
+This recipe shows how to use a model to send an RPC-like event message that can be fired by anyone in the room.
 
-For this example, let's say we want to trigger a celebration particle system effect on all clients. We'll want to send an RPC-like message that includes the sender, position, and the scale of the effect. Typically I'd recommend instantiating a particle system prefab, but if you /had/ to use an RPC-like structure, here's how you should do it:
+For this example, let's say we want to trigger a celebration particle system effect on all clients. We'll want to send an RPC-like message that includes the sender ID, position, and scale of the effect. Typically I'd recommend instantiating a particle system prefab, but if you *absolutely have to* use an RPC-like structure, here's how you can do it:
 
-Let's start with the [template project](./). Open up the scene at `_RPC Events Recipe/Scene.unity`. This is an empty scene with a prebuilt particle system called **Explosion Particle System**. We can test it out by entering play mode and then clicking Emit in the inspector:
+Let's start with the [template project](./). Open up the scene located in the `_RPC Events Recipe` folder. This is an empty scene with a prebuilt particle system called **Explosion Particle System**. We can test it out by entering play mode and then clicking Emit in the inspector:
 
-TODO: Video of emitting particles with the template.
+![](./rpc-events/particle-system-test.mp4)
 
-Now that we have this working, let's network it. We'll start by creating a model for our event. This model will hold all of the values we'd typically send in an RPC message and an integer that we can increment every time we want to trigger an event:
+Now that we have this working, let's network it. We'll start by creating a model for our explosion event. This model will hold all of the values we'd typically send in an RPC message and an integer that we can increment every time we want to trigger an event:
 
 ```csharp
 [RealtimeModel]
@@ -35,8 +35,7 @@ This model includes the trigger integer that we'll use to trigger the event, the
 
 Go into the Unity editor and compile this model so we can start using the public properties on it. Once it's compiled, we'll add a method and C# event to let us fire the event and listen for when it's fired:
 
-// TODO: Highlight the lines that have changed
-```csharp
+```csharp{8-25}
 [RealtimeModel]
 public partial class ExplosionEventModel {
     [RealtimeProperty(1, true)] private int     _trigger;
@@ -65,9 +64,11 @@ public partial class ExplosionEventModel {
 }
 ```
 
-Compile your model again to add the RealtimeCallback functionality. Now we have a model with a `FireEvent()` method and a C# `eventDidFire` event that will be invoked when any client fires an event.
+**Compile your model again** so that the `[RealtimeCallback]` functionality is added by the model compiler.
 
-Let's create a **RealtimeComponent** that uses this model, and will call `Emit()` on the particle system whenever the event fires:
+Now we have a model with a `FireEvent()` method and a C# `eventDidFire` event that will be invoked when any client fires an event.
+
+Let's create a **RealtimeComponent** that uses this to call `Emit()` on the particle system whenever the event fires:
 
 ```csharp
 using UnityEngine;
@@ -124,8 +125,8 @@ public class ExplosionEventTest : MonoBehaviour  {
 }
 ```
 
-Create an empty game object, add both scripts, wire up the particle system reference, and it's ready to use! Go ahead an export a standalone build and run it next to the editor to try it out:
+Create an empty game object, add both scripts, wire up the particle system reference, and it's ready to use. Go ahead and export a standalone build and run it next to the editor:
 
-TODO: Video
+![](./rpc-events/rpc-events-test.mp4)
 
-That's it! Despite having a nice recipe for this, I still recommend avoiding this pattern if you can. There are circumstances where it can make sense, but in most cases it will lead to desyncs and code bugs that are hard to test for and reproduce.
+That's it! Despite having a nice recipe for this, I still recommend avoiding this pattern if you can. Any state that is modified in response to an event like this can easily diverge between clients. There are circumstances where it can make sense, but in most cases it will lead to desyncs and bugs that are hard to test for and reproduce.

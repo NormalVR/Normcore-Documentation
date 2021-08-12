@@ -68,7 +68,8 @@ module.exports = {
             sidebarDepth: 2,
             children: [
               '/guides/recipes/timers-and-synchronized-playback',
-              '/guides/recipes/using-addressables'
+              '/guides/recipes/using-addressables',
+              '/guides/recipes/rpc-events',
             ]
           }
         ]
