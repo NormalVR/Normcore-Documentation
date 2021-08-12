@@ -15,7 +15,7 @@ This recipe shows how to use a model to send an RPC-like event message that can 
 
 For this example, let's say we want to trigger a celebration particle system effect on all clients. We'll want to send an RPC-like message that includes the sender ID, position, and scale of the effect. Typically I'd recommend instantiating a particle system prefab, but if you *absolutely have to* use an RPC-like structure, here's how you can do it:
 
-Let's start with the [template project](./). Open up the scene located in the `_RPC Events Recipe` folder. This is an empty scene with a prebuilt particle system called **Explosion Particle System**. We can test it out by entering play mode and then clicking Emit in the inspector:
+Let's start with the <a :href="$withBase('/downloads/Normcore%20RPC%20Events%20Recipe%20Template.zip')">template project</a>. Open up the scene located in the `_RPC Events Recipe` folder. This is an empty scene with a prebuilt particle system called **Explosion Particle System**. We can test it out by entering play mode and then clicking Emit in the inspector:
 
 ![](./rpc-events/particle-system-test.mp4)
 
@@ -130,3 +130,5 @@ Create an empty game object, add both scripts, wire up the particle system refer
 ![](./rpc-events/rpc-events-test.mp4)
 
 That's it! Despite having a nice recipe for this, I still recommend avoiding this pattern if you can. Any state that is modified in response to an event like this can easily diverge between clients. There are circumstances where it can make sense, but in most cases it will lead to desyncs and bugs that are hard to test for and reproduce.
+
+If you'd like to check out the completed recipe project, you can download it <a :href="$withBase('/downloads/Normcore%20RPC%20Events%20Recipe%20Complete.zip')">here</a>.
