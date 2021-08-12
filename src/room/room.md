@@ -44,4 +44,4 @@ Normcore's new MediaStream API is now available in private preview for [Normcore
 ## RPCs
 RPC messages in Normcore are available as a last resort. If you have players that can join a room late, RPC messages make consistent synchronization difficult. Any state modified in response to an RPC message will need to be manually synchronized by your own code.
 
-If you are looking for information about how to fire one-shot events, take a look at our [Firing Events](../guides/firing-events) recipe. It demonstrates how to use the Normcore datastore to trigger one-shot events on all clients.
+If you are looking for information about how to fire one-shot events, take a look at our [RPC Events](../guides/recipes/rpc-events) recipe. It demonstrates how to use the Normcore datastore to trigger one-shot events on all clients.

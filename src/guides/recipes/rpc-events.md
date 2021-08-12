@@ -4,13 +4,14 @@ title: RPC Events
 ---
 # Recipe: RPC Events
 
-// TODO: Note about how RPCs suck ass and a link to the RPC page if we have one
-- If you're using them to sync state, you're going to run into issues, use a model!
-- They can introduce bugs where clients that join late can't be brought up to speed
-  - Some services buffer the last X messages, but this makes debugging even harder because you now have a bug that only appears when an important message was more than 512 messages old...
+### Preface
+Before we dive into this recipe, I'd like to warn you against using RPC messages. Most networking solutions offer RPC messages for sending messages between clients, but we believe this is a bad pattern. It puts the burden on you, the developer, to ensure that all state that is changed in response to an RPC message remains in sync across all clients.
+
+When a desync occurs, it's often related to an RPC message behaving differently based on the state of the app or it's an issue with the order and timing of messages. This can result in bugs that are incredibly hard to reproduce and debug. This is amplified by services that buffer RPC messages as important messages may only introduce bugs if they're old enough to be removed from the buffer.
 
 That said, they can be useful for one-shot effects, or things that don't require a client that joins late to be aware of them or the state they alter in your application.
 
+### Recipe
 This recipe shows how to use a model to send an RPC-like event message that can be fired by anyone in the room.
 
 For this example, let's say we want to trigger a celebration particle system effect on all clients. We'll want to send an RPC-like message that includes the sender ID, position, and scale of the effect. Typically I'd recommend instantiating a particle system prefab, but if you *absolutely have to* use an RPC-like structure, here's how you can do it:
