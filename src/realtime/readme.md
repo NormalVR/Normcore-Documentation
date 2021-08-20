@@ -28,7 +28,7 @@ It's worth noting that RealtimeTransform uses ownership in a unique way. For mor
 
 //TODO: Link to RealtimeTransform or ownership document that explains the difference
 
-//TODO: Record a short video of this
+![](./assets/realtime-transform.mp4)
 
 ## Prefabs
 Any prefab can be used with Normcore as long as it has a [RealtimeView](./realtimeview) on the root of the game object. In our documentation, a "realtime prefab" refers to a prefab that's synchronized via the Realtime API using realtime views and realtime components.

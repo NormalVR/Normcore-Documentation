@@ -13,8 +13,6 @@ It's generally a good idea to think of a Realtime instance as a connection to a 
 
 This is what the Realtime component looks like in Unity. 
 
-// TODO: Update this screenshot
-
 ### App Settings
 This points to a [NormcoreAppSettings](../reference/classes/Normal.NormcoreAppSettings) asset that stores the relevant metadata needed for your application to connect to Normcore servers.
 
