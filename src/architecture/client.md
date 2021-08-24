@@ -7,6 +7,7 @@ This document describes the overall architecture of Normcore and how state is sy
 
 ## Plugin Architecture
 ![](./client/architecture.png)
+
 Normcore's Unity plugin consists of a series of layers. Each one builds on the layer below to provide an abstraction that is easier to use and lets you focus your time on building your game.
 
 **[Realtime](../realtime/):** This is the API that bridges your scene to Normcore's datastore. Most developers will work exclusively with this API.
