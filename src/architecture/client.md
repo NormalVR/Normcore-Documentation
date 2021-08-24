@@ -5,6 +5,16 @@ title: Unity Client
 # Unity Client
 This document describes the overall architecture of Normcore and how state is synchronized between players.
 
+## Plugin Architecture
+![](./client/architecture.png)
+Normcore's Unity plugin consists of a series of layers. Each one builds on the layer below to provide an abstraction that is easier to use and lets you focus your time on building your game.
+
+**[Realtime](../realtime/):** This is the API that bridges your scene to Normcore's datastore. Most developers will work exclusively with this API.
+
+**[Room + Datastore API](../room/):** The Room + Datastore API manages your connection to a room server and synchronization of raw state in your application. It is unaware of your Unity scene or any Unity objects.
+
+**[Transport](./transport):** The lowest level is our transport API. It is responsible for getting messages between point A and point B.
+
 ## Rooms
 
 Rooms in Normcore are used to separate groups of players. They’re most commonly used to host a single match for a game, or a persistent space for a productivity app. Players who join the same room name will be automatically connected to the same room.
@@ -30,6 +40,3 @@ Normcore uses an MVC (Model, View, Controller) based architecture, in order to h
 The datastore holds a collection of RealtimeModel objects and ensures that they’re kept in sync between clients. In Unity, each GameObject represents the visual state of your app, so we consider it to be the View. And finally, the RealtimeComponent scripts act as the controller.
 
 ![](./client/mvc-diagram.svg "A diagram of the MVC lifecycle that Normcore is modeled after, with the equivalent of each component in Realtime.")
-
-// TODO: Add a diagram to illustrate the Realtime API / Room API / Transport separation
-// TODO: What happened to that diagram with the internet cloud on it? That would be good here or in an Overview page

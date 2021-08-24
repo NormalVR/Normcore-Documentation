@@ -8,7 +8,7 @@ Normcore is a hosted platform that provides servers around the globe.
 ### Our pricing model
 We offer [three pricing tiers](https://normcore.io/pricing) to meet your needs.
 
-// TODO: Insert Graphic
+![](./assets/plans.png)
 
 We charge based solely on room hours and bandwidth:
 
