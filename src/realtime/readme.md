@@ -24,11 +24,9 @@ To synchronize the position of a game object using the [RealtimeTransform](./rea
 4. Click the **"Request Ownership"** button on the RealtimeTransform inspector (not the RealtimeView inspector).
 5. Drag the cube around in the scene and watch how it updates on the build automatically.
 
+![](./assets/realtime-transform.mp4)
+
 It's worth noting that RealtimeTransform uses ownership in a unique way. For more information check out the guide on [RealtimeTransform](./RealtimeTransform).
-
-//TODO: Link to RealtimeTransform or ownership document that explains the difference
-
-//TODO: Record a short video of this
 
 ## Prefabs
 Any prefab can be used with Normcore as long as it has a [RealtimeView](./realtimeview) on the root of the game object. In our documentation, a "realtime prefab" refers to a prefab that's synchronized via the Realtime API using realtime views and realtime components.

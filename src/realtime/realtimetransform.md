@@ -6,6 +6,13 @@ title: RealtimeTransform
 
 RealtimeTransform is a built-in [RealtimeComponent](./realtimecomponent) that can be used to synchronize the transform or rigidbody of a GameObject.
 
+## Editor Interface
+![](./assets/realtimetransform-rigidbody.png "The RealtimeTransform inspector in Unity.")
+
+**Sync Position, Rotation, and Scale:** Each toggle will determine whether RealtimeTransform should synchronize the position, rotation, and scale of the game object.
+
+**Smoothing:** A setting that indicates whether Normcore should smooth transform data that's received from remote players.
+
 ## How it works
 To use RealtimeTransform, all you need to do is add it to a GameObject and make sure one client owns it.
 
