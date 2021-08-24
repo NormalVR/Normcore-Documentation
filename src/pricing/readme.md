@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Pricing
+title: Pricing Overview
 ---
 # Pricing
 Normcore is a hosted platform that provides servers around the globe.

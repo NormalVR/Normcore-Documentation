@@ -48,9 +48,11 @@ module.exports = {
       },
       {
         title: "Pricing",
-        path: '/pricing',
         collapsable: false,
         sidebarDepth: 2,
+        children: [
+          '/pricing/',
+        ]
       },
       {
         title: "Guides",
