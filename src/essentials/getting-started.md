@@ -27,8 +27,6 @@ You'll notice that in the Realtime inspector, there's a field for an "App key". 
 
 Click on Create a new Application, give it a name, and grab your shiny new app key.
 
-// TODO: Switch this to the hoverbird player controller example. It's so much cooler, and still pretty simple!
-
 Once you’ve got your app key, paste it into the App Key field on the Realtime component, and hit Play. You should see Realtime spinning up a room in the console, followed by a CubePlayer instantiated in the scene:
 
 ![](./getting-started/cube-player.png "A CubePlayer is instantiated for your local player when you connect.")
@@ -41,8 +39,8 @@ Export a standalone build to run next to the Unity Editor. Open the standalone b
 
 That’s it! You’re now up and running with Normcore. Now I know, this example isn’t the coolest, however, it only gets better from here. Check out some of our other guides:
 
-- [How Normcore Works](core-concepts/how-normcore-works.md)
-- [XR Avatars and Voice Chat](xr-guides/xr-avatars-and-voice-chat.md)
-- [Synchronizing Custom Data](core-concepts/synchronizing-custom-data.md)
+- [Creating a player controller](../guides/creating-a-player-controller)
+- [XR Avatars and Voice Chat](../guides/xr-avatars-and-voice-chat)
+- [Synchronizing Custom Data](../realtime/synchronizing-custom-data)
 
 Until next time  : )
