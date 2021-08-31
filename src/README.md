@@ -12,5 +12,6 @@ We're always working to improve Normcore as much as we can. If you have any ques
 [![Download](assets/download.png)](http://normcore.io/download)
 [![Getting Started](assets/gettingstarted.png)](./getting-started)
 [![Discord](assets/discord.png)](https://normcore.io/discord)
+[![Forum](assets/forum.png)](https://forum.normcore.io/)
 
 </span>
