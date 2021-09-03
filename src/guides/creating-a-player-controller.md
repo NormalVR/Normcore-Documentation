@@ -1,16 +1,16 @@
 ---
 layout: docs
-title: Creating a player controller
+title: Creating a Player Controller
 ---
-# Creating a player controller
+# Creating a Player Controller
 
-This guide will demonstrate how to create a basic player that you can move using WASD and the mouse. This guide serves as the foundation for any multiplayer game that lets you play as a 3rd-person player.
+This guide will demonstrate how to create a basic player that you can move using WASD and the mouse. It will serve as the foundation for any multiplayer game that lets you play as a third-person player.
 
 When you're finished, you'll end up with a multiplayer game that looks like this:
 
 ![](./creating-a-player-controller/hoverbird-completed-1.mp4)
 
-We'll start by creating a singleplayer player controller from scratch. We'll get the controls to feel nice and then we'll make it multiplayer. If you're only interested in the multiplayer part, skip to [making it multiplayer](#making-it-multiplayer).
+We'll start by creating a singleplayer player controller from scratch. We'll get the controls to feel nice, and then we'll make it multiplayer. If you're only interested in the multiplayer part, skip to [making it multiplayer](#making-it-multiplayer).
 
 ## Creating a singleplayer player controller
 
@@ -24,7 +24,7 @@ Last, we'll add a Sphere game object to represent the body of the player. Set th
 
 ![](./creating-a-player-controller/create-player-object-2.mp4)
 
-Looking good so far! If we enter Play mode, nothing will happen, so let's create a script to control our player. Create a new script called Player and add it to the Player game object.
+Looking good so far! If we enter Play mode, nothing will happen, so let's create a script to control our player. Create a new script called Player, and add it to the Player game object.
 
 The first step is to create a method to capture player input in `Update()` and a method to apply the input to our rigidbody in `FixedUpdate()`
 
@@ -84,9 +84,9 @@ Enter Play mode and give this a shot. Using WASD, you should see the sphere move
 
 So far so good, but our camera is left behind! Let's fix that.
 
-We could add the camera as a child of the player, but later on we plan to instantiate the player after we connect to a multiplayer room, which means we'd have no camera until after we connect. Instead, we'll create an empty game object to represent a target point on the player that the camera should follow.
+We could add the camera as a child of the player, but we plan to instantiate the player later on after we connect to a multiplayer room, which means we'd have no camera until after we connect. Instead, we'll create an empty game object to represent a target point on the player that the camera should follow.
 
-Create an empty game object called "Camera Target" and set the y-position to 1.0. This will be the point our camera looks at. We'll also add a **Parent Constraint** component to the camera. Check the box for **Is Active** and set the **Position At Rest** and **Rotation At Rest** to (0.0, 1.5, -3.0) and (15.0, 0.0, 0.0) respectively to match the camera defaults. Finally, add the CameraTarget game object as the source.
+Create an empty game object called "Camera Target", and set the y-position to 1.0. This will be the point our camera looks at. We'll also add a **Parent Constraint** component to the camera. Check the box for **Is Active** and set the **Position At Rest** and **Rotation At Rest** to (0.0, 1.5, -3.0) and (15.0, 0.0, 0.0), respectively, to match the camera defaults. Finally, add the CameraTarget game object as the source.
 
 Enter Play mode and use WASD to move around.
 
@@ -486,7 +486,7 @@ Believe it or not, the hardest part is over. Now let's make it multiplayer!
 
 ## Making it multiplayer
 
-We'll start by turning the Player game object into a Realtime prefab that we can instantiate for every player in the multiplayer room. Add a **RealtimeView** to the Player, create a Resources folder, and drag it into the Resources folder. Go ahead and delete it from the scene once this is done.
+We'll start by turning the Player game object into a Realtime prefab that we can instantiate for every player in the multiplayer room. Add a **RealtimeView** to the Player, create a Resources folder, and drag the Player into the Resources folder. Go ahead and delete it from the scene once this is done.
 
 ![](./creating-a-player-controller/making-player-prefab-9.mp4)
 
@@ -534,7 +534,7 @@ public class PlayerManager : MonoBehaviour {
 }
 ```
 
-Create an empty game object in the scene, add Realtime and our newly created **PlayerManager**. Make sure you've configured your app key, and then let's export a build and try it out!
+Create an empty game object in the scene, and add Realtime and our newly created **PlayerManager**. Make sure you've configured your app key, and then let's export a build and try it out!
 
 Export a build, open it, and hit Play in the editor.
 
@@ -725,7 +725,7 @@ public class Player : MonoBehaviour {
 }
 ```
 
-Here we've renamed `Update()` and `FixedUpdate()` to `LocalUpdate()` and `LocalFixedUpdate()`. We've also set them to only run if this player is owned by the local client. Inside of `PlayerManager.cs` we've set `ownedByClient: true` which takes ownership of the **RealtimeView** when the Player prefab is instantiated. We then use `isOwnedLocallyInHierarchy` to determine if the **RealtimeView** on this prefab is owned locally.
+Here we've renamed `Update()` and `FixedUpdate()` to `LocalUpdate()` and `LocalFixedUpdate()`. We've also set them to only run if this player is owned by the local client. Inside of `PlayerManager.cs` we've set `ownedByClient: true`, which takes ownership of the **RealtimeView** when the Player prefab is instantiated. We then use `isOwnedLocallyInHierarchy` to determine if the **RealtimeView** on this prefab is owned locally.
 
 Let's try this version out.
 
@@ -733,7 +733,7 @@ Let's try this version out.
 
 Much better, but not quite there yet. We're now controlling only our own avatar, but if you look at the other build, it's not synchronized over the network. Luckily, Normcore has a built-in component that'll do that for you. We'll add a **RealtimeTransform** component to the Player to synchronize movement and a **RealtimeTransform** on the Hoverbird Character game object so we can synchronize the character look direction and lean.
 
-If you're familiar with our [Networked Physics](../core-concepts/networked-physics) guide, you'll know that **RealtimeTransform** when paired with a rigidbody will attempt to clear ownership automatically when the rigidbody goes to sleep in order to allow other clients to take it over on physics collisions. However, in this case, we always want to retain ownership of the Player **RealtimeTransform** at all times. In order to do that, we'll want to set it to **Maintain Ownership While Sleeping**.
+If you're familiar with our [Networked Physics](../core-concepts/networked-physics) guide, you'll know that **RealtimeTransform**, when paired with a rigidbody, will attempt to clear ownership automatically when the rigidbody goes to sleep in order to allow other clients to take it over on physics collisions. However, in this case, we want to retain ownership of the Player **RealtimeTransform** at all times. In order to do that, we'll want to set it to **Maintain Ownership While Sleeping**.
 
 ![](./creating-a-player-controller/add-realtime-transforms-to-player-12.mp4)
 
