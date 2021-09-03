@@ -7,14 +7,14 @@ title: Common Questions
 ### How is Normcore different from other networking plugins?
 We get networking right.
 
-Normcore provides some unique features. It will:
+Normcore provides some unique features for developers:
 
-* keep objects in sync and ensure state doesn't differ between clients.
-* help individual room servers scale to handle all the players in a single match.
-* encrypt all of your data, both for privacy and to eliminate DDoS packet replay attacks.
-* use the WebRTC protocol, so you can support the web.
-* help you scale quickly and globally without overspending on AWS or Google Cloud.
-* keep games fast by making sure servers are physically located near your users.
+* **Keep objects in sync.** Normcore ensures state won't differ between clients.
+* **Automatically scale.** Our backend infrastructure can scale to millions of users automatically.
+* **Only pay for the servers you use.** Normcore lets you scale globally, while only paying for what you use.
+* **Low latency.** Normcore ensures servers are physically located near your users to reduce latency. 
+* **Encrypt** ***all\*** **of your data.** We encrypt all data to help with both privacy and eliminating DDoS packet replay attacks.
+* **Up your value by supporting the web.** Normcore uses the powerful [WebRTC](../architecture/transport) protocol. This means you can support live spectating on the web, browser editions of your game, and more.
 
 When it comes to multiplayer networking, these things matter. Learn more about how we solve these and other problems on our [Why Normcore](https://normcore.io/why-normcore) page.
 
