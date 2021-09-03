@@ -62,7 +62,7 @@ gcloud container clusters create my-cluster                      \
 
 While we’re waiting for the cluster to spin up, if you do not have the kubectl command installed, install it now by running `gcloud components install kubectl` in another tab.
 
-Once your cluster is up and running, we’ll get the credentials from Google Cloud needed to access it. Make sure to specify the region or zone using the `--region` or `--zone` flags depending on your cluster type.
+Once your cluster is up and running, we’ll get the credentials from Google Cloud needed to access it. Make sure to specify the region or zone using the `--region` or `--zone` flags, depending on your cluster type.
 
 ```
 gcloud container clusters get-credentials my-cluster --region us-east4
@@ -132,7 +132,7 @@ kubectl apply -k kubernetes/_global/cluster/
 Open up `kubernetes/default/cluster/cluster-config.yaml` and set `room-storage-bucket-name` to the name of the bucket created earlier; `default.normcore.normalvr.com` in our case.
 
 
-Once configured, deploy the normcore-cluster service using the `./deploy `command. A successful deployment will look like this:
+Once configured, deploy the normcore-cluster service using the `./deploy` command. A successful deployment will look like this:
 
 ![](./setup/deploy-normcore-cluster.png)
 

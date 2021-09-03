@@ -21,7 +21,7 @@ The components section lists all [RealtimeComponents](./realtimecomponent) on th
 ### Children
 The child views section works similarly to the Components section. Any children of this RealtimeView will show up here. All data that’s stored in RealtimeComponents on child views will be added to this view when put in the datastore.
 
-In general, you should never need to manually assign unique view IDs. Normcore will automatically assign them, and will deprecate them when you remove a child view. If you move a child view back, it will auto-detect and re-assign the old ID to prevent bugs that can arise when loading persistent data from the datastore.
+In general, you should never need to manually assign unique view IDs. Normcore will automatically assign them, and will deprecate them when you remove a child view. If you move a child view back, it will autodetect and reassign the old ID to prevent bugs that can arise when loading persistent data from the datastore.
 
 ### Advanced Settings
 #### Realtime Instance
@@ -41,7 +41,7 @@ The three properties here are only applicable to the RealtimeViews that exist in
 
 If you leave “Destroy Last Client Leaves” unchecked, all views and components, and their models, will persist between sessions. Let’s say you’re building a collaboration space with a whiteboard. You can leave this unchecked so that the state of your whiteboard is saved between sessions.
 
-If you're using RealtimeView on a prefab, these values can be set via the `InstantiateOptions` struct passed to [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime#Instantiate)
+If you're using RealtimeView on a prefab, these values can be set via the `InstantiateOptions` struct passed to [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime#Instantiate).
 
 #### Reset View UUID
 This button is only applicable to RealtimeViews that exist in the scene (as opposed to RealtimeViews instantiated via [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime#Instantiate)). 

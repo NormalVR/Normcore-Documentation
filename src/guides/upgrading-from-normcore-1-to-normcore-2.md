@@ -14,9 +14,9 @@ Before we begin, make sure your project is compiling without any errors and you'
 
 #### 1. Import Normcore 2
 
-Download the latest [Normcore 2](https://normcore.io/download) unitypackage and import it into Unity. Do not delete any Normcore 1 files before doing this step otherwise your project will have compilation errors before Normcore 2 is imported.
+Download the latest [Normcore 2](https://normcore.io/download) unitypackage and import it into Unity. Do not delete any Normcore 1 files before doing this step, otherwise your project will have compilation errors before Normcore 2 is imported.
 
-Once Normcore 2 successfully imports, it will add itself as a package in the Unity Package Manager. This is going to result in a bunch of GUID conflict errors and duplicate symbol errors, this is normal as there are two copies of Normcore in the project right now.
+Once Normcore 2 successfully imports, it will add itself as a package in the Unity Package Manager. This is going to result in a bunch of GUID conflict errors and duplicate symbol errors. This is normal, as there are two copies of Normcore in the project right now.
 
 ![](./upgrading-from-normcore-1-to-normcore-2/import-normcore-2.mp4)
 
@@ -28,7 +28,7 @@ In order to delete Normcore 1 from your project, open up the Normal folder and d
 
 #### 3. Restart Unity + Perform Migration
 
-Restarting Unity will reset any files that Unity altered in the Normcore 2 package. Once Unity re-opens, you'll see the Normcore Migration window.
+Restarting Unity will reset any files that Unity altered in the Normcore 2 package. Once Unity reopens, you'll see the Normcore Migration window.
 
 ![](./upgrading-from-normcore-1-to-normcore-2/migrate-window.png)
 

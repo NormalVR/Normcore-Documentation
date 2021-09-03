@@ -10,7 +10,7 @@ In Normcore, all clients are able to access a synchronized clock to drive animat
 
 Once connected a room, the room time is available via the `realtime.room.time` property.
 
-To demonstate how to use it, let's put together a recipe for a stopwatch:
+To demonstrate how to use it, let's put together a recipe for a stopwatch:
 
 Start with a model to hold the room time when the watch was started. Put this in a file called **StopwatchModel.cs**:
 

@@ -15,7 +15,7 @@ If you would like to use a different avatar prefab for different clients, this p
 
 In addition to managing the local player prefab instance, RealtimeAvatarManager keeps track of all avatars in the room via the `localAvatar` and `avatars` properties. The latter is a dictionary of all `RealtimeAvatar` components stored under the `clientID` that the avatar belongs to. This can be useful for determining how many players are currently in a multiplayer space.
 
-If you would like to be notified of when players join and leave, RealtimeAvatarManager includes two events: `avatarCreated` and `avatarDestroyed` which can be used like so:
+If you would like to be notified of when players join and leave, RealtimeAvatarManager includes two events: `avatarCreated` and `avatarDestroyed`, which can be used like so:
 
 ```csharp
 using UnityEngine;
@@ -45,7 +45,7 @@ All avatar prefabs that are used with RealtimeAvatarManager need to include a **
 
 The RealtimeAvatar component is responsible for synchronizing the head + hands positions and active states.
 
-When it's first instantiated, RealtimeAvatar is given a set of transforms to track for the root of the prefab, the head, and the hands from RealtimeAvatarManager's `localPlayer` field which is set in the editor inspector.
+When it's first instantiated, RealtimeAvatar is given a set of transforms to track for the root of the prefab, the head, and the hands from RealtimeAvatarManager's `localPlayer` field, which is set in the editor inspector.
 
 ## Modifying RealtimeAvatar scripts
 The source code to RealtimeAvatarManager and RealtimeAvatar are included with Normcore and serve as examples of how to implement an avatar management system in Normcore. While they cover the common case, larger XR apps may want to introduce extra functionality.

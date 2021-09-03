@@ -16,7 +16,7 @@ For this example, I’m going to make a realtime component that synchronizes the
 
 ### Creating a realtime model
 
-First, we’re going to start by writing the model. Start by removing `MonoBehaviour` from the class definition. Models shouldn't be a subclass of any other class. Next, add a private field to hold our color value. One quick note: variables need to be private and they need to start with an underscore. Once you have you've added your property, your class should look something like this:
+First, we’re going to start by writing the model. Start by removing `MonoBehaviour` from the class definition. Models shouldn't be a subclass of any other class. Next, add a private field to hold our color value. One quick note: variables need to be private and they need to start with an underscore. Once you've added your property, your class should look something like this:
 
 ```csharp
 using System.Collections;
@@ -28,7 +28,7 @@ public class ColorSyncModel {
 }
 ```
 
-Now, this isn't enough to synchronize our model with the datastore. We need a few methods to expose this property publicly, detect changes to the color, and send any changes to the server. Luckily, Normcore comes with a plugin that will write all of that logic for us and ensure that it's written with correctness and performance in mind. In order to use it, we're going to add a `[RealtimeModel]` attribute to our class, and a `[RealtimeProperty]` attribute to the `_color` variable. 
+Now, this isn't enough to synchronize our model with the datastore. We need a few methods to expose this property publicly, detect changes to the color, and send any changes to the server. Luckily, Normcore comes with a plugin that will write all of that logic for us and ensure that it's written with correctness and performance in mind. In order to use it, we're going to add a `[RealtimeModel]` attribute to our class and a `[RealtimeProperty]` attribute to the `_color` variable. 
 Your class should look something like this:
 
 ```csharp {5,7}
@@ -43,23 +43,23 @@ public class ColorSyncModel {
 }
 ```
 
-Here I’ve added a `[RealtimeModel]` attribute to signal to Normcore that this is a model class, this will be relevant in the next step. Second, I’ve added a `[RealtimeProperty]` attribute to the color property. RealtimeProperty has three arguments:
+Here, I’ve added a `[RealtimeModel]` attribute to signal to Normcore that this is a model class. This will be relevant in the next step. Second, I’ve added a `[RealtimeProperty]` attribute to the color property. RealtimeProperty has three arguments:
 
 #### PropertyID
 
 The first is the property ID. This is a unique ID that is used by Normcore to identify this property among others when sending data to and from the server. The property ID needs to be unique, but only to this model. It does not have to be unique to the whole project. It's generally a good idea to always start at 1 for each model that you create.
 
-If you need to change the type of this property, you'll want to create a new property with a new property ID, and deprecate the existing one. This will ensure that newer versions of your application can still communicate with older versions. If you would like to delete this field altogether, make sure to retire its property ID so it is not reused for something else. Comment out the field and leave it in your source code so you can see previously used property IDs.
+If you need to change the type of this property, you'll want to create a new property with a new property ID and deprecate the existing one. This will ensure that newer versions of your application can still communicate with older versions. If you would like to delete this field altogether, make sure to retire its property ID so it is not reused for something else. Comment out the field and leave it in your source code so you can see previously used property IDs.
 
-#### Reliable / Unreliable
+#### Reliable / unreliable
 
-This marks whether the property should be synced reliably or unreliably. In general, if you plan to change a property very often (such as animating a color, or moving a transform), you should use an unreliable property. Unreliable updates are not resent if they’re dropped in transit because it’s expected that another update is following shortly after.
+This marks whether the property should be synced reliably or unreliably. In general, if you plan to change a property very often (such as animating a color or moving a transform), you should use an unreliable property. Unreliable updates are not resent if they’re dropped in transit because it’s expected that another update is following shortly after.
 
-Reliable properties are good for things that you update once, but that should be resent if the packet is dropped in transit. This is great for state such as whether your game has started or not. When you change it, Normcore will ensure this value is synchronized between all clients and will make sure it is in sync before any newer reliable updates to are applied to the datastore.
+Reliable properties are good for things that you update once and that should be resent if the packet is dropped in transit. This is great for state such as whether your game has started or not. When you change it, Normcore will ensure that this value is synchronized between all clients and that it is in sync before any newer reliable updates to are applied to the datastore.
 
 #### Change Event
 
-The last option is an optional argument that specifies if you would like a change event added to the model. When this is set to true, a C# event is added that will fire when a property is changed locally or remotely. This is a useful signal to update your scene to match the model.
+The last option is an optional argument that specifies if you would like a change event added to the model. When this is set to true, a C# event is added; it will fire when a property is changed locally or remotely. This is a useful signal to update your scene to match the model.
 
 Now that we have our model defined, it’s time to compile it. Go back to Unity and highlight the `ColorSyncModel.cs` file in your project. The inspector should look something like this:
 
@@ -183,13 +183,13 @@ public class ColorSync : RealtimeComponent<ColorSyncModel> {
 }
 ```
 
-When a `RealtimeComponent` is first created, it starts with no model. Normcore populates it once we have successfully connected to the server (or instantly if we're already connected), and calls `OnRealtimeModelReplaced()` to provide us with a copy of it. If this `RealtimeComponent` was previously mapped to a different model (e.g. when switching rooms), it will provide a reference to the previous model in order to allow your component to unregister from events.
+When a `RealtimeComponent` is first created, it starts with no model. Normcore populates it once we have successfully connected to the server (or instantly, if we're already connected) and calls `OnRealtimeModelReplaced()` to provide us with a copy of it. If this `RealtimeComponent` was previously mapped to a different model (e.g., when switching rooms), it will provide a reference to the previous model in order to allow your component to unregister from events.
 
-In this example, when a model is passed to us, I start by checking if it's a fresh model. This tells us whether this is a model for an object that already exists, or whether it was created fresh. If it's fresh, I populate it with the color of the `MeshRenderer`.
+In this example, when a model is passed to us, I start by checking if it's a fresh model. This tells us whether this is a model for an object that already exists or one that was created fresh. If it's fresh, I populate it with the color of the `MeshRenderer`.
 
 Next up I call `UpdateMeshRendererColor()` to synchronize the color stored on the model to the `MeshRenderer`. If another client created this model, it will be populated with the values they set.
 
-Finally, I register for the `colorDidChange` event that calls my `ColorDidChange` method whenever the model's `color` property changes so if the color changes later, we’ll be notified so we can update our mesh renderer.
+Finally, I register for the `colorDidChange` event that calls my `ColorDidChange` method whenever the model's `color` property changes. That way, if the color changes later, we’ll be notified so we can update our mesh renderer.
 
 We have one final method to implement. Our `ColorSync` component will now properly keep the color of the game object in sync with the model, but we haven’t exposed a method to update the model itself. Let’s add a simple method that does that to our class:
 

@@ -20,7 +20,7 @@ No. RealtimeViews that are in the scene sometimes have a Scene View UUID, which 
 
 If you’d like to introduce this functionality, create a RealtimeComponent that assigns a UUID in `OnRealtimeModelReplaced()` when getting a fresh model. This will ensure that the component has a unique UUID and that existing models don’t have their UUIDs reassigned by new clients.
 
-#### Why do I get the error “This view doesn't have a model yet. Wait until the model is present before interacting with the ownership.” when interacting with RealtimeView? 
+#### Why do I get the error “This view doesn't have a model yet. Wait until the model is present before interacting with the ownership,” when interacting with RealtimeView? 
 
 If you’re dealing with a prefab, all views and components are initialized with their models. They will be ready to work with by the time `Start()` is called on any script on the prefab. `Awake()` must be called by Unity before Normcore can initialize any components on the game object. If you’re dealing with a RealtimeView that exists in a scene file, you’ll need to wait until `realtime.connected == true`, or the `didConnectToRoom` event has fired. RealtimeView uses `Start()` internally to register with Realtime, and it’s possible your start method ran before `RealtimeView.Start()`.
 
@@ -53,7 +53,7 @@ Instead, try storing data like health and scores in a `RealtimeDictionary` or a 
 RealtimeTransform cannot support reparenting. Take a look at the [RealtimeTransform](./realtimetransform#extra-notes) docs for more information.
 
 #### My RealtimeTransform gets stuck and I can't move it. What can I do about this?
-RealtimeTransform requires an owner in order to designate which client is responsible for its movement. Try calling `RequestOwnership()` this should help. Take a look at the [RealtimeTransform](./realtimetransform) docs for more information.
+RealtimeTransform requires an owner in order to designate which client is responsible for its movement. Try calling `RequestOwnership()`; this should help. Take a look at the [RealtimeTransform](./realtimetransform) docs for more information.
 
 #### Why doesn’t my RealtimeTransform properly transfer ownership on collision?
 You most likely requested ownership of the transform and the view. You only need to request ownership of the transform. If you would like a RealtimeTransform to support ownership handoff, you need to ensure the view has no owner. See [Ownership and Lifetime Flags](../room/ownership-and-lifetime-flags) for more information.

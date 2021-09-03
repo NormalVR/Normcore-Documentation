@@ -7,9 +7,9 @@ title: RPC Events
 ### Preface
 Before we dive into this recipe, I'd like to warn you against using RPC messages. Most networking solutions offer RPC messages for sending messages between clients, but we believe this is a bad pattern. It puts the burden on you, the developer, to ensure that all state that is changed in response to an RPC message remains in sync across all clients.
 
-When a desync occurs, it's often related to an RPC message behaving differently based on the state of the app or it's an issue with the order and timing of messages. This can result in bugs that are incredibly hard to reproduce and debug. This is amplified by services that buffer RPC messages as important messages may only introduce bugs if they're old enough to be removed from the buffer.
+When a desync occurs, it's often either related to an RPC message behaving differently based on the state of the app or it's an issue with the order and timing of messages. This can result in bugs that are incredibly hard to reproduce and debug. This is amplified by services that buffer RPC messages, as important messages may only introduce bugs if they're old enough to be removed from the buffer.
 
-That said, they can be useful for one-shot effects, or things that don't require a client that joins late to be aware of them or the state they alter in your application.
+That said, they can be useful for one-shot effects or for things that don't need a late-joining client to be aware of them or the state they alter in your application.
 
 ### Recipe
 This recipe shows how to use a model to send an RPC-like event message that can be fired by anyone in the room.

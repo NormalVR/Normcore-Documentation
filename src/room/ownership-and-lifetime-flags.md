@@ -13,14 +13,14 @@ The two most useful tools regarding server authority are ownership and lifetime 
 
 Normcore uses a [datastore](./how-normcore-works) to track all state in a room. The datastore itself is made up of model objects. Every model in the datastore, including child models, can have an owner with which it is associated.
 
-By default, models have an `ownerID` of `-1`, which denotes that it has no owner. When a model is unowned, it can be modified by anyone in the room. However, when a model is owned by a client, the server only lets the owning client make changes to it or to any of its child models.
+By default, a model has an `ownerID` of `-1`, which denotes that it has no owner. When a model is unowned, it can be modified by anyone in the room. However, when a model is owned by a client, the server only lets the owning client make changes to it or to any of its child models.
 
 
 ### How ownership is enforced
 
 Models can have other models as children, and the ownership settings of a parent are enforced on all children. If a model is owned by one client, all other clients are blocked from making changes to the model or any of its child models.
 
-You can see this behavior in action with RealtimeViews and RealtimeComponents, as they both use models. The RealtimeView's model contains the models for all child RealtimeViews and all RealtimeComponents, so any ownership settings on the RealtimeView apply to child views and to components as well.
+You can see this behavior in action with RealtimeViews and RealtimeComponents as they both use models. The RealtimeView's model contains the models for all child RealtimeViews and all RealtimeComponents, so any ownership settings on the RealtimeView apply to child views and to components as well.
 
 The most common RealtimeView prefab is a player prefab. A player prefab is also a prime example of when to use ownership. Generally, we want to ensure that each player prefab can only be modified by the player that owns it. Rather than setting ownership of every component on the player, we can set ownership of the root RealtimeView, and the server will block all other clients from making modifications to any RealtimeView or RealtimeComponent model.
 
@@ -28,7 +28,7 @@ Let's take a look at the hierarchy here:
 
 ![](./ownership-and-lifetime-flags/model-hierarchy.svg)
 
-Starting with the hierarchy, we have a VR Player game object at the root, and it has a child game object for the head and hands. Each game object has a `RealtimeView` and a `RealtimeTransform`, and potentially another `RealtimeComponent` or two.
+Starting with the hierarchy, we have a VR Player game object at the root, and it has a child game object for the head and hands. Each game object has a `RealtimeView` and a `RealtimeTransform` and potentially another `RealtimeComponent` or two.
 
 Now let's look at the models that get added to the datastore. At the root level, the VR Player's `RealtimeView` model is added. It contains a `RealtimeAvatar` model and `RealtimeTransform` model as children. If the `RealtimeView` is owned by the local player, only the local player will be able to make changes to the `RealtimeAvatar` or `RealtimeTransform` components. Additionally, the `RealtimeView` models for the head + hands game objects are also children of the VR Player `RealtimeView`, and so they fall under the same rules.
 
@@ -59,7 +59,7 @@ It's worth noting that `RequestOwnership()` and `ClearOwnership()` take effect i
 
 #### Realtime.Instantiate() + ownedByClient
 
-It is also possible to request ownership immediately using the `ownedByClient` field of `Realtime.Instantiate()` :
+It is also possible to request ownership immediately using the `ownedByClient` field of `Realtime.Instantiate()`:
 
 ``` csharp
 GameObject myObject = Realtime.Instantiate("My Object",

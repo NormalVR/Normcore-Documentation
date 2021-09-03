@@ -50,7 +50,7 @@ private void Update() {
 When you're ready to write your own realtime components, check out our [Synchronizing custom data](./synchronizing-custom-data) guide.
 
 #### Setting default values
-We recommend the code that calls `Realtime.Instantiate()` is responsible for setting default values. However, if you would like to synchronize unique default values (such as the initial position of an object), you can set them inside of `OnRealtimeModelReplaced` like so:
+We recommend that the code that calls `Realtime.Instantiate()` is responsible for setting default values. However, if you would like to synchronize unique default values (such as the initial position of an object), you can set them inside of `OnRealtimeModelReplaced` like so:
 
 ```csharp
 void OnRealtimeModelReplaced(blah) {

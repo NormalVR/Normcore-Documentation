@@ -71,7 +71,7 @@ Start by opening up the Realtime + Hoverbird Player scene. We'll use this scene 
 2. Open up the "Hoverbird Player" prefab and add a RealtimeAvatarVoice component to the root of the prefab.
 3. Export a WebGL build and open it in two browser windows. You should see two hoverbirds, be able to control them both in multiplayer, and hear voice chat between both windows.
 
-Although the hoverbird controls don't work on mobile, try opening it on iOS or Android. Multiplayer and voice chat work between mobile and desktop platforms as well.
+Although the hoverbird controls don't work on mobile, try opening the scene on iOS or Android. Multiplayer and voice chat work between mobile and desktop platforms as well.
 
 ## Known Issues
 

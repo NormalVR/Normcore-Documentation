@@ -9,7 +9,7 @@ What's uuuuuuuuuuuuup. Unless you're casually perusing the docs, you're probably
 
 To really understand how `RealtimeTransform` works, it's worth understanding how physics works in Unity.
 
-Unity uses a physics engine  behind the scenes from Nvidia called PhysX (get it, behind the *scenes* ;P). It works well, but it has one fatal flaw. It's non-deterministic. This means that if you set an object in motion on multiple devices, when it eventually comes to rest, it might not always be in the exact same place on all devices. Small bits of precision are lost each frame, and depending on the platform and compiler, your game might drift more or less.
+Unity uses a physics engine behind the scenes from Nvidia called PhysX (get it, behind the *scenes* ;P). It works well, but it has one fatal flaw. It's non-deterministic. This means that if you set an object in motion on multiple devices, when it eventually comes to rest, it might not always be in the exact same place on all devices. Small bits of precision are lost each frame, and depending on the platform and compiler, your game might drift more or less.
 
 For singleplayer games, this isn't a problem, but when it comes to multiplayer, it means that even with ideal starting conditions, multiple clients can come up with different answers to where an object is in space.
 
@@ -44,9 +44,9 @@ Looks good! Now let's export a build to play around with. Go to File > Build Set
 
 Nice and easy!
 
-It's worth noting that even though we are manipulating the world-space position and rotation of the object, `RealtimeTransform` synchronizes the `localPosition` , `localRotation`, and `localScale` properties. This means that if you have multiple nested Transforms, you need to synchronize all of them with `RealtimeTransform`.
+It's worth noting that even though we are manipulating the world-space position and rotation of the object, `RealtimeTransform` synchronizes the `localPosition`, `localRotation`, and `localScale` properties. This means that if you have multiple nested Transforms, you need to synchronize all of them with `RealtimeTransform`.
 
-Now if all you're doing is moving regular ol game objects, you're good to go. Feel free to hop off the train and get to it! However, if you're using rigidbodies, then let's keep going and explain how physics works.
+Now if all you're doing is moving regular ol' game objects, you're good to go. Feel free to hop off the train and get to it! However, if you're using rigidbodies, then let's keep going and explain how physics works.
 
 ### RealtimeTransform + Physics
 
@@ -54,7 +54,7 @@ Now if all you're doing is moving regular ol game objects, you're good to go. Fe
 
 #### Rigidbodies are synchronized in world space
 
-The first change is that rather than synchronizing the `localPosition` and `localRotation` properties of the transform, it synchronizes the `position` and `rotation` properties of the Rigidbody which are in world space instead of local space. We do this because PhysX simulates all rigidbodies in world space. Moving a Rigidbody via the Transform local position and rotation properties instantly teleports the Rigidbody and does not perform collision detection.
+The first change is that rather than synchronizing the `localPosition` and `localRotation` properties of the transform, it synchronizes the `position` and `rotation` properties of the Rigidbody, which are in world space instead of local space. We do this because PhysX simulates all rigidbodies in world space. Moving a Rigidbody via the Transform local position and rotation properties instantly teleports the Rigidbody and does not perform collision detection.
 
 #### RealtimeTransform will request ownership when a collision occurs
 

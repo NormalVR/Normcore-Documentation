@@ -23,13 +23,13 @@ Normcore Private Cloud is a copy of Normcore Private hosted by Normal and mainta
 Normcore Private Cloud can be hosted on AWS, Google Cloud, Azure, and Digital Ocean and supports multi-cloud varieties for extreme availability.
 
 ## Normcore Private On-Premises
-Normcore Private On-Premises uses the same infrastructure as Normcore Private Cloud, but is licensed for you to host on your own hardware. Host it on any major cloud provider that supports Kubernetes.
+Normcore Private On-Premises uses the same infrastructure as Normcore Private Cloud but is licensed for you to host on your own hardware. Host it on any major cloud provider that supports Kubernetes.
 
 ## Support
 Normcore Private also includes paid support plans. Each plan comes with different levels of responsiveness, modes of communication, and response windows, so you can be sure you'll get the support you need.
 
-Our support plans include options for a shared Slack channel with Normal so you can communicate directly with our engineers, dedicated account managers, and around-the-clock availability for projects and teams with sensitive uptime needs.
+Our support plans include options for a shared Slack channel with Normal so you can communicate directly with our engineers and dedicated account managers and get around-the-clock availability for projects and teams with sensitive uptime needs.
 
-We also offer engineering services as-needed for your projects. If you're working on a complex problem or have an upcoming deadline, Normal has engineers available to help you out.
+We also offer engineering services as needed for your projects. If you're working on a complex problem or have an upcoming deadline, Normal has engineers available to help you out.
 
 *Interested in Normcore Private? Reach out to us [here](https://normcore.io/contact)*

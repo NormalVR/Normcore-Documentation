@@ -21,7 +21,7 @@ RealtimeTransform will monitor the GameObject and synchronize the transform or r
 ### Ownership
 **In order to move an object with a RealtimeTransform component, your client needs to be the owner of the *RealtimeTransform* component.**
 
-In a multiplayer environment, a game object and it's transform can exist on multiple clients. This means that there are multiple copies that all claim to know the position of this object, but only one of them can be considered the sourth of truth. This is where ownership comes in.
+In a multiplayer environment, a game object and its transform can exist on multiple clients. This means that there are multiple copies that all claim to know the position of this object, but only one of them can be considered the source of truth. This is where ownership comes in.
 
 RealtimeTransform treats the client that owns the object as the source of truth. All other clients follow along with the owner's copy of the transform or rigidbody. This means that in order to move an object with a RealtimeTransform component on it, you must be the owner of the RealtimeTransform component.
 
@@ -32,9 +32,9 @@ A RealtimeTransform is available for immediate use after `RequestOwnership()` is
 A `RequestOwnership()` call is only rejected if the RealtimeView or a parent RealtimeView is owned by a different client.
 
 ## Transform mode vs. Rigidbody mode
-RealtimeTransform works differently when a Rigidbody is present, and it's important to understand how it differs, and *why* it differs.
+RealtimeTransform works differently when a Rigidbody is present, and it's important to understand how it differs and *why* it differs.
 
-If RealtimeTransform detects a **Rigidbody** component it is created in Rigidbody mode, otherwise, it runs in Transform mode.
+If RealtimeTransform detects a **Rigidbody** component, it is created in Rigidbody mode; otherwise, it runs in Transform mode.
 
 ### Transform mode
 When operating in **Transform mode**, RealtimeTransform synchronizes the **localPosition**, **localRotation**, and **localScale** of a GameObject. 
@@ -62,14 +62,14 @@ In order to allow objects at rest to be automatically owned by colliding objects
 RealtimeTransform is a complex piece of machinery. There are a few gotchas that are worth noting when you start using this component.
 
 #### You cannot add a RealtimeTransform component at runtime.
-This is true of all [RealtimeComponents](./realtimecomponent) in fact. There is no easy method for Normcore to detect the component and recreate it on all other clients. If you need functionality like this, we recommend creating an empty prefab with a RealtimeTransform component on it. When you need to temporarily track the position of an object, instantiate the prefab and synchronize the position between it and the object you're trying to move dynamically. Once you're done moving the object, destroy the prefab and you're done!
+This is true of all [RealtimeComponents](./realtimecomponent), in fact. There is no easy method for Normcore to detect the component and recreate it on all other clients. If you need functionality like this, we recommend creating an empty prefab with a RealtimeTransform component on it. When you need to temporarily track the position of an object, instantiate the prefab and synchronize the position between it and the object you're trying to move dynamically. Once you're done moving the object, destroy the prefab, and you're done!
 
 #### You can't add or remove a Rigidbody component at Runtime.
-Transform mode and Rigidbody mode work very differently under the hood. They synchronize different values, and apply interpolation differently based on the information available.
+Transform mode and Rigidbody mode work very differently under the hood. They synchronize different values and apply interpolation differently based on the information available.
 
-It is not easy to smoothly transition between both modes and so it's a feature that is not supported in Normcore.
+It is not easy to smoothly transition between both modes, so it's a feature that is not supported in Normcore.
 
-If you need this functionality, we recommend using the technique above of creating an empty prefab with a RealtimeTransform and Rigidbody component on it that you can instantiate and destroy at runtime that acts as a vehicle for adding Rigidbody functionality.
+If you need this functionality, we recommend using the technique above. Create an empty prefab with a RealtimeTransform and Rigidbody component on it that you can instantiate and destroy at runtime. This will act as a vehicle for adding Rigidbody functionality.
 
 #### Don't reparent game objects with RealtimeTransform on them!
 RealtimeTransform does not track the parent of a RealtimeTransform and cannot synchronize it at runtime.
@@ -78,6 +78,6 @@ Additionally, if a RealtimeTransform is reparented under another game object, an
 
 A common case where folks want this functionality is in order to pick up an object. Instead of reparenting, create an empty game object on your player character at the pick-up point. Then use a script that synchronizes the world position of the pick-up point object and the RealtimeTransform object that you would like to pick up.
 
-Visually this give you the same result and will avoid bugs related to reparenting.
+Visually, this gives you the same result and will avoid bugs related to reparenting.
 
 *Tip: If the RealtimeTransform object has a Rigidbody on it, make sure to use the `MovePosition()` and `MoveRotation()` methods in `FixedUpdate()`*

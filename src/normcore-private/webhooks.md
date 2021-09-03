@@ -9,14 +9,14 @@ If you're bundling Normcore in your own SDK, this API is the recommended way to 
 
 ## Configuration
 ### Cloud
-The webhook URL is configured when your Normcore Private Cloud installation is created by Normal. In order to change your webhook URL, file a support ticket or use your dedicated Slack channel to ping one of our engineers.
+The webhook URL is configured when your Normcore Private Cloud installation is created by Normal. In order to change your webhook URL, either file a support ticket or use your dedicated Slack channel to ping one of our engineers.
 
 In the future, this will be configurable using the Normcore Private Dashboard.
 
 ### On-Premises
 The webhook URL can be specified using the `webhook-url` property of the `cluster-config.yaml` or `matcher-config.yaml`. The URL must use `https` and a valid certificate authority. If this URL is unreachable or does not have a valid certificate, all requests will be denied.
 
-## Request Format
+## Request format
 When the matcher needs to authenticate one or more requests, it sends a POST request to the webhook endpoint. The request includes a JSON-serialized body with a map of requests to verify.
 
 An example request looks like this:

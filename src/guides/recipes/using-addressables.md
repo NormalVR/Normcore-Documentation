@@ -49,7 +49,7 @@ First, it's going to be just as slow as `Resources.Load<GameObject>()`. The firs
 
 A better approach would be to create a component that preloads all of the realtime prefabs we plan to use and then unloads them when we're done.
 
-Here's a recipe that does exactly that. It let's us specify a list of assets to preload and it implements the IRealtimePrefabLoadDelegate protocol to allow them to be referenced by Realtime. If a prefab isn't preloaded it will be loaded synchronously, similarly to how the default `Resources.Load<GameObject>()` implementation works.
+Here's a recipe that does exactly that. It lets us specify a list of assets to preload and it implements the IRealtimePrefabLoadDelegate protocol to allow them to be referenced by Realtime. If a prefab isn't preloaded it will be loaded synchronously, similarly to how the default `Resources.Load<GameObject>()` implementation works.
 
 ```csharp
 using System.Collections.Generic;

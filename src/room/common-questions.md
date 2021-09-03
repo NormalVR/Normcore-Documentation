@@ -21,13 +21,13 @@ Only primitives (`int`, `float`, `Vector3`, `string`, etc.) can be serialized, s
 #### Why can’t I just sync a Dictionary<> or List<>?
 These collections don’t let Normcore know when their contents have changed. This means there’s no way for Normcore to detect and sync their contents automatically. Also, we can’t easily do delta updates without comparing the contents against the previous version sent. It would get really computationally expensive. 
 
-Normcore provides [collections](./collections) that work similarly—namely, **StringKeyDictionary** and **RealtimeSet**—and can store collections of RealtimeModel objects.
+Normcore provides [collections](./collections) that work similarly—namely, **StringKeyDictionary** and **RealtimeSet**—and that can store collections of RealtimeModel objects.
 
 #### Is there a size limit?
-Datastores are limited to 10mb, and a single datastore update is limited to 125kb. The Normcore datastore is designed to hold data that changes in real time. If you need to store textures or large blobs, write them to S3 or Google Cloud Storage and store the key in the Normcore datastore.
+Datastores are limited to 10mb, and a single datastore update is limited to 125kb. The Normcore datastore is designed to hold data that changes in real-time. If you need to store textures or large blobs, write them to S3 or Google Cloud Storage and store the key in the Normcore datastore.
 
-#### I’m getting “Server attempted to delete value from set for key that doesn’t exist in storage. This is a bug!” How do I fix this?
-This error generally happens when multiple clients attempt to delete the same model from a RealtimeSet at the same time. If you’re not using RealtimeSet directly in your project, this can happen if multiple clients call `Realtime.Destroy()` on the same object at the same time. In order to prevent this, we generally recommend having the client that owns the object destroy it: `if (realtimeView.isOwnedLocally) Realtime.Destroy(gameObject);`
+#### I’m getting the error, “Server attempted to delete value from set for key that doesn’t exist in storage. This is a bug!” How do I fix this?
+This error generally happens when multiple clients attempt to delete the same model from a RealtimeSet at the same time. If you’re not using RealtimeSet directly in your project, this can happen if multiple clients call `Realtime.Destroy()` on the same object at the same time. In order to prevent this, we generally recommend having the client that owns the object destroy it: `if (realtimeView.isOwnedLocally) Realtime.Destroy(gameObject);`.
 
 ## Ownership
 #### How can I check who is holding an object?

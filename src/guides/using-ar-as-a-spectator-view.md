@@ -3,13 +3,13 @@ layout: docs
 title: Using AR as a spectator view
 description: This guide walks you through using mobile AR to spectate on XR applications.
 ---
-# Using AR as a spectator view for your XR app
+# Using AR as a Spectator View for Your XR App
 
 This is one of my favorite use cases for Normcore. Before diving into this guide, I recommend reading this [blog post](https://www.normalvr.com/blog/using-ar-to-see-into-the-vr-world/) about how this concept works at a high level.
 
 
 ## Create an app to spectate
-Before we can start, we need an example VR project that we’ll use with our AR spectator app. I’m going to start with the “Realtime + VR Player” scene from the Normcore Examples folder. Import [Normcore](https://normcore.io/download), open up the VR Player example scene and add your [App Key](https://normcore.io/dashboard) to the Realtime component in the scene.
+Before we can start, we need an example VR project that we’ll use with our AR spectator app. I’m going to start with the “Realtime + VR Player” scene from the Normcore Examples folder. Import [Normcore](https://normcore.io/download), open up the VR Player example scene, and add your [App Key](https://normcore.io/dashboard) to the Realtime component in the scene.
 
 Hit Play in Unity and make sure the VR Player prefab spawns in our colored cube world.
 
@@ -21,7 +21,7 @@ Awesome! Now that we’ve got that working, let’s get started on the mobile AR
 
 ![](./using-ar-as-a-spectator-view/add-ar-foundation-and-arkit.mp4 "Adding AR Foundation and ARKit via the Package Manager.")
 
-Next, we’re going to import the <a :href="$withBase('/downloads/Normcore%20AR%20Spectator.unitypackage')">AR Spectator Example</a> unitypackage from Normal which includes a few utilities and the scene you’ll end up with at the end of this guide.
+Next, we’re going to import the <a :href="$withBase('/downloads/Normcore%20AR%20Spectator.unitypackage')">AR Spectator Example</a> unitypackage from Normal, which includes a few utilities and the scene you’ll end up with at the end of this guide.
 
 ![](./using-ar-as-a-spectator-view/import-normcore-ar-unitypackage.mp4  "Importing the 'AR Foundation Example' Unity package.")
 
@@ -57,5 +57,5 @@ Want to take this a step further? Try creating a custom avatar for your AR Spect
 
 ### FAQ
 
-#### On iOS the app opens and closes immediately
+#### On iOS, the app opens and closes immediately.
 Make sure to set your Camera Usage Description and Microphone Usage Description under Player Settings.

@@ -10,7 +10,7 @@ Avatars and voice chat are one of the most important aspects of any multiplayer 
 If you haven’t already, follow our [Getting Started](../getting-started.md) guide to get a free App Key to use with Normcore. You’ll need one to connect to a multiplayer room.
 
 
-## Adding Avatars + Voice Chat
+## Adding avatars + voice chat
 Once you’re ready to go, start by creating a blank Unity project.
 
 ![](./xr-avatars-and-voice-chat/blank-project.png "A blank Unity project.")
@@ -29,8 +29,8 @@ Go ahead and add your App Key to the Realtime component and hit Play. The defaul
 
 Booom! That’s all it takes. You can send this build to anyone you’d like and Normcore will automatically connect you to the same room and instantiate an avatar for each person.
 
-## Creating Custom Avatars
-We’ll start by making an empty Game Object in the scene with a RealtimeAvatar component on it. Let’s call it “My Custom Avatar”.
+## Creating custom avatars
+We’ll start by making an empty Game Object in the scene with a RealtimeAvatar component on it. Let’s call it “My Custom Avatar”
 
 ![](./xr-avatars-and-voice-chat/add-realtime-avatar.mp4 "Create an empty GameObject named 'My Custom Avatar', then add a RealtimeAvatar component to it.")
 
@@ -88,9 +88,9 @@ public class MouthMove : MonoBehaviour {
 }
 ```
 
-This script starts by getting a reference to `RealtimeAvatarVoice`. The voice component has a `voiceVolume` property that we can use to animate the mouth. The `voiceVolume` property ranges from 0.0 to 1.0, so we start by converting this to a range of 0.1 to 1.0 as we don’t want to scale the mouth down to nothing when the player isn’t talking.
+This script starts by getting a reference to `RealtimeAvatarVoice`. The voice component has a `voiceVolume` property that we can use to animate the mouth. The `voiceVolume` property ranges from 0.0 to 1.0, so we start by converting this to a range of 0.1 to 1.0, as we don’t want to scale the mouth down to nothing when the player isn’t talking.
 
-Next, we take the `targetMouthSize` and animate the current `_mouthSize` towards this value. This smooths out the mouth movement so it doesn’t appear too jittery.
+Next, we take the `targetMouthSize` and animate the current `_mouthSize` toward this value. This smooths out the mouth movement so it doesn’t appear too jittery.
 
 Last, we take the mouth scale and apply it to the mouth transform of the avatar head.
 

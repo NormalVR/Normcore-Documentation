@@ -26,7 +26,7 @@ To synchronize the position of a game object using the [RealtimeTransform](./rea
 
 ![](./assets/realtime-transform.mp4)
 
-It's worth noting that RealtimeTransform uses ownership in a unique way. For more information check out the guide on [RealtimeTransform](./RealtimeTransform).
+It's worth noting that RealtimeTransform uses ownership in a unique way. For more information, check out the guide on [RealtimeTransform](./RealtimeTransform).
 
 ## Prefabs
 Any prefab can be used with Normcore as long as it has a [RealtimeView](./realtimeview) on the root of the game object. In our documentation, a "realtime prefab" refers to a prefab that's synchronized via the Realtime API using realtime views and realtime components.
@@ -43,7 +43,7 @@ Realtime prefabs work the same way as regular prefabs in Unity except for a few 
 //TODO: update link to RealtimePrefabLoadDelegate
 
 ### Instantiating a prefab
-Once you've created a realtime prefab, you can instantiate it at runtime using  [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime#Instantiate). This will create a fresh instance of the prefab on all clients, and connect all RealtimeComponents together so that any state they synchronize will automatically be replicated to all clients.
+Once you've created a realtime prefab, you can instantiate it at runtime using  [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime#Instantiate). This will create a fresh instance of the prefab on all clients and connect all RealtimeComponents together so that any state they synchronize will automatically be replicated to all clients.
 
 // TODO: I do think a nice graphic at the top of this section will really help the copy on this page make more sense.
 // TODO: Put architecture image here that shows the relationship. Maybe link to the Architecture page too?
