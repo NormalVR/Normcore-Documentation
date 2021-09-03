@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Using AR as a spectator view
+title: Using AR as a Spectator View
 description: This guide walks you through using mobile AR to spectate on XR applications.
 ---
 # Using AR as a Spectator View for Your XR App

@@ -40,11 +40,5 @@ Realtime prefabs work the same way as regular prefabs in Unity except for a few 
 
 *Note: If you would like to avoid using Resources, it is possible to use the Addressables API or a custom loader by implementing a [RealtimePrefabLoadDelegate](../guides/recipes/using-addressables)*
 
-//TODO: update link to RealtimePrefabLoadDelegate
-
 ### Instantiating a prefab
 Once you've created a realtime prefab, you can instantiate it at runtime using  [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime#Instantiate). This will create a fresh instance of the prefab on all clients and connect all RealtimeComponents together so that any state they synchronize will automatically be replicated to all clients.
-
-// TODO: I do think a nice graphic at the top of this section will really help the copy on this page make more sense.
-// TODO: Put architecture image here that shows the relationship. Maybe link to the Architecture page too?
-// TODO: Make sure the Client Architecture doc describes the Realtime/Room relationship

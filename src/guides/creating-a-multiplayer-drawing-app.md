@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Creating a multiplayer drawing app
+title: Creating a Multiplayer Drawing App
 description: This guide walks you through adding multiplayer 3D drawing functionality to an XR app.
 ---
 # Creating a Multiplayer Drawing App

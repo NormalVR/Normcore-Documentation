@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Getting started
+title: Getting Started
 ---
 # Getting Started
 Welcome to Normcore! This guide is designed to show you how to get set up and running with Normcore in your Unity project.
@@ -21,11 +21,11 @@ Let’s add one of the pre-built example prefabs to our scene. Drag a “Realtim
 
 ## Creating a Normcore application
 
-You'll notice that in the Realtime inspector, there's a field for an "App key". Before we can hit play, you’ll need one to connect to Normal’s servers. First, register for a Normal account [here](/dashboard/signup). Then, log in to the [Dashboard](/dashboard).
+You'll notice that in the Realtime inspector, there's a field for an "App key." Before we can hit play, you’ll need one to connect to Normal’s servers. First, register for a Normal account [here](/dashboard/signup). Then, log in to the [Dashboard](/dashboard).
 
 ![](./getting-started/normcore-dashboard.png "The Normcore dashboard, where you manage your applications.")
 
-Click on Create a new Application, give it a name, and grab your shiny new app key.
+Click on Create a new application, give it a name, and grab your shiny new app key.
 
 Once you’ve got your app key, paste it into the App Key field on the Realtime component, and hit Play. You should see Realtime spinning up a room in the console, followed by a CubePlayer instantiated in the scene:
 
@@ -33,11 +33,11 @@ Once you’ve got your app key, paste it into the App Key field on the Realtime 
 
 Use the W A S D keys to move it around in space. If the cube isn’t moving, make sure to click on the game window in the Unity editor. So far so good? Let’s test it in multiplayer.
 
-Export a standalone build to run next to the Unity Editor. Open the standalone build, use the A key to move it out of the way a little. Hit Play in the editor and a second cube should appear. Use the W A S D keys to move it around, you should see the cube position update in real-time in both builds.
+Export a standalone build to run next to the Unity Editor. Open the standalone build, use the A key to move it out of the way a little. Hit Play in the editor and a second cube should appear. Use the W A S D keys to move it around; you should see the cube position update in real-time in both builds.
 
 ![](./getting-started/cube-player-demo.mp4 "Both CubePlayers are synced automatically to the other client.")
 
-That’s it! You’re now up and running with Normcore. Now I know, this example isn’t the coolest, however, it only gets better from here. Check out some of our other guides:
+That’s it! You’re now up and running with Normcore. Now, I know this example isn’t the coolest, however, it only gets better from here. Check out some of our other guides:
 
 - [Creating a player controller](../guides/creating-a-player-controller)
 - [XR Avatars and Voice Chat](../guides/xr-avatars-and-voice-chat)

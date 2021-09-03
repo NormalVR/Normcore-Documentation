@@ -6,9 +6,9 @@ title: Upgrading from Normcore 1 to Normcore 2
 
 # Upgrading from Normcore 1 to Normcore 2
 
-If you're currently working with Normcore 1, we highly recommend upgrading to Normcore 2. It's designed to be a clean upgrade that requires no changes for most projects. Transform syncing, voice chat, and overall latency have improved significantly in Normcore 2. You'll notice huge improvements across the board in your multiplayer applications.
+We disabled the Normcore 1 servers in June 2021. However, we plan to support Normcore 2 servers indefinitely, even as new versions are released.
 
-We will be sunsetting the Normcore 1 servers in June 2021. However, we plan to support Normcore 2 servers indefinitely, even as new versions are released.
+If you're currently working with Normcore 1, we highly recommend upgrading to Normcore 2. It's designed to be a clean upgrade that requires no changes for most projects. Transform syncing, voice chat, and overall latency have improved significantly in Normcore 2. You'll notice huge improvements across the board in your multiplayer applications.
 
 Before we begin, make sure your project is compiling without any errors and you're on Unity 2019.1 or above. If you have any errors in your project, the upgrade will not work. As always, make sure you have created a backup!
 

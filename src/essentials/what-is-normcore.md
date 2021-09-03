@@ -1,8 +1,8 @@
 ---
 layout: docs
-title: What is Normcore?
+title: What Is Normcore?
 ---
-# What is Normcore?
+# What Is Normcore?
 
 [Normcore](https://normcore.io/) is a networking plugin and hosting service created by [Normal](https://normalvr.com/). 
 
@@ -18,7 +18,7 @@ Whatever you need to build, we'll help you make it happen.
 
 Implementing multiplayer networking takes a long time, and it's difficult to test. Normcore can save you years of development time. Smooth transform syncing, efficient serialization, congestion control, support for networks that block UDP, scaling servers to millions of users—all of these problems have been solved individually. However implementing them all together is tricky.
 
-You can spend months or even years of effort without matching the level of quality that Normcore provides. That’s because Normal is dedicated to this task. Normcore streamlines networking so you can spend more time on your project. Don’t spend extra time on networking when you can get your product to market sooner.
+You can spend months or even years of effort on multiplayer networking without matching the level of quality that Normcore provides. That’s because Normal is dedicated to this task. Normcore streamlines networking so you can spend more time on your project. Don’t spend extra time on networking when you can get your product to market sooner.
 
 **Enjoy a flawless product launch.**
 

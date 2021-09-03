@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Creating a player controller
+title: Creating a Player Controller
 ---
 # Creating a Player Controller
 

@@ -11,8 +11,6 @@ Make sure your project has no compilation errors. If your project has any errors
 #### Sometimes, when I log the values on my model from inside of valueDidChange, not all the values that I set on another client update. When are updates sent out, and how are they applied?
 Normcore serializes all updates once per network frame (~20hz) and groups them into the same packet. When model updates are applied, they’re applied one at a time, and a change event fires for that value. However, it’s possible the other values from that packet hadn’t yet been applied. In order to get an event that fires once all updates have been applied to a model, use RealtimeCallback: 
 
-// TODO: Create RealtimeCallback example
-
 ## Datastore
 
 #### When I try to sync a specific object to the Datastore, I get an error that says it cannot be serialized. What’s the issue?

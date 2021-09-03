@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Platforms
+title: Platforms Overview
 ---
 # Platforms
 Normcore currently supports all platforms supported by Unity 2020 LTS. However, some platforms (denoted by an *) are only available to Normcore Private customers so as to cover support costs and ensure we’re compliant with console partner restrictions.

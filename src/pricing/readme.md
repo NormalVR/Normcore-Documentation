@@ -21,7 +21,7 @@ We charge based solely on room hours and bandwidth:
 
 **Unlimited.** Our Unlimited plan includes the same allotment of room hours and bandwidth as the Pro plan. However, it also allows you to go beyond those limits. We bill for any excess hours and bandwidth at a fixed rate. Usage numbers reset at the beginning of each month.
 
-### Tracking Usage
+### Tracking usage
 Your Normcore dashboard is updated to show your most recent room-hour and bandwidth measurements every 24 hours at 12 AM, GMT.
 
 ### Changing plans
