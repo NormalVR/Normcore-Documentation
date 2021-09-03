@@ -31,9 +31,9 @@ Once you’ve got your app key, paste it into the App Key field on the Realtime 
 
 ![](./getting-started/cube-player.png "A CubePlayer is instantiated for your local player when you connect.")
 
-Use the W A S D keys to move it around in space. If the cube isn’t moving, make sure to click on the game window in the Unity editor. So far so good? Let’s test it in multiplayer.
+Use the WASD keys to move it around in space. If the cube isn’t moving, make sure to click on the game window in the Unity editor. So far so good? Let’s test it in multiplayer.
 
-Export a standalone build to run next to the Unity Editor. Open the standalone build, use the A key to move it out of the way a little. Hit Play in the editor and a second cube should appear. Use the W A S D keys to move it around; you should see the cube position update in real-time in both builds.
+Export a standalone build to run next to the Unity Editor. Open the standalone build, use the A key to move it out of the way a little. Hit Play in the editor and a second cube should appear. Use the WASD keys to move it around; you should see the cube position update in real-time in both builds.
 
 ![](./getting-started/cube-player-demo.mp4 "Both CubePlayers are synced automatically to the other client.")
 
