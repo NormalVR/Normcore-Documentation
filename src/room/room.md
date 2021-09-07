@@ -4,7 +4,7 @@ title: Room
 ---
 # Room
 
-*If you're using the [Realtime API](../realtime), you should rarely need to interact with the Room + Datastore API directly. Realtime is designed to manage a room and datastore for you. If you're calling `realtime.room.Connect()` you're making a mistake. Instead, call `realtime.Connect()` and use the Realtime API directly.*
+*If you're using the [Realtime API](../realtime/), you should rarely need to interact with the Room + Datastore API directly. Realtime is designed to manage a room and datastore for you. If you're calling `realtime.room.Connect()` you're making a mistake. Instead, call `realtime.Connect()` and use the Realtime API directly.*
 
 ## Intro
 Building on the **Room + Datastore API** overview, Room is the class that manages everything related to a room, including the connection to the room server, the local datastore snapshot, audio streams, and RPC messages.
@@ -37,7 +37,7 @@ Once a room is in a connected state, the datastore is synchronized with the room
 Check out the [Datastore](./datastore) and [RealtimeModel](./realtimemodel) reference for more information on working with the Datastore directly.
 
 ## Media streams
-Normcore provides high-quality, low-latency audio streams via [`CreateAudioInputStream()`](../reference/room#createaudioinputstream). Calling this API returns an `AudioInputStream`  that can be used to send audio data to all clients. Once called, all clients will be able to retrieve a corresponding [`AudioOutputStream`](../reference/audiooutputstream) object. To do so, they should use [`GetAudioOutputStream()`](../reference/room#getaudiooutputstream) along with the `clientID` and `streamID` from the `AudioInputStream` object.
+Normcore provides high-quality, low-latency audio streams via [`CreateAudioInputStream()`](../reference/classes/Normal.Realtime.Room.html). Calling this API returns an `AudioInputStream`  that can be used to send audio data to all clients. Once called, all clients will be able to retrieve a corresponding `AudioOutputStream` object. To do so, they should use [`GetAudioOutputStream()`](../reference/classes/Normal.Realtime.Room.html) along with the `clientID` and `streamID` from the `AudioInputStream` object.
 
 Normcore's new MediaStream API is now available in private preview for [Normcore Private](https://normcore.io/normcore-private) customers. If you would like to use video streaming in your Normcore Private app, get in touch with your account manager for more information.
 

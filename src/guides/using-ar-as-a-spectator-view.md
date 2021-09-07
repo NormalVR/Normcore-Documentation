@@ -51,7 +51,7 @@ Boooooom!! Easy.
 
 Want to take this a step further? Try creating a custom avatar for your AR Spectator so they look different than the VR players in VR. Check out our other guides for synchronizing custom data too!
 
-- [Adding AR/VR Avatars & Voice Chat](./adding-vr-ar-avatars)
+- [XR Avatars and Voice Chat](./xr-avatars-and-voice-chat)
 - [Synchronizing custom data](../core-concepts/synchronizing-custom-data)
 - [Creating a multiplayer drawing app](./creating-a-multiplayer-drawing-app)
 

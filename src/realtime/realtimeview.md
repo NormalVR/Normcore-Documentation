@@ -31,7 +31,7 @@ This property references the instance of Realtime that this RealtimeView should 
 When additively loading a scene, this field can be left blank and it will be filled in automatically at runtime. If you plan to additively load a scene onto another scene with multiple Realtime instances, you'll want to use the `sceneViewWillRegisterWithRealtime` delegate to provide the instance to use.
 
 #### Ownership + Lifetime Flags
-The three properties here are only applicable to the RealtimeViews that exist in the scene (as opposed to RealtimeViews instantiated via [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime#Instantiate)).
+The three properties here are only applicable to the RealtimeViews that exist in the scene (as opposed to RealtimeViews instantiated via [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime.html)).
 
 “Owned by Creating Client”: This is a boolean that specifies whether Realtime should request ownership when this view is created. It can be useful for establishing a main client if needed.
 
@@ -41,10 +41,10 @@ The three properties here are only applicable to the RealtimeViews that exist in
 
 If you leave “Destroy Last Client Leaves” unchecked, all views and components, and their models, will persist between sessions. Let’s say you’re building a collaboration space with a whiteboard. You can leave this unchecked so that the state of your whiteboard is saved between sessions.
 
-If you're using RealtimeView on a prefab, these values can be set via the `InstantiateOptions` struct passed to [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime#Instantiate).
+If you're using RealtimeView on a prefab, these values can be set via the `InstantiateOptions` struct passed to [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime.html).
 
 #### Reset View UUID
-This button is only applicable to RealtimeViews that exist in the scene (as opposed to RealtimeViews instantiated via [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime#Instantiate)). 
+This button is only applicable to RealtimeViews that exist in the scene (as opposed to RealtimeViews instantiated via [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime.html)). 
 
 Normcore is generally good at automatically assigning Scene View UUIDs to each RealtimeView. However, it is possible to end up with a duplicate (for example, if you save a copy of a scene and expect to additively load it at runtime).
 

@@ -14,7 +14,7 @@ It's generally a good idea to think of a Realtime instance as a connection to a 
 This is what the Realtime component looks like in Unity. 
 
 ### App Settings
-This points to a [NormcoreAppSettings](../reference/classes/Normal.NormcoreAppSettings) asset that stores the relevant metadata needed for your application to connect to Normcore servers.
+This points to a [NormcoreAppSettings](../reference/classes/Normal.NormcoreAppSettings.html) asset that stores the relevant metadata needed for your application to connect to Normcore servers.
 
 ### App Key
 This is a unique key used to track your app's usage. You can create one over on your [account dashboard](https://normcore.io/dashboard). This field will update the asset for all instances that use this NormcoreAppSettings asset.

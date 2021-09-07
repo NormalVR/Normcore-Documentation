@@ -6,7 +6,7 @@ title: Using Addressables
 
 By default, Normcore loads all realtime prefabs using `Resources.Load<GameObject>()`. For larger projects, this can cause performance issues when loading prefabs from disk. It can also be a pain run a large project with multiple Resources folders.
 
-Normcore includes two interfaces that can be used to hook the prefab loading and instantiation pipeline: [**IRealtimePrefabLoadDelegate**](../../reference/classes/Normal.Realtime.IRealtimePrefabLoadDelegate) and [**IRealtimePrefabInstantiateDelegate**](../../reference/classes/Normal.Realtime.IRealtimePrefabInstantiateDelegate). Addressables support can be easily added by implementing a prefab load delegate.
+Normcore includes two interfaces that can be used to hook the prefab loading and instantiation pipeline: [**IRealtimePrefabLoadDelegate**](../../reference/classes/Normal.Realtime.IRealtimePrefabLoadDelegate.html) and [**IRealtimePrefabInstantiateDelegate**](../../reference/classes/Normal.Realtime.IRealtimePrefabInstantiateDelegate.html). Addressables support can be easily added by implementing a prefab load delegate.
 
 The built-in default implementation looks like this:
 

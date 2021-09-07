@@ -298,7 +298,7 @@ Download a finished copy of the project <a :href="$withBase('/downloads/Normcore
 Check out our other guides on synchronizing custom data:
 
 - [Creating a multiplayer drawing app](../xr-guides/creating-a-multiplayer-drawing-app)
-- [Server Authority, Ownership, and Lifetime Flags](./server-authority-ownership-and-lifetime-flags)
+- [Server Authority, Ownership, and Lifetime Flags](../room/ownership-and-lifetime-flags)
 
 ## FAQ
 #### My custom RealtimeComponent isn't syncing and `OnRealtimeModelReplaced` doesn't get called.
