@@ -32,7 +32,7 @@ Another feature that is unique to Normcore Private is the `webhookContext` field
 More information can be found in the [Webhooks](../normcore-private/webhooks) documentation.
 
 ## Working with the datastore
-Once a room is in a connected state, the datastore is synchronized with the room server and ready for use via the [`datastore`](../reference/room#datastore) property.
+Once a room is in a connected state, the datastore is synchronized with the room server and ready for use via the [`datastore`](../reference/classes/Normal.Realtime.Room.html) property.
 
 Check out the [Datastore](./datastore) and [RealtimeModel](./realtimemodel) reference for more information on working with the Datastore directly.
 
