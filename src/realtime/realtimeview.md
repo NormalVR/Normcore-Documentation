@@ -58,4 +58,4 @@ Every RealtimeView has an [ownership and permissions model](../room/ownership-an
 There are two buttons—”Request Ownership” and “Clear Ownership”—that are enabled in play mode. These allow you to call the ownership methods on this view at runtime.
 
 ## Programming Interface
-See [RealtimeView reference](../reference/classes/Normal.Realtime.RealtimeView)
+See [RealtimeView reference](../reference/classes/Normal.Realtime.RealtimeView.html)
