@@ -28,4 +28,4 @@ If you would like Realtime to automatically connect to a room on Start(), you ca
 This section displays information about the current running connection such as the current time on the room server and the connection state.
 
 ## Programming interface
-Most of the time that you spend working with Realtime will be via its programming interface. More information is available on using this API in the [Realtime API Overview](./), and individual methods are documented on the [Realtime](../reference/classes/Normal.Realtime.Realtime) reference page.
+Most of the time that you spend working with Realtime will be via its programming interface. More information is available on using this API in the [Realtime API Overview](./), and individual methods are documented on the [Realtime](../reference/classes/Normal.Realtime.Realtime.html) reference page.
