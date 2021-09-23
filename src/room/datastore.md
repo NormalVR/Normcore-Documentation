@@ -24,7 +24,7 @@ Normcore is also able to detect simultaneous updates from multiple clients and r
 ## Delta updates
 The datastore keeps track of all changes that have been applied by the local client. Periodically, Room will instruct the datastore to serialize all the outstanding changes to send in an update to the server. This ensures that only the smallest amount of data needs to be serialized and transmitted to the server.
 
-The rate at which outstanding updates are serialized and sent out is set by the [`datastoreFrameDuration`](../reference/classes/Normal.Realtime.Datastore.html) property. The default value is `1.0/20.0` which sends updates at 20hz. Setting this value lower results in more frequent updates, but also higher bandwidth usage. If you're running a local installation, values up to your render framerate can be acceptable; however, you'll rarely want to send updates more often than 20hz. Typically, even 10hz works well with Normcore.
+The rate at which outstanding updates are serialized and sent out is set by the [`datastoreFrameDuration`](../reference/classes/Normal.Realtime.Room.html) property. The default value is `1.0/20.0` which sends updates at 20hz. Setting this value lower results in more frequent updates, but also higher bandwidth usage. If you're running a local installation, values up to your render framerate can be acceptable; however, you'll rarely want to send updates more often than 20hz. Typically, even 10hz works well with Normcore.
 
 ## Persistence
 Models within the datastore can persist between sessions. More information on this can be found in the [Ownership + Lifetime Flags](./ownership-and-lifetime-flags) documentation.
