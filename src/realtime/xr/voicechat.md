@@ -21,6 +21,6 @@ RealtimeAvatarVoice also includes a `voiceVolume` property. This is a read-only 
 ### AudioPreprocessor
 RealtimeAvatarVoice includes an AudioPreprocessor that automatically sets the gain for the microphone and filters out background noise, reverb, and echo cancellation.
 
-In most cases the default settings are correct, but if you would like to make changes, the source code to RealtimeAvatarVoice is included and [can be forked](./avatars#forking).
+In most cases the default settings are correct, but if you would like to make changes, the source code to RealtimeAvatarVoice is included and [can be forked](./avatars#modifying-realtimeavatar-scripts).
 
 It's worth noting that most platforms default to using hardware echo cancellation supplied by the operation system, so the AudioPreprocessor's echo cancellation functionality is not required.
