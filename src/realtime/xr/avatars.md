@@ -27,7 +27,7 @@ public class MyAvatarManager : MonoBehaviour {
     private void Awake() {
         _manager = GetComponent<RealtimeAvatarManager>();
         _manager.avatarCreated += AvatarCreated;
-        _manager.avatarCreated += AvatarDestroyed;
+        _manager.avatarDestroyed += AvatarDestroyed;
     }
 
     private void AvatarCreated(RealtimeAvatarManager avatarManager, RealtimeAvatar avatar, bool isLocalAvatar) {
