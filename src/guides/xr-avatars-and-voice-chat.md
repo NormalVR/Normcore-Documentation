@@ -7,7 +7,7 @@ description: This guide walks you through adding avatars and voice chat to your 
 
 Avatars and voice chat are one of the most important aspects of any multiplayer XR app. If your team works remotely, it can also be [an incredible tool for collaboration](https://www.normalvr.com/blog/working-remotely-in-vr-ar/).
 
-If you haven’t already, follow our [Getting Started](../getting-started.md) guide to get a free App Key to use with Normcore. You’ll need one to connect to a multiplayer room.
+If you haven’t already, follow our [Getting Started](../essentials/getting-started.md) guide to get a free App Key to use with Normcore. You’ll need one to connect to a multiplayer room.
 
 
 ## Adding avatars + voice chat
