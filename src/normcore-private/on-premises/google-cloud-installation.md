@@ -78,7 +78,7 @@ kubectl get pods --all-namespaces
 ## Setup cert-manager
 Normcore encrypts all public connections with TLS and uses cert-manager to create all certificates and ensure they stay updated.
 
-[Install cert-manager](https://cert-manager.io/docs/installation/kubernetes/) and create a [ClusterIssuer](https://docs.cert-manager.io/en/release-0.11/reference/clusterissuers.html). We recommend creating a ClusterIssuer that uses letsencrypt and a dns-01 acme challenge. You can use the template included in the Normcore Private package as a starting point. It's located in `kubernetes/_global/matcher/letsencrypt-clusterissuer.yaml`.
+[Install cert-manager](https://cert-manager.io/docs/installation/) and create a [ClusterIssuer](https://docs.cert-manager.io/en/release-0.11/reference/clusterissuers.html). We recommend creating a ClusterIssuer that uses letsencrypt and a dns-01 acme challenge. You can use the template included in the Normcore Private package as a starting point. It's located in `kubernetes/_global/matcher/letsencrypt-clusterissuer.yaml`.
 
 ## Create a Cloud Storage bucket
 When a room shuts down, Normcore stores each room's datastore in Cloud Storage. When the room spins back up, the datastore is retrieved and given to the room server pod.
