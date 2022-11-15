@@ -14,7 +14,7 @@ The webhook URL is configured when your Normcore Private Cloud installation is c
 In the future, this will be configurable using the Normcore Private Dashboard.
 
 ### On-Premises
-The webhook URL can be specified using the `webhook-url` property of the `cluster-config.yaml` or `matcher-config.yaml`. The URL must use `https` and a valid certificate authority. If this URL is unreachable or does not have a valid certificate, all requests will be denied.
+The webhook URL can be specified using the `webhook-url` property of `matcher-config.yaml`. The URL must use `https` and a valid certificate authority. If this URL is unreachable or does not have a valid certificate, all requests will be denied.
 
 ## Request format
 When the matcher needs to authenticate one or more requests, it sends a POST request to the webhook endpoint. The request includes a JSON-serialized body with a map of requests to verify.
