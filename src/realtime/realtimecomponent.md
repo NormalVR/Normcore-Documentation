@@ -10,7 +10,7 @@ The flow of data looks something like this:
 
 ![](./synchronizing-custom-data/data-flow.svg "The flow of data in a Normcore application")
 
-A Realtime component keeps a game object in sync with its corresponding model in the datastore. When the game object changes, the component updates the model, and when the model changes, the component updates the game object to match. This means that in the diagram above, when Player 1 moves a game object, RealtimeTransform can set the new position on its model in the datastore. When Player 2 gets a notification that the model has changed, it can update the position of the same game object in its scene.
+A `RealtimeComponent<TModel>` keeps a game object in sync with its corresponding model `TModel` in the datastore. When the game object changes, the component updates the model, and when the model changes, the component updates the game object to match. This means that in the diagram above, when Player 1 moves a game object, RealtimeTransform can set the new position on its model in the datastore. When Player 2 gets a notification that the model has changed, it can update the position of the same game object in its scene.
 
 ### Model
 All RealtimeComponents store the state they need to synchronize in a [RealtimeModel](../room/realtimemodel) subclass. The model is automatically synchronized across all clients by Normcore, so all the RealtimeComponent needs to do is synchronize the scene and the model to match.
