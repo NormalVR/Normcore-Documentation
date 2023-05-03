@@ -5,7 +5,7 @@ title: Synchronizing Custom Data
 # Synchronizing Custom Data
 In this guide, I’m going to walk you through how to synchronize custom data in your Unity application using custom [realtime components](./realtimecomponent).
 
-## Realtime components
+## RealtimeComponents
 ![](./synchronizing-custom-data/data-flow.svg "The flow of data in a Normcore application")
 
 [Realtime components](./realtimecomponent) synchronize state between the Unity scene and a model in the Normcore datastore.
