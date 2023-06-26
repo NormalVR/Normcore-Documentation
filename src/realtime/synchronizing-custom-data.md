@@ -16,14 +16,14 @@ For this example, I’m going to make a realtime component that synchronizes the
 
 ### Creating a realtime model
 
-First, we’re going to start by writing the model. Start by removing `MonoBehaviour` from the class definition. Models shouldn't be a subclass of any other class. Next, add a private field to hold our color value. One quick note: variables need to be private and they need to start with an underscore. Once you've added your property, your class should look something like this:
+First, we’re going to start by writing the model. Start by removing `MonoBehaviour` from the class definition. Models shouldn't be a subclass of any other class. Models also need to be `partial` classes so that Normcore can supplement the class with the networking code. Next, add a private field to hold our color value. One quick note: variables need to be private and they need to start with an underscore. Once you've added your property, your class should look something like this:
 
 ```csharp
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorSyncModel {
+public partial class ColorSyncModel {
     private Color _color;
 }
 ```
@@ -37,7 +37,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RealtimeModel]
-public class ColorSyncModel {
+public partial class ColorSyncModel {
     [RealtimeProperty(1, true, true)]
     private Color _color;
 }
@@ -61,11 +61,13 @@ Reliable properties are good for things that you update once and that should be 
 
 The last option is an optional argument that specifies if you would like a change event added to the model. When this is set to true, a C# event is added; it will fire when a property is changed locally or remotely. This is a useful signal to update your scene to match the model.
 
-Now that we have our model defined, it’s time to compile it. Go back to Unity and highlight the `ColorSyncModel.cs` file in your project. The inspector should look something like this:
+If you're using Unity 2021 or newer, Normcore will automatically generate the remaining code needed to use your model. Don't worry if you don't see it in your file; the extra code exists as temporary C# code generated when your project compiles. At this point you can skip ahead to the next section.
+
+If you're using an older version of Unity, you will need to manually compile the model. Go back to Unity and highlight the `ColorSyncModel.cs` file in your project. The inspector should look something like this:
 
 ![](./synchronizing-custom-data/model-inspector.png)
 
-Now that our class has a `[RealtimeModel]` attribute on it. Normcore will detect it and display the model inspector. If your inspector is not updating correctly, **make sure your Unity project has no compile errors. If Unity is unable to compile this class, it will be unable to detect the changes you’ve made to your model.**
+If your inspector is not updating correctly, **make sure your Unity project has no compile errors. If Unity is unable to compile this class, it will be unable to detect the changes you’ve made to your model.**
 
 In order to actually make use of the model, we’ll need to compile it. With the inspector up, click the “Compile Model” button. If we look back at our `ColorSyncModel.cs` class, it should look something like this:
 
