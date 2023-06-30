@@ -67,7 +67,7 @@ If you're using an older version of Unity, you will need to manually compile the
 
 ![](./synchronizing-custom-data/model-inspector.png)
 
-If your inspector is not updating correctly, **make sure your Unity project has no compile errors. If Unity is unable to compile this class, it will be unable to detect the changes you’ve made to your model.**
+Now that our class has a `[RealtimeModel]` attribute on it. Normcore will detect it and display the model inspector. If your inspector is not updating correctly, **make sure your Unity project has no compile errors. If Unity is unable to compile this class, it will be unable to detect the changes you’ve made to your model.**
 
 In order to actually make use of the model, we’ll need to compile it. With the inspector up, click the “Compile Model” button. If we look back at our `ColorSyncModel.cs` class, it should look something like this:
 
