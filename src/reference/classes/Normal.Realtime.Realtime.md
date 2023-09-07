@@ -80,14 +80,28 @@ class_members:
   - name: clientID
     definition: int clientID { get; }
     summary: The local clientID of this Realtime instance.
+  - name: roomTime
+    definition: double roomTime { get; }
+    summary: The server time on this frame. This value has latency from the server removed.
+  - name: ping
+    definition: float ping { get; }
+    summary: The local client's last known ping with the server in milliseconds.
 - name: Methods
   members:
   - name: Connect
-    definition: void Connect(string roomName, RealtimeModel roomModel = null)
+    definition: void Connect(string roomName, RealtimeModel roomModel)
     summary: Connect to a room.
     parameters:
     - name: roomName
-      description: The name of the room to connect to. All clients that connect to the same room name will end up on the same room server.
+      description: The name of the room to connect to. All clients that connect to the same room name will end up on the same room server. Names must be less than 512 characters long.
+    - name: roomModel
+      description: An optional RealtimeModel to use as the root model in the datastore.
+  - name: Connect
+    definition: void Connect(string roomName, ConnectOptions connectOptions = null)
+    summary: Connect to a room.
+    parameters:
+    - name: roomName
+      description: The name of the room to connect to. All clients that connect to the same room name will end up on the same room server. Names must be less than 512 characters long.
     - name: roomModel
       description: An optional RealtimeModel to use as the root model in the datastore.
   - name: Disconnect

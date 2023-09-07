@@ -10,6 +10,8 @@ class_members:
     definition: public LogLevel logLevel
 - name: Static Methods
   members:
+  - name: AudioOutputStreamGetSampleRate
+    definition: int AudioOutputStreamGetSampleRate(IntPtr audioOutputStream)
   - name: AudioOutputStreamSetSampleRate
     definition: void AudioOutputStreamSetSampleRate(IntPtr audioOutputStream, int sampleRate)
   - name: AudioOutputStreamGetChannels
@@ -52,6 +54,8 @@ class_members:
     definition: int ClientGetClientID(IntPtr client)
   - name: ClientGetRoomTime
     definition: double ClientGetRoomTime(IntPtr client)
+  - name: ClientGetPing
+    definition: float ClientGetPing(IntPtr client)
   - name: ClientSendPersistenceMessage
     definition: bool ClientSendPersistenceMessage(IntPtr client, byte[] data, int dataLength, bool reliable)
   - name: ClientReceiveIncomingPersistenceMessage
@@ -86,8 +90,6 @@ class_members:
     definition: int AudioOutputStreamGetClientID(IntPtr audioOutputStream)
   - name: AudioOutputStreamGetStreamID
     definition: int AudioOutputStreamGetStreamID(IntPtr audioOutputStream)
-  - name: AudioOutputStreamGetSampleRate
-    definition: int AudioOutputStreamGetSampleRate(IntPtr audioOutputStream)
   - name: SetLogFunction
     definition: void SetLogFunction(IntPtr logFunction)
   - name: MatcherCreate
@@ -109,7 +111,7 @@ class_members:
   - name: MatcherClearRequest
     definition: void MatcherClearRequest(IntPtr matcher, string requestGUID)
   - name: MatcherConnectToRoom
-    definition: string MatcherConnectToRoom(IntPtr matcher, string appKey, string roomName, string clientOffer, Cluster[] clusterPingResults, int clusterPingResultsLength, Region[] preferredRegions, int preferredRegionsLength)
+    definition: string MatcherConnectToRoom(IntPtr matcher, string requestType, string appKey, string roomName, string clientOffer, string webhookContext, Cluster[] clusterPingResults, int clusterPingResultsLength, Region[] preferredRegions, int preferredRegionsLength)
   - name: MatcherGetConnectToRoomRequestResponseType
     definition: string MatcherGetConnectToRoomRequestResponseType(IntPtr matcher, string requestGUID)
   - name: MatcherGetConnectToRoomRequestClustersToPingCount

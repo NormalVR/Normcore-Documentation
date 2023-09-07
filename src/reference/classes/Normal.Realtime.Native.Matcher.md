@@ -23,7 +23,7 @@ class_members:
   - name: ClearRequest
     definition: void ClearRequest(string requestGUID)
   - name: ConnectToRoom
-    definition: string ConnectToRoom(string appKey, string roomName, string clientOffer, Cluster[] clusterPingResults = null, Region[] preferredRegions = null)
+    definition: string ConnectToRoom(string requestType, string appKey, string roomName, string clientOffer, string webhookContext, Cluster[] clusterPingResults = null, Region[] preferredRegions = null)
   - name: GetConnectToRoomRequestResponseType
     definition: string GetConnectToRoomRequestResponseType(string requestGUID)
   - name: GetConnectToRoomRequestClustersToPing

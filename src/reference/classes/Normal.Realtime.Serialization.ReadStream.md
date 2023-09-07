@@ -70,8 +70,28 @@ class_members:
     definition: void SkipProperty()
   - name: StartLengthDelimitedStruct
     definition: void StartLengthDelimitedStruct()
+  - name: ReadStructBytes
+    definition: byte[] ReadStructBytes()
+  - name: ReadStructBool
+    definition: bool ReadStructBool()
+  - name: ReadStructByte
+    definition: byte ReadStructByte()
+  - name: ReadStructSByte
+    definition: sbyte ReadStructSByte()
+  - name: ReadStructShort
+    definition: short ReadStructShort()
+  - name: ReadStructUShort
+    definition: ushort ReadStructUShort()
+  - name: ReadStructInt
+    definition: int ReadStructInt()
+  - name: ReadStructUInt
+    definition: uint ReadStructUInt()
   - name: ReadStructFloat
     definition: float ReadStructFloat()
+  - name: ReadStructDouble
+    definition: double ReadStructDouble()
+  - name: ReadStructString
+    definition: string ReadStructString()
   - name: FinishLengthDelimitedStruct
     definition: void FinishLengthDelimitedStruct()
 

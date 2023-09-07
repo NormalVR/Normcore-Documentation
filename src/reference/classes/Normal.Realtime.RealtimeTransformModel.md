@@ -51,6 +51,12 @@ class_members:
     definition: PhysicsState physicsState { get; set; }
   - name: physicsStateTimeOffset
     definition: float physicsStateTimeOffset { get; set; }
+  - name: syncPosition
+    definition: bool syncPosition { get; set; }
+  - name: syncRotation
+    definition: bool syncRotation { get; set; }
+  - name: syncScale
+    definition: bool syncScale { get; set; }
 - name: Methods
   members:
   - name: SetSafePosition

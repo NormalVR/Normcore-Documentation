@@ -6,6 +6,18 @@ class_name: RealtimeView
 class_summary: A component that manages a set of RealtimeComponents on a game object.
 class_remarks: ''
 class_members:
+- name: Static Fields
+  members:
+  - name: ExecutionOrder
+    definition: public int ExecutionOrder
+- name: Events
+  members:
+  - name: ownerIDSelfDidChange
+    definition: event Action<RealtimeView, int> ownerIDSelfDidChange
+    summary: Dispatched when the ownerIDSelf value changes.
+  - name: didReplaceAllComponentModels
+    definition: event Action<RealtimeView> didReplaceAllComponentModels
+    summary: Dispatched after all of the components of this view have been initialized with a new Realtime model.
 - name: Fields
   members:
   - name: sceneViewWillRegisterWithRealtime
@@ -75,7 +87,7 @@ class_members:
     summary: If true, the model is destroyed when the last client in the room leaves.
   - name: destroyWhenOwnerLeaves
     definition: bool destroyWhenOwnerLeaves { get; set; }
-    summary: If true, the model is destroyed when the last client in the room leaves.
+    summary: If true, the model is destroyed when the owner of the model leaves the room.
 - name: Methods
   members:
   - name: GetRootView
@@ -90,12 +102,12 @@ class_members:
     definition: void OnAfterDeserialize()
   - name: RequestOwnership
     definition: void RequestOwnership()
-    summary: Request ownership of the component, if it is unowned.
+    summary: Request ownership of the component.
   - name: SetOwnership
     definition: void SetOwnership(int clientID)
-    summary: Set ownership of the component, if it is unowned.
+    summary: Set ownership of the component.
   - name: ClearOwnership
     definition: void ClearOwnership()
-    summary: Clear ownership of the component, if it is owned by the local client.
+    summary: Clear ownership of the component.
 
 ---

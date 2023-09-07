@@ -45,12 +45,12 @@ class_members:
   members:
   - name: RequestOwnership
     definition: void RequestOwnership()
-    summary: Request ownership of the component, if it is unowned.
+    summary: Request ownership of the component.
   - name: SetOwnership
     definition: void SetOwnership(int clientID)
-    summary: Set ownership of the component, if it is unowned.
+    summary: Set ownership of the component.
   - name: ClearOwnership
     definition: void ClearOwnership()
-    summary: Clear ownership of the component, if it is owned by the local client.
+    summary: Clear ownership of the component.
 
 ---

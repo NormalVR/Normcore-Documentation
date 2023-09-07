@@ -23,8 +23,8 @@ class_members:
     definition: TValue Item { get; }
     summary: Retrieve a model given a specific key.
     parameters:
-    - name: index
-      description: The index of the model to retrieve
+    - name: key
+      description: The key of the model to retrieve
   - name: Count
     definition: int Count { get; }
     summary: The number of models currently stored in the collection.

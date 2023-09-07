@@ -3,6 +3,8 @@ title: ISerializer<T>
 layout: Reference
 category: API Reference
 class_name: ISerializer<T>
+class_summary: ISerializer{T} is able to serialize and deserialize a specific type.
+class_remarks: ''
 class_members:
 - name: Methods
   members:

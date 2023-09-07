@@ -36,6 +36,8 @@ class_members:
     definition: int ClientID()
   - name: RoomTime
     definition: double RoomTime()
+  - name: Ping
+    definition: float Ping()
   - name: CreateAudioInputStream
     definition: AudioInputStream CreateAudioInputStream(bool voice, int sampleRate, int channels)
   - name: ReceiveAudioEventMessages

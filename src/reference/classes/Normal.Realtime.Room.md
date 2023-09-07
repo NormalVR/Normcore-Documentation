@@ -28,6 +28,8 @@ class_members:
     definition: int clientID { get; }
   - name: time
     definition: double time { get; }
+  - name: ping
+    definition: float ping { get; }
   - name: connectionState
     definition: ConnectionState connectionState { get; }
     summary: The connection state of the room.
@@ -54,6 +56,8 @@ class_members:
     definition: void Dispose()
   - name: Connect
     definition: void Connect(string roomName, string appKey, string matcherURL = null, RealtimeModel roomModel = null)
+  - name: Connect
+    definition: void Connect(string roomName, ConnectOptions connectOptions)
   - name: Disconnect
     definition: void Disconnect()
   - name: Tick

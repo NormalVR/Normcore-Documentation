@@ -13,6 +13,8 @@ class_members:
     summary: Returns the first component of type T in this GameObject or any of its parents.
     returns: A component of the matching type, if found.
     parameters:
+    - name: obj
+      description: The root GameObject.
     - name: includeInactive
       description: If true, include inactive parents.
 

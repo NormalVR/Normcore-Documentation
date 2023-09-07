@@ -6,6 +6,11 @@ class_name: RealtimeModel
 class_summary: A model that represents a set of data to store in a room datastore.
 class_remarks: ''
 class_members:
+- name: Events
+  members:
+  - name: ownerIDSelfDidChange
+    definition: event Action<RealtimeModel, int> ownerIDSelfDidChange
+    summary: Dispatched when the ownerIDSelf value changes.
 - name: Properties
   members:
   - name: isFreshModel
@@ -25,7 +30,7 @@ class_members:
     summary: If true, the model is destroyed when the last client in the room leaves.
   - name: destroyWhenOwnerLeaves
     definition: bool destroyWhenOwnerLeaves { get; set; }
-    summary: If true, the model is destroyed when the last client in the room leaves.
+    summary: If true, the model is destroyed when the owner of the model leaves the room.
   - name: room
     definition: Room room { get; }
     summary: The room managing this model, or null if this model is disconnected.
@@ -60,7 +65,7 @@ class_members:
   members:
   - name: RequestOwnership
     definition: void RequestOwnership(bool sendRedundantUpdates = false)
-    summary: Request ownership of the model, if it is unowned. This has no effect if the model has no meta-model. This will throw an exception if the model is not part of a connected room, as it requires the local clientID.
+    summary: Request ownership of the model. This has no effect if the model has no meta-model. This will throw an exception if the model is not part of a connected room, as it requires the local clientID.
     parameters:
     - name: sendRedundantUpdates
       description: If true, send the ownership update even if the model is already owned by the local client. This might send redundant updates but is useful if you expect contention. This does not circumvent the "Prevent Ownership Takeover" lifetime flag if it applies.
@@ -74,7 +79,7 @@ class_members:
       description: If true, send the ownership update even if the model is already owned by the specified ownerID. This might send redundant updates but is useful if you expect contention. This does not circumvent the "Prevent Ownership Takeover" lifetime flag if it applies.
   - name: ClearOwnership
     definition: void ClearOwnership(bool sendRedundantUpdates = false)
-    summary: Clear ownership of the model, if it is owned by the local client.
+    summary: Clear ownership of the model.
     parameters:
     - name: sendRedundantUpdates
       description: If true, send the ownership update even if the model is already unowned. This might send redundant updates but is useful if you expect contention. This does not circumvent the "Prevent Ownership Takeover" lifetime flag if it applies.

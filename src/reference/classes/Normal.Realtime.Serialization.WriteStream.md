@@ -44,34 +44,50 @@ class_members:
     definition: int WriteModelLength(uint propertyID, IStreamWriter model, StreamContext context, bool forceWriteFullModel = false)
   - name: WriteCollectionLength
     definition: int WriteCollectionLength(uint propertyID, ICollection collection, StreamContext context, bool forceWriteFullModel = false)
-  - name: LengthBool
-    definition: int LengthBool(bool value)
-  - name: LengthByte
-    definition: int LengthByte(byte value)
-  - name: LengthSByte
-    definition: int LengthSByte(sbyte value)
-  - name: LengthUShort
-    definition: int LengthUShort(ushort value)
-  - name: LengthShort
-    definition: int LengthShort(short value)
-  - name: LengthUInt
-    definition: int LengthUInt(uint value)
-  - name: LengthInt
-    definition: int LengthInt(int value)
-  - name: LengthFloat
-    definition: int LengthFloat(float value)
-  - name: LengthDouble
-    definition: int LengthDouble(double value)
-  - name: LengthString
-    definition: int LengthString(string value)
+  - name: LengthStructBool
+    definition: int LengthStructBool(bool value)
+  - name: LengthStructByte
+    definition: int LengthStructByte(byte value)
+  - name: LengthStructSByte
+    definition: int LengthStructSByte(sbyte value)
+  - name: LengthStructUShort
+    definition: int LengthStructUShort(ushort value)
+  - name: LengthStructShort
+    definition: int LengthStructShort(short value)
+  - name: LengthStructUInt
+    definition: int LengthStructUInt(uint value)
+  - name: LengthStructInt
+    definition: int LengthStructInt(int value)
+  - name: LengthStructFloat
+    definition: int LengthStructFloat(float value)
+  - name: LengthStructDouble
+    definition: int LengthStructDouble(double value)
+  - name: LengthStructString
+    definition: int LengthStructString(string value)
     summary: Returns the serialized size in bytes of the value. A null value is serialized as an empty string.
-  - name: LengthBytes
-    definition: int LengthBytes(byte[] value)
+  - name: LengthStructBytes
+    definition: int LengthStructBytes(byte[] value)
     summary: Returns the serialized size in bytes of the value. A null value is serialized as an empty byte array.
   - name: LengthPropertyHeader
     definition: int LengthPropertyHeader(PropertyHeader& header)
 - name: Methods
   members:
+  - name: WriteStructShort
+    definition: void WriteStructShort(short value)
+  - name: WriteStructUInt
+    definition: void WriteStructUInt(uint value)
+  - name: WriteStructInt
+    definition: void WriteStructInt(int value)
+  - name: WriteStructFloat
+    definition: void WriteStructFloat(float value)
+  - name: WriteStructDouble
+    definition: void WriteStructDouble(double value)
+  - name: WriteStructString
+    definition: void WriteStructString(string value)
+  - name: WriteStructBytes
+    definition: void WriteStructBytes(byte[] value)
+  - name: WritePropertyHeader
+    definition: void WritePropertyHeader(PropertyHeader& header)
   - name: SerializeModel
     definition: void SerializeModel(IStreamWriter model, StreamContext context)
   - name: WriteNull
@@ -92,29 +108,13 @@ class_members:
     definition: void WriteModel(uint propertyID, IStreamWriter value, StreamContext context, bool forceWriteFullModel = false)
   - name: WriteCollection
     definition: void WriteCollection(uint propertyID, ICollection value, StreamContext context, bool forceWriteFullModel = false)
-  - name: WriteBool
-    definition: void WriteBool(bool value)
-  - name: WriteByte
-    definition: void WriteByte(byte value)
-  - name: WriteSByte
-    definition: void WriteSByte(sbyte value)
-  - name: WriteUShort
-    definition: void WriteUShort(ushort value)
-  - name: WriteShort
-    definition: void WriteShort(short value)
-  - name: WriteUInt
-    definition: void WriteUInt(uint value)
-  - name: WriteInt
-    definition: void WriteInt(int value)
-  - name: WriteFloat
-    definition: void WriteFloat(float value)
-  - name: WriteDouble
-    definition: void WriteDouble(double value)
-  - name: WriteString
-    definition: void WriteString(string value)
-  - name: WriteBytes
-    definition: void WriteBytes(byte[] value)
-  - name: WritePropertyHeader
-    definition: void WritePropertyHeader(PropertyHeader& header)
+  - name: WriteStructBool
+    definition: void WriteStructBool(bool value)
+  - name: WriteStructByte
+    definition: void WriteStructByte(byte value)
+  - name: WriteStructSByte
+    definition: void WriteStructSByte(sbyte value)
+  - name: WriteStructUShort
+    definition: void WriteStructUShort(ushort value)
 
 ---
