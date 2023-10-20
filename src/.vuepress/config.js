@@ -91,6 +91,7 @@ module.exports = {
           '/architecture/client',
           '/architecture/cloud',
           '/architecture/transport',
+          '/architecture/firewalls',
           '/architecture/common-questions',
         ]
       },
