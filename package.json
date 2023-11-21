@@ -9,9 +9,8 @@
     "watch": "vuepress watch ./src",
     "dev": "vuepress dev ./src"
   },
-  "dependencies": {},
   "devDependencies": {
     "markdown-it-html5-embed": "^1.0.0",
-    "vuepress": "^1.9.7"
+    "vuepress": "^1.9.10"
   }
 }
