@@ -91,6 +91,25 @@ Let's test it out! Our camera should now smoothly follow the player and we can u
 
 At this point, we've got a Final IK player controller that looks great, and a camera that follows our player. Now we'll use Normcore to make it work in multiplayer.
 
-(TODO: Do we build the RealtimeTransformManager component into Normcore or does this exist in RealtimeView?)
+TODO: We need to implement the RequestOwnershipAllComponentsAndChildViews()
+TODO: Have PlayerManager call RequestOwnershipAllComponentsAndChildViews() after it spawns the Player prefab.
 
-Blocked on the above TODO, will write the rest once we know how this manifests in Normcore.
+First we need to synchronize the position of the player. To do that, we'll add a RealtimeTransform component to the root of our Player prefab. Because this RealtimeTransform is controlling a rigidbody that we want to maintain ownership of, configure the **Sleep* setting to use **Maintain Ownership While Sleeping**.
+
+We'll also want to synchronize the rotation of the Final IK character, so we'll also add a RealtimeTransform to the "Pilot" game object.
+
+(Video of those steps)
+
+At this point, our Final IK Player prefab is complete, but we need a way to spawn a copy for each player. Convert it to a prefab by dragging it into a Resources folder.
+
+Next, we'll create an empty game object and add a **Realtime** component and a **PlayerManager** component. Make sure you're **Realtime** component is configured with an app key. If you're unsure how to do that, check out our Getting Started (TODO: Link the guide) guide.
+
+Last, wire up a reference from the "Player" prefab to the **PlayerManager** component, and we're done!
+
+(Video of those steps)
+
+If we export a build, and enter play mode, we'll see two copies of our player prefab with everything perfectly in sync!
+
+(Final video)
+
+TODO: Outro copy
