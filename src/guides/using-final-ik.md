@@ -98,7 +98,7 @@ First we need to synchronize the position of the player. To do that, we'll add a
 
 We'll also want to synchronize the rotation of the Final IK character, so we'll also add a RealtimeTransform to the "Pilot" game object.
 
-(Video of those steps)
+<video src="./creating-a-finalik-player/adding-realtime-components.mp4" width="100%" controls></video>
 
 At this point, our Final IK Player prefab is complete, but we need a way to spawn a copy for each player. Convert it to a prefab by dragging it into a Resources folder.
 
@@ -106,10 +106,10 @@ Next, we'll create an empty game object and add a **Realtime** component and a *
 
 Last, wire up a reference from the "Player" prefab to the **PlayerManager** component, and we're done!
 
-(Video of those steps)
+<video src="./creating-a-finalik-player/adding-player-manager.mp4" width="100%" controls></video>
 
 If we export a build, and enter play mode, we'll see two copies of our player prefab with everything perfectly in sync!
 
-(Final video)
+<video src="./creating-a-finalik-player/final-test.mp4" width="100%" controls></video>
 
 TODO: Outro copy
