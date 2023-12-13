@@ -63,7 +63,7 @@ The last option is an optional argument that specifies if you would like a chang
 
 #### Generating model code in Unity 2021+
 
-If you're using Unity 2021 or newer, Normcore will automatically generate the remaining code needed to use your model. Don't worry if you don't see it in your file; the extra code exists as temporary C# code generated when your project compiles. At this point you can skip ahead to creating your RealtimeComponent subclass.
+If you're using Unity 2021 or newer, Normcore will automatically generate the remaining code needed to use your model. Don't worry if you don't see it in your file; the extra code exists as temporary C# code generated when your project compiles. At this point you can skip ahead to [Creating a RealtimeComponent subclass](#creating-a-realtimecomponent-subclass).
 
 #### Generating model code in Unity 2019/2020
 
