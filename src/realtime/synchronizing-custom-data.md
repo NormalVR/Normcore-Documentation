@@ -61,13 +61,17 @@ Reliable properties are good for things that you update once and that should be 
 
 The last option is an optional argument that specifies if you would like a change event added to the model. When this is set to true, a C# event is added; it will fire when a property is changed locally or remotely. This is a useful signal to update your scene to match the model.
 
-If you're using Unity 2021 or newer, Normcore will automatically generate the remaining code needed to use your model. Don't worry if you don't see it in your file; the extra code exists as temporary C# code generated when your project compiles. At this point you can skip ahead to the next section.
+#### Generating model code in Unity 2021+
+
+If you're using Unity 2021 or newer, Normcore will automatically generate the remaining code needed to use your model. Don't worry if you don't see it in your file; the extra code exists as temporary C# code generated when your project compiles. At this point you can skip ahead to [Creating a RealtimeComponent subclass](#creating-a-realtimecomponent-subclass).
+
+#### Generating model code in Unity 2019/2020
 
 If you're using an older version of Unity, you will need to manually compile the model. Go back to Unity and highlight the `ColorSyncModel.cs` file in your project. The inspector should look something like this:
 
 ![](./synchronizing-custom-data/model-inspector.png)
 
-Now that our class has a `[RealtimeModel]` attribute on it. Normcore will detect it and display the model inspector. If your inspector is not updating correctly, **make sure your Unity project has no compile errors. If Unity is unable to compile this class, it will be unable to detect the changes you’ve made to your model.**
+Now that our class has a `[RealtimeModel]` attribute on it. Normcore will detect it and display the model inspector. If your inspector is not updating correctly, make sure your Unity project has no compile errors. If Unity is unable to compile this class, it will be unable to detect the changes you’ve made to your model.
 
 In order to actually make use of the model, we’ll need to compile it. With the inspector up, click the “Compile Model” button. If we look back at our `ColorSyncModel.cs` class, it should look something like this:
 
