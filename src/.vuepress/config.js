@@ -60,7 +60,7 @@ module.exports = {
         sidebarDepth: 2,
         children: [
           '/guides/creating-a-player-controller',
-          '/guides/using-final-ik',
+          '/guides/creating-a-final-ik-player-controller',
           '/guides/upgrading-from-normcore-1-to-normcore-2',
           {
             title: 'Recipes',
