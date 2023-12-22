@@ -78,7 +78,7 @@ You can adjust the values for **Tilt Speed**, and **Tilt Sensitivity** as you li
 
 ![](./creating-a-final-ik-player-controller/adding-body-tilt.mp4)
 
-Last, let's add the **GrounderFullBodyBiped** component. Open up the Solver, and set *Layers* to "Default". This is the collision layer used for the solver. As your game grows, you may want to create a dedicated layer for the ground and surfaces you would like your player to land on.
+Last, let's add the **GrounderFullBodyBiped** component. Open up the Solver, and set **Layers** to "Default". This is the collision layer used for the solver. As your game grows, you may want to create a dedicated layer for the ground and surfaces you would like your player to land on.
 
 ![](./creating-a-final-ik-player-controller/adding-grounder.mp4)
 
@@ -92,9 +92,9 @@ Much better! Our character now behaves much more naturally in the environment.
 
 At this point, we've got a Final IK player controller that looks great, and a camera that follows our player. Now we'll use Normcore to make it multiplayer.
 
-First we need to network the position of the player. To do that, we'll add a RealtimeTransform component to the root of our Player prefab. Because this RealtimeTransform is controlling a rigidbody that we want to maintain ownership of, configure the **Sleep** setting to use **Maintain Ownership While Sleeping**.
+First we need to network the position of the player. To do that, we'll add a **RealtimeTransform** component to the root of our Player prefab. Because this **RealtimeTransform** is controlling a rigidbody that we want to maintain ownership of, configure the **Sleep** setting to use **Maintain Ownership While Sleeping**.
 
-We'll also want to network the rotation of the Final IK character, so we'll also add a RealtimeTransform to the "Pilot" game object itself. This will synchronize things like look direction and body tilt over the network.
+We'll also want to network the rotation of the Final IK character, so we'll also add a **RealtimeTransform** to the "Pilot" game object itself. This will synchronize things like look direction and body tilt over the network.
 
 ![](./creating-a-final-ik-player-controller/adding-realtime-components.mp4)
 
