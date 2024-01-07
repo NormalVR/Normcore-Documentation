@@ -1,9 +1,41 @@
-# Normcore Documentation
+# Website
 
-Welcome to our documentation repo! These are the docs files that are used to generate the pages on normcore.io/documentation.
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-All of us at Normal do our best to write thorough documentation, but occasionally there are features we may have missed or areas of the API that could use extra clarification.
+### Installation
 
-Want to contribute an update? Open up a [Pull Request](https://github.com/NormalVR/Normcore-Documentation/compare) with what you would like to add! It may take us a few days to review, but we'll get it integrated into the official docs.
+```
+$ yarn
+```
 
-Outside perspectives are always welcome! We'd love to know areas in our API that are difficult to understand, and how we can improve our documentation accordingly.
+### Local Development
+
+```
+$ yarn start
+```
+
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```
+$ yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+### Deployment
+
+Using SSH:
+
+```
+$ USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
