@@ -746,7 +746,7 @@ Let's try this version out.
 
 Much better, but not quite there yet. We're now controlling only our own avatar, but if you look at the other build, it's not synchronized over the network. Luckily, Normcore has a built-in component that'll do that for you. We'll add a **RealtimeTransform** component to the Player to synchronize movement and a **RealtimeTransform** on the Hoverbird Character game object so we can synchronize the character look direction and lean.
 
-If you're familiar with our [Networked Physics](../core-concepts/networked-physics) guide, you'll know that **RealtimeTransform**, when paired with a rigidbody, will attempt to clear ownership automatically when the rigidbody goes to sleep in order to allow other clients to take it over on physics collisions. However, in this case, we want to retain ownership of the Player **RealtimeTransform** at all times. In order to do that, we'll want to set it to **Maintain Ownership While Sleeping**.
+If you're familiar with our [Networked Physics](../realtime/networked-physics) guide, you'll know that **RealtimeTransform**, when paired with a rigidbody, will attempt to clear ownership automatically when the rigidbody goes to sleep in order to allow other clients to take it over on physics collisions. However, in this case, we want to retain ownership of the Player **RealtimeTransform** at all times. In order to do that, we'll want to set it to **Maintain Ownership While Sleeping**.
 
 <video width="100%" controls><source src={addRealtimeTransformsToPlayer} /></video> 
 
@@ -957,5 +957,5 @@ For future reference, the complete project is included in the Normcore unitypack
 
 Looking to learn more about Normcore? Check out our guides on synchronizing custom data and networked physics:
 
-- [Synchronizing Custom Data](../core-concepts/synchronizing-custom-data)
-- [Networked Physics](../core-concepts/networked-physics)
+- [Synchronizing Custom Data](../realtime/synchronizing-custom-data)
+- [Networked Physics](../realtime/networked-physics)

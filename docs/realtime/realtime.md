@@ -15,7 +15,7 @@ It's generally a good idea to think of a Realtime instance as a connection to a 
 This is what the Realtime component looks like in Unity. 
 
 ### App Settings
-This points to a [NormcoreAppSettings](../reference/classes/Normal.NormcoreAppSettings.html) asset that stores the relevant metadata needed for your application to connect to Normcore servers.
+This points to a [NormcoreAppSettings](../reference/classes/Normal.NormcoreAppSettings) asset that stores the relevant metadata needed for your application to connect to Normcore servers.
 
 ### App Key
 This is a unique key used to track your app's usage. You can create one over on your [account dashboard](https://normcore.io/dashboard). This field will update the asset for all instances that use this NormcoreAppSettings asset.
@@ -29,4 +29,4 @@ If you would like Realtime to automatically connect to a room on Start(), you ca
 This section displays information about the current running connection such as the current time on the room server and the connection state.
 
 ## Programming interface
-Most of the time that you spend working with Realtime will be via its programming interface. More information is available on using this API in the [Realtime API Overview](./), and individual methods are documented on the [Realtime](../reference/classes/Normal.Realtime.Realtime.html) reference page.
+Most of the time that you spend working with Realtime will be via its programming interface. More information is available on using this API in the [Realtime API Overview](./), and individual methods are documented on the [Realtime](../reference/classes/Normal.Realtime.Realtime) reference page.

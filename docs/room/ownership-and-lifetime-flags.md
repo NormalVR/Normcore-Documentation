@@ -11,7 +11,7 @@ The two most useful tools regarding server authority are ownership and lifetime 
 
 ## Ownership
 
-Normcore uses a [datastore](../architecture/client.html#datastore) to track all state in a room. The datastore itself is made up of model objects. Every model in the datastore, including child models, can have an owner with which it is associated.
+Normcore uses a [datastore](../architecture/client#datastore) to track all state in a room. The datastore itself is made up of model objects. Every model in the datastore, including child models, can have an owner with which it is associated.
 
 By default, a model has an `ownerID` of `-1`, which denotes that it has no owner. When a model is unowned, it can be modified by anyone in the room. However, when a model is owned by a client, the server only lets the owning client make changes to it or to any of its child models.
 

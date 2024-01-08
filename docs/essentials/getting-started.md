@@ -23,7 +23,7 @@ Let’s add one of the pre-built example prefabs to our scene. Drag a “Realtim
 
 ## Creating a Normcore application
 
-You'll notice that in the Realtime inspector, there's a field for an "App key." Before we can hit play, you’ll need one to connect to Normal’s servers. First, register for a Normal account [here](/dashboard/signup). Then, log in to the [Dashboard](/dashboard).
+You'll notice that in the Realtime inspector, there's a field for an "App key." Before we can hit play, you’ll need one to connect to Normal’s servers. First, register for a Normal account [here](https://normcore.io/dashboard/signup). Then, log in to the [Dashboard](https://normcore.io/dashboard).
 
 ![](./getting-started/normcore-dashboard.png "The Normcore dashboard, where you manage your applications.")
 

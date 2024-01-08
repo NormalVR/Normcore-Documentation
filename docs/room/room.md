@@ -33,12 +33,12 @@ Another feature that is unique to Normcore Private is the `webhookContext` field
 More information can be found in the [Webhooks](../normcore-private/webhooks) documentation.
 
 ## Working with the datastore
-Once a room is in a connected state, the datastore is synchronized with the room server and ready for use via the [`datastore`](../reference/classes/Normal.Realtime.Room.html) property.
+Once a room is in a connected state, the datastore is synchronized with the room server and ready for use via the [`datastore`](../reference/classes/Normal.Realtime.Room) property.
 
 Check out the [Datastore](./datastore) and [RealtimeModel](./realtimemodel) reference for more information on working with the Datastore directly.
 
 ## Media streams
-Normcore provides high-quality, low-latency audio streams via [`CreateAudioInputStream()`](../reference/classes/Normal.Realtime.Room.html). Calling this API returns an `AudioInputStream`  that can be used to send audio data to all clients. Once called, all clients will be able to retrieve a corresponding `AudioOutputStream` object. To do so, they should use [`GetAudioOutputStream()`](../reference/classes/Normal.Realtime.Room.html) along with the `clientID` and `streamID` from the `AudioInputStream` object.
+Normcore provides high-quality, low-latency audio streams via [`CreateAudioInputStream()`](../reference/classes/Normal.Realtime.Room). Calling this API returns an `AudioInputStream`  that can be used to send audio data to all clients. Once called, all clients will be able to retrieve a corresponding `AudioOutputStream` object. To do so, they should use [`GetAudioOutputStream()`](../reference/classes/Normal.Realtime.Room) along with the `clientID` and `streamID` from the `AudioInputStream` object.
 
 Normcore's new MediaStream API is now available in private preview for [Normcore Private](https://normcore.io/normcore-private) customers. If you would like to use video streaming in your Normcore Private app, get in touch with your account manager for more information.
 

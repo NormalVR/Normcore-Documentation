@@ -306,7 +306,7 @@ Download a finished copy of the project [here](</downloads/Normcore Synchronizin
 
 Check out our other guides on synchronizing custom data:
 
-- [Creating a multiplayer drawing app](../xr-guides/creating-a-multiplayer-drawing-app)
+- [Creating a multiplayer drawing app](../guides/creating-a-multiplayer-drawing-app)
 - [Server Authority, Ownership, and Lifetime Flags](../room/ownership-and-lifetime-flags)
 
 ## FAQ
