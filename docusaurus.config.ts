@@ -93,6 +93,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['csharp'],
     },
     algolia: {
       // The appID and API Key are public and safe to commit
