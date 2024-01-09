@@ -8,7 +8,7 @@ title: Common Questions
 #### Can I reparent a game object with a RealtimeView or RealtimeComponent on it?
 We generally recommend that you don't. Normcore will not synchronize parent relationships between objects. And if the new parent gets destroyed, it will take the RealtimeView and its components with it. This can result in desyncs between your clients.
 
-*Tip: If you need this functionality, check out some of the suggestions at the bottom of the [RealtimeTransform](./realtimetransform#extra-notes) page.*
+*Tip: If you need this functionality, check out some of the suggestions at the bottom of the [RealtimeTransform](./realtimetransform.md#extra-notes) page.*
 
 #### Can I disable RealtimeView?
 No. Scene RealtimeViews register with Realtime in `Start()`. If they are disabled, they will never register: Realtime will neither initialize them nor connect them to the datastore.
@@ -50,13 +50,13 @@ Instead, try storing data like health and scores in a `RealtimeDictionary` or a 
 
 ## RealtimeTransform
 #### Can I reparent RealtimeTransform?
-RealtimeTransform cannot support reparenting. Take a look at the [RealtimeTransform](./realtimetransform#extra-notes) docs for more information.
+RealtimeTransform cannot support reparenting. Take a look at the [RealtimeTransform](./realtimetransform.md#extra-notes) docs for more information.
 
 #### My RealtimeTransform gets stuck and I can't move it. What can I do about this?
-RealtimeTransform requires an owner in order to designate which client is responsible for its movement. Try calling `RequestOwnership()`; this should help. Take a look at the [RealtimeTransform](./realtimetransform) docs for more information.
+RealtimeTransform requires an owner in order to designate which client is responsible for its movement. Try calling `RequestOwnership()`; this should help. Take a look at the [RealtimeTransform](./realtimetransform.md) docs for more information.
 
 #### Why doesn’t my RealtimeTransform properly transfer ownership on collision?
-You most likely requested ownership of the transform and the view. You only need to request ownership of the transform. If you would like a RealtimeTransform to support ownership handoff, you need to ensure the view has no owner. See [Ownership and Lifetime Flags](../room/ownership-and-lifetime-flags) for more information.
+You most likely requested ownership of the transform and the view. You only need to request ownership of the transform. If you would like a RealtimeTransform to support ownership handoff, you need to ensure the view has no owner. See [Ownership and Lifetime Flags](../room/ownership-and-lifetime-flags.md) for more information.
 
 #### I’m calling RequestOwnership(), setting the position of a transform, and then immediately calling ClearOwnership()—but nothing happens. How can I fix this?
 Normcore doesn’t send changes to the server immediately when you change ownership or the value on a model. Instead, it synchronizes at 20hz and sends the latest state. If you change something and then change it back immediately, nothing will be sent to the server. In this case, skip calling `ClearOwnership()`. As long as the RealtimeView’s owner is **None**, then any other client in the future can just call `RequestOwnership()` to take over the transform and move it.
@@ -64,7 +64,7 @@ Normcore doesn’t send changes to the server immediately when you change owners
 #### Can I add or remove a Rigidbody at runtime?
 No. There’s no easy way to switch between these syncing modes at runtime; therefore, we don’t currently support adding or removing a Rigidbody at runtime. Instead, we recommend people instantiate an invisible game object with a Rigidbody on it and then copy the transform position/rotation in Update if they need the ability to synchronize a transform to be dynamic at runtime.
 
-Take a look at the [RealtimeTransform](./realtimetransform#extra-notes) page for more info.
+Take a look at the [RealtimeTransform](./realtimetransform.md#extra-notes) page for more info.
 
 ## Voice chat
 #### Voice chat doesn't work! Why?
@@ -85,4 +85,4 @@ If you are using a plugin like VRIK and your avatar setup uses a camera rig, you
 When the last player leaves a room, the room server will remain running for about 30 seconds before it's shut down. When this happens, any objects that are not flagged to destroy will be written to persistent storage. The next time someone joins this room, they will be restored instantly.
 
 #### I have a script on my player. Why is it updating all players in the room?
-When there are two avatars in a room, your scripts that live on the avatar prefab are instantiated for each avatar (not just the local player). This means that your code will execute on local and remote avatars, once for every player in the scene. If you’d like logic to only apply to a single player, use RealtimeView’s `isOwnedLocallyInHierarchy` property. Take a look at [this section](../guides/creating-a-player-controller#making-it-multiplayer) in the Player Controller guide for more info.
+When there are two avatars in a room, your scripts that live on the avatar prefab are instantiated for each avatar (not just the local player). This means that your code will execute on local and remote avatars, once for every player in the scene. If you’d like logic to only apply to a single player, use RealtimeView’s `isOwnedLocallyInHierarchy` property. Take a look at [this section](../guides/creating-a-player-controller.md#making-it-multiplayer) in the Player Controller guide for more info.

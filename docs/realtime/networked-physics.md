@@ -5,7 +5,7 @@ title: Networked Physics
 import realtimeTransformSync from './networked-physics/realtime-transform-sync.mp4'
 
 # Networked Physics
-Unless you're casually perusing the docs, you're probably here because you put a [`RealtimeTransform`](./realtimetransform) component on something and it's not working the way you expect. Well, you're in luck. This page is designed to explain how `RealtimeTransform` works and some of the thinking necessary to get it to do what you want.
+Unless you're casually perusing the docs, you're probably here because you put a [`RealtimeTransform`](./realtimetransform.md) component on something and it's not working the way you expect. Well, you're in luck. This page is designed to explain how `RealtimeTransform` works and some of the thinking necessary to get it to do what you want.
 
 ## How physics works in Unity
 
@@ -25,7 +25,7 @@ That said, if we have a few clients all simulating the same object, when they ev
 
 To solve this problem, `RealtimeTransform` introduces the concept of ownership. When an object is owned by a client, their simulation is considered the source of truth for that object. `RealtimeTransform` synchronizes the state of the object from the owner to all other clients.
 
-`RealtimeTransform` does this by looking at its [owner](../room/ownership-and-lifetime-flags). If the component is owned locally, it's going to synchronize the position, rotation, scale, velocity, angular velocity, and any other settings to the datastore. And if the `RealtimeTransform` component is not owned locally, it's going to treat the values in the datastore as the source of truth and synchronize them to this object.
+`RealtimeTransform` does this by looking at its [owner](../room/ownership-and-lifetime-flags.md). If the component is owned locally, it's going to synchronize the position, rotation, scale, velocity, angular velocity, and any other settings to the datastore. And if the `RealtimeTransform` component is not owned locally, it's going to treat the values in the datastore as the source of truth and synchronize them to this object.
 
 If you've added a `RealtimeTransform` component to your game object and it keeps getting reset back to where it started, this is why. You're not the owner, and therefore the datastore values are treated as the source of truth.
 

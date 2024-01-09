@@ -4,9 +4,9 @@ title: Room + Datastore API Overview
 ---
 # Room + Datastore API
 
-*Make sure you're up to speed on the [Client Architecture](../architecture/client) documentation before diving into this section.*
+*Make sure you're up to speed on the [Client Architecture](../architecture/client.md) documentation before diving into this section.*
 
-The **Room + Datastore API** is the foundation upon which the [Realtime API](../realtime/) is built. This layer is the raw data layer that synchronizes all state between each client.
+The **Room + Datastore API** is the foundation upon which the [Realtime API](../realtime/readme.md) is built. This layer is the raw data layer that synchronizes all state between each client.
 
 At a high level, **Room** manages the connection to the room server: it holds a single datastore instance that reflects the datastore on the room server and it manages all media streams for that room.
 

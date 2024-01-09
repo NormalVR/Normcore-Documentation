@@ -11,7 +11,7 @@ The two most useful tools regarding server authority are ownership and lifetime 
 
 ## Ownership
 
-Normcore uses a [datastore](../architecture/client#datastore) to track all state in a room. The datastore itself is made up of model objects. Every model in the datastore, including child models, can have an owner with which it is associated.
+Normcore uses a [datastore](../architecture/client.md#datastore) to track all state in a room. The datastore itself is made up of model objects. Every model in the datastore, including child models, can have an owner with which it is associated.
 
 By default, a model has an `ownerID` of `-1`, which denotes that it has no owner. When a model is unowned, it can be modified by anyone in the room. However, when a model is owned by a client, the server only lets the owning client make changes to it or to any of its child models.
 
@@ -108,7 +108,7 @@ public void CreateObjectAndRequestOwnershipOfRealtimeTransform() {
 
 However, before you can use this on a custom `RealtimeComponent`, you'll need to make sure your `RealtimeModel` includes a meta-model.
 
-If you haven't done so already, it's worth reading our [realtime component](../realtime/realtimecomponent) page. The page fully explains the relationship between `RealtimeComponent` and `RealtimeModel`. In Normcore, all state is stored on the `RealtimeModel`—ownership + lifetime flags are no different. All ownership calls to `RealtimeComponent` just update the state of the model to reflect the new owner. However, for ownership to work, you need to compile your model with a meta-model:
+If you haven't done so already, it's worth reading our [realtime component](../realtime/realtimecomponent.md) page. The page fully explains the relationship between `RealtimeComponent` and `RealtimeModel`. In Normcore, all state is stored on the `RealtimeModel`—ownership + lifetime flags are no different. All ownership calls to `RealtimeComponent` just update the state of the model to reflect the new owner. However, for ownership to work, you need to compile your model with a meta-model:
 
 ``` csharp {1}
 [RealtimeModel(createMetaModel: true)]

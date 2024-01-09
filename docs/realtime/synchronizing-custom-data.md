@@ -3,7 +3,7 @@ layout: docs
 title: Synchronizing Custom Data
 ---
 # Synchronizing Custom Data
-In this guide, I’m going to walk you through how to synchronize custom data in your Unity application using custom [realtime components](./realtimecomponent).
+In this guide, I’m going to walk you through how to synchronize custom data in your Unity application using custom [realtime components](./realtimecomponent.md).
 
 ## RealtimeComponents
 import createCubeWithColorSync from './synchronizing-custom-data/create-cube-with-colorsync.mp4'
@@ -11,7 +11,7 @@ import changeCubeColor         from './synchronizing-custom-data/change-cube-col
 
 ![](./synchronizing-custom-data/data-flow.svg "The flow of data in a Normcore application")
 
-[Realtime components](./realtimecomponent) synchronize state between the Unity scene and a model in the Normcore datastore.
+[Realtime components](./realtimecomponent.md) synchronize state between the Unity scene and a model in the Normcore datastore.
 
 ## Creating a custom realtime component
 
@@ -306,8 +306,8 @@ Download a finished copy of the project [here](</downloads/Normcore Synchronizin
 
 Check out our other guides on synchronizing custom data:
 
-- [Creating a multiplayer drawing app](../guides/creating-a-multiplayer-drawing-app)
-- [Server Authority, Ownership, and Lifetime Flags](../room/ownership-and-lifetime-flags)
+- [Creating a multiplayer drawing app](../guides/creating-a-multiplayer-drawing-app.md)
+- [Server Authority, Ownership, and Lifetime Flags](../room/ownership-and-lifetime-flags.md)
 
 ## FAQ
 #### My custom RealtimeComponent isn't syncing and `OnRealtimeModelReplaced` doesn't get called.

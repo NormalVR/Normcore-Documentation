@@ -1141,4 +1141,4 @@ Fun things to try now:
 
 1. Make a copy of the Brush game object and set it to the other hand so you can draw with two hands at once
 2. If you add `destroyWhenOwnerOrLastClientLeaves: false` to the `Realtime.Instantiate` call, the brush strokes will stick around after you leave and come back to the room! Try making a tool that can erase brush strokes by calling `Realtime.Destroy()` on them
-3. Check out the [Using AR as a spectator view](./using-ar-as-a-spectator-view)
+3. Check out the [Using AR as a spectator view](./using-ar-as-a-spectator-view.md)

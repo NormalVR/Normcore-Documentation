@@ -6,19 +6,19 @@ import realtimeTransform from './assets/realtime-transform.mp4'
 
 # Realtime API
 
-*Make sure you're up to speed on the [Client Architecture](../architecture/client) documentation before diving in this section.*
+*Make sure you're up to speed on the [Client Architecture](../architecture/client.md) documentation before diving in this section.*
 
 The Realtime API is the API that Normcore uses for all real-time synchronization in Unity. It's the layer that synchronizes all objects in your scene to the Normcore datastore.
 
-The lower-level [Room + Datastore API](../room/) manages the connection to the room server and the datastore. Realtime is a layer built on top of that. Realtime manages the Room + Datastore API for you and makes it easier to synchronize the state of your scene with the datastore.
+The lower-level [Room + Datastore API](../room/readme.md) manages the connection to the room server and the datastore. Realtime is a layer built on top of that. Realtime manages the Room + Datastore API for you and makes it easier to synchronize the state of your scene with the datastore.
 
 ## Connecting to a room
-Realtime will automatically connect to a room when your application starts if "Join Room On Start" is enabled. It's also possible to join a room by calling the [`Connect()`](../reference/classes/Normal.Realtime.Realtime) method along with the name of the room you would like to join. All clients that connect to the same room name will end up connected to the same room server.
+Realtime will automatically connect to a room when your application starts if "Join Room On Start" is enabled. It's also possible to join a room by calling the [`Connect()`](../reference/classes/Normal.Realtime.Realtime.md) method along with the name of the room you would like to join. All clients that connect to the same room name will end up connected to the same room server.
 
 ## Synchronizing a GameObject
-Normcore uses [realtime components](./realtimecomponent) to synchronize objects in a scene. It includes a few pre-built components and also includes a rich API for creating your own.
+Normcore uses [realtime components](./realtimecomponent.md) to synchronize objects in a scene. It includes a few pre-built components and also includes a rich API for creating your own.
 
-To synchronize the position of a game object using the [RealtimeTransform](./realtimetransform) component:
+To synchronize the position of a game object using the [RealtimeTransform](./realtimetransform.md) component:
 
 1. Create an empty scene. Add a **Realtime** component to an empty game object and configure the appKey so it can connect.
 2. Create a Cube game object in the scene and add a **RealtimeTransform** component to it.
@@ -28,19 +28,19 @@ To synchronize the position of a game object using the [RealtimeTransform](./rea
 
 <video width="100%" controls><source src={realtimeTransform} /></video>
 
-It's worth noting that RealtimeTransform uses ownership in a unique way. For more information, check out the guide on [RealtimeTransform](./realtimetransform).
+It's worth noting that RealtimeTransform uses ownership in a unique way. For more information, check out the guide on [RealtimeTransform](./realtimetransform.md).
 
 ## Prefabs
-Any prefab can be used with Normcore as long as it has a [RealtimeView](./realtimeview) on the root of the game object. In our documentation, a "realtime prefab" refers to a prefab that's synchronized via the Realtime API using realtime views and realtime components.
+Any prefab can be used with Normcore as long as it has a [RealtimeView](./realtimeview.md) on the root of the game object. In our documentation, a "realtime prefab" refers to a prefab that's synchronized via the Realtime API using realtime views and realtime components.
 
 ### Creating a prefab
 Realtime prefabs work the same way as regular prefabs in Unity except for a few minor differences:
 
-1. A realtime prefab must be instantiated with [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime) to ensure it is instantiated on all clients.
+1. A realtime prefab must be instantiated with [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime.md) to ensure it is instantiated on all clients.
 2. A realtime prefab must have a **RealtimeView** component on the root GameObject.
 3. A realtime prefab must live in a **Resources** folder to ensure it can be loaded at runtime.
 
-*Note: If you would like to avoid using Resources, it is possible to use the Addressables API or a custom loader by implementing a [RealtimePrefabLoadDelegate](../guides/recipes/using-addressables)*
+*Note: If you would like to avoid using Resources, it is possible to use the Addressables API or a custom loader by implementing a [RealtimePrefabLoadDelegate](../guides/recipes/using-addressables.md)*
 
 ### Instantiating a prefab
-Once you've created a realtime prefab, you can instantiate it at runtime using  [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime). This will create a fresh instance of the prefab on all clients and connect all RealtimeComponents together so that any state they synchronize will automatically be replicated to all clients.
+Once you've created a realtime prefab, you can instantiate it at runtime using  [`Realtime.Instantiate()`](../reference/classes/Normal.Realtime.Realtime.md). This will create a fresh instance of the prefab on all clients and connect all RealtimeComponents together so that any state they synchronize will automatically be replicated to all clients.

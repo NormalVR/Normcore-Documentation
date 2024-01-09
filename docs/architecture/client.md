@@ -10,11 +10,11 @@ This document describes the overall architecture of Normcore and how state is sy
 
 Normcore's Unity plugin consists of a series of layers. Each one builds on the layer below to provide an abstraction that is easier to use and lets you focus your time on building your game.
 
-**[Realtime](../realtime/):** This is the API that bridges your scene to Normcore's datastore. Most developers will work exclusively with this API.
+**[Realtime](../realtime/readme.md):** This is the API that bridges your scene to Normcore's datastore. Most developers will work exclusively with this API.
 
-**[Room + Datastore API](../room/):** The Room + Datastore API manages your connection to a room server and the synchronization of raw state in your application. It is unaware of your Unity scene or any Unity objects.
+**[Room + Datastore API](../room/readme.md):** The Room + Datastore API manages your connection to a room server and the synchronization of raw state in your application. It is unaware of your Unity scene or any Unity objects.
 
-**[Transport](./transport):** The lowest level is our transport API. It is responsible for getting messages between point A and point B.
+**[Transport](./transport.md):** The lowest level is our transport API. It is responsible for getting messages between point A and point B.
 
 ## Rooms
 

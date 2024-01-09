@@ -6,7 +6,7 @@ title: Voice Chat
 
 Normcore includes high-quality, low-latency voice chat that's accessible via a single component: **RealtimeAvatarVoice**.
 
-RealtimeAvatarVoice works on any [realtime prefab](../#prefabs) as long as the RealtimeView component has an owner.
+RealtimeAvatarVoice works on any [realtime prefab](../readme.md#prefabs) as long as the RealtimeView component has an owner.
 
 Upon instantiation, RealtimeAvatarVoice uses the ownership of the RealtimeView to determine if it should be sending audio for this prefab or receiving audio to play back.
 
@@ -21,6 +21,6 @@ RealtimeAvatarVoice also includes a `voiceVolume` property. This is a read-only 
 ### AudioPreprocessor
 RealtimeAvatarVoice includes an AudioPreprocessor that automatically sets the gain for the microphone and filters out background noise, reverb, and echo cancellation.
 
-In most cases the default settings are correct, but if you would like to make changes, the source code to RealtimeAvatarVoice is included and [can be forked](./avatars#modifying-realtimeavatar-scripts).
+In most cases the default settings are correct, but if you would like to make changes, the source code to RealtimeAvatarVoice is included and [can be forked](./avatars.md#modifying-realtimeavatar-scripts).
 
 It's worth noting that most platforms default to using hardware echo cancellation supplied by the operation system, so the AudioPreprocessor's echo cancellation functionality is not required.

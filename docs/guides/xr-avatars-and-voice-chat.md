@@ -115,5 +115,5 @@ If you’d like to synchronize more than the head and hand positions, check out 
 
 We’ve also got a few other guides that you might be interested in checking out after this one:
 
-- [Using AR as a spectator view](./using-ar-as-a-spectator-view)
-- [Creating a multiplayer drawing app](./creating-a-multiplayer-drawing-app)
+- [Using AR as a spectator view](./using-ar-as-a-spectator-view.md)
+- [Creating a multiplayer drawing app](./creating-a-multiplayer-drawing-app.md)

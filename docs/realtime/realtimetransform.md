@@ -4,7 +4,7 @@ title: RealtimeTransform
 ---
 # RealtimeTransform
 
-RealtimeTransform is a built-in [RealtimeComponent](./realtimecomponent) that can be used to synchronize the transform or rigidbody of a GameObject.
+RealtimeTransform is a built-in [RealtimeComponent](./realtimecomponent.md) that can be used to synchronize the transform or rigidbody of a GameObject.
 
 ## Editor Interface
 ![](./assets/realtimetransform-rigidbody.png "The RealtimeTransform inspector in Unity.")
@@ -55,14 +55,14 @@ In order to allow objects at rest to be automatically owned by colliding objects
 
 *Note: When implementing logic like picking up an object, we recommend marking the rigidbody kinematic. While a rigidbody is kinematic, ownership will not be cleared automatically, and the default sleep settings can be used.*
 
-*Tip: Check out the [Networked Physics](./networked-physics) guide for more detailed info on how RealtimeTransform works in Rigidbody mode.*
+*Tip: Check out the [Networked Physics](./networked-physics.md) guide for more detailed info on how RealtimeTransform works in Rigidbody mode.*
 
 ## Extra notes
 
 RealtimeTransform is a complex piece of machinery. There are a few gotchas that are worth noting when you start using this component.
 
 #### You cannot add a RealtimeTransform component at runtime.
-This is true of all [RealtimeComponents](./realtimecomponent), in fact. There is no easy method for Normcore to detect the component and recreate it on all other clients. If you need functionality like this, we recommend creating an empty prefab with a RealtimeTransform component on it. When you need to temporarily track the position of an object, instantiate the prefab and synchronize the position between it and the object you're trying to move dynamically. Once you're done moving the object, destroy the prefab, and you're done!
+This is true of all [RealtimeComponents](./realtimecomponent.md), in fact. There is no easy method for Normcore to detect the component and recreate it on all other clients. If you need functionality like this, we recommend creating an empty prefab with a RealtimeTransform component on it. When you need to temporarily track the position of an object, instantiate the prefab and synchronize the position between it and the object you're trying to move dynamically. Once you're done moving the object, destroy the prefab, and you're done!
 
 #### You can't add or remove a Rigidbody component at Runtime.
 Transform mode and Rigidbody mode work very differently under the hood. They synchronize different values and apply interpolation differently based on the information available.

@@ -11,7 +11,7 @@ const config: Config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/documentation/',
-  //trailingSlash: false, // TODO: Bring this back once this bug is fixed? https://github.com/facebook/docusaurus/issues/9720
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',

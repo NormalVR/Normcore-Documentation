@@ -22,7 +22,7 @@ Models shouldn't be a subclass of any other class. Models also need to be `parti
 
 Each field is required to be a primitive type. Models are designed to synchronize data that can be easily serialized and transmitted to other clients. It is not possible to store a complex object, such as a Material or Texture, in a model. You'll need to pick out the pieces of data you would like to synchronize and use a RealtimeModel to synchronize them. Attempting to synchronize every public property of such an object would require too much bandwidth to do correctly, and in most cases, the values do not change very often.
 
-*Tip: If you're new to RealtimeModel, check out the [Synchronizing custom data](../realtime/synchronizing-custom-data) guide, it provides an excellent overview of how to use a RealtimeModel in practice.*
+*Tip: If you're new to RealtimeModel, check out the [Synchronizing custom data](../realtime/synchronizing-custom-data.md) guide, it provides an excellent overview of how to use a RealtimeModel in practice.*
 
 ## RealtimeModel / RealtimeProperty attributes
 The `[RealtimeModel]` attribute is used to signal to Normcore that this is a model class and that it should be available for model compilation. The `[RealtimeProperty]` attribute notates how the field should be synchronized.

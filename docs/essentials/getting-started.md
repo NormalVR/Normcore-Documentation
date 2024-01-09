@@ -41,8 +41,8 @@ Export a standalone build to run next to the Unity Editor. Open the standalone b
 
 That’s it! You’re now up and running with Normcore. Now, I know this example isn’t the coolest, however, it only gets better from here. Check out some of our other guides:
 
-- [Creating a player controller](../guides/creating-a-player-controller)
-- [XR Avatars and Voice Chat](../guides/xr-avatars-and-voice-chat)
-- [Synchronizing Custom Data](../realtime/synchronizing-custom-data)
+- [Creating a player controller](../guides/creating-a-player-controller.md)
+- [XR Avatars and Voice Chat](../guides/xr-avatars-and-voice-chat.md)
+- [Synchronizing Custom Data](../realtime/synchronizing-custom-data.md)
 
 Until next time  : )
