@@ -38,3 +38,29 @@
 .linkblocks .icon.outbound {
   display: none;
 }
+
+.prop-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #0000ff;
+}
+.prop-title .prop-type {
+  font-size: 1rem;
+  font-weight: bolder;
+}
+.prop-entry {
+  margin-block-end: 25px;
+}
+.prop-entry p {
+  margin: 0;
+}
+.prop-definition {
+  font-size: 0.8rem;
+}
+.prop-title .meth-args {
+  font-size: 0.9rem;
+  color: #000;
+}
+p.brief-description {
+  margin-top: 5px;
+}
