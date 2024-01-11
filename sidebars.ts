@@ -16,6 +16,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Essentials',
+      collapsible: false,
       items: [
         'essentials/what-is-normcore',
         'essentials/getting-started',
