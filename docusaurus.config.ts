@@ -102,7 +102,7 @@ const config: Config = {
       indexName: 'normcore_documentation',
 
       // Optional: see doc section below
-      contextualSearch: true,
+      contextualSearch: false, // This doesn't work when using a manual crawler. It causes search to always return no results because results aren't tagged correctly.
 
       // Optional: Algolia search parameters
       searchParameters: {},
