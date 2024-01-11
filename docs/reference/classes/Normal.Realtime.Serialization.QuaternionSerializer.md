@@ -14,3 +14,6 @@ class_members:
     definition: void Read(ReadStream& stream, Quaternion& value)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

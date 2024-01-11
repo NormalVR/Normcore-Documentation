@@ -27,25 +27,6 @@ class_members:
     summary: The matcher URL used to connect to Normcore servers. If you're using Normcore Private Cloud or On-Premises, make sure this points to your Normcore Private matcher service.
 
 ---
-# { frontMatter.class_name }
+import ReferencePage from '../_ReferencePage.mdx'
 
-{ frontMatter.class_summary }
-
-{
-  frontMatter.class_members.map(group => [
-    (<h2>{group.name}</h2>),
-    group.members.map(member => {
-      const components = [
-        (<div class="prop-title">{ member.name }</div>),
-        (<p class="prop-definition"><i>{ member.definition }</i></p>),
-      ]
-
-      if (member.summary) components.push((<p class="brief-description">{ member.summary }</p>))
-      if (member.remarks) components.push((<p class="brief-description">{ member.remarks }</p>))
-      if (member.returns) components.push((<p class="brief-description">{ member.returns }</p>))
-      if (member.parameters) components.push(member.parameters.map(parameter => (<li><b>{ parameter.name }:</b> { parameter.description }</li>)))
-
-      return components
-    })
-  ])
-}
+<ReferencePage data={ frontMatter } />

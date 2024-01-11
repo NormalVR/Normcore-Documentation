@@ -109,3 +109,6 @@ class_members:
     summary: Disconnect from a room.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

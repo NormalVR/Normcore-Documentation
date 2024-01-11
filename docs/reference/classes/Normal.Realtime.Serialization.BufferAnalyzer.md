@@ -14,3 +14,6 @@ class_members:
     definition: string AnalyzeBuffer(ReadBuffer buffer, bool readUpdateID, bool readPacketTime = true)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

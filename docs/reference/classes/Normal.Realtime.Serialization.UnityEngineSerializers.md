@@ -10,3 +10,6 @@ class_members:
     definition: void Register()
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

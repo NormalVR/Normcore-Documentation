@@ -40,3 +40,6 @@ class_members:
     definition: string ToString()
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

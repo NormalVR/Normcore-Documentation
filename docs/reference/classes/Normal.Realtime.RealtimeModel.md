@@ -85,3 +85,6 @@ class_members:
       description: If true, send the ownership update even if the model is already unowned. This might send redundant updates but is useful if you expect contention. This does not circumvent the "Prevent Ownership Takeover" lifetime flag if it applies.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

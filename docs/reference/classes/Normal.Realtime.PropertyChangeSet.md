@@ -26,3 +26,6 @@ class_members:
     remarks: This is used by auto-generated RealtimeModel serialization code and is required to be public, but is not a public API.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

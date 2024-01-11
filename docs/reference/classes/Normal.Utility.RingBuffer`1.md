@@ -44,3 +44,6 @@ class_members:
     definition: void Clear()
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

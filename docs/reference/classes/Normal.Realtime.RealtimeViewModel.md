@@ -18,3 +18,6 @@ class_members:
     definition: ImmutableModelCollection childViewsModel { get; }
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

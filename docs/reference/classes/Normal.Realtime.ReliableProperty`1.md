@@ -32,3 +32,6 @@ class_members:
     summary: Unsubscribe the inflight notification. The local value will remain unchanged.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

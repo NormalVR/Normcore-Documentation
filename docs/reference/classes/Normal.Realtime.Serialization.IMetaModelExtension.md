@@ -10,3 +10,6 @@ class_members:
     definition: uint modelType { get; }
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

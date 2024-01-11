@@ -18,3 +18,6 @@ class_members:
     definition: void Cancel()
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

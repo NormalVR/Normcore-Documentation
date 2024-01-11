@@ -74,3 +74,6 @@ class_members:
     definition: NetworkInfo GetNetworkStatistics()
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

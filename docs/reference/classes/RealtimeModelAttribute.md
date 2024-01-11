@@ -11,3 +11,6 @@ class_members:
     summary: Whether this model is configured to generate a metamodel.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

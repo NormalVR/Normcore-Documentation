@@ -12,3 +12,6 @@ class_members:
     definition: double DecodeRoomTime(double localRoomTime, uint packetRoomTime)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

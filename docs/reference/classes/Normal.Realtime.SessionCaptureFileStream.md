@@ -38,3 +38,6 @@ class_members:
     definition: void SkipToTime(double playbackTime)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

@@ -41,3 +41,6 @@ class_members:
     summary: True if the transform has caught up to the interpolation delay.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

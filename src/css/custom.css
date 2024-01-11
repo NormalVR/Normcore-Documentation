@@ -39,25 +39,25 @@
   display: none;
 }
 
-.prop-title {
+.member-title {
   margin: 0;
   font-size: 1.2rem;
   color: #0000ff;
 }
-.prop-title .prop-type {
+.member-title .member-type {
   font-size: 1rem;
   font-weight: bolder;
 }
-.prop-entry {
+.member-entry {
   margin-block-end: 25px;
 }
-.prop-entry p {
+.member-entry p {
   margin: 0;
 }
-.prop-definition {
+.member-definition {
   font-size: 0.8rem;
 }
-.prop-title .meth-args {
+.member-title .meth-args {
   font-size: 0.9rem;
   color: #000;
 }

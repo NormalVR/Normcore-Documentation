@@ -16,3 +16,6 @@ class_members:
     definition: void DrawCube(Vector3 pos, Quaternion rot, float size)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

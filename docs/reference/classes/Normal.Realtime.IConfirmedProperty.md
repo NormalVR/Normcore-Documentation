@@ -17,3 +17,6 @@ class_members:
     summary: Reset the property to the confirmed value, clearing any inflight update.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

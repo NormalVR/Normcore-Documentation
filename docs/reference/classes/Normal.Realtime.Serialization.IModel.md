@@ -6,3 +6,6 @@ class_name: IModel
 class_members: []
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

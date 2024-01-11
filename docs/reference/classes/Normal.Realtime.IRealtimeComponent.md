@@ -54,3 +54,6 @@ class_members:
     summary: Clear ownership of the component.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

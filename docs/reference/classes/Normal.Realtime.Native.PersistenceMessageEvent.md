@@ -14,3 +14,6 @@ class_members:
     definition: public byte reliable
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

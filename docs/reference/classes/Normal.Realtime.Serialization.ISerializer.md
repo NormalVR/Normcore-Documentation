@@ -8,3 +8,6 @@ class_remarks: ''
 class_members: []
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

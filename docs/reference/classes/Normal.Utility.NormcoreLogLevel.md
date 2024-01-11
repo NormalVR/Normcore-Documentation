@@ -12,3 +12,6 @@ class_members:
     definition: public NormcoreLogLevel Error
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

@@ -17,3 +17,6 @@ class_members:
     summary: Invoke all of the callbacks for a specific update ID. The callbacks will be removed after they invoked.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

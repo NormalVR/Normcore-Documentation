@@ -14,3 +14,6 @@ class_members:
     definition: void DestroyRealtimePrefab(GameObject prefabInstance)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

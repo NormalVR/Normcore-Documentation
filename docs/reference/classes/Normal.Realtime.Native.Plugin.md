@@ -136,3 +136,6 @@ class_members:
     definition: void ClientConnect(IntPtr client, string serverAnswer)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

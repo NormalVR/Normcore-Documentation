@@ -24,3 +24,6 @@ class_members:
     definition: public ulong numberOfPacketsAcked
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

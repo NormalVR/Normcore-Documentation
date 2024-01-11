@@ -23,3 +23,6 @@ class_members:
     definition: bool Read(ReadStream stream, StreamContext context)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

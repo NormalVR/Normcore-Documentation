@@ -12,3 +12,6 @@ class_members:
     definition: void Write(WriteStream stream, StreamContext context)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

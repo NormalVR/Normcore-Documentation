@@ -22,3 +22,6 @@ class_members:
     summary: The next timeline entry. If this is the newest entry in the timeline, the next entry is null.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

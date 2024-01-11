@@ -118,3 +118,6 @@ class_members:
     definition: void WriteStructUShort(ushort value)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

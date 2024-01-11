@@ -24,3 +24,6 @@ class_members:
       description: The prefab instance to destroy or return to the pool for reuse.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

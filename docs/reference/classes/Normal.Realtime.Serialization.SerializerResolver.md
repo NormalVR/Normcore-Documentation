@@ -15,3 +15,6 @@ class_members:
     definition: ISerializer<TStruct> Resolve()
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

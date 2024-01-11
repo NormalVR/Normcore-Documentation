@@ -32,3 +32,6 @@ class_members:
     definition: string GetConnectToRoomRequestServerAnswer(string requestGUID)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />
