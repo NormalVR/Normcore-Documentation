@@ -109,5 +109,10 @@ class_members:
   - name: ClearOwnership
     definition: void ClearOwnership()
     summary: Clear ownership of the component.
+  - name: RequestOwnershipOfSelfAndChildren
+    definition: void RequestOwnershipOfSelfAndChildren()
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

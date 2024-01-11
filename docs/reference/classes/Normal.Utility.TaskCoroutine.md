@@ -11,3 +11,6 @@ class_members:
     summary: Yield until the provided task is complete.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

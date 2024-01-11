@@ -22,3 +22,6 @@ class_members:
     definition: void Read(ReadStream& stream, T& value)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

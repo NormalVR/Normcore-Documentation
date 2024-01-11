@@ -65,8 +65,8 @@ class_members:
     parameters:
     - name: key
       description: The key to search for.
-  - name: Contains
-    definition: bool Contains(TValue value)
+  - name: ContainsValue
+    definition: bool ContainsValue(TValue value)
     summary: Check if a model instance is contained in the collection.
     remarks: This method is very slow! If you need high performance value searching, you should use the added/replaced/removed events to mirror this collection to a faster collection type.
     returns: A boolean indicating whether the value was found within the collection.
@@ -77,3 +77,6 @@ class_members:
     definition: uint GetCollectionTypeID()
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

@@ -11,3 +11,6 @@ class_members:
     summary: Destructuring extension for KeyValuePair.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

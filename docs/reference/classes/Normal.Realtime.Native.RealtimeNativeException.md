@@ -10,3 +10,6 @@ class_members:
     definition: RealtimeNativeException NativePointerIsNull(string className)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

@@ -17,3 +17,6 @@ class_members:
       description: The metadata stored in the datastore to reference this realtime prefab.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

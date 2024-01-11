@@ -14,3 +14,6 @@ class_members:
     remarks: Defaults to Error, which only logs errors. Set to Debug for more verbose logging.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

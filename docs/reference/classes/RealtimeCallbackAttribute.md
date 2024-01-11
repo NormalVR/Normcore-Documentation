@@ -10,3 +10,6 @@ class_members:
     definition: public RealtimeModelEvent event
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

@@ -34,3 +34,6 @@ class_members:
     definition: void Exception(Exception exception, Object context)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

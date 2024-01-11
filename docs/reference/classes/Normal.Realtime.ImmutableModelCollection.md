@@ -20,3 +20,6 @@ class_members:
     definition: IEnumerator<KeyValuePair<uint, RealtimeModel>> GetEnumerator()
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

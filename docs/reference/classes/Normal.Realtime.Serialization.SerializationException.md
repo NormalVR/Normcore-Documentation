@@ -36,3 +36,6 @@ class_members:
     definition: SerializationException MetaModelSuppliedMismatchedModelType(uint serverModelType, uint localModelType)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

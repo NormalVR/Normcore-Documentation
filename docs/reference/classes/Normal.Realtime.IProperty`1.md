@@ -22,3 +22,6 @@ class_members:
     summary: Read the property from the stream. Returns true if the property changed.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

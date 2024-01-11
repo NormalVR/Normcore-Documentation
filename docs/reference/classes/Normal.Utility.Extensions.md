@@ -19,3 +19,6 @@ class_members:
       description: If true, include inactive parents.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

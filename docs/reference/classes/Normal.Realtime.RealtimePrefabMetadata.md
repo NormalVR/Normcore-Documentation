@@ -13,3 +13,6 @@ class_members:
     summary: The name of the prefab asset to load. This is the same prefabName string that is passed to Realtime.Instantiate().
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

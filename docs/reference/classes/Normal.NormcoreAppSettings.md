@@ -27,3 +27,6 @@ class_members:
     summary: The matcher URL used to connect to Normcore servers. If you're using Normcore Private Cloud or On-Premises, make sure this points to your Normcore Private matcher service.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

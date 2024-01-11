@@ -25,3 +25,6 @@ class_members:
     summary: Dispatched after a model reads properties from a remote update.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

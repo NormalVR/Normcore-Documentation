@@ -30,3 +30,6 @@ class_members:
     definition: void IterateThroughCacheNewestFirst(Func<T, bool> operateOnEntry, bool inflightOnly = false)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

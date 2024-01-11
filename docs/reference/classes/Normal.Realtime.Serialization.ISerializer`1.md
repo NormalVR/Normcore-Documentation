@@ -19,3 +19,6 @@ class_members:
     summary: Deserialize and return a value from a read stream.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

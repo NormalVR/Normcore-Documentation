@@ -49,3 +49,6 @@ class_members:
     summary: Get an interpolated position/rotation/scale within the timeline. If the input time is outside the timeline, this returns the snapshot closest to the timestamp.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

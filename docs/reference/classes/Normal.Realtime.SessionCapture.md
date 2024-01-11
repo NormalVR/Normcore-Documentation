@@ -30,3 +30,6 @@ class_members:
     definition: DeltaUpdate ReadDeltaUpdate()
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

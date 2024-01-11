@@ -10,3 +10,6 @@ class_members:
     definition: public string name
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

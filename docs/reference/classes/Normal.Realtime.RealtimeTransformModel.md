@@ -76,3 +76,6 @@ class_members:
     summary: Set the angular velocity, while checking for NaN and custom epsilon.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

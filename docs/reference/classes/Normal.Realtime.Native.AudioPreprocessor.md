@@ -14,3 +14,6 @@ class_members:
     definition: bool ProcessPlaybackFrame(float[] audioData)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

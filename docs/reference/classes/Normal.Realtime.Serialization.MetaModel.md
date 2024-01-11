@@ -22,3 +22,6 @@ class_members:
     remarks: In the next major version, this will be replaced with individual boolean properties
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

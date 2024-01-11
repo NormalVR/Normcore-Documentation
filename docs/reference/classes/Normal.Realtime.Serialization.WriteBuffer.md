@@ -32,3 +32,6 @@ class_members:
     definition: void WriteString(string value, int lengthInBytes)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

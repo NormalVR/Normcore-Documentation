@@ -33,3 +33,6 @@ class_members:
     definition: bool Equals(object obj)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

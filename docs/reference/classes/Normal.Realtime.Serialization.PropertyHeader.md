@@ -16,3 +16,6 @@ class_members:
     summary: The property wire type.
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

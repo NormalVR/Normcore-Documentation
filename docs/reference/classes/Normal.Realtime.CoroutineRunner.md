@@ -10,3 +10,6 @@ class_members:
     definition: CoroutineContext RunCoroutine(CoroutineContext coroutineContext)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />

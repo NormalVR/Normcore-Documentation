@@ -38,3 +38,29 @@
 .linkblocks .icon.outbound {
   display: none;
 }
+
+.member-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #0000ff;
+}
+.member-title .member-type {
+  font-size: 1rem;
+  font-weight: bolder;
+}
+.member-entry {
+  margin-block-end: 25px;
+}
+.member-entry p {
+  margin: 0;
+}
+.member-definition {
+  font-size: 0.8rem;
+}
+.member-title .meth-args {
+  font-size: 0.9rem;
+  color: #000;
+}
+p.brief-description {
+  margin-top: 5px;
+}

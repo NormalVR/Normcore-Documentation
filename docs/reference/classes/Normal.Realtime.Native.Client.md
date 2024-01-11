@@ -50,3 +50,6 @@ class_members:
     definition: bool SendRPCMessage(byte[] data, int dataLength, bool reliable)
 
 ---
+import ReferencePage from '../_ReferencePage.mdx'
+
+<ReferencePage data={ frontMatter } />
