@@ -44,7 +44,7 @@ const config: Config = {
   themeConfig: {
     image: 'https://normcore.io/normcore-social-static.png',
     navbar: {
-      title: 'Normcore',
+      title: 'Normcore.',
       items: [
         {
           type: 'search',
@@ -64,30 +64,6 @@ const config: Config = {
     },
     footer: {
       style: 'light',
-      links: [
-        {
-          title: 'Normal',
-          items: [
-            {
-              label: 'Normcore',
-              href: 'https://normcore.io',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Forum',
-              href: 'https://forum.normcore.io/',
-            },
-            {
-              label: 'Discord',
-              href: 'https://normcore.io/discord',
-            },
-          ],
-        },
-      ],
       copyright: `Copyright © 2016 - ${new Date().getFullYear()} Normal`,
     },
     prism: {

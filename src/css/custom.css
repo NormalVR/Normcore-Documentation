@@ -13,9 +13,17 @@
   --ifm-color-primary-light: #0054ff;
   --ifm-color-primary-lighter: #0054ff;
   --ifm-color-primary-lightest: #0054ff;
+  --ifm-menu-color: #000;
   --ifm-code-font-size: 95%;
+  --ifm-container-width-xl:1100px;
+  --ifm-h1-font-size:2.5rem;
+  --ifm-spacing-vertical: 2rem;
+  --ifm-spacing-horizontal: 2rem;
+/*  --ifm-hover-overlay:white;*/
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
+
+
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
@@ -26,11 +34,16 @@
   --ifm-color-primary-light: #0084ff;
   --ifm-color-primary-lighter: #0084ff;
   --ifm-color-primary-lightest: #0084ff;
+  --ifm-menu-color: #FFF;
+  --ifm-navbar-background-color:var(--ifm-background-color);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+
+
+
 .linkblocks img {
-  max-width: 180px !important;
+  max-width: 176px !important;
   margin-right: 10px;
   margin-top: 15px;
 }
@@ -63,4 +76,102 @@
 }
 p.brief-description {
   margin-top: 5px;
+}
+
+
+
+.markdown h1:first-child {
+    --ifm-h1-font-size: 2.5rem;
+}
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+#__docusaurus {
+    max-width: 92rem;
+    margin:auto;
+}
+
+.navbar__brand {
+  font-family: Platform;
+  font-size: 22px;
+  margin-left: -3px;
+}
+
+
+.menu__list .menu__list {
+  padding-left:0px;
+}
+
+.menu__list-item {
+/*  width:90%;*/
+}
+
+.menu__link {
+  padding: 0.35rem 1.5rem 0.35rem 1.25rem;
+  font-weight: 400;
+  font-size: 14px;
+  width: 93%;
+/*  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;*/
+
+}
+
+.menu__list-item-collapsible .menu__link {
+  font-size: 1.1em;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+.menu__list-item-collapsible > .menu__link:hover {
+  background-color: red;
+}
+
+.menu__list-item-collapsible:hover {
+  background-color: white;
+}
+
+[data-theme='dark'] .menu__list-item-collapsible:hover {
+  background-color: var(--ifm-background-color);
+}
+
+.menu__list-item-collapsible > .menu__link--active {
+  color: black;
+}
+
+[data-theme='dark']  .menu__list-item-collapsible > .menu__link--active {
+  color: white;
+}
+
+.menu__list-item {
+/*  margin-top: 20px;*/
+}
+
+.theme-doc-sidebar-item-category-level-2 > .menu__list-item-collapsible > .menu__link {
+    font-size: .95em;
+    line-height: 1.4;
+    font-weight: 400;
+    color:#7d7d7d;
+}
+
+.theme-doc-sidebar-item-category-level-2 .menu__list-item {
+    font-size: .95em;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+
+.footer {
+  background-color: unset;
+}
+
+.navbar {
+  border-bottom: 1px solid #EEE;
+  box-shadow: none;
+}
+
+[data-theme='dark'] .navbar {
+  border-bottom: none;
+  box-shadow: none;
 }
