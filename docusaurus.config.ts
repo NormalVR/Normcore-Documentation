@@ -54,16 +54,25 @@ const config: Config = {
           href: 'https://normcore.io/',
           label: 'normcore.io',
           position: 'right',
+          class:"navbar__item navbar__link custom-nav-time",
         },
         {
           href: 'https://normcore.io/dashboard',
           label: 'Go to dashboard',
           position: 'right',
+          class: "navbar__item navbar__link custom-nav-time dash-button",
         },
       ],
     },
     footer: {
       style: 'light',
+      logo: {
+        alt: 'Normal',
+        src: '/img/normal-logo.svg',
+        href: 'https://normcore.io/',
+        width: 70,
+        height: 21,
+      },
       copyright: `Copyright © 2016 - ${new Date().getFullYear()} Normal`,
     },
     prism: {

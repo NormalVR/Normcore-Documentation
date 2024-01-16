@@ -20,6 +20,7 @@
   --ifm-spacing-vertical: 2rem;
   --ifm-spacing-horizontal: 2rem;
   --ifm-code-font-size:80%;
+  --ifm-footer-padding-vertical:20px;
   --docusaurus-highlighted-code-line-bg:rgba(255, 255, 255, 0.05);
 /*  --ifm-hover-overlay:white;*/
 }
@@ -106,6 +107,11 @@ body {
 }
 
 
+
+.menu__list {
+  margin-top: 5px;
+}
+
 .menu__list .menu__list {
   padding-left:0px;
 }
@@ -166,14 +172,50 @@ body {
     font-weight: 400;
 }
 
+.DocSearch-Button {
+  min-width: 250px;
+  margin: 0px 10px !important;
+  height: 30px !important;
+}
 
-.footer {
-  background-color: unset;
+
+
+.DocSearch-Button-Key {
+  box-shadow: none;
+  background: none;
+}
+.DocSearch-Button-Key {
+  display: none !important;
+}
+.DocSearch-Button {
+  height: 32px important;
+}
+.DocSearch-Button-Placeholder {
+  font-size: 14px !important;
+}
+
+.DocSearch-Search-Icon{
+  height: 15px;
 }
 
 .navbar {
   border-bottom: 1px solid #EEE;
   box-shadow: none;
+}
+.custom-nav-time {
+  padding: 0px 0px;
+  margin: 0px 10px;
+}
+.custom-nav-time svg {
+  display: none;
+}
+.dash-button {
+    border: 1px solid black;
+    border-radius: 100px;
+    padding: 0px 10px;
+    background: black;
+    color: white;
+    font-size: 14px;
 }
 
 [data-theme='dark'] .navbar {
@@ -183,4 +225,40 @@ body {
 
 .pagination-nav__link {
   border:none;
+}
+
+.theme-edit-this-page {
+  color: grey;
+}
+
+.navbarSearchContainer_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module {
+  padding:0 !important;
+}
+
+
+
+
+.footer {
+  background-color: unset;
+}
+
+.footer__logo {
+  margin: 0;
+}
+
+
+
+[data-theme='dark']  .footer__logo {
+    filter: invert(0.6);
+}
+
+.footerLogoLink_node_modules-\@docusaurus-theme-classic-lib-theme-Footer-Logo-styles-module {
+  opacity:1 !important;
+}
+
+.footer__copyright {
+  font-size: 12px;
+      margin-top: -10px;
+    opacity: 0.3;
+    margin-bottom: 30px;
 }
