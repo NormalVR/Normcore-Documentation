@@ -23,7 +23,7 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  clientModules: ['./src/js/custom-code-blocks.js'],
   presets: [
     [
       'classic',
@@ -40,7 +40,6 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
     image: 'https://normcore.io/normcore-social-static.png',
     navbar: {
