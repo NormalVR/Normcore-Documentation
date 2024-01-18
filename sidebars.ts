@@ -135,7 +135,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: "Reference",
-      collapsible: false,
+      collapsible: true,
       items: [
         { type: 'doc', label: 'Datastore', id: 'reference/classes/Normal.Realtime.Datastore' },
         { type: 'doc', label: 'IRealtimeComponent', id: 'reference/classes/Normal.Realtime.IRealtimeComponent' },
