@@ -75,8 +75,8 @@ const config: Config = {
       copyright: `Copyright © 2016 - ${new Date().getFullYear()} Normal`,
     },
     prism: {
-      theme: prismThemes.nightOwl,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.vsLight,
+      darkTheme: prismThemes.vsDark,
       additionalLanguages: ['csharp'],
     },
     algolia: {
