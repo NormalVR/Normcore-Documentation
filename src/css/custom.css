@@ -219,14 +219,14 @@ body {
   border-bottom: 1px solid #EEE;
   box-shadow: none;
 }
-.custom-nav-time {
+.custom_nav_time {
   padding: 0px 0px;
   margin: 0px 10px;
 }
-.custom-nav-time svg {
+.custom_nav_time svg {
   display: none;
 }
-.dash-button {
+.dash_button {
     border: 1px solid black;
     border-radius: 100px;
     padding: 0px 10px;
@@ -235,7 +235,7 @@ body {
     font-size: 14px;
     transition: border 0.2s, background-color 0.2s, color 0.2s;
 }
-.dash-button:hover {
+.dash_button:hover {
   background-color: #0054ff;
   color: white;
   border: 1px solid #0054ff;
