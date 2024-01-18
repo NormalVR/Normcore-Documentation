@@ -23,7 +23,9 @@ This is a unique key used to track your app's usage. You can create one over on 
 ### Join Room On Start + Room Name
 If you would like Realtime to automatically connect to a room on Start(), you can check this box and enter the room name here.
 
-*Note: Room names are namespaced to your App Key. Any room name used with a different App Key is considered a different room server by Normcore.*
+:::info
+Room names are namespaced to your App Key. Any room name used with a different App Key is considered a different room server by Normcore.
+:::
 
 ### Network Statistics
 This section displays information about the current running connection such as the current time on the room server and the connection state.

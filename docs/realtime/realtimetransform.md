@@ -19,7 +19,9 @@ To use RealtimeTransform, all you need to do is add it to a GameObject and make 
 RealtimeTransform will monitor the GameObject and synchronize the transform or rigidbody state to a model in the datastore.
 
 ### Ownership
-**In order to move an object with a RealtimeTransform component, your client needs to be the owner of the *RealtimeTransform* component.**
+:::tip
+In order to move an object with a RealtimeTransform component, your client needs to be the owner of the *RealtimeTransform* component
+:::
 
 In a multiplayer environment, a game object and its transform can exist on multiple clients. This means that there are multiple copies that all claim to know the position of this object, but only one of them can be considered the source of truth. This is where ownership comes in.
 
@@ -55,7 +57,10 @@ In order to allow objects at rest to be automatically owned by colliding objects
 
 *Note: When implementing logic like picking up an object, we recommend marking the rigidbody kinematic. While a rigidbody is kinematic, ownership will not be cleared automatically, and the default sleep settings can be used.*
 
-*Tip: Check out the [Networked Physics](./networked-physics.md) guide for more detailed info on how RealtimeTransform works in Rigidbody mode.*
+:::tip
+Check out the [Networked Physics](./networked-physics.md) guide for more detailed info on how RealtimeTransform works in Rigidbody mode.
+:::
+
 
 ## Extra notes
 
