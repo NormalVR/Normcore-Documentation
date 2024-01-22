@@ -285,10 +285,10 @@ body {
   color: grey;
 }
 
-.navbarSearchContainer_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module {
-  padding:0 !important;
-}
 
+[class*="navbarSearchContainer"] {
+    padding:0 !important;
+}
 
 
 
@@ -345,8 +345,9 @@ body {
     filter: invert(0.6);
 }
 
-.footerLogoLink_node_modules-\@docusaurus-theme-classic-lib-theme-Footer-Logo-styles-module {
-  opacity:1 !important;
+
+[class*="footerLogoLink"] {
+    opacity:1 !important;
 }
 
 .footer__copyright {
@@ -357,20 +358,10 @@ body {
 }
 
 
-
-@media (min-width: 1207px){
-  .tableOfContents_node_modules-\@docusaurus-theme-classic-lib-theme-TOC-styles-module {
-      max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
-      overflow-y: auto;
-      position: sticky;
-      top: calc(var(--ifm-navbar-height) + 1rem);
-  }
-}
-
-
-.codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module {
+div [class*="codeBlockContainer"] {
   border-radius:24px !important;
 }
+
 
 pre {
   border-radius: 24px !important;
@@ -378,6 +369,26 @@ pre {
 }
 
 .alert {
-      font-size: .875rem;
+    font-size: .875rem;
     line-height: 1.25rem;
+}
+
+
+/*Turn off right sidebar  Only show when there is room on big desktop*/
+div [class*="docItemCol"] {
+    max-width: 100% !important;
+}
+
+div:has(> .theme-doc-toc-desktop ) {
+  display: none;
+}
+
+@media (min-width: 1200px){ 
+  div [class*="docItemCol"] {
+    max-width: 75% !important;
+  }
+
+  div:has(> .theme-doc-toc-desktop ) {
+    display: block;
+  }
 }
