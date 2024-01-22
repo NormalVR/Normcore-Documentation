@@ -24,6 +24,7 @@
   --ifm-alert-padding-vertical:20px;
   --ifm-alert-padding-horizontal:20px;
   --docusaurus-highlighted-code-line-bg:rgba(255, 255, 255, 0.05);
+  --ifm-navbar-height:4.25rem;
 /*  --ifm-hover-overlay:white;*/
 }
 
@@ -59,6 +60,9 @@ p > a:hover{
   border-bottom-width:2px
 }
 
+[data-theme='dark'] p > a {
+  color: white;
+}
 
 img {
   border-radius: 24px;
@@ -80,9 +84,11 @@ video {
 
 .member-title {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #0000ff;
   margin-top: 25px;
+/*  font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,liberation mono,courier new,monospace;*/
+  font-family: Inter;
 }
 
 [data-theme='dark'] .member-title {
@@ -100,7 +106,10 @@ video {
   margin: 0;
 }
 .member-definition {
-  font-size: 0.8rem;
+    font-size: 0.8rem;
+    margin-bottom: 15px !important;
+    opacity: 0.7;
+    margin-top: 5px;
 }
 .member-title .meth-args {
   font-size: 0.9rem;
@@ -108,6 +117,12 @@ video {
 }
 p.brief-description {
   margin-top: 5px;
+  font-size: 0.8rem;
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid rgb(222, 226, 226);
+}
+[data-theme='dark'] p.brief-description {
+  border-bottom: 0.5px solid rgb(37, 41, 40);
 }
 
 .hidden-title{
@@ -144,6 +159,7 @@ body {
 
 .menu__list {
   margin-top: 5px;
+  margin-bottom: 35px;
 }
 
 .menu__list .menu__list {
@@ -262,7 +278,16 @@ body {
     color: white;
     font-size: 14px;
     transition: border 0.2s, background-color 0.2s, color 0.2s;
+
+    font-weight: 500;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
+
 .dash_button:hover {
   background-color: #0054ff;
   color: white;
@@ -283,8 +308,11 @@ body {
 
 .theme-edit-this-page {
   color: grey;
+  font-size: 0.8rem;
 }
-
+.theme-edit-this-page svg {
+  height: 15px;
+}
 
 [class*="navbarSearchContainer"] {
     padding:0 !important;
@@ -337,6 +365,11 @@ body {
 
 .footer__logo {
   margin: 0;
+  border-radius: 0;
+}
+
+.linkblocks a {
+  border: none;
 }
 
 
@@ -391,4 +424,14 @@ div:has(> .theme-doc-toc-desktop ) {
   div:has(> .theme-doc-toc-desktop ) {
     display: block;
   }
+}
+
+.alert a {
+  text-decoration: none;
+}
+
+.menu__link--sublist-caret:after {
+    margin-left: 5px;
+    background: var(--ifm-menu-link-sublist-icon) 50% / 1rem 1rem;
+    margin-top: 3px;
 }
