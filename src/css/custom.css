@@ -4,6 +4,10 @@
  * work well for content-centric websites.
  */
 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #0054ff;
@@ -87,8 +91,9 @@ video {
   font-size: 1rem;
   color: #0000ff;
   margin-top: 25px;
-/*  font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,liberation mono,courier new,monospace;*/
-  font-family: Inter;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+/*  font-family: Inter;*/
 }
 
 [data-theme='dark'] .member-title {
@@ -115,20 +120,48 @@ video {
   font-size: 0.9rem;
   color: #000;
 }
+
+
 p.brief-description {
   margin-top: 5px;
   font-size: 0.8rem;
-  padding-bottom: 20px;
+}
+
+
+.h-rule {
+  margin-top: 20px;
+  width: 100%;
+  padding-bottom: 6px;
   border-bottom: 0.5px solid rgb(222, 226, 226);
 }
-[data-theme='dark'] p.brief-description {
+
+[data-theme='dark'] .h-rule {
   border-bottom: 0.5px solid rgb(37, 41, 40);
 }
+
 
 .hidden-title{
   display: none;
 }
 
+.member-param {
+  list-style: none;
+  margin-left: 15px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.param-bubble {
+  font-size: 0.8rem;
+
+  font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,liberation mono,courier new,monospace;
+  font-weight: 800;
+}
+.param-desc {
+  margin-left: 10px;
+  font-size: 0.8rem;
+
+}
 
 .markdown h1:first-child {
     --ifm-h1-font-size: 2.5rem;
