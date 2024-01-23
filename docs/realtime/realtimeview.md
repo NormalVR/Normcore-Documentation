@@ -50,7 +50,9 @@ Normcore is generally good at automatically assigning Scene View UUIDs to each R
 
 If you end up in a scenario in which there is a duplicate Scene View UUID, you can use the “Reset View UUID” button to tell Normcore to reset it.
 
-*Note: Once reset, this view will not be able to communicate with scene views that had the old ID. It will also not be able to retrieve persistent data stored under the previous Scene View UUID. Use this button carefully!*
+:::danger
+Once reset, this view will not be able to communicate with scene views that had the old ID. It will also not be able to retrieve persistent data stored under the previous Scene View UUID. Use this button carefully!
+:::
 
 #### Ownership
 Every RealtimeView has an [ownership and permissions model](../room/ownership-and-lifetime-flags.md) that’s enforced by the server. If this view is owned by a particular client, other clients will be unable to change any permissions on the view, its components, or its child views and their components.

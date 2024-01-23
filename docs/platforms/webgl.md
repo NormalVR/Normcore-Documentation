@@ -2,7 +2,9 @@
 layout: docs
 title: WebGL
 ---
-*Note: This feature is currently in alpha. If you would like access, please [contact us](https://normcore.io/contact).*
+:::note
+This feature is currently in alpha. If you would like access, please [contact us](https://normcore.io/contact).
+:::
 
 # WebGL
 Normcore WebGL support is designed to allow any Normcore project to be compiled for WebGL with no modifications to the source project. WebGL applications are treated as a first-class citizen and given the same network performance as native Normcore applications.

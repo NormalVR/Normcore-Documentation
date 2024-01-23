@@ -23,7 +23,7 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  clientModules: ['./src/js/custom-code-blocks.js'],
   presets: [
     [
       'classic',
@@ -40,11 +40,10 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
     image: 'https://normcore.io/normcore-social-static.png',
     navbar: {
-      title: 'Normcore',
+      title: 'Normcore.',
       items: [
         {
           type: 'search',
@@ -54,45 +53,30 @@ const config: Config = {
           href: 'https://normcore.io/',
           label: 'normcore.io',
           position: 'right',
+          className:"navbar__item navbar__link custom_nav_time",
         },
         {
           href: 'https://normcore.io/dashboard',
           label: 'Go to dashboard',
           position: 'right',
+          className: "navbar__item navbar__link custom_nav_time dash_button",
         },
       ],
     },
     footer: {
       style: 'light',
-      links: [
-        {
-          title: 'Normal',
-          items: [
-            {
-              label: 'Normcore',
-              href: 'https://normcore.io',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Forum',
-              href: 'https://forum.normcore.io/',
-            },
-            {
-              label: 'Discord',
-              href: 'https://normcore.io/discord',
-            },
-          ],
-        },
-      ],
+      logo: {
+        alt: 'Normal',
+        src: '/img/normal-logo.svg',
+        href: 'https://normcore.io/',
+        width: 70,
+        height: 21,
+      },
       copyright: `Copyright © 2016 - ${new Date().getFullYear()} Normal`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.vsLight,
+      darkTheme: prismThemes.vsDark,
       additionalLanguages: ['csharp'],
     },
     algolia: {
