@@ -32,27 +32,31 @@ export function checkForCodeBlocks() {
 	//get all code blocks on a page
 	// check if they are over 500px;
 	//if not hide the show more button
-	var codeBlocks = document.getElementsByClassName("theme-code-block");
-	// console.log("we checked! "+codeBlocks.length);
-	var i;
-	for (i = 0; i < codeBlocks.length; i++) {
-		if(codeBlocks[i].classList.contains("has-been-checked")) {
-			return;
-		}
-		if(codeBlocks[i].clientHeight > 500) {
-			codeBlocks[i].classList.add("has-been-checked");
-			codeBlocks[i].classList.add("code-block-custom")
-			var newNode = document.createElement('div');
-			newNode.classList.add("code-collapse-toggle");
-			newNode.id = "brnPrepend";
-			newNode.innerHTML = "Show More";
-			codeBlocks[i].after(newNode);
+	if (typeof document !== 'undefined') {
+		var codeBlocks = document.getElementsByClassName("theme-code-block");
+		// console.log("we checked! "+codeBlocks.length);
+		var i;
+		for (i = 0; i < codeBlocks.length; i++) {
+			if(codeBlocks[i].classList.contains("has-been-checked")) {
+				return;
+			}
+			if(codeBlocks[i].clientHeight > 500) {
+				codeBlocks[i].classList.add("has-been-checked");
+				codeBlocks[i].classList.add("code-block-custom")
+				var newNode = document.createElement('div');
+				newNode.classList.add("code-collapse-toggle");
+				newNode.id = "brnPrepend";
+				newNode.innerHTML = "Show More";
+				codeBlocks[i].after(newNode);
+			}
 		}
 	}
 }
 
+if (typeof document !== 'undefined') {
  document.addEventListener('click',function(e){
     if(e.target && e.target.id == 'brnPrepend'){
         toggleCodeBlockExpand(e.target);
      }
  });
+}

@@ -23,7 +23,7 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  //clientModules: ['./src/js/custom-code-blocks.js'],
+  clientModules: ['./src/js/custom-code-blocks.js'],
   presets: [
     [
       'classic',
