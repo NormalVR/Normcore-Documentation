@@ -83,10 +83,10 @@ const config: Config = {
       // The appID and API Key are public and safe to commit
       appId: 'KV7NQMMVI2',
       apiKey: '283f6935e9c28994beaf202d7bb8b928',
-      indexName: 'normcore',
+      indexName: 'normcore_documentation',
 
       // Optional: see doc section below
-      contextualSearch: false, // This doesn't work when using a manual crawler. It causes search to always return no results because results aren't tagged correctly.
+      contextualSearch: true,
 
       // Optional: Algolia search parameters
       searchParameters: {},
