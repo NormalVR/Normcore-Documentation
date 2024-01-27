@@ -23,6 +23,12 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+  markdown: {
+    mermaid: true,
+  },
+  themes: [
+    '@docusaurus/theme-mermaid'
+  ],
   clientModules: ['./src/js/custom-code-blocks.js'],
   presets: [
     [
