@@ -3,6 +3,10 @@ title: Room Server Options
 ---
 # Room Server Options
 
+:::warning
+This API is currently in private beta. If you would like to try it out, shoot us an email to help@normalvr.com with info about your project.
+:::
+
 
 Normcore v2.8.0 introduced the Room Server Options API. This API enables the ability to configure various server-side options, including things like the allocation of CPU and memory resources.
 
