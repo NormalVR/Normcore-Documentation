@@ -107,6 +107,7 @@ const sidebars: SidebarsConfig = {
         'room/realtimemodel',
         'room/collections',
         'room/ownership-and-lifetime-flags',
+        'room/room-server-options',
         'room/common-questions',
       ]
     },
