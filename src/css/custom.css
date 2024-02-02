@@ -40,6 +40,7 @@
   --docusaurus-highlighted-code-line-bg:#f2f2f2;
   --ifm-navbar-height:4.25rem;
   --dave-custom-border-radius:14px;
+  --doc-sidebar-width:320px !important;
 /*  --ifm-hover-overlay:white;*/
 }
 
@@ -191,7 +192,7 @@ body {
 .navbar__brand {
   font-family: Platform;
   font-size: 22px;
-  margin-left: -3px;
+  margin-left: 0.9rem;
 
 }
 @media screen and (max-width: 996px) {
@@ -566,7 +567,9 @@ table {
     border-radius: var(--dave-custom-border-radius);
     border: 1px solid #CCC;
 }
-
+nav.menu {
+    margin-left: 1.2rem;
+}
 /*[class*="docSidebarContainer"] {
   margin-left: 1.5rem;
 }*/
