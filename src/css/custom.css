@@ -192,6 +192,7 @@ body {
   font-family: Platform;
   font-size: 22px;
   margin-left: -3px;
+
 }
 @media screen and (max-width: 996px) {
   .navbar__brand {
@@ -544,7 +545,7 @@ div:has(> .theme-doc-toc-desktop ) {
   font-size: 0 !important;
 }
 
-.theme-admonition-tip, .theme-admonition-info, .theme-admonition-note, .theme-admonition-danger {
+.theme-admonition-tip, .theme-admonition-info, .theme-admonition-note, .theme-admonition-danger, .theme-admonition-warning {
   display: flex;
 }
 
@@ -557,3 +558,15 @@ div:has(> .theme-doc-toc-desktop ) {
 .theme-code-block-highlighted-line {
     background-color: #e7e7e7;
 }
+
+table {
+    display: inline-block;
+    font-size: 0.85em;
+    font-family: 'Inter';
+    border-radius: var(--dave-custom-border-radius);
+    border: 1px solid #CCC;
+}
+
+/*[class*="docSidebarContainer"] {
+  margin-left: 1.5rem;
+}*/
