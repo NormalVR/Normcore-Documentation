@@ -191,7 +191,7 @@ body {
 
 .navbar__brand {
   font-family: Platform;
-  font-size: 22px;
+  font-size: 26px;
   margin-left: 0.9rem;
 
 }
@@ -281,13 +281,13 @@ body {
 .DocSearch-Button {
   min-width: 250px;
   margin: 0px 10px !important;
-  height: 30px !important;
+  height: 34px !important;
 }
 @media screen and (max-width: 996px) {
   .DocSearch-Button {
     min-width: 0;
     margin: 0px 0px !important;
-    height: 30px !important;
+    height: 34px !important;
     padding: 0px 5px !important;
   }
 }
@@ -560,16 +560,23 @@ div:has(> .theme-doc-toc-desktop ) {
     background-color: #e7e7e7;
 }
 
-table {
-    display: inline-block;
-    font-size: 0.85em;
-    font-family: 'Inter';
-    border-radius: var(--dave-custom-border-radius);
-    border: 1px solid #CCC;
-}
+
 nav.menu {
     margin-left: 1.2rem;
 }
+
 /*[class*="docSidebarContainer"] {
   margin-left: 1.5rem;
 }*/
+
+[id*="mermaid-svg"] {
+  font-family: "Inter" !important;
+}
+
+.line-plot-0 path {
+  stroke: var(--ifm-color-primary) !important;
+}
+
+.docusaurus-mermaid-container {
+  margin-bottom: 20px;
+}
