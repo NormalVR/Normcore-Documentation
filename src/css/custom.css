@@ -292,6 +292,13 @@ body {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .DocSearch-Button {
+    height: 30px !important;
+  }
+}
+
+
 
 .DocSearch-Button-Key {
   box-shadow: none;
@@ -300,9 +307,7 @@ body {
 .DocSearch-Button-Key {
   display: none !important;
 }
-.DocSearch-Button {
-  height: 32px important;
-}
+
 .DocSearch-Button-Placeholder {
   font-size: 14px !important;
 }
@@ -314,6 +319,7 @@ body {
 .navbar {
   border-bottom: 1px solid #EEE;
   box-shadow: none;
+  align-items: center;
 }
 .custom_nav_time {
   padding: 0px 0px;
