@@ -40,6 +40,7 @@
   --docusaurus-highlighted-code-line-bg:#f2f2f2;
   --ifm-navbar-height:4.25rem;
   --dave-custom-border-radius:14px;
+  --doc-sidebar-width:320px !important;
 /*  --ifm-hover-overlay:white;*/
 }
 
@@ -190,8 +191,9 @@ body {
 
 .navbar__brand {
   font-family: Platform;
-  font-size: 22px;
-  margin-left: -3px;
+  font-size: 26px;
+  margin-left: 0.9rem;
+
 }
 @media screen and (max-width: 996px) {
   .navbar__brand {
@@ -279,16 +281,23 @@ body {
 .DocSearch-Button {
   min-width: 250px;
   margin: 0px 10px !important;
-  height: 30px !important;
+  height: 34px !important;
 }
 @media screen and (max-width: 996px) {
   .DocSearch-Button {
     min-width: 0;
     margin: 0px 0px !important;
-    height: 30px !important;
+    height: 34px !important;
     padding: 0px 5px !important;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .DocSearch-Button {
+    height: 30px !important;
+  }
+}
+
 
 
 .DocSearch-Button-Key {
@@ -298,9 +307,7 @@ body {
 .DocSearch-Button-Key {
   display: none !important;
 }
-.DocSearch-Button {
-  height: 32px important;
-}
+
 .DocSearch-Button-Placeholder {
   font-size: 14px !important;
 }
@@ -312,6 +319,7 @@ body {
 .navbar {
   border-bottom: 1px solid #EEE;
   box-shadow: none;
+  align-items: center;
 }
 .custom_nav_time {
   padding: 0px 0px;
@@ -466,7 +474,7 @@ div:has(> .theme-doc-toc-desktop ) {
   display: none;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1282px) {
   div [class*="docItemCol"] {
     max-width: 75% !important;
   }
@@ -544,7 +552,7 @@ div:has(> .theme-doc-toc-desktop ) {
   font-size: 0 !important;
 }
 
-.theme-admonition-tip, .theme-admonition-info, .theme-admonition-note, .theme-admonition-danger {
+.theme-admonition-tip, .theme-admonition-info, .theme-admonition-note, .theme-admonition-danger, .theme-admonition-warning {
   display: flex;
 }
 
@@ -556,4 +564,25 @@ div:has(> .theme-doc-toc-desktop ) {
 
 .theme-code-block-highlighted-line {
     background-color: #e7e7e7;
+}
+
+
+nav.menu {
+    margin-left: 1.2rem;
+}
+
+/*[class*="docSidebarContainer"] {
+  margin-left: 1.5rem;
+}*/
+
+[id*="mermaid-svg"] {
+  font-family: "Inter" !important;
+}
+
+.line-plot-0 path {
+  stroke: var(--ifm-color-primary) !important;
+}
+
+.docusaurus-mermaid-container {
+  margin-bottom: 20px;
 }
