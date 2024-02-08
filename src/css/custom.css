@@ -474,7 +474,7 @@ div:has(> .theme-doc-toc-desktop ) {
   display: none;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1282px) {
   div [class*="docItemCol"] {
     max-width: 75% !important;
   }
