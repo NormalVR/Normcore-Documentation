@@ -13,6 +13,10 @@ When you're finished, you'll end up with an application that will let you see an
 
 ![](./setting-up-a-networked-meta-avatar/player-wave.png "Meta Avatar waving at the viewer") 
 
+## Setup your App for Meta Avatars
+
+Before your app can load avatar data from Meta's servers, it will need permission to do so.  Ensure that your app is [configured as required for Meta Avatar usage](https://developer.oculus.com/documentation/unity/meta-avatars-app-config/), and that you have set your Oculus Platform Settings to point at the right app IDs
+
 ## Setting up your VR environment
 
 Start by creating a blank unity VR scene, with the camera properly tracked to the player's head.
