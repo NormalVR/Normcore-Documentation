@@ -11,29 +11,73 @@ This guide will demonstrate how to quickly load a Meta Avatar and network it to 
 
 When you're finished, you'll end up with an application that will let you see and talk to other player's avatars:
 
-![](./setting-up-a-networked-meta-avatar/player-wave.png "Meta Avatar waving at the viewer") 
+![](./setting-up-a-networked-meta-avatar/player-wave.png "Meta Avatar waving at the viewer")
 
 ## Setup your App for Meta Avatars
 
-Before your app can load avatar data from Meta's servers, it will need permission to do so.  Ensure that your app is [configured as required for Meta Avatar usage](https://developer.oculus.com/documentation/unity/meta-avatars-app-config/), and that you have set your Oculus Platform Settings to point at the right app IDs
+Before your app can load avatar data from Meta's servers, it will need permission to do so.  First we will need to ensure that your app is [configured as required for Meta Avatar usage](https://developer.oculus.com/documentation/unity/meta-avatars-app-config/).  
+
+If you do not have a developer Meta account, [sign up here](https://developer.oculus.com/sign-up/).
+
+Once your account is signed up, you will need to be [verified](https://developer.oculus.com/manage/verify/) before you can create an application.  This will require you to provide Meta with a credit card and some form of two-factor authentication (either via SMS or verification app.)  
+
+![](./setting-up-a-networked-meta-avatar/verify.png "Meta Verification Input Form") 
+
+You will also need to [create](https://developer.oculus.com/manage/organizations/create/) or join an organization that will act as the publisher for your game in the store.  If you are creating a business you may also need to provide identifaction for yourself and/or your business to verify it with Meta.
+
+![](./setting-up-a-networked-meta-avatar/organization.png "New Organization Input Form") 
+
+From there you will need to [create](https://developer.oculus.com/resources/publish-create-app/) an app that will have access to the appriopriate permissions to display the Meta Avatars.  In most cases this will be a Quest app (for release on the oculus store) or Quest Lab App (for personal or small group use), but if you also want to test it in editor or on your desktop you will need a Rift app as well.
+
+![](./setting-up-a-networked-meta-avatar/both-apps.png "Rift And Quest Applications") 
+
+For each app, open the app and go to the ``Requirements->Data`` Use Checkup section, and request **Use Avatar** permissions for the **User ID**, **User Profile** and **Avatar** Platform features.  You will need to provide a short justification for each of these, but if you have completed your developer verification everything should be auto-approved fairly quickly.
+
+![](./setting-up-a-networked-meta-avatar/permission-use-cases.png "Permission Use Case Input Form") 
+
+You will need to record your App ID for later, so you can include it in your occulus settings in unity.  These can be found mid-way down the app's ``API`` page, or in the URL of the application's page after ``https://developer.oculus.com/manage/applications``.
+
+The last thing you will need to do on the Meta Developer pages prior to releasing on quest headset is to an alpha build and add any test accounts to your app, but we will come back to that later...
+
+Finally you will also need a Normcore App Key for your project.  This can be created by going to the [Normcore Application page](https://normcore.io/dashboard/app/applications) and creating a new application there using the ``Add new application`` button.  Once you have selected your new application name, it will show up in the application list along with its key.  Record this value for later.
+
+![](./setting-up-a-networked-meta-avatar/normcore-app-key.png "Normcore App Creation Form") 
 
 ## Setting up your VR environment
 
-Start by creating a blank unity VR scene, with the camera properly tracked to the player's head.
+Start by creating a VR Unity project.  The template for this can be found in the Core section of the New Unity Projects in the Unity hub.
+
+Once your project is created you will need to add the [**Normcore** package and **Normcore Meta Platform** package](https://normcore.io/dashboard/app/download) to your project.  Your app will probably restart once or twice, and you may get a pop about install sample avatar files as the **Normecore Meta Platform** package also installs the required **Meta XR All-in-One SDK** and **Meta Avatars SDK** packages.  
+
+As the Meta packages are required packages they won't show up in your package manager.  For this example it will also be useful to have access to the samples that are in the **Meta Avatars SDK** package (these are different than the popup), so to have that show up in the package manager, [add the Meta Avatar SDK to your package list.](https://developer.oculus.com/downloads/package/meta-avatars-sdk/).  On that page in the top right there should be links to both the Meta Avatar SDK in the Unity store front and directly from Meta itself.
+
+Once the oculus platform has been installed on your system, you will need to enter the Meta App IDs for your for your project in your Oculus Settings.  The Oculus Settings scriptable object can be accessed by selecting the ``Oculus->Platform->Edit Settings`` from the Unity editor dropdown menu.  If you have both a Rift App ID and a Quest App ID, enter them both here. 
+
+![](./setting-up-a-networked-meta-avatar/oculus-settings.png "Oculus Settings Scriptable Object") 
+
+Once this is setup, go into your Editor's project settings and check the Oculus project settings there.  If there is anything that requires a fix, click on the ``Fix`` button and the system should sort out those issues.  The same goes for any recommended items.
+
+![](./setting-up-a-networked-meta-avatar/oculus-fixes.png "Oculus Project Settings") 
+
+Note: The first time you change targets from Rift to Quest, other issues may show up here, so be sure to check back here if you are having trouble exporting the apk.
+
+## Setting up your VR scene
+
+Now we are ready to setup our scene.  Create a blank unity VR scene.  This should include a camera game object with the **Tracked Pose Driver** component, so the camera maps to the user's head movements.
 
 ![](./setting-up-a-networked-meta-avatar/camera.png "Camera settings") 
 
-Create a game object and add a **Realtime** component to it.  Point your **Realtime** component at a **NormcoreAppSettings** scriptable object that has your app id in it.  Then, add a **RealtimeAvatarManager** component.
+Create a game object and add a **Realtime** component to it.  Point your **Realtime** component at a **NormcoreAppSettings** scriptable object or add a new one and make sure it includes the Normcore App Key that you created earlier.  Once this done, add a **RealtimeAvatarManager** component to the Realtime game object.
 
 ![](./setting-up-a-networked-meta-avatar/realtime.png "Realtime Settings settings")
 
-For the avatar system to initalize properly, your scene will require a number of components in it (**OvrAvatarManager**, **AvatarLODManager**, **GPUSkinningConfiguraiton** and **OvrAvatarShaderManager**).  The easiest way get these is to install the Meta Avatar SDK Sample Scenes, and use one of the prefabs they provide as part of that.
+For the avatar system to initalize properly, your scene will require a number of components in it (**OvrAvatarManager**, **AvatarLODManager**, **GPUSkinningConfiguraiton** and **OvrAvatarShaderManager**).  The easiest way get these is to install the Meta Avatar SDK Sample Scenes, and use one of the prefabs they provide as examples of that.
 
-First install the sample scenes through the package manager.  If you don't see the Meta Avatar SDK, you may need to [add the Meta Avatar SDK to your package list manually.](https://developer.oculus.com/downloads/package/meta-avatars-sdk/)
+First install the sample scenes through the package manager.  These can be found at the bottom of the **Meta Avatars SDK** entry in the package manager.  You may need to expand the drop down list by clicking on the arrow before they are visible.
 
 ![](./setting-up-a-networked-meta-avatar/meta-avatar-sample-scenes.png "Meta Avatar SDK in Package Manager")
 
-Then add the **AvatarSDKManagerMeta** prefab to your scene.  It can be found in ``Samples->Meta Avatar SDK->Version Number->Sample Scenes->Common->Prefabs->AvatarSDKManager->Recommended``.
+Now add the **AvatarSDKManagerMeta** prefab to your scene.  It can be found in ``Samples->Meta Avatar SDK->Version Number->Sample Scenes->Common->Prefabs->AvatarSDKManager->Recommended``.
 
 ![](./setting-up-a-networked-meta-avatar/avatar-sdk-manager.png "AvatarSDKManager location")
 
@@ -43,7 +87,7 @@ Finally, if you will be running your program on a Quest headset, you will need t
 using System.Collections;
 using UnityEngine;
 using Oculus.Platform;
-using Normal.Realtime.Shared.OculusMeta;
+using Normal.Meta;
 
 public class MetaAvatarConnect : MonoBehaviour
 {
@@ -92,7 +136,7 @@ The Meta Avatar setup will add a head and hands for the Realtime Avatar, along w
 
 In addition, it will set the Local Avatar and Remote Avatar prefabs for the **MetaAvatar**.  These prefabs are provided for your convience as part of the Realtime Meta package, but if you want to change the settings of these, you can create your own copies, modify them as you see fit and assign them here.
 
-Once the setup is complete, turn the Meta Avatar game object into a prefab by dragging it into your project folder.  Then assign it as the Local Avatar Prefab for the **RealtimeAvatarManager** you created earlier.
+Once the setup is complete, turn the Meta Avatar game object into a prefab by dragging it from the hierarchy into the resources folder of your project.  Then assign it as the Local Avatar Prefab for the **RealtimeAvatarManager** you created earlier.  Also, be sure to remove the existing copy from the root of the scene.
 
 ![](./setting-up-a-networked-meta-avatar/realtime-avatar-manager.png "Realtime Avatar Manager Component")
 
@@ -100,4 +144,24 @@ Once this is complete, your project should be ready to give your application a g
 
 Once the scene loads, the application will connect to the OVR system and Normal and a Meta Avatar will be spawned for each player connected to your Realtime instance.  Once the base systems have initialized, a Meta Avatar prefab will be spawned for each player displaying the player associated with that user's Meta account.
 
-Once that works you are free to export the project and send it to a friend!
+## Exporting your Meta Avatar Application
+
+Prior to your Meta Avatar Application running on a Quest headset, you will need to add upload a build of the application to the Alpha Release channel for that application and add the accounts of any testers who want to try it out.  If you don't do this, your application may fail when trying to access Meta Avatar API.
+
+Once you have built your APK you can upload it to the Alpha Release channel using the [Oculus Platform Utility](https://developer.oculus.com/distribute/publish-reference-platform-command-line-utility/) or the [Meta Quest Developer Hub](https://developer.oculus.com/downloads/package/oculus-developer-hub-win/).
+
+![](./setting-up-a-networked-meta-avatar/release-channel.png "Applicaiton Release Channel")
+
+The Oculus Platform Utility is a commandline tool that runs on both Windows and Mac.  An example of the syntax used for uploading can be found by going to your App's page, ``Distribution->Release Channels``, selecting the Alpha Release Channel, and clicking on the ``Upload Build`` button.  The result should look something like this:
+
+```
+./ovr-platform-util upload-quest-build --app-id <app-id> --app-secret <app-secret> --apk <path-to-apk> --channel ALPHA // Optional fields: --assets-dir <path-to-DLCs-dir> --obb <path-to-OBB>
+```
+
+The **Meta Quest Developer Hub** allows a visual interface to do this, and once you have installed it and signed in, you can upload a build by selecting ``App Distribution``, selecting your App and clicking the ``Upload`` button along side the Alpha Release channel.
+
+![](./setting-up-a-networked-meta-avatar/email-testers.png "Invite User Form")
+
+Once the application has been uploaded, you can add testers to the release channel by going to ``Distribution->Release Channels`` on the app's developer page and clicking on the user count for that channel.  That will take you to a page that will let you email testers to invite them to test your appication.  Note that the testers will have to have a valid Oculus/Meta account.
+
+After all that has been setup, you should be free to send a copy of the APK to anyone on that test list and start chatting with them through their avatar in VR!
