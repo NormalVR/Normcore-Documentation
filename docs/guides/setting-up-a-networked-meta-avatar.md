@@ -49,7 +49,7 @@ Start by creating a VR Unity project.  The template for this can be found in the
 
 Once your project is created you will need to add the [**Normcore** package and **Normcore Meta Platform** package](https://normcore.io/dashboard/app/download) to your project.  Your app will probably restart once or twice, and you may get a pop about install sample avatar files as the **Normecore Meta Platform** package also installs the required **Meta XR All-in-One SDK** and **Meta Avatars SDK** packages.  
 
-As the Meta packages are required packages they won't show up in your package manager.  For this example it will also be useful to have access to the samples that are in the **Meta Avatars SDK** package (these are different than the popup), so to have that show up in the package manager, [add the Meta Avatar SDK to your package list.](https://developer.oculus.com/downloads/package/meta-avatars-sdk/).  On that page in the top right there should be links to both the Meta Avatar SDK in the Unity store front and directly from Meta itself.
+As the Meta packages are required packages they won't show up in your package manager.  For this example it will also be useful to have access to the samples that are in the **Meta Avatars SDK** package (these are different than the popup), so to have that show up in the package manager, [add the Meta Avatar SDK to your package list.](https://developer.oculus.com/downloads/package/meta-avatars-sdk/).  On that page in the top right there should be links to both the Meta Avatar SDK in the Unity store front and directly from Meta itself.  If you click the storefront link it will add the package to your packagemanager.  The meta link will allow you to download a zip of the package, which you can then add in the package manager using the `Add Local Package` option.
 
 Once the oculus platform has been installed on your system, you will need to enter the Meta App IDs for your for your project in your Oculus Settings.  The Oculus Settings scriptable object can be accessed by selecting the ``Oculus->Platform->Edit Settings`` from the Unity editor dropdown menu.  If you have both a Rift App ID and a Quest App ID, enter them both here. 
 
@@ -63,7 +63,7 @@ Note: The first time you change targets from Rift to Quest, other issues may sho
 
 ## Setting up your VR scene
 
-Now we are ready to setup our scene.  Create a blank unity VR scene.  This should include a camera game object with the **Tracked Pose Driver** component, so the camera maps to the user's head movements.
+Now we are ready to setup our scene.  Create a blank unity VR scene.  This should include a camera game object with the **Tracked Pose Driver** component, so the camera maps to the user's head movements.  Check that your camera's Clipping Near Point is around 0.05 (it sometimes can be larger on the default cameras, and this can make your hands disappear when they get too close to you.)
 
 ![](./setting-up-a-networked-meta-avatar/camera.png "Camera settings") 
 
@@ -136,7 +136,9 @@ The Meta Avatar setup will add a head and hands for the Realtime Avatar, along w
 
 In addition, it will set the Local Avatar and Remote Avatar prefabs for the **MetaAvatar**.  These prefabs are provided for your convience as part of the Realtime Meta package, but if you want to change the settings of these, you can create your own copies, modify them as you see fit and assign them here.
 
-Once the setup is complete, turn the Meta Avatar game object into a prefab by dragging it from the hierarchy into the resources folder of your project.  Then assign it as the Local Avatar Prefab for the **RealtimeAvatarManager** you created earlier.  Also, be sure to remove the existing copy from the root of the scene.
+Once the setup is complete, turn the Meta Avatar game object into a prefab by dragging it from the hierarchy into the resources folder of your project.  Note: Make sure the position of your avatar prefab is set to (0,0,0), otherwise the avatar may spawn away from the camera.
+
+Remove the existing copy from the root of the scene, and assign the newly created prefab as the Local Avatar Prefab for the **RealtimeAvatarManager** you created earlier. 
 
 ![](./setting-up-a-networked-meta-avatar/realtime-avatar-manager.png "Realtime Avatar Manager Component")
 
@@ -145,6 +147,10 @@ Once this is complete, your project should be ready to give your application a g
 Once the scene loads, the application will connect to the OVR system and Normal and a Meta Avatar will be spawned for each player connected to your Realtime instance.  Once the base systems have initialized, a Meta Avatar prefab will be spawned for each player displaying the player associated with that user's Meta account.
 
 ## Exporting your Meta Avatar Application
+
+Before you export your build, ensure that your player settings are in order.  The default Package Name in Player Settings->Publishing may not run on the Quest headset, so change it to something appropriate for your application/company.
+
+![](./setting-up-a-networked-meta-avatar/package-name.png "Package Name")
 
 Prior to your Meta Avatar Application running on a Quest headset, you will need to add upload a build of the application to the Alpha Release channel for that application and add the accounts of any testers who want to try it out.  If you don't do this, your application may fail when trying to access Meta Avatar API.
 
