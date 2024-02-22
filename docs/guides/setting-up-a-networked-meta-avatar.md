@@ -152,6 +152,8 @@ Before you export your build, ensure that your player settings are in order.  Th
 
 ![](./setting-up-a-networked-meta-avatar/package-name.png "Package Name")
 
+If you enctounter an issue during build with the Meta shaders reporting that **UNITY_INSTANCING_PROCEDURAL_FUNC must be defined**, this seems to be an issue with Meta Avatars version 24 and the URP system.  It shouldn't impact the running of the build, but if it does cause issues for your project you can get around this by using the **AvatarSdkManagerHorizon** prefab instead of the **AvatarSDKManagerMeta** prefab, or you can disable URP in your project by removing it from the package manager.
+
 Prior to your Meta Avatar Application running on a Quest headset, you will need to add upload a build of the application to the Alpha Release channel for that application and add the accounts of any testers who want to try it out.  If you don't do this, your application may fail when trying to access Meta Avatar API.
 
 Once you have built your APK you can upload it to the Alpha Release channel using the [Oculus Platform Utility](https://developer.oculus.com/distribute/publish-reference-platform-command-line-utility/) or the [Meta Quest Developer Hub](https://developer.oculus.com/downloads/package/oculus-developer-hub-win/).
