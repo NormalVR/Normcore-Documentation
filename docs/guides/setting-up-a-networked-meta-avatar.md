@@ -49,8 +49,6 @@ Start by creating a VR Unity project.  The template for this can be found in the
 
 Once your project is created you will need to add the [**Normcore** package and **Normcore Meta Platform** package](https://normcore.io/dashboard/app/download) to your project.  Your app will probably restart once or twice, and you may get a pop about install sample avatar files as the **Normecore Meta Platform** package also installs the required **Meta XR All-in-One SDK** and **Meta Avatars SDK** packages.  
 
-As the Meta packages are required packages they won't show up in your package manager.  For this example it will also be useful to have access to the samples that are in the **Meta Avatars SDK** package (these are different than the popup), so to have that show up in the package manager, [add the Meta Avatar SDK to your package list.](https://developer.oculus.com/downloads/package/meta-avatars-sdk/).  On that page in the top right there should be links to both the Meta Avatar SDK in the Unity store front and directly from Meta itself.  If you click the storefront link it will add the package to your packagemanager.  The meta link will allow you to download a zip of the package, which you can then add in the package manager using the `Add Local Package` option.
-
 Once the oculus platform has been installed on your system, you will need to enter the Meta App IDs for your for your project in your Oculus Settings.  The Oculus Settings scriptable object can be accessed by selecting the ``Oculus->Platform->Edit Settings`` from the Unity editor dropdown menu.  If you have both a Rift App ID and a Quest App ID, enter them both here. 
 
 ![](./setting-up-a-networked-meta-avatar/oculus-settings.png "Oculus Settings Scriptable Object") 
@@ -71,15 +69,7 @@ Create a game object and add a **Realtime** component to it.  Point your **Realt
 
 ![](./setting-up-a-networked-meta-avatar/realtime.png "Realtime Settings settings")
 
-For the avatar system to initalize properly, your scene will require a number of components in it (**OvrAvatarManager**, **AvatarLODManager**, **GPUSkinningConfiguraiton** and **OvrAvatarShaderManager**).  The easiest way get these is to install the Meta Avatar SDK Sample Scenes, and use one of the prefabs they provide as examples of that.
-
-First install the sample scenes through the package manager.  These can be found at the bottom of the **Meta Avatars SDK** entry in the package manager.  You may need to expand the drop down list by clicking on the arrow before they are visible.
-
-![](./setting-up-a-networked-meta-avatar/meta-avatar-sample-scenes.png "Meta Avatar SDK in Package Manager")
-
-Now add the **AvatarSDKManagerMeta** prefab to your scene.  It can be found in ``Samples->Meta Avatar SDK->Version Number->Sample Scenes->Common->Prefabs->AvatarSDKManager->Recommended``.
-
-![](./setting-up-a-networked-meta-avatar/avatar-sdk-manager.png "AvatarSDKManager location")
+For the avatar system to initalize properly, your scene will require a number of components in it (**OvrAvatarManager**, **AvatarLODManager**, **GPUSkinningConfiguraiton** and **OvrAvatarShaderManager**).  To install a sample version of these components, use the ``MetaAvatarSDK->Normcore->Setup AvatarSDKManager`` editor menu item.  You can also find example copies of these types of prefabs in the full Meta Avatar Samples provided by Meta.
 
 Finally, if you will be running your program on a Quest headset, you will need to initalize the ovr core system prior to the Avatars and Normcore.  This can be done by creating a component that calls the ``OvrPlatformInit.InitializeOvrPlatform()`` (a version has been included int the Normal.Realtime.Shared.OculusMeta package for convience, but it can also be found as part of the Meta Avatar SDK Sample.)
 
