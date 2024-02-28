@@ -63,6 +63,7 @@ const sidebars: SidebarsConfig = {
           label: 'Meta',
           collapsible: false,
           items: [
+            'guides/setup-your-meta-platform',
             'guides/setting-up-a-networked-meta-avatar',
           ],
         }
