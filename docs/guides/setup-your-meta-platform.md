@@ -4,6 +4,7 @@ title: Setup Your Meta Platform
 description: This guide walks you through setting up your meta platform developer settings.
 
 ---
+import oculusSettings from './setup-your-meta-platform/oculus-settings.mp4'
 
 # Setup Your Meta Platform
 
@@ -41,7 +42,7 @@ You can also creating a VR Unity project from the template found in the Core sec
 
 Once the oculus platform has been installed on your system, you will need to enter the Meta App IDs for your for your project in your Oculus Settings.  The Oculus Settings scriptable object can be accessed by selecting the ``Oculus->Platform->Edit Settings`` from the Unity editor dropdown menu.  If you have both a Rift App ID and a Quest App ID, enter them both here. 
 
-![](./setup-your-meta-platform/oculus-settings.png "Oculus Settings Scriptable Object") 
+<video width="100%" controls><source src={oculusSettings} /></video> 
 
 Once this is setup, go into your Editor's project settings and check the Oculus project settings there.  If there is anything that requires a fix, click on the ``Fix`` button and the system should sort out those issues.  The same goes for any recommended items.
 
@@ -57,7 +58,7 @@ Once you have added that to a game object in your scene, you are ready to create
 
 ## Exporting your Meta Avatar Application
 
-Once your application is ready for export, you need to ensure that your player settings are in order.  If you started the project using the Unity VR template the default Package Name in Player Settings->Publishing may not run on the Quest headset, so change it to something appropriate for your application/company.
+Once your application is ready for export, you need to ensure that your player settings are in order.  If you started the project using the Unity VR template the default Package Name in ``Player Settings->Publishing`` may not run on the Quest headset, so change it to something appropriate for your application/company.
 
 ![](./setup-your-meta-platform/package-name.png "Package Name")
 
@@ -75,8 +76,6 @@ The Oculus Platform Utility is a commandline tool that runs on both Windows and 
 ```
 
 The **Meta Quest Developer Hub** allows a visual interface to do this, and once you have installed it and signed in, you can upload a build by selecting ``App Distribution``, selecting your App and clicking the ``Upload`` button along side the Alpha Release channel.
-
-![](./setup-your-meta-platform/email-testers.png "Invite User Form")
 
 Once the application has been uploaded, you can add testers to the release channel by going to ``Distribution->Release Channels`` on the app's developer page and clicking on the user count for that channel.  That will take you to a page that will let you email testers to invite them to test your appication.  Note that the testers will have to have a valid Oculus/Meta account.
 

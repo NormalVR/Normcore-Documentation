@@ -4,6 +4,7 @@ title: Setting up a Networked Meta Avatar
 description: This guide walks you through setting up a networked meta avatar.
 
 ---
+import metaAvatarSetup from './setting-up-a-networked-meta-avatar/meta-avatar-setup.mp4'
 
 # Setting up a Networked Meta Avatar
 
@@ -35,11 +36,9 @@ This section explains how to setup a new Meta Avatar prefab.
 
 In your scene create a Game Object called Meta Avatar, and add the **MetaAvatar** component to it.
 
-![](./setting-up-a-networked-meta-avatar/meta-avatar-step-1.png "Basic Meta Avatar Component")
-
 This will automatically add a **RealtimeView** and a **RealtimeAvatar** to the compoent.  Click on the *Setup Avatar* button to fill in the rest of the information.
 
-![](./setting-up-a-networked-meta-avatar/meta-avatar-step-2.png "Completed Meta Avatar Component")
+<video width="100%" controls><source src={metaAvatarSetup} /></video> 
 
 The Meta Avatar setup will move the gameobject to the root postion, add a head and hands for the Realtime Avatar, along with a **RealtimeAvatarVoice** for the head.  It also adds a **MetaAvatarLipSync** that references the **RealtimeAvatarVoice**.
 
@@ -48,8 +47,6 @@ In addition, it will set the Local Avatar and Remote Avatar prefabs for the **Me
 Once the setup is complete, turn the Meta Avatar game object into a prefab by dragging it from the hierarchy into the resources folder of your project.
 
 Remove the existing copy from the root of the scene, and assign the newly created prefab as the Local Avatar Prefab for the **RealtimeAvatarManager** you created earlier. 
-
-![](./setting-up-a-networked-meta-avatar/realtime-avatar-manager.png "Realtime Avatar Manager Component")
 
 Once this is complete, your project should be ready to give your application a go!
 
