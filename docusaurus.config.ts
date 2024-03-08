@@ -29,7 +29,10 @@ const config: Config = {
   themes: [
     '@docusaurus/theme-mermaid'
   ],
-  clientModules: ['./src/js/custom-code-blocks.js'],
+  clientModules: [
+    './src/js/custom-code-blocks.js',
+    './src/js/widget-bot.js',
+  ],
   presets: [
     [
       'classic',
