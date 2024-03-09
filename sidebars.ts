@@ -65,6 +65,8 @@ const sidebars: SidebarsConfig = {
           items: [
             'guides/setup-your-meta-platform',
             'guides/setting-up-a-networked-meta-avatar',
+            'guides/meta/meta-platform-prerequisites',
+            'guides/meta/meta-avatars',
           ],
         }
       ]
