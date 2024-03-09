@@ -33,8 +33,6 @@ To create an app on the Oculus dashboard and obtain the App ID for use in a Unit
 7. Make a note of the App ID in the URL for later. You'll need this when setting up your Unity project.
 
 TODO (Stephen): Video of doing these steps (ideally with a fresh Oculus developer account so we don't expose any sensitive info on accident)
-**Make sure to grab Max's list of notes that apply to all guide videos (it's in a google doc somewhere)
-- Additional notes: Please fix system fonts. It seems the Unity top bar is rendering weirdly. Also make sure the layouts of Unity editor panels match the ones in our other guides.
 
 ## Request Platform API Access
 
@@ -48,7 +46,6 @@ Platform features like Meta Avatars require additional permissions that you can 
 You will need to provide a short justification for each of these, but if you have completed your developer verification everything should be auto-approved fairly quickly.
 
 TODO (Stephen): I don't think we need a video here, but a screenshot of the Data Use Checkup page with these things added will be plenty.
-**Make sure to grab Max's list of notes that apply to all guide videos (it's in a google doc somewhere)
 
 ## Set up your Unity project
 
@@ -61,19 +58,16 @@ If you're using Meta Avatars, install the [Meta Avatars SDK](https://assetstore.
 2. Configure your App ID. Open the Oculus Platform Settings window by going to Oculus -> Platform -> Edit Settings. Fill out the App ID from [Creating a Meta app](#creating-a-meta-app).
 
 TODO (Stephen): A short video works here. Feel free to paste in an app ID of 0's, but make sure the lengths are correct.
-**Make sure to grab Max's list of notes that apply to all guide videos (it's in a google doc somewhere)
 
 3. Fix any remaining project configuration issues. Open the Project Settings window and select the Oculus tab. Address any issues that show up in the list here by hitting the Fix button. If you're unsure, we generally recommend hitting Fix All.
 
 TODO (Stephen): Your previous screenshot for this step was perfect, but let's redo it with the correct screen resolution so the text is legible.
-**Make sure to grab Max's list of notes that apply to all guide videos (it's in a google doc somewhere)
 
 ## Initialize the Oculus platform at runtime
 
 Developers often forget to initialize the Oculus platform at runtime which can lead to a host of hard to track down bugs. You can do this in your own components by calling `Oculus.Platform.Core.Initialize()`, however the [Meta XR Platform SDK](https://assetstore.unity.com/packages/tools/integration/meta-xr-platform-sdk-262366) comes with an Entitlement Check sample. We typically recommend this approach as it will log errors if the platform fails to initialize, and includes the option to quit the application if the user does not have the proper entitlements.
 
 TODO (Stephen): I'd like a video of going to the Meta XR Platform SDK package in package manager (it's already installed in this video). You import the Entitlement Check sample and add the EntitlementCheck component to a game object in the scene called EntitlementCheck.
-**Make sure to grab Max's list of notes that apply to all guide videos (it's in a google doc somewhere)
 
 :::note
 If you find your build quits immediately on launch due to lack of entitlements, make sure the Meta Account used by your Quest has been added to a release channel for your Oculus App.
@@ -86,7 +80,6 @@ You'll need to upload a build to your Oculus App in order to add users. We highl
 Once you have a valid build uploaded, you can assign users to a release channel on the [Oculus Developer Dashboard](https://dashboard.oculus.com/) by navigating to **Distribution -> Release Channels**.
 
 TODO (Stephen): I'd like a video of navigating to Release Channels. Go to where you'd add a user and show that it complains if a build isn't selected. Select a build, and then enter max@normalvr.com as the user to add to the channel.
-**Make sure to grab Max's list of notes that apply to all guide videos (it's in a google doc somewhere)
 
 Once added, you can distribute updated builds via APK, new builds don't need to be uploaded every time while in development, but this step ensures the entitlement check will pass.
 
