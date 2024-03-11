@@ -2,6 +2,7 @@
 layout: docs
 title: Meta Avatars
 ---
+import metaPlatform from './meta-avatars/install-meta-platform.mp4'
 
 # Meta Avatars
 Meta / Oculus come with rich prebuilt avatars that work out of the box with Normcore. This guide will demonstrate how to use the built-in **MetaAvatar** component to set up networked Meta Avatars with voice chat in a few minutes.
@@ -13,7 +14,7 @@ Before we start, make sure you've [set up Normcore](../../essentials/getting-sta
 
 Once Normcore is set up in your project, you'll be able to install the Normcore Meta UPM package. Open up Package Manager, switch to **My Registries**, and install **Normcore Meta Platform** from the Normal package registry.
 
-TODO (Stephen): A quick video of this is important I think. Package Manager's My Registries list isn't discoverable and I imagine will trip up a lot of people.
+<video width="100%" controls><source src={metaPlatform} /></video> 
 
 ## Set up Meta Avatars
 Import the VR examples (TODO: Are we including this in VR Examples or does the Normcore Meta package have its own samples?). Drag the "Realtime + Meta Avatar Player" into your scene.
