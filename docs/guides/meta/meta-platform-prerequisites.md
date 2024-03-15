@@ -37,6 +37,8 @@ To create an app on the Oculus dashboard and obtain the App ID for use in a Unit
 6. After completing the necessary information, click "Create" to submit your application.
 7. Make a note of the App ID in the URL for later. You'll need this when setting up your Unity project.
 
+TODO: Add note that for running in editor the user will also need to make a rift app.  (Second note on this: because these are different apps I don't think the avatar loading will work between them without one using the federated app id.)
+
 <video width="100%" controls><source src={createApplication} /></video> 
 
 ## Request Platform API Access
