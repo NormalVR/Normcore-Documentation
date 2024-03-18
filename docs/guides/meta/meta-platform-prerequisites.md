@@ -88,8 +88,6 @@ Once you have a valid build uploaded, you can assign users to a release channel 
 
 <video width="100%" controls><source src={emailInvite} /></video> 
 
-TODO (Stephen): I'd like a video of navigating to Release Channels. Go to where you'd add a user and show that it complains if a build isn't selected. Select a build, and then enter max@normalvr.com as the user to add to the channel. SG: I don't think its possible to send an email if you haven't selected a release channel with a build?  I selected a release channel that hadn't gotten anything assigned to it first to show the button was greyed out.
-
 Once added, you can distribute updated builds via APK, new builds don't need to be uploaded every time while in development, but this step ensures the entitlement check will pass.
 
 TODO: Common questions / issues
