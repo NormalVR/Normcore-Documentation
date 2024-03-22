@@ -57,6 +57,17 @@ const sidebars: SidebarsConfig = {
             'guides/creating-a-multiplayer-drawing-app',
             'guides/using-ar-as-a-spectator-view',
           ],
+        },
+        {
+          type: 'category',
+          label: 'Meta',
+          collapsible: false,
+          items: [
+            'guides/setup-your-meta-platform',
+            'guides/setting-up-a-networked-meta-avatar',
+            'guides/meta/meta-platform-prerequisites',
+            'guides/meta/meta-avatars',
+          ],
         }
       ]
     },
