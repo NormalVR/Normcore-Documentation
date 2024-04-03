@@ -17,6 +17,8 @@ Once you have the plugin imported and Unity has had a chance to recompile succes
 
 ![](./getting-started/package-manager.png "An empty project with Normcore freshly imported.")
 
+The plugin will have also added the [Normal scoped registry](#normal-scoped-registry) to the project.
+
 Let’s add one of the pre-built example prefabs to our scene. Drag a “Realtime + Cube Player” prefab into the scene. On the Realtime game object, you should have an inspector window that looks something like this:
 
 ![](./getting-started/realtime-inspector.png "The newly added Realtime object contains both Realtime and a Cube Player Manager component.")
@@ -46,3 +48,12 @@ That’s it! You’re now up and running with Normcore. Now, I know this example
 - [Synchronizing Custom Data](../realtime/synchronizing-custom-data.md)
 
 Until next time  : )
+
+## Normal scoped registry
+The Normcore plugin automatically adds a [scoped registry](https://docs.unity3d.com/Manual/upm-scoped.html) to the project:
+
+![](./getting-started/scoped-registry.png "The Normal scoped registry information in the project settings window.")
+
+This registry provides the Normcore package (installed automatically) as well as optional packages that we develop at Normal.
+
+These packages can be accessed in the ["My Registries" section](https://docs.unity3d.com/Manual/upm-ui-install.html) of the Unity Package Manager.
