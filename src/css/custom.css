@@ -532,6 +532,11 @@ div:has(> .theme-doc-toc-desktop ) {
   fill: rgba(220, 38, 38,1) !important;
 }
 
+[data-theme='dark'] .alert--danger {
+    background-color: hsla(0, 91%, 71%, .1);
+    color: rgb(252 165 165);
+}
+
 [class*="admonitionIcon"] {
 /*    height: 30px;
     width: 30px;*/
