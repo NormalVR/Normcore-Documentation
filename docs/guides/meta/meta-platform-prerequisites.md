@@ -72,7 +72,7 @@ If you're using Meta Avatars, install the [Meta Avatars SDK](https://assetstore.
 
 ## Initialize the Oculus platform at runtime
 
-Developers often forget to initialize the Oculus platform at runtime which can lead to a host of hard to track down bugs. You can do this in your own components by calling `Oculus.Platform.Core.Initialize()`, however the [Meta XR Platform SDK](https://assetstore.unity.com/packages/tools/integration/meta-xr-platform-sdk-262366) comes with an Entitlement Check sample that you can import using the Package Manager. We typically recommend this approach as it will log errors if the platform fails to initialize, and includes the option to quit the application if the user does not have the proper entitlements.
+Developers often forget to initialize the Oculus platform at runtime which can lead to a host of hard to track down bugs. You can do this in your own components by calling `Oculus.Platform.Core.Initialize()`, however the [Meta XR Platform SDK](https://assetstore.unity.com/packages/tools/integration/meta-xr-platform-sdk-262366) comes with an Entitlement Check sample that you can import using Package Manager. We typically recommend this approach as it will log errors if the platform fails to initialize, and includes the option to quit the application if the user does not have the proper entitlements.
 
 <video width="100%" controls><source src={entitlementCheck} /></video> 
 
