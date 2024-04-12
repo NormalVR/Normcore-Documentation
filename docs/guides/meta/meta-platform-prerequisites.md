@@ -13,17 +13,15 @@ import emailInvite from './meta-platform-prerequisites/email-invite.mp4'
 If you've landed on this page, you're most likely using a feature such as Meta Avatars that relies on the Meta / Oculus platform to be configured correctly first. This guide serves as a quick overview on how to set up your project quickly and avoid common pitfalls.
 
 ## Summary
-To use Oculus platform features like the microphone API, social graph, meta avatars, etc, there are a few things that all need to be completed in order for them to work:
+To use Oculus platform features like the microphone API, social graph, meta avatars, etc, there are a few things that all need to be completed in order for them to work properly:
 
-1. You need a valid Meta App ID
-2. You need to explicitly request permissions like Meta Avatars
-3. Your project needs to be configured with your Meta App ID
-4. The project needs to explicitly Initialize the Oculus Platform at runtime
-5. Anyone who is installing a build of your title needs to be added to a release channel
+1. You need a valid [Meta App](#creating-a-meta-app).
+2. You need to explicitly [request permissions](#request-platform-api-access) for services like Meta Avatars in the Meta Dashboard.
+3. Your project needs to be [configured with your Meta App ID](#set-up-your-unity-project).
+4. The project needs to explicitly [initialize the Oculus Platform C# API](#initialize-the-oculus-platform-at-runtime) at runtime.
+5. Anyone who is installing a build of your title needs to be [added to a release channel](#add-users-to-a-release-channel) in the Meta Dashboard.
 
-Make sure you've completed all of these steps! We've written up a quick guide on how to do this here:
-TODO: Make the copy before this line sound less awkward
-TODO: Make the list above link to each section?
+Make sure you've completed all of these steps! Many Meta APIs will fail silently if these steps aren't completed.
 
 ## Creating a Meta App
 
@@ -37,9 +35,11 @@ To create an app on the Oculus dashboard and obtain the App ID for use in a Unit
 6. After completing the necessary information, click "Create" to submit your application.
 7. Make a note of the App ID in the URL for later. You'll need this when setting up your Unity project.
 
-TODO: Add note that for running in editor the user will also need to make a rift app.  (Second note on this: because these are different apps I don't think the avatar loading will work between them without one using the federated app id.)
+<video width="100%" controls><source src={createApplication} /></video>
 
-<video width="100%" controls><source src={createApplication} /></video> 
+:::tip
+If you'd like to test in the Unity Editor, make sure to create a Rift App as well and follow the same steps. Note that Rift and Quest builds will not support cross-play due to the Rift and Quest having different App IDs.
+:::
 
 ## Request Platform API Access
 
@@ -82,14 +82,10 @@ If you find your build quits immediately on launch due to lack of entitlements, 
 
 ## Add users to a release channel
 
-You'll need to upload a build to your Oculus App in order to add users. We highly recommend using the Meta Quest Developer Hub (TODO link) application to do this if you haven't already. It provides a helpful interface for uploading builds and ensuring they pass all of Meta's checks.
+You'll need to upload a build to your Oculus App in order to add users. We highly recommend using the [Meta Quest Developer Hub](https://developer.oculus.com/meta-quest-developer-hub/) application to do this if you haven't already. It provides a helpful interface for uploading builds and ensuring they pass all of Meta's checks.
 
 Once you have a valid build uploaded, you can assign users to a release channel on the [Oculus Developer Dashboard](https://dashboard.oculus.com/) by navigating to **Distribution -> Release Channels**.
 
 <video width="100%" controls><source src={emailInvite} /></video> 
 
 Once added, you can distribute updated builds via APK, new builds don't need to be uploaded every time while in development, but this step ensures the entitlement check will pass.
-
-TODO: Common questions / issues
-- Maybe put the tracked pose driver here?
-- Did I miss anything else from Stephen's guide?
