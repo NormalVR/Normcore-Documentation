@@ -21,7 +21,7 @@ Once Normcore is set up in your project, you'll be able to install the **Normcor
 ## Set up Meta Avatars
 Import the "Meta Avatars" sample that comes with the **Normcore Meta Platform** UPM package. Make sure you've initialized the Oculus Platform SDK directly or by using the [Entitlement Check](./meta-platform-prerequisites#initialize-the-oculus-platform-at-runtime) sample.
 
-Drag the "AvatarSDKManagerMeta" prefab into the scene along with the "Realtime + Meta Avatar Player" prefab.
+Add the "AvatarSDKManagerMeta" prefab to the scene using the `MetaAvatarsSDK > Normal > Create AvatarSDKManager` menu item. Then drag the "Realtime + Meta Avatar Player" prefab into the scene.
 
 <video width="100%" controls><source src={metaExample} /></video> 
 
