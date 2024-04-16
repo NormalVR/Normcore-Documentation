@@ -2,10 +2,6 @@
 layout: docs
 title: Meta Avatars Customization
 ---
-import doubleAvatarWave from './meta-avatars/double-avatar-wave.mp4'
-import metaPlatform from './meta-avatars/install-meta-platform.mp4'
-import metaExample from './meta-avatars/install-meta-example.mp4'
-import avatarWave from './meta-avatars/avatar-wave.mp4'
 import customMetaAvatar from './meta-avatars/custom-meta-avatar.mp4'
 import metaAvatarButton from './meta-avatars/meta-avatar-button.mp4'
 import metaAvatarRun from './meta-avatars/meta-avatar-run.mp4'

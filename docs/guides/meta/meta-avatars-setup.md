@@ -27,7 +27,11 @@ Add the "AvatarSDKManagerMeta" prefab to the scene using the `MetaAvatarsSDK > N
 
 Add your App Key to the Realtime component and hit Play. The included "Meta Avatar Player" will spawn and it should look something like this:
 
-<video width="100%" controls><source src={avatarWave} /></video> 
+<video width="100%" controls><source src={avatarWave} /></video>
+
+:::danger
+If your app quits immediately on launch, it's most likely due to the entitlement check failing! Check your logs and make sure the Meta account used by your Quest has been added to the release channel for your Oculus App ID.
+:::
 
 That’s it! You can send this build to anyone you’d like and Normcore will automatically connect you to the same room and instantiate an avatar for each person.
 

@@ -77,7 +77,7 @@ Developers often forget to initialize the Oculus platform at runtime which can l
 <video width="100%" controls><source src={entitlementCheck} /></video> 
 
 :::danger
-If you find your build quits immediately on launch due to lack of entitlements, make sure the Meta Account used by your Quest has been added to a release channel for your Oculus App.
+If your app quits immediately on launch, it's most likely due to the entitlement check failing! Check your logs and make sure the Meta account used by your Quest has been added to the release channel for your Oculus App ID.
 :::
 
 ## Add users to a release channel
