@@ -27,7 +27,7 @@ Hit Play in Unity and make sure the VR Player prefab spawns in our colored cube 
 
 Awesome! Now that we’ve got that working, let’s get started on the mobile AR version. Use Package Manager to import AR Foundation and either the ARKit XR Plugin (iOS) or the ARCore XR Plugin (Android).
 
-<video width="100%" title="Adding AR Foundation and ARKit via the Package Manager." controls><source src={addARFoundationAndARKit} /></video> 
+<video width="100%" title="Adding AR Foundation and ARKit via Package Manager." controls><source src={addARFoundationAndARKit} /></video> 
 
 Next, we’re going to import the [AR Spectator Example](</downloads/Normcore%20AR%20Spectator.unitypackage>) unitypackage from Normal, which includes a few utilities and the scene you’ll end up with at the end of this guide.
 
