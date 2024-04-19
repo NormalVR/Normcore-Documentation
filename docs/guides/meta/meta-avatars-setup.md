@@ -4,7 +4,7 @@ title: Meta Avatars Setup
 ---
 import doubleAvatarWave from './meta-avatars/double-avatar-wave.mp4'
 import metaXR from './meta-avatars/install-meta-xr.mp4'
-import metaExample from './meta-avatars/install-meta-example.mp4'
+import metaSample from './meta-avatars/install-meta-sample.mp4'
 import avatarWave from './meta-avatars/avatar-wave.mp4'
 
 # Meta Avatars
@@ -16,14 +16,14 @@ Before we start, make sure you've [installed Normcore](../../essentials/getting-
 
 Once Normcore is set up in your project, you'll be able to install the **Normcore Meta XR** UPM package. Open up Package Manager, switch to **My Registries**, and install **Normcore Meta XR** from the Normal package registry.
 
-<video width="100%" controls><source src={metaPlatform} /></video> 
+<video width="100%" controls><source src={metaXR} /></video> 
 
 ## Set up Meta Avatars
 Import the "Meta Avatars" sample that comes with the **Normcore Meta XR** UPM package. Make sure you've initialized the Oculus Platform SDK directly or by using the [Entitlement Check](./meta-platform-prerequisites#initialize-the-oculus-platform-at-runtime) sample.
 
 Add the "AvatarSDKManagerMeta" prefab to the scene using the `MetaAvatarsSDK > Normal > Create AvatarSDKManager` menu item. Then drag the "Realtime + Meta Avatar Player" prefab into the scene.
 
-<video width="100%" controls><source src={metaExample} /></video> 
+<video width="100%" controls><source src={metaSample} /></video> 
 
 Add your App Key to the Realtime component and hit Play. The included "Meta Avatar Player" will spawn and it should look something like this:
 
