@@ -69,6 +69,7 @@ const sidebars: SidebarsConfig = {
         'architecture/cloud',
         'architecture/transport',
         'architecture/firewalls',
+        'architecture/normal-scoped-registry',
         'architecture/common-questions',
       ]
     },
