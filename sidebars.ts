@@ -94,7 +94,6 @@ const sidebars: SidebarsConfig = {
         'realtime/realtimetransform',
         'realtime/synchronizing-custom-data',
         'realtime/networked-physics',
-        'realtime/offline-mode',
         'realtime/common-questions',
         {
           type: 'category',
@@ -119,6 +118,7 @@ const sidebars: SidebarsConfig = {
         'room/collections',
         'room/ownership-and-lifetime-flags',
         'room/room-server-options',
+        'room/offline-mode',
         'room/common-questions',
       ]
     },
