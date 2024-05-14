@@ -51,13 +51,13 @@ All views and components are locally owned.
 
 ## Limitations
 
-Connecting another client to the same room is not supported. Even when the same room name is specified no data is shared between the rooms/datastores.
+Connecting another client to the same room is not supported. Even when the same room name is specified no data is shared between the rooms.
 
 ## Lifetime
 
-When an offline mode client disconnects the `Room` and `Datastore` are destroyed.
+The offline mode datastore is only stored in-memory, and is tied to the lifetime of its `Room` C# object. The `Disconnect()` function on Realtime and Room will also clear its datastore.
 
-Custom persistence mechanisms (in-process or on disk) can be developed on top of existing Normcore API but do not come with offline mode out of the box.
+Custom persistence mechanisms (in-memory or on disk) can be developed on top of existing Normcore API but do not come with offline mode out of the box.
 
 ## Serialization
 
