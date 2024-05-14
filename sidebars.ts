@@ -94,6 +94,7 @@ const sidebars: SidebarsConfig = {
         'realtime/realtimetransform',
         'realtime/synchronizing-custom-data',
         'realtime/networked-physics',
+        'realtime/offline-mode',
         'realtime/common-questions',
         {
           type: 'category',
