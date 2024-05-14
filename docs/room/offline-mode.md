@@ -55,9 +55,9 @@ Connecting another client to the same room is not supported. Even when the same 
 
 ## Lifetime
 
-The offline mode datastore is only stored in-memory, and is tied to the lifetime of its `Room` C# object. The `Disconnect()` function on Realtime and Room will also clear its datastore.
+The datastore state of an offline room is cleared upon calling `Disconnect()`.
 
-Custom persistence mechanisms (in-memory or on disk) can be developed on top of existing Normcore API but do not come with offline mode out of the box.
+Custom persistence mechanisms (in-memory or on disk) can be developed on top of existing Normcore API.
 
 ## Serialization
 
