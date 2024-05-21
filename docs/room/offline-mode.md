@@ -4,65 +4,56 @@ title: Offline Mode
 ---
 # Offline Mode
 
-A Realtime or Room can be started in offline mode without connecting to a server or any networking capabilities.
+Normcore supports connecting to an offline room which can be useful for singleplayer games, tutorials, and other experiences that don't require a connection to the internet.
 
-It's useful for offline experiences like:
-* Tutorial
-* Practice against AI
-* Interactive main menu
+RealtimeComponents and other scripts that were developed for online Normcore use will continue to function in this mode with no additional changes. This allows content and scripts to be re-used across online and offline experiences.
 
-RealtimeComponents and other scripts that were developed for regular Normcore usage will function in this mode with no additional changes. This allows content and scripts to be re-used across online and offline experiences.
+## Using offline mode
+When using `Connect()` on **Realtime** or **Room**, you can pass an optional `ConnectOptions` struct, This struct supports an optional `offlineMode` boolean:
 
-## Usage
-When you connect using `Connect()` on either Realtime or Room, you can pass an optional `ConnectOptions` struct. This struct supports an optional `offlineMode` flag that will start an offline mode session when enabled:
 
+:::tip
+Remember to uncheck "Join Room on Start" on the **Realtime** component if you're going to manually call `Connect()` !
+:::
 ```csharp
-class ConnectionManager {
+class OfflineModeExample {
     [SerializeField]
     private Realtime _realtime;
 
     private void Start() {
+        // Notify us when Realtime successfully connects to the room
+        _realtime.didConnectToRoom += DidConnectToRoom;
+
         // Connect to "My Room" in offline mode
         _realtime.Connect("My Room", new Room.ConnectOptions {
             offlineMode = true
         });
     }
     
-    private void Update {
-        // Check if running in offline mode, ex for offline-specific logic
-        if (_realtime.connected && _realtime.room.offlineMode) {
-            Debug.Log($"Running in offline mode");
+    private void DidConnectToRoom(Realtime realtime) {
+        if (realtime.room.offlineMode) {
+            Debug.Log($"Connected to room in offline mode!");
         }
     }
 }
 ```
 
-:::warning
-Uncheck `Join Room on Start` on the `Realtime` component if you're going to manually call `Connect()` instead.
-:::
+## Things to know
 
-## Details
+For the most part, all features in Normcore operate the same way as online mode. However, there are a few details that are different:
 
-All views and components are locally owned.
+`Realtime.clientID` and `Room.clientID` will always return `0`.
 
-`Room.clientID` always returns `0`.
+`Realtime.roomTime` and `Room.time` will always return `0`.
 
-`Room.time` uses the system clock.
+### Limitations
 
-## Limitations
+It's not possible to have two local clients connect to the same offline room. If two instances of **Realtime** or **Room** connect to the same offline mode room name, they will have separate instances that do not share any data or state.
 
-Connecting another client to the same room is not supported. Even when the same room name is specified no data is shared between the rooms.
+### Datastore
 
-## Lifetime
+The datastore state of an offline room is cleared upon calling `Disconnect()`. Any data that needs to persist between sessions will need to be developed on top of the existing Normcore API.
 
-The datastore state of an offline room is cleared upon calling `Disconnect()`.
+### Serialization
 
-Custom persistence mechanisms (in-memory or on disk) can be developed on top of existing Normcore API.
-
-## Serialization
-
-:::warning
-The serialization and deserialization mechanisms are skipped in offline mode. So related events (ex `RealtimeModelEvent.OnWillWrite`) will not be invoked.
-
-User scripts may be affected in the rare case where they rely on serialization events to drive local simulation.
-:::
+The serialization and deserialization mechanisms are skipped in offline mode. Change events will still fire, but serialization events like `RealtimeModelEvent.OnWillWrite` will not be invoked. User scripts may be affected in the rare case where they rely on serialization events to drive local simulation.
