@@ -119,6 +119,7 @@ const sidebars: SidebarsConfig = {
         'room/collections',
         'room/ownership-and-lifetime-flags',
         'room/room-server-options',
+        'room/offline-mode',
         'room/common-questions',
       ]
     },
