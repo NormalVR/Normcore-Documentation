@@ -17,6 +17,8 @@ Once you have the plugin imported and Unity has had a chance to recompile succes
 
 ![](./getting-started/package-manager.png "An empty project with Normcore freshly imported.")
 
+The plugin will automatically add the [Normal scoped registry](../architecture/normal-scoped-registry) to the project.
+
 Let’s add one of the pre-built example prefabs to our scene. Drag a “Realtime + Cube Player” prefab into the scene. On the Realtime game object, you should have an inspector window that looks something like this:
 
 ![](./getting-started/realtime-inspector.png "The newly added Realtime object contains both Realtime and a Cube Player Manager component.")
