@@ -50,25 +50,6 @@ These metrics are visualized as graphs, allowing you to track spikes and trends 
 
 3. **Test on Different Network Conditions**: Use network simulation tools to test how your game performs under various conditions. This can help you identify and fix potential issues before they affect real players.
 
-## Example Scenario
-
-**Problem**: A player's position is being sent as a reliable property and updated every frame.
-
-**Solution**:
-1. Change the position update to be less frequent or significant change-based.
-2. Alternatively, switch the position property to be unreliable if occasional position inaccuracies are acceptable.
-
-```csharp
-// Before: Reliable property updated every frame
-normcorePlayerModel.Position = playerTransform.position;
-
-// After: Update only when position changes significantly
-if (Vector3.Distance(normcorePlayerModel.Position, playerTransform.position) > threshold)
-{
-    normcorePlayerModel.Position = playerTransform.position;
-}
-```
-
 ## Conclusion
 By utilizing the Normcore profiler module in Unity's Profiler window, you can effectively diagnose and resolve issues related to reliable model properties. Monitoring data traffic and adjusting your networked properties accordingly will enhance the performance and reliability of your multiplayer game, especially for players with poor connections.
 
