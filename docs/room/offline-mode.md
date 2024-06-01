@@ -44,7 +44,7 @@ For the most part, all features in Normcore operate the same way as online mode.
 
 `Realtime.clientID` and `Room.clientID` will always return `0`.
 
-`Realtime.roomTime` and `Room.time` will always return `0`.
+`Realtime.roomTime` and `Room.time` will return the device's system time (seconds since Unix epoch).
 
 ### Limitations
 
