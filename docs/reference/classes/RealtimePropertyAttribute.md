@@ -12,6 +12,8 @@ class_members:
     definition: public bool reliable
   - name: createDidChangeEvent
     definition: public bool createDidChangeEvent
+  - name: includeEqualityCheck
+    definition: public bool includeEqualityCheck
 
 ---
 import ReferencePage from '../_ReferencePage.mdx'
