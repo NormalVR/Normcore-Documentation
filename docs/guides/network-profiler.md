@@ -3,8 +3,9 @@ layout: docs
 title: Network Profiler
 ---
 import profilerSetUp            from './network-profiler/profiler-setup.mp4'
-import profileInstances   from './network-profiler/profile-instances.mp4'
+import profileInstances         from './network-profiler/profile-instances.mp4'
 import profileReusedInstances   from './network-profiler/profile-reused-instances.mp4'
+import networkSaturated         from './network-profiler/network-saturated.mp4'
 
 
 # Network Profiler
@@ -17,7 +18,16 @@ In scenarios where numerous rigidbody instances are frequently created, the netw
 
 Additionally, rigidbody instances with low friction might take a long time to enter the sleep state. This can further contribute to ongoing network traffic as these active rigidbodies continue to generate data, even when they are no longer relevant to the player's view.
 
+### Sample Project
+
+To help you understand and diagnose this issue, we provide a sample project that illustrates the problem with rigidbody instances. You can start by downloading and running the [sample project](</downloads/Profiler_Sample.zip>). The sample consists of multiple basketballs instantiated on mouse click, bouncing around until the network becomes saturated.
+To reproduce the issue more effectively, you may need a friend to run the sample independently on their machine. Running it locally on a single machine might take longer for the issue to become apparent.
+
+<video width="100%" controls><source src={networkSaturated} /></video> 
+
 ## Setting up the Profiler
+
+To begin diagnosing and optimizing bandwidth usage in your project, you need to set up the Normcore profiler module within Unity's Profiler window. This module will help you visualize and analyze the network traffic data, making it easier to identify and address issues related to bandwidth consumption. Follow these steps to set up the profiler:
 
 - Open Unity's Profiler window `Window > Analysis > Profiler`.
 - In the Profiler window, click on the `Profiler Modules` dropdown.
