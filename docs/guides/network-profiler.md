@@ -2,10 +2,10 @@
 layout: docs
 title: Network Profiler
 ---
-import profilerSetUp            from './network-profiler/profiler-setup.mp4'
-import profileInstances         from './network-profiler/profile-instances.mp4'
-import profileReusedInstances   from './network-profiler/profile-reused-instances.mp4'
-import networkSaturated         from './network-profiler/network-saturated.mp4'
+import profilerSetUp                from './network-profiler/profiler-setup.mp4'
+import profileUnlimitedInstances    from './network-profiler/profile-unlimited-instances.mp4'
+import profilePooledInstances       from './network-profiler/profile-pooled-instances.mp4'
+import networkSaturated             from './network-profiler/network-saturated.mp4'
 
 
 # Network Profiler
@@ -57,13 +57,13 @@ Pay close attention to the graphs for these metrics. Look for spikes and trends 
 
 This video demonstrates how the sent data increases over time as new rigidbody instances are created. The profiler will reveal a pattern where each new instance adds to the cumulative amount of data being sent, leading to noticeable spikes.
 
-<video width="100%" controls><source src={profileInstances} /></video> 
+<video width="100%" controls><source src={profileUnlimitedInstances} /></video> 
 
 ## Fixing the Issue
 
 To optimize bandwidth usage, it is crucial to manage rigidbody instances effectively. Two effective strategies to achieve this are reusing rigidbody instances and destroying instances that are far away from the player or no longer contributing to the scene. By implementing these approaches, you can significantly reduce the amount of data transmitted over the network.
 
-<video width="100%" controls><source src={profileReusedInstances} /></video> 
+<video width="100%" controls><source src={profilePooledInstances} /></video> 
 
 After implementing the reuse strategy, you should observe a reduction in the amount of data being sent and a more stable network traffic graph.
 
