@@ -16,14 +16,22 @@ This guide will walk you through using the network profiler to debug and optimiz
 
 In scenarios where numerous rigidbody instances are frequently created, the network traffic can become substantial. This increase in network traffic can lead to higher bandwidth consumption, potentially causing latency issues and negatively impacting the overall performance of your application. The profiler data often reveals that each new instance contributes to a cumulative increase in the amount of data being sent and received, leading to noticeable spikes in the network traffic graphs.
 
+<video width="100%" controls><source src={networkSaturated} /></video> 
+
 Additionally, rigidbody instances with low friction might take a long time to enter the sleep state. This can further contribute to ongoing network traffic as these active rigidbodies continue to generate data, even when they are no longer relevant to the player's view.
 
 ### Sample Project
 
-To help you understand and diagnose this issue, we provide a sample project that illustrates the problem with rigidbody instances. You can start by downloading and running the [sample project](</downloads/Profiler_Sample.zip>). The sample consists of multiple basketballs instantiated on mouse click, bouncing around until the network becomes saturated.
-To reproduce the issue more effectively, you may need a friend to run the sample independently on their machine. Running it locally on a single machine might take longer for the issue to become apparent.
+To help you understand and diagnose this issue, we provide a [sample project](</downloads/Profiler_Sample.zip>) that illustrates the problem with rigidbody instances. This sample project contains two scenes: UnlimitedInstances and PooledInstances. The video demonstrating the issue is produced using the UnlimitedInstances scene.
 
-<video width="100%" controls><source src={networkSaturated} /></video> 
+In the Project window, navigate to the **Profiler Sample** folder and open the **UnlimitedInstances** scene. This scene is set up to instantiate multiple basketballs on mouse click, allowing them to bounce around until the network becomes saturated.
+
+#### Important Tips:
+
+* Run with a Friend: To reproduce the issue more effectively, you may need a friend to run the sample independently on their machine. Running it locally on a single machine might take longer for the issue to become apparent.
+* Observe the Network Traffic: As the sample runs, observe the network traffic in Unity's Profiler window. You should notice a significant increase in the amount of data being sent and received as the basketball instances are created and bounce around.
+
+By following these steps, you will be able to see firsthand how the creation of numerous rigidbody instances can lead to substantial network traffic, helping you better understand and address this issue in your own projects.
 
 ## Setting up the Profiler
 
@@ -65,7 +73,7 @@ To optimize bandwidth usage, it is crucial to manage rigidbody instances effecti
 
 <video width="100%" controls><source src={profilePooledInstances} /></video> 
 
-After implementing the reuse strategy, you should observe a reduction in the amount of data being sent and a more stable network traffic graph.
+After implementing the reuse strategy, you should observe a reduction in the amount of data being sent and a more stable network traffic graph. The video above was made using the **PooledInstances** scene from the [sample project](#sample-project).
 
 By employing these optimization techniques and leveraging the Normcore profiler module in Unity's Profiler window, you can effectively diagnose and resolve bandwidth issues, leading to a more efficient and performant application.
 
