@@ -14,7 +14,7 @@ In this guide, we'll walk through using the network profiler to debug and optimi
 
 ## The Issue
 
-When you have many frequently created rigidbody instances, the network traffic can get hefty. This increased traffic leads to higher bandwidth usage, potentially causing latency issues and impacting your app's performance. The profiler data often reveals each new instance contributes to a cumulative increase in sent and received data, leading to spikes in the network traffic graphs.
+When you have many frequently created rigidbody instances, the network traffic can get hefty. This increased traffic leads to higher bandwidth usage, potentially causing latency issues and impacting your app's performance. The profiler data often reveals each new instance contributes to a cumulative increase in sent and received data, leading to spikes in the network traffic graphs. Here's what the view looks like for the player receiving the data:
 
 <video width="100%" controls><source src={networkSaturated} /></video> 
 
