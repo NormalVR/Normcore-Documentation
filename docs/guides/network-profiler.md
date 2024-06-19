@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Network Profiler
+title: Profiling bandwidth with the Normcore profiler
 ---
 import profilerSetUp                from './network-profiler/profiler-setup.mp4'
 import profileUnlimitedInstances    from './network-profiler/profile-unlimited-instances.mp4'
@@ -8,74 +8,64 @@ import profilePooledInstances       from './network-profiler/profile-pooled-inst
 import networkSaturated             from './network-profiler/network-saturated.mp4'
 
 
-# Network Profiler
+# Profiling bandwidth with the Normcore profiler
 
-This guide will walk you through using the network profiler to debug and optimize the bandwidth consumption in your project. We will cover how to set up the profiler, interpret its data, and implement strategies to reduce the used bandwidth.
+In this guide, we'll walk through using the network profiler to debug and optimize bandwidth consumption in your Normcore project. We'll cover setting up the profiler, interpreting its data, and implementing strategies to reduce used bandwidth.
 
 ## The Issue
 
-In scenarios where numerous rigidbody instances are frequently created, the network traffic can become substantial. This increase in network traffic can lead to higher bandwidth consumption, potentially causing latency issues and negatively impacting the overall performance of your application. The profiler data often reveals that each new instance contributes to a cumulative increase in the amount of data being sent and received, leading to noticeable spikes in the network traffic graphs.
+When you have many frequently created rigidbody instances, the network traffic can get hefty. This increased traffic leads to higher bandwidth usage, potentially causing latency issues and impacting your app's performance. The profiler data often reveals each new instance contributes to a cumulative increase in sent and received data, leading to spikes in the network traffic graphs.
 
 <video width="100%" controls><source src={networkSaturated} /></video> 
 
-Additionally, rigidbody instances with low friction might take a long time to enter the sleep state. This can further contribute to ongoing network traffic as these active rigidbodies continue to generate data, even when they are no longer relevant to the player's view.
+Additionally, rigidbody instances with low friction might take a while to sleep. These active rigidbodies continue generating data, even when no longer relevant, contributing to ongoing network traffic.
 
 ### Sample Project
 
-To help you understand and diagnose this issue, we provide a [sample project](</downloads/Profiler_Sample.zip>) that illustrates the problem with rigidbody instances. This sample project contains two scenes: UnlimitedInstances and PooledInstances. The video demonstrating the issue is produced using the UnlimitedInstances scene.
+To understand this issue, we provide a [sample project](</downloads/Profiler_Sample.zip>) illustrating the problem with rigidbody instances. It contains two scenes: **UnlimitedInstances** and **PooledInstances**. The issue video uses **UnlimitedInstances**.
 
-In the Project window, navigate to the **Profiler Sample** folder and open the **UnlimitedInstances** scene. This scene is set up to instantiate multiple basketballs on mouse click, allowing them to bounce around until the network becomes saturated.
+In the Project window, open the **UnlimitedInstances** scene under **Profiler Sample**. This scene instantiates basketballs on mouse clicks, letting them bounce until the network saturates.
 
 #### Important Tips:
 
-* Run with a Friend: To reproduce the issue more effectively, you may need a friend to run the sample independently on their machine. Running it locally on a single machine might take longer for the issue to become apparent.
-* Observe the Network Traffic: As the sample runs, observe the network traffic in Unity's Profiler window. You should notice a significant increase in the amount of data being sent and received as the basketball instances are created and bounce around.
+* Run with a Friend: To better reproduce the issue, have a friend run the sample independently. Running locally on one machine might take longer.
+* Observe Network Traffic: As the sample runs, watch the network traffic in Unity's Profiler window. You should see a big increase in sent and received data as basketball instances are created and bounce.
 
-By following these steps, you will be able to see firsthand how the creation of numerous rigidbody instances can lead to substantial network traffic, helping you better understand and address this issue in your own projects.
+Following these steps will let you see how numerous rigidbody instances lead to substantial network traffic, helping address this in your own projects.
 
 ## Setting up the Profiler
 
-To begin diagnosing and optimizing bandwidth usage in your project, you need to set up the Normcore profiler module within Unity's Profiler window. This module will help you visualize and analyze the network traffic data, making it easier to identify and address issues related to bandwidth consumption. Follow these steps to set up the profiler:
+To diagnose and optimize bandwidth in your project, set up Normcore's profiler module in Unity's Profiler window. This will visualize network traffic data, making bandwidth issues easier to identify and address. Follow these steps:
 
 - Open Unity's Profiler window `Window > Analysis > Profiler`.
 - In the Profiler window, click on the `Profiler Modules` dropdown.
-- Select `Normcore` (or any of its variants) from the list of available profiler modules.
+- Select `Normcore` from the available profiler modules.
 
 <video width="100%" controls><source src={profilerSetUp} /></video> 
 
 ### Understanding the Data
 
-Once the Normcore profiler module is active, you'll see two key metrics in the Profiler window:
-- **Sent**: The amount of data being sent from the client over time.
-- **Received**: The amount of data being received by the client over time.
-
-These metrics are visualized as graphs, allowing you to track spikes and trends in network traffic.
-The profiler records a sample per frame. In order to get nice graphs, we recommend setting the target frame-rate to 60 or 30.
-
-```csharp
-void Start()
-{
-    Application.targetFrameRate = 60;
-}
-```
+With the Normcore profiler active, you'll see two key metrics in the Profiler window:
+- **Sent**: Data being sent from the client over time.
+- **Received**: Data being received by the client over time.
 
 ## Identifying the Issue
 
-Pay close attention to the graphs for these metrics. Look for spikes and trends in the data that correlate with specific events or actions in your application. For instance, if you see a significant increase in data when new rigidbody instances are created, this indicates that these instances are contributing heavily to network traffic.
+Pay attention to the graphs for sent and received data. Look for spikes and trends correlating with specific events or actions. For instance, if you see a jump in data when new rigidbody instances are created, those instances are likely contributing heavily to traffic.
 
-This video demonstrates how the sent data increases over time as new rigidbody instances are created. The profiler will reveal a pattern where each new instance adds to the cumulative amount of data being sent, leading to noticeable spikes.
+This video shows how sent data increases over time as new instances are created. The profiler reveals a pattern where each instance adds to the cumulative sent data, causing spikes.
 
 <video width="100%" controls><source src={profileUnlimitedInstances} /></video> 
 
 ## Fixing the Issue
 
-To optimize bandwidth usage, it is crucial to manage rigidbody instances effectively. Two effective strategies to achieve this are reusing rigidbody instances and destroying instances that are far away from the player or no longer contributing to the scene. By implementing these approaches, you can significantly reduce the amount of data transmitted over the network.
+To optimize bandwidth, it's crucial to manage rigidbody instances effectively. Two strategies are reusing instances and destroying those far from the player or no longer contributing. Implementing these can significantly reduce transmitted data.
 
 <video width="100%" controls><source src={profilePooledInstances} /></video> 
 
-After implementing the reuse strategy, you should observe a reduction in the amount of data being sent and a more stable network traffic graph. The video above was made using the **PooledInstances** scene from the [sample project](#sample-project).
+After reusing instances, you should see less sent data and a more stable traffic graph. The video above uses the **PooledInstances** scene from the [sample project](#sample-project).
 
-By employing these optimization techniques and leveraging the Normcore profiler module in Unity's Profiler window, you can effectively diagnose and resolve bandwidth issues, leading to a more efficient and performant application.
+By leveraging these techniques and Normcore's profiler in Unity's Profiler, you can effectively diagnose and resolve bandwidth issues for a more efficient, performant application.
 
 Looking to learn more about Normcore? Check out our guides on synchronizing custom data and networked physics:
 
