@@ -216,97 +216,54 @@ public class PrefabPool : IDisposable {
     }
 }
 ```
-Our **PlayerOptimized** code then looks like this:
+At this point we can use the **PrefabPool** like this:
 
 ```csharp
-using Normal.Realtime;
-using UnityEngine;
-using UnityEngine.InputSystem;
+// Create a prefab pool with a pool size of 100, using the custom Instantiate and Initialize methods
+private PrefabPool _pool = new PrefabPool("Sphere", 100, Instantiate, Initialize);
 
-public class PlayerOptimized : MonoBehaviour {
-    // Number of instances to create per click
-    public int instancesPerClick = 10;
+// Shoot method to get an instance from the pool
+private void Shoot() {
+    _pool.TryGetInstance(out _);
+}
 
-    // Create a prefab pool with a pool size of 100, using the custom Instantiate and Initialize methods
-    private PrefabPool _pool = new PrefabPool("Sphere", 100, Instantiate, Initialize);
+// Custom Instantiate method for the pool
+private static GameObject Instantiate(string prefab) {
+    // Get the initial position and rotation
+    var pose = GetInitialPose();
+    // Instantiate the prefab at the specified position and rotation
+    return Realtime.Instantiate(prefab, pose.position, pose.rotation, Realtime.InstantiateOptions.defaults);
+}
 
-    // Called when the object is destroyed
-    private void OnDestroy() {
-        // Dispose of the pool to clean up resources
-        _pool.Dispose();
+// Custom Initialize method for the pool
+private static void Initialize(GameObject instance) {
+    // Get the main camera's transform
+    var transform = Camera.main.transform;
+
+    // Set the instance position relative to the camera with random horizontal offset
+    instance.transform.position = transform.position + Vector3.up + Vector3.right * Random.Range(-4f, 4f);
+
+    // If the instance has a Rigidbody component
+    if (instance.TryGetComponent<Rigidbody>(out var rigidbody)) {
+        // Calculate the force direction with random variations
+        var up = Vector3.up * Mathf.Lerp(0.2f, 1f, Random.value);
+        var right = Vector3.right * Mathf.Lerp(-0.5f, 0.5f, Random.value);
+        var direction = transform.TransformDirection((Vector3.forward + up + right).normalized);
+        var speed = 5f;
+
+        // Reset the velocity and apply the calculated force
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.AddForce(direction * speed, ForceMode.VelocityChange);
     }
 
-    // Called when a value is changed in the inspector
-    private void OnValidate() {
-        // Ensure instancesPerClick is always at least 1
-        instancesPerClick = Mathf.Max(1, instancesPerClick);
-    }
-
-    // Called once per frame
-    private void Update() {
-        // Check if the left mouse button was pressed this frame
-        if (Mouse.current.leftButton.wasPressedThisFrame) {
-            // Create the specified number of instances per click
-            for (var i = 0; i < instancesPerClick; i++) {
-                Shoot();
-            }
-        }
-    }
-
-    // Shoot method to get an instance from the pool
-    private void Shoot() {
-        _pool.TryGetInstance(out _);
-    }
-
-    // Custom Instantiate method for the pool
-    private static GameObject Instantiate(string prefab) {
-        // Get the initial position and rotation
-        var pose = GetInitialPose();
-        // Instantiate the prefab at the specified position and rotation
-        return Realtime.Instantiate(prefab, pose.position, pose.rotation, Realtime.InstantiateOptions.defaults);
-    }
-
-    // Custom Initialize method for the pool
-    private static void Initialize(GameObject instance) {
-        // Get the main camera's transform
-        var transform = Camera.main.transform;
-
-        // Set the instance position relative to the camera with random horizontal offset
-        instance.transform.position = transform.position + Vector3.up + Vector3.right * Random.Range(-4f, 4f);
-
-        // If the instance has a Rigidbody component
-        if (instance.TryGetComponent<Rigidbody>(out var rigidbody)) {
-            // Calculate the force direction with random variations
-            var up = Vector3.up * Mathf.Lerp(0.2f, 1f, Random.value);
-            var right = Vector3.right * Mathf.Lerp(-0.5f, 0.5f, Random.value);
-            var direction = transform.TransformDirection((Vector3.forward + up + right).normalized);
-            var speed = 5f;
-
-            // Reset the velocity and apply the calculated force
-            rigidbody.velocity = Vector3.zero;
-            rigidbody.AddForce(direction * speed, ForceMode.VelocityChange);
-        }
-
-        // If the instance has a RealtimeTransform component
-        if (instance.TryGetComponent<RealtimeTransform>(out var realtimeTransform)) {
-            // Request ownership of the RealtimeTransform
-            realtimeTransform.RequestOwnership();
-        }
-    }
-
-    // Get the initial pose for the instance
-    private static Pose GetInitialPose() {
-        // Get the main camera's transform
-        var transform = Camera.main.transform;
-
-        // Return a new Pose with position and rotation set
-        return new Pose() {
-            position = transform.position + Vector3.up + Vector3.right * Random.Range(-4f, 4f),
-            rotation = Quaternion.identity
-        };
+    // If the instance has a RealtimeTransform component
+    if (instance.TryGetComponent<RealtimeTransform>(out var realtimeTransform)) {
+        // Request ownership of the RealtimeTransform
+        realtimeTransform.RequestOwnership();
     }
 }
 ```
+You can find the complete script in the sample project.
 
 After reusing instances, you should see less sent data and a more stable traffic graph. The following video uses the **Optimized Scene** scene from the [sample project](#sample-project).
 
