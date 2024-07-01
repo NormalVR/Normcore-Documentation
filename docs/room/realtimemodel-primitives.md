@@ -26,11 +26,18 @@ In [RealtimeModel](./realtimemodel.md) definitions the `[RealtimeProperty]` attr
 * `Quaternion`
 
 # Collections
-Classes that implement the `ICollection` interface (in the `Normal.Realtime.Serialization` namespace) are also supported. These include:
 * `RealtimeArray`
 * `RealtimeSet`
 * `RealtimeDictionary`
 * `StringKeyDictionary`
+
+Our collection classes implement change tracking to create efficient network updates and to resolve conflicts between clients.
+
+:::info
+For this reason the built-in C# collections (`List`, `Dictionary`, etc.) are not supported.
+:::
+
+The [documentation on collections](./collections.md) provides more information.
 
 # Byte array
 `byte[]` is supported, for example:
