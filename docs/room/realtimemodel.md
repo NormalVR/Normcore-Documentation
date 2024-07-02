@@ -20,7 +20,7 @@ public partial class MyModel {
 
 Models shouldn't be a subclass of any other class. Models also need to be `partial` classes so that Normcore can supplement the class with the networking code.
 
-Each field is required to be a [primitive type](./realtimemodel-primitives.md). Models are designed to synchronize data that can be easily serialized and transmitted to other clients. It is not possible to store a complex object, such as a Material or Texture, in a model. You'll need to pick out the pieces of data you would like to synchronize and use a RealtimeModel to synchronize them. Attempting to synchronize every public property of such an object would require too much bandwidth to do correctly, and in most cases, the values do not change very often.
+Each field is required to be a [primitive type](./realtimemodel-primitives.md). Models are designed to synchronize data that can be easily serialized and transmitted to other clients. It is not possible to store a complex object, such as a Material or Texture, in a model. You'll need to pick out the pieces of data you would like to synchronize and use a RealtimeModel to synchronize them. Attempting to synchronize every public property of such an object would require too much bandwidth, and in most cases is not necessary.
 
 *Tip: If you're new to RealtimeModel, check out the [Synchronizing custom data](../realtime/synchronizing-custom-data.md) guide, it provides an excellent overview of how to use a RealtimeModel in practice.*
 

@@ -31,16 +31,16 @@ In [RealtimeModel](./realtimemodel.md) definitions the `[RealtimeProperty]` attr
 * `RealtimeDictionary`
 * `StringKeyDictionary`
 
-Our collection classes implement change tracking to create efficient network updates and to resolve conflicts between clients.
-
-:::info
-For this reason the built-in C# collections (`List`, `Dictionary`, etc.) are not supported.
+:::warning
+Built-in C# collections (arrays, `List`, `Dictionary`, etc.) are not supported.
 :::
 
-The [documentation on collections](./collections.md) provides more information.
+See the [Collections](./collections.md) page for more information.
 
 # Byte array
-`byte[]` is supported, for example:
+There is custom support for `byte[]`. Other types of arrays (ex `int[]`) are not supported though.
+
+For example:
 ```csharp
 [RealtimeModel]
 public partial class MyModel {
@@ -48,8 +48,6 @@ public partial class MyModel {
     private byte[] _rawData = new byte[0];
 }
 ```
-
-Note that it can't use an equality check because it would be too costly to run on the CPU. So the property is considered dirty every time it is assigned to.
 
 # Nested models
 Models can contain other models, for example:
