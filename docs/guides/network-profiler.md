@@ -126,7 +126,7 @@ public class ShooterOptimized : MonoBehaviour {
         // Spawn a basketball in the same location as the shooter component
         var basketball = InstantiateBasketballFromPool(position, rotation);
         
-        // Set the velocity to a random forward/up velocity
+        // Initialize the velocity
         basketball.GetComponent<Rigidbody>().velocity = transform.forward * 5f;
         basketball.GetComponent<RealtimeTransform>().RequestOwnership();
     }
