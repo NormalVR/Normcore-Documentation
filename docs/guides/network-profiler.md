@@ -120,19 +120,20 @@ public class ShooterOptimized : MonoBehaviour {
 
     // Shoot method to get an instance from the pool
     private void Shoot() {
+        var position = transform.position + transform.right * Random.Range(-4f, 4f);
+        var rotation = transform.rotation;
+
         // Spawn a basketball in the same location as the shooter component
-        var basketball = InstantiateBasketballFromPool();
+        var basketball = InstantiateBasketballFromPool(position, rotation);
         
         // Set the velocity to a random forward/up velocity
-        basketball.GetComponent<Rigidbody>().velocity = basketball.transform.forward * 5f;
+        basketball.GetComponent<Rigidbody>().velocity = transform.forward * 5f;
         basketball.GetComponent<RealtimeTransform>().RequestOwnership();
     }
 
     // Instantiate a basketball from the pool
-    private GameObject InstantiateBasketballFromPool() {
+    private GameObject InstantiateBasketballFromPool(Vector3 position, Quaternion rotation) {
         GameObject basketball;
-
-        var position = transform.position + transform.right * Random.Range(-4f, 4f);
 
         // Once we hit 50 balls, reuse the oldest one.
         if (_basketballPool.Count >= 50) {
@@ -141,12 +142,12 @@ public class ShooterOptimized : MonoBehaviour {
 
             // Reset the basketball's position and rotation
             basketball.transform.position = position;
-            basketball.transform.rotation = transform.rotation;
+            basketball.transform.rotation = rotation;
         } else {
             // Instantiate a fresh basketball
             var instantiateOptions = Realtime.InstantiateOptions.defaults;
             instantiateOptions.ownedByClient = false;
-            basketball = Realtime.Instantiate("Basketball", position, transform.rotation, instantiateOptions);
+            basketball = Realtime.Instantiate("Basketball", position, rotation, instantiateOptions);
             basketball.GetComponent<RealtimeTransform>().RequestOwnership();
         }
 
