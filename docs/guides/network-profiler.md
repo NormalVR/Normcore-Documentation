@@ -7,24 +7,23 @@ import profileUnlimitedInstances    from './network-profiler/profile-unlimited-i
 import profilePooledInstances       from './network-profiler/profile-pooled-instances.mp4'
 import networkSaturated             from './network-profiler/network-saturated.mp4'
 
-
 # Profiling bandwidth with the Normcore profiler
 
-In this guide, we'll walk through using the network profiler to debug and optimize bandwidth consumption in your Normcore project. We'll cover setting up the profiler, interpreting its data, and implementing strategies to reduce used bandwidth.
+This guide will show you how to use the network profiler tool to find and fix issues with your Normcore project sending too much data over the network.
 
-## Scenario
+## When to use the Normcore profiler
 
-When you have many frequently created rigidbody instances, the network traffic can get hefty. This increased traffic leads to higher bandwidth usage, potentially causing latency issues and impacting your app's performance. The profiler data often reveals each new instance contributes to a cumulative increase in sent and received data, leading to spikes in the network traffic graphs. Here's what the view looks like for the player receiving the data:
+When you create a lot of RigidBodies your project is going to use a lot of bandwidth over the network. The profiler is a great way to figure out how to identify the issue and lower the bandwidth usage:
 
 <video width="100%" controls><source src={networkSaturated} /></video> 
 
-Additionally, rigidbody instances with low friction might take a while to sleep. These active rigidbodies continue generating data, even when no longer relevant, contributing to ongoing network traffic.
+Additionally, rigidbody instances with low friction might take a while to sleep. These active rigidbodies continue generating data and contribute to ongoing network traffic even if they don't affect the player experience.
 
 ### Sample project
 
-To understand this issue, we provide a [sample project](</downloads/Profiler_Sample.zip>) illustrating the problem with rigidbody instances. It contains two scenes: **Unoptimized Scene** and **Optimized Scene**. The video above illustrating the issue uses **Unoptimized Scene**.
+In this guide we're going to debug an application that spawns too many RigidBodies. We provide a project [here](</downloads/Profiler_Sample.zip>). It contains two scenes: **Unoptimized Scene** and **Optimized Scene**. The video above illustrating the issue uses the **Unoptimized Scene**.
 
-In the Project window, open the **Unoptimized Scene** scene in the **Profiler Sample** folder. This scene instantiates basketballs on mouse clicks, letting them bounce until the network saturates.
+In the Project window, open the **Unoptimized Scene** scene in the **Profiler Sample** folder. This scene spawns a basketball each time you click the mouse and lets them bounce until the network saturates.
 
 The unoptimized code looks like this:
 
@@ -60,16 +59,15 @@ public class ShooterUnoptimized : MonoBehaviour {
     }
 }
 ```
+
 #### Important Tips:
 
-* Run with a Friend: To better reproduce the issue, have a friend run the sample independently. Running locally on one machine might take longer. Alternatively, use a tool like [Clumsy](https://jagt.github.io/clumsy/) to simulate realistic network conditions.
-* Observe Network Traffic: As the sample runs, watch the network traffic in Unity's Profiler window. You should see a big increase in sent and received data as basketball instances are created and bounce around.
-
-Following these steps will let you see how numerous rigidbody instances lead to substantial network traffic, helping address this in your own projects.
+* Ask a friend to run the sample project on their own device. Running the project on just one device will have perfect network conditions, making it harder to see the problem. You can also use a tool like [Clumsy](https://jagt.github.io/clumsy/) to create realistic network conditions for testing.
+* Watch the network traffic in Unity's Profiler window as the sample runs. You should see a big increase in sent and received data as basketball instances are created and bounce around.
 
 ## Setting up the profiler
 
-To diagnose and optimize bandwidth in your project, set up Normcore's profiler module in Unity's Profiler window. This will visualize network traffic data, making bandwidth issues easier to identify and address. Follow these steps:
+To diagnose and optimize bandwidth in your project, set up Normcore's profiler module in Unity's Profiler window:
 
 - Open Unity's Profiler window `Window > Analysis > Profiler`.
 - In the Profiler window, click on the `Profiler Modules` dropdown.
@@ -80,22 +78,22 @@ To diagnose and optimize bandwidth in your project, set up Normcore's profiler m
 ### Profiler data
 
 With the Normcore profiler active, you'll see two key metrics in the Profiler window:
-- **Sent**: Data being sent from the client over time.
-- **Received**: Data being received by the client over time.
+- **Sent**: Data sent from the client over time.
+- **Received**: Data received by the client over time.
 
 ## Profiling
 
-Pay attention to the graphs for sent and received data. Look for spikes and trends correlating with specific events or actions. For instance, if you see a jump in data when new rigidbody instances are created, those instances are likely contributing heavily to traffic.
+Look at the graphs showing sent and received data in the profiler. If you notice big jumps or patterns that match certain actions in your game, those actions might be causing a lot of data to be sent. For example, if data sent goes up whenever new rigidbody objects are made, those objects are likely using a lot of bandwidth.
 
-This video shows how sent data increases over time as new instances are created. The profiler reveals a pattern where each instance adds to the cumulative sent data, causing spikes.
+<video width="100%" controls><source src={profileUnlimitedInstances} /></video>
 
-<video width="100%" controls><source src={profileUnlimitedInstances} /></video> 
+The video above demonstrates how creating more objects increases the total data sent over time, causing spikes in the graph.
 
-## Solution
+## Optimizing bandwidth
 
-To optimize bandwidth, it's crucial to manage rigidbody instances effectively. Two common strategies are reusing instances and destroying those that are too far from the player or no longer contributing to the simulation. Implementing these strategies can significantly reduce transmitted data.
+To optimize we're going to reuse basketballs. Once we've instantiated 50 basketballs we'll start re-using them by recycling the oldest basketball.
 
-In our sample, we have implemented a pooling mechanism that will create instances up to a certain limit and reuse the oldest instance when the instance limit is reached.
+The optimized code looks like this:
 
 ```csharp
 using System.Collections.Generic;
@@ -157,13 +155,12 @@ public class ShooterOptimized : MonoBehaviour {
     }
 }
 ```
-You can find the complete script in the sample project.
 
-After reusing instances, you should see less data being sent and a more stable network traffic graph. The following video uses the **Optimized Scene** scene from the [sample project](#sample-project).
+We drop that in and we can see in the profiler that the bandwidth usage stops increasing after we reach 50 basketballs.
 
-<video width="100%" controls><source src={profilePooledInstances} /></video> 
+This video uses the **Optimized Scene** scene from the [sample project](#sample-project) and shows the results of the optimized code:
 
-By leveraging Normcore's network profiler and techniques such as instance pooling, you can effectively diagnose and resolve bandwidth issues for a more efficient and performant application.
+<video width="100%" controls><source src={profilePooledInstances} /></video>
 
 Looking to learn more about Normcore? Check out our guides on synchronizing custom data and networked physics:
 
