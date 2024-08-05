@@ -14,7 +14,7 @@ Normcore serializes all updates once per network frame (~20hz) and groups them i
 ## Datastore
 
 #### When I try to sync a specific object to the Datastore, I get an error that says it cannot be serialized. What’s the issue?
-Only primitives (`int`, `float`, `Vector3`, `string`, etc.) can be serialized, so if you need to sync a specific kind of object like a TextMesh Pro object, you should create a field for each property on the object that you’d like to sync.
+Only [supported primitives](./supported-primitives.md) (`int`, `float`, `Vector3`, `string`, etc.) can be serialized, so if you need to sync a specific kind of object like a TextMesh Pro object, you should create a field for each property on the object that you’d like to sync.
 
 #### Why can’t I just sync a Dictionary&lt;&gt; or List&lt;&gt;?
 These collections don’t let Normcore know when their contents have changed. This means there’s no way for Normcore to detect and sync their contents automatically. Also, we can’t easily do delta updates without comparing the contents against the previous version sent. It would get really computationally expensive. 
