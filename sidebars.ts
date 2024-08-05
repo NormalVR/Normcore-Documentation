@@ -116,11 +116,11 @@ const sidebars: SidebarsConfig = {
         'room/room',
         'room/datastore',
         'room/realtimemodel',
+        'room/supported-primitives',
         'room/collections',
         'room/ownership-and-lifetime-flags',
         'room/room-server-options',
         'room/offline-mode',
-        'room/realtimemodel-primitives',
         'room/common-questions',
       ]
     },
