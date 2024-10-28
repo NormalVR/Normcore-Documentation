@@ -9,7 +9,7 @@ Welcome to Normcore! This guide is designed to show you how to get set up and ru
 
 ## Setting up Normcore
 
-First off, you’ll need to grab a copy of the latest Normcore plugin. You can download it [here](https://normcore.io/download) after [signing up for a Normcore account](https://normcore.io/dashboard/signup).
+First off, you’ll need to grab a copy of the latest Normcore plugin. You can download it [here](https://dashboard.normcore.io/download) after [signing up for a Normcore account](https://dashboard.normcore.io/register).
 
 
 
@@ -25,7 +25,7 @@ Let’s add one of the pre-built example prefabs to our scene. Drag a “Realtim
 
 ## Creating a Normcore application
 
-You'll notice that in the Realtime inspector, there's a field for an "App key." Before we can hit play, you’ll need one to connect to Normal’s servers. First, register for a Normal account [here](https://normcore.io/dashboard/signup). Then, log in to the [Dashboard](https://normcore.io/dashboard).
+You'll notice that in the Realtime inspector, there's a field for an "App key." Before we can hit play, you’ll need one to connect to Normal’s servers. First, register for a Normal account [here](https://dashboard.normcore.io/register). Then, log in to the [Dashboard](https://dashboard.normcore.io/).
 
 ![](./getting-started/normcore-dashboard.png "The Normcore dashboard, where you manage your applications.")
 

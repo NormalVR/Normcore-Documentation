@@ -18,7 +18,7 @@ This is what the Realtime component looks like in Unity.
 This points to a [NormcoreAppSettings](../reference/classes/Normal.NormcoreAppSettings.md) asset that stores the relevant metadata needed for your application to connect to Normcore servers.
 
 ### App Key
-This is a unique key used to track your app's usage. You can create one over on your [account dashboard](https://normcore.io/dashboard). This field will update the asset for all instances that use this NormcoreAppSettings asset.
+This is a unique key used to track your app's usage. You can create one over on your [account dashboard](https://dashboard.normcore.io/apps). This field will update the asset for all instances that use this NormcoreAppSettings asset.
 
 ### Join Room On Start + Room Name
 If you would like Realtime to automatically connect to a room on Start(), you can check this box and enter the room name here.
