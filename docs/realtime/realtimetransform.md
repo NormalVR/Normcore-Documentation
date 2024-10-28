@@ -61,6 +61,8 @@ In order to allow objects at rest to be automatically owned by colliding objects
 Check out the [Networked Physics](./networked-physics.md) guide for more detailed info on how RealtimeTransform works in Rigidbody mode.
 :::
 
+### RigidBody2D
+**Rigibody2D** is also a supported mode for RealtimeTransform and handles Unity's 2D physics. It is functionally identical to the 3D Rigidbody mode.
 
 ## Extra notes
 
@@ -86,3 +88,8 @@ A common case where folks want this functionality is in order to pick up an obje
 Visually, this gives you the same result and will avoid bugs related to reparenting.
 
 *Tip: If the RealtimeTransform object has a Rigidbody on it, make sure to use the `MovePosition()` and `MoveRotation()` methods in `FixedUpdate()`*
+
+#### Skipping interpolation
+When teleporting a RealtimeTransform that has interpolation enabled (ex teleporting the player) it can be useful to suspend interpolation for that motion. Otherwise the transform will fly towards the destination instead of snapping instantly to it.
+
+This can be done using the `RealtimeTransform.SnapTo` function.
