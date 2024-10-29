@@ -65,7 +65,7 @@ const config: Config = {
           className:"navbar__item navbar__link custom_nav_time",
         },
         {
-          href: 'https://normcore.io/dashboard',
+          href: 'https://dashboard.normcore.io/',
           label: 'Go to dashboard',
           position: 'right',
           className: "navbar__item navbar__link custom_nav_time dash_button",
