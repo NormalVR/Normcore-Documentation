@@ -90,6 +90,6 @@ Visually, this gives you the same result and will avoid bugs related to reparent
 *Tip: If the RealtimeTransform object has a Rigidbody on it, make sure to use the `MovePosition()` and `MoveRotation()` methods in `FixedUpdate()`*
 
 #### Skipping interpolation
-When teleporting a RealtimeTransform that has interpolation enabled (ex teleporting the player) it can be useful to suspend interpolation for that motion. Otherwise the transform will fly towards the destination instead of snapping instantly to it.
+When teleporting a RealtimeTransform that has interpolation enabled (ex. teleporting the player), it can be useful to suspend interpolation for that motion. Otherwise the transform will fly towards the destination instead of snapping instantly to it.
 
 This can be done using the `RealtimeTransform.SnapTo` function.
