@@ -61,7 +61,7 @@ In order to allow objects at rest to be automatically owned by colliding objects
 Check out the [Networked Physics](./networked-physics.md) guide for more detailed info on how RealtimeTransform works in Rigidbody mode.
 :::
 
-### RigidBody2D
+### Rigidbody2D
 **Rigibody2D** is also a supported mode for RealtimeTransform and handles Unity's 2D physics. It is functionally identical to the 3D Rigidbody mode.
 
 ## Extra notes
