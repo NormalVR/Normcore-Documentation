@@ -21,6 +21,8 @@ However, it is possible that the server will reject an update due to either owne
 
 Normcore is also able to detect simultaneous updates from multiple clients and respond appropriately. If Client A makes a change and then receives an update from Client B that occurred before Client A made the change locally, Normcore will continue to reflect Client A's value locally as it knows that the value is more recent. If Client A's value is rejected by the server, the datastore will roll back to Client B's value and will fire a change event to notify that the value was updated.
 
+You can read more about this system in the [Client-Side prediction](client-side-prediction.md) documentation.
+
 ## Delta updates
 The datastore keeps track of all changes that have been applied by the local client. Periodically, Room will instruct the datastore to serialize all the outstanding changes to send in an update to the server. This ensures that only the smallest amount of data needs to be serialized and transmitted to the server.
 
