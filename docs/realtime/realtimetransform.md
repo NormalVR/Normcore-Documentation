@@ -62,7 +62,7 @@ Check out the [Networked Physics](./networked-physics.md) guide for more detaile
 :::
 
 ### Rigidbody2D
-**Rigibody2D** is also a supported mode for RealtimeTransform and handles Unity's 2D physics. It is functionally identical to the 3D Rigidbody mode.
+Unity's built-in **Rigibody2D** component is also supported by RealtimeTransform out of the box. It is functionally identical to the RealtimeTransform with a regular 3D **Rigidbody** component.
 
 ## Extra notes
 
