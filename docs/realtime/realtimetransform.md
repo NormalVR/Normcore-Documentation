@@ -93,9 +93,9 @@ Visually, this gives you the same result and will avoid bugs related to reparent
 Typically RealtimeTransform will interpolate all movement, however, it can be useful to snap a transform to a position instantly (e.g. resetting a player back to a spawn point). This can be achieved by using the RealtimeTransform method `SnapTo()` like so:
 
 ```csharp
-// A sample spawn position
-Vector3 spawnPosition = new Vector3(0, 1, 0);
+// The spawn position to snap the player to
+Vector3 spawnPosition = new Vector3(0.0f, 1.0f, 0.0f);
 
-// Assuming realtimeTransform is the RealtimeTransform belonging to the player
-player.realtimeTransform.SnapTo(spawnPosition);
+// Snap to the new spawn position (this method assumes this client is also the owner of the transform)
+GetComponent<RealtimeTransform>().SnapTo(spawnPosition);
 ```
