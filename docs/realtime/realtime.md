@@ -32,10 +32,3 @@ This section displays information about the current running connection such as t
 
 ## Programming interface
 Most of the time that you spend working with Realtime will be via its programming interface. More information is available on using this API in the [Realtime API Overview](./readme.md), and individual methods are documented on the [Realtime](../reference/classes/Normal.Realtime.Realtime.md) reference page.
-
-## Trouble connecting?
-Some Unity XR project settings can block internet connection in builds.
-
-Use the Project Validation tool to identify and fix the issues. It can be found in `Edit > Project Settings > XR Management > Project Validation`:
-
-![](./assets/project-validation.png "The Project Validation window in Unity.")
