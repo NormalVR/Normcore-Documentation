@@ -87,7 +87,7 @@ When the last player leaves a room, the room server will remain running for abou
 #### I have a script on my player. Why is it updating all players in the room?
 When there are two avatars in a room, your scripts that live on the avatar prefab are instantiated for each avatar (not just the local player). This means that your code will execute on local and remote avatars, once for every player in the scene. If you’d like logic to only apply to a single player, use RealtimeView’s `isOwnedLocallyInHierarchy` property. Take a look at [this section](../guides/creating-a-player-controller.md#making-it-multiplayer) in the Player Controller guide for more info.
 
-#### Trouble connecting?
+#### I can connect fine in the editor, but my XR build does not connect on device.
 Some Unity XR project settings can block internet connection in builds.
 
 Use the Project Validation tool to identify and fix the issues. It can be found in `Edit > Project Settings > XR Management > Project Validation`:
