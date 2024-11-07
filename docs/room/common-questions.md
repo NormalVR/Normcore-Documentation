@@ -36,4 +36,4 @@ One exception is if you’re using a rigidbody with RealtimeTransform. When you 
 ## RPCs
 
 #### Are model change events more expensive than RPCs?
-Nope! Normcore model updates are dseigned to be as bandwidth and cpu efficient as possible.
+Nope! Normcore model updates are designed to be as bandwidth and cpu efficient as possible.

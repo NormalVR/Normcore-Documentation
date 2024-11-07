@@ -7,7 +7,7 @@ title: Supported Primitives
 When creating a [**RealtimeModel**](./realtimemodel.md), only specific primitives can be used. This page includes a full list of supported primitives as well as edge-cases related to equality checks, collections, and nested models.
 
 ### Supported C# primitives
-`bool`, `byte`, `sbyte`, `short`, `ushort`, `int`, `uint`, `float`, `double`, `string`
+`bool`, `byte`, `sbyte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `float`, `double`, `string`
 
 ### Supported Unity primitives
 `Color`, `Vector2`, `Vector3`, `Vector4`, `Quaternion`

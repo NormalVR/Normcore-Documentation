@@ -61,6 +61,8 @@ In order to allow objects at rest to be automatically owned by colliding objects
 Check out the [Networked Physics](./networked-physics.md) guide for more detailed info on how RealtimeTransform works in Rigidbody mode.
 :::
 
+### Rigidbody2D
+Unity's built-in **Rigibody2D** component is also supported by RealtimeTransform out of the box. It is functionally identical to the RealtimeTransform with a regular 3D **Rigidbody** component.
 
 ## Extra notes
 
@@ -86,3 +88,14 @@ A common case where folks want this functionality is in order to pick up an obje
 Visually, this gives you the same result and will avoid bugs related to reparenting.
 
 *Tip: If the RealtimeTransform object has a Rigidbody on it, make sure to use the `MovePosition()` and `MoveRotation()` methods in `FixedUpdate()`*
+
+#### Snap to a new position
+Typically RealtimeTransform will interpolate all movement, however, it can be useful to snap a transform to a position instantly (e.g. resetting a player back to a spawn point). This can be achieved by using the RealtimeTransform method `SnapTo()` like so:
+
+```csharp
+// The spawn position to snap the player to
+Vector3 spawnPosition = new Vector3(0.0f, 1.0f, 0.0f);
+
+// Snap to the new spawn position (this method assumes this client is also the owner of the transform)
+GetComponent<RealtimeTransform>().SnapTo(spawnPosition);
+```
