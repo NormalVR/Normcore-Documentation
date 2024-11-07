@@ -6,7 +6,7 @@ import doubleAvatarWave from './meta-avatars/double-avatar-wave.mp4'
 import metaXR from './meta-avatars/install-meta-xr.mp4'
 import packageDependencies from './meta-avatars/install-package-dependencies.mp4'
 import sceneSetup from './meta-avatars/scene-setup.mp4'
-import avatarWave from './meta-avatars/avatar-wave.mp4'
+import avatarThumbsUp from './meta-avatars/avatar-thumbs-up.mp4'
 
 # Meta Avatars
 <video width="100%" controls><source src={doubleAvatarWave} /></video>
@@ -35,7 +35,7 @@ Add the "AvatarSdkManagerStyle2Meta" prefab to the scene using the `MetaAvatarsS
 
 Add your App Key to the Realtime component and hit Play. The included "Meta Avatar Player" will spawn and it should look something like this:
 
-<video width="100%" controls><source src={avatarWave} /></video>
+<video width="100%" controls><source src={avatarThumbsUp} /></video>
 
 :::danger
 If your app quits immediately on launch, it's most likely due to the entitlement check failing! Check your logs and make sure the Meta account used by your Quest has been added to the release channel for your Oculus App ID.
