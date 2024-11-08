@@ -2,14 +2,15 @@
 layout: docs
 title: Meta Avatars Setup
 ---
-import doubleAvatarWave from './meta-avatars/double-avatar-wave.mp4'
+import avatarWaveGroup from './meta-avatars/avatar-wave-group.mp4'
 import metaXR from './meta-avatars/install-meta-xr.mp4'
 import packageDependencies from './meta-avatars/install-package-dependencies.mp4'
 import sceneSetup from './meta-avatars/scene-setup.mp4'
 import avatarThumbsUp from './meta-avatars/avatar-thumbs-up.mp4'
 
 # Meta Avatars
-<video width="100%" controls><source src={doubleAvatarWave} /></video>
+<video width="100%" controls><source src={avatarWaveGroup} /></video>
+
 **Normal** and **Meta** have worked together to provide rich prebuilt avatars that work with Normcore out of the box. This guide will demonstrate how to use the built-in **MetaAvatar** component to set up networked meta avatars with voice chat in a few minutes.
 
 ## Install the Normcore Meta XR package
