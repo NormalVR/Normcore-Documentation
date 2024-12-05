@@ -24,8 +24,8 @@ If you haven't already, add a Realtime component to an empty GameObject in your 
 
 ## Step 3: Synchronize the Toggle State
 
-To enable Normcore's property synchronization, first add the RealtimeProperty component to your Toggle GameObject.
-After adding the RealtimeProperty component, you'll notice a new "Normcore" foldout at the bottom of the Toggle component in the Inspector.
+To enable Normcore's property synchronization, first add the EasySync component to your Toggle GameObject.
+After adding the EasySync component, you'll notice a new "Normcore" foldout at the bottom of the Toggle component in the Inspector.
 Expand the Normcore foldout for the Toggle component. Here, you'll see a list of available properties to synchronize. For a Toggle, you'll want to sync the "Is On" property.
 
 1. Check the box next to "isOn" to enable synchronization.

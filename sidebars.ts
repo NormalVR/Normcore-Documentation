@@ -38,7 +38,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'guides/creating-a-player-controller',
         'guides/upgrading-from-normcore-1-to-normcore-2',
-        'guides/sync-no-code',
+        'guides/easy-sync',
         {
           type: 'category',
           label: 'Recipes',
