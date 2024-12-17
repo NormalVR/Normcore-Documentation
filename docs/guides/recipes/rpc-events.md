@@ -19,7 +19,7 @@ This recipe shows how to use a model to send an RPC-like event message that can 
 
 For this example, let's say we want to trigger a celebration particle system effect on all clients. We'll want to send an RPC-like message that includes the sender ID, position, and scale of the effect. Typically I'd recommend instantiating a particle system prefab, but if you *absolutely have to* use an RPC-like structure, here's how you can do it:
 
-Let's start with the [template project](</downloads/Normcore RPC Events Recipe Template.zip>). Open up the scene located in the `_RPC Events Recipe` folder. This is an empty scene with a prebuilt particle system called **Explosion Particle System**. We can test it out by entering play mode and then clicking Emit in the inspector:
+Let's start with the RPC Events Recipe template project that can be downloaded from the [Normcore Samples repository](https://github.com/NormalVR/Normcore-Samples). Open up the scene located in the `_RPC Events Recipe` folder. This is an empty scene with a prebuilt particle system called **Explosion Particle System**. We can test it out by entering play mode and then clicking Emit in the inspector:
 
 <video width="100%" controls><source src={particleSystemTest} /></video>
 
@@ -39,7 +39,7 @@ This model includes the trigger integer that we'll use to trigger the event, the
 
 Go into the Unity editor and compile this model so we can start using the public properties on it. Once it's compiled, we'll add a method and C# event to let us fire the event and listen for when it's fired:
 
-```csharp{8-25}
+```csharp {8-25}
 [RealtimeModel]
 public partial class ExplosionEventModel {
     [RealtimeProperty(1, true)] private int     _trigger;
@@ -60,8 +60,8 @@ public partial class ExplosionEventModel {
     public event EventHandler eventDidFire;
 
     // A RealtimeCallback method that fires whenever we read any values from the server
-    [RealtimeCallback(RealtimeModelEvent.OnDidRead)]
-    private void DidRead() {
+    [RealtimeCallback(RealtimeModelEvent.OnDidReadModel)]
+    private void OnDidReadModel(PropertyChangeSet changeSet) {
         if (eventDidFire != null && trigger != 0)
             eventDidFire(senderID, position, scale);
     }
@@ -135,4 +135,4 @@ Create an empty game object, add both scripts, wire up the particle system refer
 
 That's it! Despite having a nice recipe for this, I still recommend avoiding this pattern if you can. Any state that is modified in response to an event like this can easily diverge between clients. There are circumstances where it can make sense, but in most cases it will lead to desyncs and bugs that are hard to test for and reproduce.
 
-If you'd like to check out the completed recipe project, you can download it [here](</downloads/Normcore RPC Events Recipe Complete.zip>).
+If you'd like to check out the completed recipe project, you can find it in the [Normcore Samples repository](https://github.com/NormalVR/Normcore-Samples).
