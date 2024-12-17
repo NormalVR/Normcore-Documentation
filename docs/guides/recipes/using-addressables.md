@@ -143,4 +143,4 @@ Throw this script on an empty game object in the scene and wire up the realtime 
 
 As soon as Realtime connects to the room server, our test script will `Realtime.Instantiate` our test asset, and we'll see it show up in the scene.
 
-Download the complete [Normcore Addressables Recipe](</downloads/Normcore Addressables Recipe.zip>) project and try it out for yourself.
+Download the complete Addressables Recipe from the [Normcore Samples repository](https://github.com/NormalVR/Normcore-Samples) project and try it out for yourself.

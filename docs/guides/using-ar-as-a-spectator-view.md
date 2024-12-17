@@ -57,6 +57,8 @@ Now head back to Unity and open up the original “Realtime + VR Player” scene
 
 Boooooom!! Easy.
 
+You can download the complete project from the [Normcore Samples repository](https://github.com/NormalVR/Normcore-Samples).
+
 Want to take this a step further? Try creating a custom avatar for your AR Spectator so they look different than the VR players in VR. Check out our other guides for synchronizing custom data too!
 
 - [XR Avatars and Voice Chat](./xr-avatars-and-voice-chat.md)

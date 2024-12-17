@@ -302,7 +302,7 @@ Export a standalone build and make sure your scene’s camera is pointed at the 
 
 Now we can open that standalone build, hit play in the editor, and change the cube color. Go ahead and try it. We’ll see the standalone build’s cube color update in real-time.
 
-Download a finished copy of the project [here](</downloads/Normcore Synchronizing Custom Data.zip>).
+Download a finished copy of the Synchronizing Custom Data project from the [Normcore Samples repository](https://github.com/NormalVR/Normcore-Samples).
 
 Check out our other guides on synchronizing custom data:
 

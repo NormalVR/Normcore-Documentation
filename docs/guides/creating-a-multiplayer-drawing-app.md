@@ -23,7 +23,7 @@ In this guide I’m going to show you how to make a simple multiplayer drawing a
 
 First, we’ll walk through how the singleplayer brush example works, and then we’ll walk through how to make it multiplayer using Normcore.
 
-To start, download the project template [here](</downloads/Normcore Multiplayer Drawing-Singleplayer.zip>). This project includes the implementation for a basic VR brush in Unity.
+To start, download the Multiplayer Drawing Singleplayer project template from the [Normcore Samples repository](https://github.com/NormalVR/Normcore-Samples). This project template implements a basic VR brush in Unity.
 
 Once you have the project open, open up the Brush scene. You should see a Brush object in the scene. First, let’s try it out. Make a note of which hand the Brush script is set to, hit Play, and use the trigger to draw:
 
@@ -1135,7 +1135,7 @@ And we’re done! Let’s test it out!
 
 Works like a charm! Export a build and send it to a friend. You’ll both be able to join the same space and draw with each other :)
 
-You can download the complete project [here](</downloads/Normcore Multiplayer Drawing-Multiplayer.zip>).
+You can download the complete project from the [Normcore Samples repository](https://github.com/NormalVR/Normcore-Samples).
 
 Fun things to try now:
 
