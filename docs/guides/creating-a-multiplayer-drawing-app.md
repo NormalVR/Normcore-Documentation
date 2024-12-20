@@ -17,7 +17,7 @@ import finalResult                       from './creating-a-multiplayer-drawing-
 
 In this guide I’m going to show you how to make a simple multiplayer drawing app with Normcore.
 
-<video width="100%" title="" controls><source src={drawingTogether} /></video> 
+<video width="100%" title="" autoPlay loop muted><source src={drawingTogether} /></video> 
 
 ## Singleplayer brush
 

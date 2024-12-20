@@ -8,7 +8,7 @@ import metaSample from './meta-avatars/install-meta-sample.mp4'
 import avatarWave from './meta-avatars/avatar-wave.mp4'
 
 # Meta Avatars
-<video width="100%" controls><source src={doubleAvatarWave} /></video>
+<video width="100%" autoPlay loop muted><source src={doubleAvatarWave} /></video>
 **Normal** and **Meta** have worked together to provide rich prebuilt avatars that work with Normcore out of the box. This guide will demonstrate how to use the built-in **MetaAvatar** component to set up networked meta avatars with voice chat in a few minutes.
 
 ## Install the Normcore Meta XR package

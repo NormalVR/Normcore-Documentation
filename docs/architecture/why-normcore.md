@@ -20,7 +20,7 @@ Normcore is easy to use, but under the hood, it's built using some incredible te
 Our philosophy is simple. Normcore should be better than anything you would write yourself. We spend 100% of our time working on Normcore so you can spend 100% of your time focusing on your project.
 
 ### Datastore
-<video width="75%" autoplay controls><source src={datastore} /></video>
+<video width="75%" autoPlay loop muted><source src={datastore} /></video>
 
 #### Problem: Traditional multiplayer networking use RPC messages to synchronize state.
 
@@ -43,7 +43,7 @@ Have a player that joins late? No problem, the server can send a snapshot of the
 
 
 ### Fast Transport
-<video width="75%" autoplay controls><source src={fastTransport} /></video>
+<video width="75%" autoPlay loop muted><source src={fastTransport} /></video>
 
 #### Problem: Large packets often move slower through the public internet
 
@@ -64,7 +64,7 @@ Normcore’s transport mechanism is so fast that in many cases you’ll see roun
 
 
 ### Delta Updates
-<video width="75%" autoplay controls><source src={deltaUpdates} /></video>
+<video width="75%" autoPlay loop muted><source src={deltaUpdates} /></video>
 
 #### Problem: You can't synchronize all of your state all of the time.
 
@@ -77,7 +77,7 @@ Normcore’s datastore architecture automatically tracks all changes since the l
 
 
 ### Intelligent Serialization
-<video width="75%" autoplay controls><source src={intelligentSerialization} /></video>
+<video width="75%" autoPlay loop muted><source src={intelligentSerialization} /></video>
 
 #### Problem: You don't want to waste CPU on serializing data.
 
@@ -98,7 +98,7 @@ To avoid resizing any internal buffers, Normcore is able to pre-allocate the buf
 
 
 ### Secure Transport
-<video width="75%" autoplay controls><source src={secureTransport} /></video>
+<video width="75%" autoPlay loop muted><source src={secureTransport} /></video>
 
 #### Problem: All data should always be encrypted.
 
@@ -111,7 +111,7 @@ This one is pretty simple. Encrypt all packets by default! Normcore uses DTLS to
 
 
 ### High Quality, Low Latency, Audio & Video
-<video width="75%" autoplay controls><source src={highQualityAudioVideo} /></video>
+<video width="75%" autoPlay loop muted><source src={highQualityAudioVideo} /></video>
 
 #### Problem: Real-time audio & video is really difficult to get right. It's a constant balancing act.
 
@@ -134,7 +134,7 @@ Normcore stores incoming audio packets in a buffer, but it performs live analyti
 
 
 ### Server Scaling
-<video width="75%" autoplay controls><source src={serverScaling} /></video>
+<video width="75%" autoPlay loop muted><source src={serverScaling} /></video>
 
 #### Problem: Your multiplayer infrastructure needs to scale automatically.
 
@@ -147,7 +147,7 @@ Normal is operating servers for more than just your application, which means we 
 
 
 ### Server Placement
-<video width="75%" autoplay controls><source src={serverPlacement} /></video>
+<video width="75%" autoPlay loop muted><source src={serverPlacement} /></video>
 
 #### Problem: The internet does not treat all packets equally.
 
@@ -162,7 +162,7 @@ On top of this, Normcore uses Google’s premium fiber network. When a packet is
 
 
 ### Networked Physics
-<video width="75%" autoplay controls><source src={networkedPhysics} /></video>
+<video width="75%" autoPlay loop muted><source src={networkedPhysics} /></video>
 
 #### Problem: Physics in Unity is not deterministic and true server authority is not possible.
 
