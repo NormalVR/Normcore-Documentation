@@ -1,4 +1,5 @@
 {
+  "cleanUrls": true,
   "redirects": [
     { "source": "/getting-started",                                             "destination": "/essentials/getting-started",                "permanent": true },
     { "source": "/core-concepts/how-normcore-works",                            "destination": "/essentials/what-is-normcore",               "permanent": true },
