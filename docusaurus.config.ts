@@ -50,7 +50,7 @@ const config: Config = {
     ],
   ],
   themeConfig: {
-    image: 'https://normcore.io/normcore-social-static.png',
+    image: 'https://docs.normcore.io/img/normcore-social-static.png',
     navbar: {
       title: 'Normcore.',
       items: [
