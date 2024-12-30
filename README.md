@@ -1,6 +1,6 @@
 # Normcore Documentation
 
-Welcome to our documentation repo! These are the docs files that are used to generate the pages on normcore.io/documentation.
+Welcome to our documentation repo! These are the docs files that are used to generate the pages on https://docs.normcore.io/.
 
 All of us at Normal do our best to write thorough documentation, but occasionally there are features we may have missed or areas of the API that could use extra clarification.
 
