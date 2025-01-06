@@ -4,7 +4,6 @@ title: Meta Avatars Setup
 ---
 import avatarWaveGroup from './meta-avatars/avatar-wave-group.mp4'
 import metaXR from './meta-avatars/install-meta-xr.mp4'
-import packageDependencies from './meta-avatars/install-package-dependencies.mp4'
 import sceneSetup from './meta-avatars/scene-setup.mp4'
 import avatarThumbsUp from './meta-avatars/avatar-thumbs-up.mp4'
 
