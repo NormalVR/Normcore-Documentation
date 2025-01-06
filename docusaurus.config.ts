@@ -5,6 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Normcore Documenation',
   tagline: 'Seamless multiplayer for Unity.',
+  favicon: '/favicon.ico',
 
   // Set the production url of your site here
   url: 'https://docs.normcore.io/',
