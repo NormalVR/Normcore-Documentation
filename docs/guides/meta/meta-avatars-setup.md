@@ -21,16 +21,14 @@ Once Normcore is set up in your project, you'll be able to install the **Normcor
 <video width="100%" controls><source src={metaXR} /></video> 
 
 ## Install the Meta Avatars SDK sample
-**Normcore Meta XR** depends on scripts and assets that are included in a user sample from the **Meta Avatars SDK** package.
+**Normcore Meta XR** depends on scripts and assets that we include in a user sample.
 
-Import this dependency automatically using the pop-up dialog. You can always bring up the dialog again using the menu bar: `MetaAvatarsSDK/Normcore/Check Dependencies`.
-
-<video width="100%" controls><source src={packageDependencies} /></video>
+Import this dependency automatically using the pop-up dialog. You can always bring up the dialog again using the menu bar: `MetaAvatarsSDK/Normcore/Check Package Dependencies`.
 
 ## Set up Meta Avatars
-Import the "Meta Avatars" sample that comes with the **Normcore Meta XR** UPM package. Make sure you've initialized the Oculus Platform SDK directly or by using the [Entitlement Check](./meta-platform-prerequisites#initialize-the-oculus-platform-at-runtime) sample.
+Make sure you've initialized the Oculus Platform SDK directly or by using the [Entitlement Check](./meta-platform-prerequisites#initialize-the-oculus-platform-at-runtime) sample.
 
-Add the "AvatarSdkManagerStyle2Meta" prefab to the scene using the `MetaAvatarsSDK > Normal > Create AvatarSDKManager` menu item. Then drag the "Realtime + Meta Avatar Player" prefab into the scene.
+Add the "AvatarSDKManagerMeta" prefab to the scene using the `MetaAvatarsSDK > Normal > Create AvatarSDKManager` menu item. Then drag the "Realtime + Meta Avatar Player" prefab into the scene.
 
 <video width="100%" controls><source src={sceneSetup} /></video> 
 
