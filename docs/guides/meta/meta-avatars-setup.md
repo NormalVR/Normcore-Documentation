@@ -20,10 +20,12 @@ Once Normcore is set up in your project, you'll be able to install the **Normcor
 
 <video width="100%" controls><source src={metaXR} /></video> 
 
-## Install the Meta Avatars SDK sample
-**Normcore Meta XR** depends on scripts and assets that we include in a user sample.
+## Install the UPM sample
+**Normcore Meta XR** depends on scripts and assets that we distribute in a UPM sample.
 
 Import this dependency automatically using the pop-up dialog. You can always bring up the dialog again using the menu bar: `MetaAvatarsSDK/Normcore/Check Package Dependencies`.
+
+![](./meta-avatars/install-package-dependencies.png "UPM sample pop-up")
 
 ## Set up Meta Avatars
 Make sure you've initialized the Oculus Platform SDK directly or by using the [Entitlement Check](./meta-platform-prerequisites#initialize-the-oculus-platform-at-runtime) sample.
