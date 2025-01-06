@@ -75,6 +75,7 @@ const sidebars: SidebarsConfig = {
       label: 'Architecture',
       collapsible: false,
       items: [
+        'architecture/why-normcore',
         'architecture/client',
         'architecture/cloud',
         'architecture/transport',
