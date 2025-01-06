@@ -44,3 +44,14 @@ If your app quits immediately on launch, it's most likely due to the entitlement
 That’s it! You can send this build to anyone you’d like and Normcore will automatically connect you to the same room and instantiate an avatar for each person.
 
 All avatar customization settings are automatically imported from the user's system preferences. Head tracking, hand tracking, finger tracking, lip sync, and voice chat using Normcore's **RealtimeAvatarVoice** all work automatically.
+
+## Leg Animation
+The `NormalMetaLocalAvatar` prefab includes a `LocomotionLegAnimationDriver` component.
+
+This component is responsible for mirroring rotation and position changes from the avatar's transform onto the leg animation to make the character turn or walk.
+
+This integrates smooth turn and walk locomotion with the leg animation system out of the box.
+
+For snap turn or teleport locomotion though, you might want to disable this component entirely or partially. You can choose to disable only rotation or only position tracking using the `Track Rotation` and `Track Position` properties.
+
+Finally, you can use the component's `SnapRotation` or `SnapPosition` functions to closely match your locomotion scheme.
