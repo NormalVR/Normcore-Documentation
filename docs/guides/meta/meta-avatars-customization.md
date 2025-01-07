@@ -38,7 +38,7 @@ This component is responsible for mirroring rotation and position changes from t
 
 Out of the box this component integrates smooth turn and walk locomotion with the leg animation system.
 
-For snap turn or teleport locomotion though you might want to disable the component entirely or partially. You can choose to disable only rotation or only position tracking using the `Track Rotation` and `Track Position` properties.
+For snap turn or teleport locomotion though you will want to disable the component entirely or partially. You can choose to disable only position or only rotation tracking using the `Track Position` and  `Track Rotation` properties respectively.
 
 Finally, you can use the component's `SnapRotation` or `SnapPosition` functions to closely match your locomotion scheme.
 
