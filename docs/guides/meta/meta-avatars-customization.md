@@ -34,7 +34,7 @@ That's it! You now have a Meta Avatar player prefab that works with Normcore.
 ## Integrating player locomotion with leg animation
 The default `NormalMetaLocalAvatar` prefab includes a `LocomotionLegAnimationDriver` component.
 
-This component is responsible for mirroring rotation and position changes from the avatar's transform (driven by ex a player locomotion system) onto the leg animation. This makes the character turn or walk in response to player movement.
+This component is responsible for mirroring position and rotation changes from the avatar's transform (driven by a player controller for example) onto the leg animations. This makes the character turn or walk in response to player movement.
 
 Out of the box this component integrates smooth turn and walk locomotion with the leg animation system.
 
