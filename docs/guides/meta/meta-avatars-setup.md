@@ -17,14 +17,9 @@ Before we start, make sure you've [installed Normcore](../../essentials/getting-
 
 Once Normcore is set up in your project, you'll be able to install the **Normcore Meta XR** UPM package. Open up Package Manager, switch to **My Registries**, and install **Normcore Meta XR** from the Normal package registry.
 
+Normcore Meta XR includes the **Meta Avatars** UPM sample with all avatar components that you may want to modify in your project, including avatar prefabs, leg animations, and more. Import the sample into your project as well to use avatars.
+
 <video width="100%" controls><source src={metaXR} /></video> 
-
-## Install the UPM sample
-**Normcore Meta XR** depends on scripts and assets that we distribute in a UPM sample.
-
-Import this dependency automatically using the pop-up dialog. You can always bring up the dialog again using the menu bar: `MetaAvatarsSDK/Normcore/Check Package Dependencies`.
-
-![](./meta-avatars/install-package-dependencies.png "UPM sample pop-up")
 
 ## Set up Meta Avatars
 Make sure you've initialized the Oculus Platform SDK directly or by using the [Entitlement Check](./meta-platform-prerequisites#initialize-the-oculus-platform-at-runtime) sample.
