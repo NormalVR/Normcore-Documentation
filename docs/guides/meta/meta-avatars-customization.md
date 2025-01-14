@@ -31,5 +31,16 @@ Let’s try it out. Drag it into your project to make a prefab. Make sure it’s
 
 That's it! You now have a Meta Avatar player prefab that works with Normcore.
 
+## Integrating player locomotion with leg animation
+The default `NormalMetaLocalAvatar` prefab includes a `LocomotionLegAnimationDriver` component.
+
+This component is responsible for mirroring position and rotation changes from the avatar's transform (driven by a player controller for example) onto the leg animations. This makes the character turn or walk in response to player movement.
+
+Out of the box this component integrates smooth turn and walk locomotion with the leg animation system.
+
+For snap turn or teleport locomotion though you will want to disable the component entirely or partially. You can choose to disable only position or only rotation tracking using the `Track Position` and  `Track Rotation` properties respectively.
+
+Finally, you can use the component's `SnapRotation` or `SnapPosition` functions to closely match your locomotion scheme.
+
 ## Further reading
 For information on more advanced configuration and usage, check out the official [Meta Avatar SDK documentation](https://developer.oculus.com/documentation/unity/meta-avatars-overview/).

@@ -2,13 +2,14 @@
 layout: docs
 title: Meta Avatars Setup
 ---
-import doubleAvatarWave from './meta-avatars/double-avatar-wave.mp4'
+import avatarWaveGroup from './meta-avatars/avatar-wave-group.mp4'
 import metaXR from './meta-avatars/install-meta-xr.mp4'
-import metaSample from './meta-avatars/install-meta-sample.mp4'
-import avatarWave from './meta-avatars/avatar-wave.mp4'
+import sceneSetup from './meta-avatars/scene-setup.mp4'
+import avatarThumbsUp from './meta-avatars/avatar-thumbs-up.mp4'
 
 # Meta Avatars
-<video width="100%" autoPlay loop muted><source src={doubleAvatarWave} /></video>
+<video width="100%" autoPlay loop muted><source src={avatarWaveGroup} /></video>
+
 **Normal** and **Meta** have worked together to provide rich prebuilt avatars that work with Normcore out of the box. This guide will demonstrate how to use the built-in **MetaAvatar** component to set up networked meta avatars with voice chat in a few minutes.
 
 ## Install the Normcore Meta XR package
@@ -16,18 +17,20 @@ Before we start, make sure you've [installed Normcore](../../essentials/getting-
 
 Once Normcore is set up in your project, you'll be able to install the **Normcore Meta XR** UPM package. Open up Package Manager, switch to **My Registries**, and install **Normcore Meta XR** from the Normal package registry.
 
+Normcore Meta XR includes the **Meta Avatars** UPM sample with all avatar components that you may want to modify in your project, including avatar prefabs, leg animations, and more. Import the sample into your project as well to use avatars.
+
 <video width="100%" controls><source src={metaXR} /></video> 
 
 ## Set up Meta Avatars
-Import the "Meta Avatars" sample that comes with the **Normcore Meta XR** UPM package. Make sure you've initialized the Oculus Platform SDK directly or by using the [Entitlement Check](./meta-platform-prerequisites#initialize-the-oculus-platform-at-runtime) sample.
+Make sure you've initialized the Oculus Platform SDK directly or by using the [Entitlement Check](./meta-platform-prerequisites#initialize-the-oculus-platform-at-runtime) sample.
 
 Add the "AvatarSDKManagerMeta" prefab to the scene using the `MetaAvatarsSDK > Normal > Create AvatarSDKManager` menu item. Then drag the "Realtime + Meta Avatar Player" prefab into the scene.
 
-<video width="100%" controls><source src={metaSample} /></video> 
+<video width="100%" controls><source src={sceneSetup} /></video> 
 
 Add your App Key to the Realtime component and hit Play. The included "Meta Avatar Player" will spawn and it should look something like this:
 
-<video width="100%" controls><source src={avatarWave} /></video>
+<video width="100%" controls><source src={avatarThumbsUp} /></video>
 
 :::danger
 If your app quits immediately on launch, it's most likely due to the entitlement check failing! Check your logs and make sure the Meta account used by your Quest has been added to the release channel for your Oculus App ID.
