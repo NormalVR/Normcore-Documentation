@@ -6,7 +6,7 @@ if (typeof document !== 'undefined') {
 
   WidgetBot.onload = () => new Crate({
       server:  '393839515074297858',  // Normcore
-      channel: '393841065825927168', // #normcore
+      channel: '1214593813251891290', // #ask-a-question
   });
 
   document.body.appendChild(WidgetBot);
