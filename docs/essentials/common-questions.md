@@ -16,10 +16,10 @@ Normcore provides some unique features for developers:
 * **Encrypt** ***all\*** **of your data.** We encrypt all data to help with both privacy and eliminating DDoS packet replay attacks.
 * **Up your value by supporting the web.** Normcore uses the powerful [WebRTC](../architecture/transport.md) protocol. This means you can support live spectating on the web, browser editions of your game, and more.
 
-When it comes to multiplayer networking, these things matter. Learn more about how we solve these and other problems on our [Why Normcore](https://normcore.io/why-normcore) page.
+When it comes to multiplayer networking, these things matter. Learn more about how we solve these and other problems on our [Why Normcore](./why-normcore.md) page.
 
 ### Is Normcore only for VR / AR / XR games?
-No—you can use Normcore for any multiplayer project. In fact, some of the features we developed with XR in mind can actually help with other kinds of applications. For instance, XR is highly sensitive to voice chat latency, so Normcore has outstanding low-latency audio built in. This can benefit all sorts of other kinds of applications.
+No, you can use Normcore for any multiplayer project. In fact, some of the features we developed with XR in mind can actually help with other kinds of applications. For instance, XR is highly sensitive to voice chat latency, so Normcore has outstanding low-latency audio built in. This can benefit all sorts of other kinds of applications.
 
 ### How many players can I fit in a single room?
 It depends. We tend to see between 4 and 100 players per room. The headcount per room can vary based on how much bandwidth your application uses. For instance, VR applications typically use 10 times more bandwidth than a typical FPS or racing game. For extreme cases—such as MMORPGs, console games with 40+ players, or VR apps with 16+ players—there are still options: you can split large spaces across multiple Normcore [rooms](../architecture/client.md#rooms), or you can use [Normcore Private](https://normcore.io/normcore-private), which supports 40x higher CPU + bandwidth limits per room.
