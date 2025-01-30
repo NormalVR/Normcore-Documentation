@@ -10,6 +10,7 @@
     { "source": "/xr-guides/creating-a-multiplayer-drawing-app",                "destination": "/guides/creating-a-multiplayer-drawing-app", "permanent": true },
     { "source": "/xr-guides/using-ar-as-a-spectator-view",                      "destination": "/guides/using-ar-as-a-spectator-view",       "permanent": true },
     { "source": "/reference/webgl",                                             "destination": "/platforms/webgl",                           "permanent": true },
-    { "source": "/normcore-private/cloud-architecture",                         "destination": "/architecture/cloud",                        "permanent": true }
+    { "source": "/normcore-private/cloud-architecture",                         "destination": "/architecture/cloud",                        "permanent": true },
+    { "source": "/architecture/why-normcore",                                   "destination": "/essentials/why-normcore",                   "permanent": true }
   ]
 }

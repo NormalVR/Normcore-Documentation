@@ -19,6 +19,7 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'essentials/what-is-normcore',
+        'essentials/why-normcore',
         'essentials/getting-started',
         'essentials/common-questions',
       ],
@@ -75,7 +76,6 @@ const sidebars: SidebarsConfig = {
       label: 'Architecture',
       collapsible: false,
       items: [
-        'architecture/why-normcore',
         'architecture/client',
         'architecture/cloud',
         'architecture/transport',
