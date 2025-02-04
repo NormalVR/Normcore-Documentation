@@ -7,6 +7,7 @@ export default function Layout(props) {
     mixpanel.init('f41d2eb4b3b4db270f606e87b754c06c', {
       track_pageview: 'full-url',
       persistence: 'localStorage',
+      autocapture: true,
     });
   }, []);
 
