@@ -2,49 +2,57 @@
 layout: docs
 title: Getting Started
 ---
-import cubePlayerDemo from './getting-started/cube-player-demo.mp4'
+
+import hoverbirdCompleted from './getting-started/hoverbird-completed.mp4'
+import importNormcore from './getting-started/import-normcore.mp4'
+import openHoverbirdExample from './getting-started/open-hoverbird-example.mp4'
+import createAppKey from './getting-started/create-app-key-and-add-to-project.mp4'
+import multiplayerBuild from './getting-started/multiplayer-build.mp4'
 
 # Getting Started
-Welcome to Normcore! This guide is designed to show you how to get set up and running with Normcore in your Unity project.
 
-## Setting up Normcore
+Welcome to Normcore! This guide will show you how to get Normcore working in your project in just a few minutes.
 
-First off, you’ll need to grab a copy of the latest Normcore plugin. You can download it [here](https://dashboard.normcore.io/download) after [signing up for a Normcore account](https://dashboard.normcore.io/register).
+<video width="100%" controls><source src={hoverbirdCompleted} /></video> 
 
+## Download Normcore
 
+You’ll need to grab a copy of the latest Normcore plugin. You can download it [here](https://dashboard.normcore.io/download) after [creating a Normcore account](https://dashboard.normcore.io/register).
 
-Once you have the plugin imported and Unity has had a chance to recompile successfully, you should see a Normal folder in your project, and Normcore in the Unity Package Manager window:
+Import Normcore by dragging the **Normcore.unitypackage** file into the **Project** tab in the Unity editor.
 
-![](./getting-started/package-manager.png "An empty project with Normcore freshly imported.")
+<video width="100%" title="Importing the Normcore unitypackage file." controls><source src={importNormcore} /></video>
 
-The plugin will automatically add the [Normal scoped registry](../architecture/normal-scoped-registry) to the project.
+Upon import, Normcore will automatically add the [Normal scoped registry](../architecture/normal-scoped-registry) to your project. Once you have the plugin imported and Unity has had a chance to recompile successfully, you should see a Normal folder in your project and Normcore in the Unity Package Manager window.
 
-Let’s add one of the pre-built example prefabs to our scene. Drag a “Realtime + Cube Player” prefab into the scene. On the Realtime game object, you should have an inspector window that looks something like this:
+## Create a Normcore app
 
-![](./getting-started/realtime-inspector.png "The newly added Realtime object contains both Realtime and a Cube Player Manager component.")
+Let's open one of the example scenes. Browse to `Normal/Examples/Hoverbird Player` and open the `Realtime + Hoverbird Player` scene.
 
-## Creating a Normcore application
+<video width="100%" title="Open the hoverbird example scene" controls><source src={openHoverbirdExample} /></video>
 
-You'll notice that in the Realtime inspector, there's a field for an "App key." Before we can hit play, you’ll need one to connect to Normal’s servers. First, register for a Normal account [here](https://dashboard.normcore.io/register). Then, log in to the [Dashboard](https://dashboard.normcore.io/).
+You'll notice that in the **Realtime** inspector, there's a field for an "App key." Before we can hit play, we’ll need an app key to connect to Normal’s servers.
 
-![](./getting-started/normcore-dashboard.png "The Normcore dashboard, where you manage your applications.")
+### Create an app key
 
-Click on Create a new application, give it a name, and grab your shiny new app key.
+Log into [dashboard.normcore.io](https://dashboard.normcore.io) and go to the **Apps** tab. Click on "Create new application", give it a name, and click "Create".
 
-Once you’ve got your app key, paste it into the App Key field on the Realtime component, and hit Play. You should see Realtime spinning up a room in the console, followed by a CubePlayer instantiated in the scene:
+<video width="100%" title="Create an app key and add it to your Unity project" controls><source src={createAppKey} /></video>
 
-![](./getting-started/cube-player.png "A CubePlayer is instantiated for your local player when you connect.")
+Copy and paste the app key into the "App Key" field on the **Realtime** component, and hit Play. Normcore will automatically spin up a game server, connect to it, and spawn a player.
 
-Use the WASD keys to move it around in space. If the cube isn’t moving, make sure to click on the game window in the Unity editor. So far so good? Let’s test it in multiplayer.
+Use the WASD keys to move around and the spacebar to jump. If the player isn't moving, be sure to click inside of the Game window in Unity. Now let’s test it in multiplayer.
 
-Export a standalone build to run next to the Unity Editor. Open the standalone build, use the A key to move it out of the way a little. Hit Play in the editor and a second cube should appear. Use the WASD keys to move it around; you should see the cube position update in real-time in both builds.
+### Export a multiplayer build
 
-<video width="100%" title="Both CubePlayers are synced automatically to the other client." controls><source src={cubePlayerDemo} /></video>
+Export a standalone build to run next to the Unity Editor. Open the standalone build, hit Play in the editor and a second player should appear. Use the WASD keys to move around; you should see your Hoverbird player update in real time in both windows.
 
-That’s it! You’re now up and running with Normcore. Now, I know this example isn’t the coolest, however, it only gets better from here. Check out some of our other guides:
+<video width="100%" title="Test out a multiplayer build" controls><source src={multiplayerBuild} /></video>
 
-- [Creating a player controller](../guides/creating-a-player-controller.md)
+That’s it! You’re now up and running with Normcore. Want to learn how to create this example from scratch? Check out our [Creating a player controller](../guides/creating-a-player-controller.md) guide.
+
+If you're ready to dive into more, check out some of our other guides on Normcore:
 - [XR Avatars and Voice Chat](../guides/xr-avatars-and-voice-chat.md)
 - [Synchronizing Custom Data](../realtime/synchronizing-custom-data.md)
 
-Until next time  : )
+Until next time  :)
