@@ -32,7 +32,7 @@ const config: Config = {
   ],
   clientModules: [
     './src/js/custom-code-blocks.js',
-    './src/js/widget-bot.js',
+    //'./src/js/widget-bot.js', // Switched to kapa.ai widget, but leaving this in case we ever want to switch back.
   ],
   presets: [
     [
@@ -105,6 +105,19 @@ const config: Config = {
       searchPagePath: 'search',
     },
   } satisfies Preset.ThemeConfig,
+  scripts: [
+    {
+      src: "https://widget.kapa.ai/kapa-widget.bundle.js",
+      "data-website-id": "98f0b19f-8f9a-4e5b-816f-4de1217a7bc6",
+      "data-project-name": "Normcore",
+      "data-project-color": "#000000",
+      "data-project-logo": "https://docs.normcore.io/img/normal-logo-square.png",
+      "data-modal-disclaimer": "This is a custom LLM with access to all Normcore documentation.",
+      "data-modal-example-questions":"What is Normcore?,How do I connect to a room?,Can I sync a Rigidbody?,How expensive is Normcore?",
+      "data-user-analytics-fingerprint-enabled": "true",
+      async: true,
+    },
+  ],
 };
 
 export default config;
