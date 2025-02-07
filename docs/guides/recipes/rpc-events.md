@@ -19,7 +19,7 @@ This recipe shows how to use a model to send an RPC-like event message that can 
 
 For this example, let's say we want to trigger a celebration particle system effect on all clients. We'll want to send an RPC-like message that includes the sender ID, position, and scale of the effect. Typically I'd recommend instantiating a particle system prefab, but if you *absolutely have to* use an RPC-like structure, here's how you can do it:
 
-Let's start with the [template project](</downloads/Normcore RPC Events Recipe Template.zip>). Open up the scene located in the `_RPC Events Recipe` folder. This is an empty scene with a prebuilt particle system called **Explosion Particle System**. We can test it out by entering play mode and then clicking Emit in the inspector:
+Let's start with the [template project](https://github.com/NormalVR/Normcore-Samples/releases/latest/download/Normcore-RPC-Events-Recipe-Template.zip). Open up the scene located in the `_RPC Events Recipe` folder. This is an empty scene with a prebuilt particle system called **Explosion Particle System**. We can test it out by entering play mode and then clicking Emit in the inspector:
 
 <video width="100%" controls><source src={particleSystemTest} /></video>
 
@@ -135,4 +135,4 @@ Create an empty game object, add both scripts, wire up the particle system refer
 
 That's it! Despite having a nice recipe for this, I still recommend avoiding this pattern if you can. Any state that is modified in response to an event like this can easily diverge between clients. There are circumstances where it can make sense, but in most cases it will lead to desyncs and bugs that are hard to test for and reproduce.
 
-If you'd like to check out the completed recipe project, you can download it [here](</downloads/Normcore RPC Events Recipe Complete.zip>).
+If you'd like to check out the completed recipe project, you can download it [here](https://github.com/NormalVR/Normcore-Samples/releases/latest/download/Normcore-RPC-Events-Recipe-Complete.zip).
