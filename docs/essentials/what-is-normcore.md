@@ -4,6 +4,8 @@ title: What Is Normcore?
 ---
 # What Is Normcore?
 
+![](./what-is-normcore/normcore-header.jpg)
+
 [Normcore](https://normcore.io/) is a networking plugin and hosting service created by [Normal](https://normalvr.com/). 
 
 A hosted service that can scale to millions of users, Normcore is built on a client-server model. Normcore keeps the state of all clients in a room synchronized so they feel like they are part of the same space. Normcore is a perfect fit for everything from mobile games to MMORPGs, from XR applications to productivity tools. Whether you are supporting 1v1 games or battle-royale matches with 100+ players, Normcore has you covered.
@@ -30,4 +32,4 @@ Plus, a global launch requires hosting in at least 8 regions and 24/7 attention.
 
 When it comes to networking, we believe it’s better to buy. If Normcore does your networking, you can create a better product, and with less money spent overall. That’s because when you use Normcore, we are your networking engineers. Our goal is to bring the very best networking out there to developers like you. Our AAA networking engineers have access to the best in multiplayer networking techniques—and we can provide everything to you in one easy package. With Normcore, you can more quickly ship a product that *works well* and *works everywhere*.
 
-Read more about [our philosophy and the innovations powering Normcore](https://normcore.io/why-normcore).
+Read more about [our philosophy and the innovations powering Normcore](./why-normcore.md).
