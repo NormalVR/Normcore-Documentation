@@ -13,27 +13,32 @@
     { "source": "/normcore-private/cloud-architecture",                         "destination": "/architecture/cloud",                        "permanent": true },
     { "source": "/architecture/why-normcore",                                   "destination": "/essentials/why-normcore",                   "permanent": true },
     {
-      "source": "/downloads/Normcore Addressables Recipe.zip",
+      "source": "/assets/files/Normcore Addressables Recipe-e86b4850f23f21469a468f519384c070.zip",
       "destination": "https://github.com/NormalVR/Normcore-Samples/releases/latest/download/Normcore-Addressables-Recipe.zip",
       "permanent": true
     },
     {
-      "source": "/downloads/Normcore Multiplayer Drawing-Singleplayer.zip",
+      "source": "/assets/files/Normcore Multiplayer Drawing-Singleplayer-39d32487b95e7c18b3843b6e2939fb74.zip",
       "destination": "https://github.com/NormalVR/Normcore-Samples/releases/latest/download/Normcore-Multiplayer-Drawing-Singleplayer.zip",
       "permanent": true
     },
     {
-      "source": "/downloads/Normcore Multiplayer Drawing-Multiplayer.zip",
+      "source": "/assets/files/Normcore Multiplayer Drawing-Multiplayer-11b85636e0d398468a2c95cad47fd437.zip",
       "destination": "https://github.com/NormalVR/Normcore-Samples/releases/latest/download/Normcore-Multiplayer-Drawing-Multiplayer.zip",
       "permanent": true
     },
     {
-      "source": "/downloads/Normcore RPC Events Recipe Template.zip",
+      "source": "/assets/files/Normcore RPC Events Recipe Template-2fff641ead5cfd9f9f3e709fe417a376.zip",
       "destination": "https://github.com/NormalVR/Normcore-Samples/releases/latest/download/Normcore-RPC-Events-Recipe-Template.zip",
       "permanent": true
     },
     {
-      "source": "/downloads/Normcore Synchronizing Custom Data.zip",
+      "source": "/assets/files/Normcore RPC Events Recipe Complete-06642e8af03d46b9b7fedb70507d1afb.zip",
+      "destination": "https://github.com/NormalVR/Normcore-Samples/releases/latest/download/Normcore-RPC-Events-Recipe-Complete.zip",
+      "permanent": true
+    },
+    {
+      "source": "/assets/files/Normcore Synchronizing Custom Data-db26351661470f5c2be3cf1de956a2a7.zip",
       "destination": "https://github.com/NormalVR/Normcore-Samples/releases/latest/download/Normcore-Synchronizing-Custom-Data.zip",
       "permanent": true
     }
