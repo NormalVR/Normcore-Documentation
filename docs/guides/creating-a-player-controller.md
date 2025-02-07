@@ -21,7 +21,7 @@ This guide will demonstrate how to create a basic player that you can move using
 
 When you're finished, you'll end up with a multiplayer game that looks like this:
 
-<video width="100%" controls><source src={hoverbirdCompleted} /></video> 
+<video width="100%" autoPlay loop muted><source src={hoverbirdCompleted} /></video>
 
 We'll start by creating a singleplayer player controller from scratch. We'll get the controls to feel nice, and then we'll make it multiplayer. If you're only interested in the multiplayer part, skip to [making it multiplayer](#making-it-multiplayer).
 
