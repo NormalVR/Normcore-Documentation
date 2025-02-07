@@ -17,7 +17,7 @@ This is one of my favorite use cases for Normcore. Before diving into this guide
 
 
 ## Create an app to spectate
-Before we can start, we need an example VR project that we’ll use with our AR spectator app. I’m going to start with the “Realtime + VR Player” scene from the Normcore Examples folder. Import [Normcore](https://dashboard.normcore.io/download), open up the VR Player example scene, and add your [App Key](https://dashboard.normcore.io/apps) to the Realtime component in the scene.
+Before we can start, we need an example VR project that we’ll use with our AR spectator app. I’m going to start with the “Realtime + VR Player” scene from the Normcore Examples folder. Import [Normcore](../essentials/getting-started#download-normcore), open up the VR Player example scene, and add your [App Key](https://dashboard.normcore.io/apps) to the Realtime component in the scene.
 
 Hit Play in Unity and make sure the VR Player prefab spawns in our colored cube world.
 
