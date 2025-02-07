@@ -3,7 +3,7 @@ sidebar_label: Home
 ---
 # Documentation
 
-![](https://docs.normcore.io/img/normcore-social-static.png)
+![](./readme/normcore-logo-header.png)
 
 Normcore is a complete networking solution for Unity. It's easy to use and scales to millions of users.
 
