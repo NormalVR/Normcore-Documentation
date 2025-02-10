@@ -32,6 +32,8 @@ class_members:
     definition: int WriteNullLength(uint propertyID)
   - name: WriteVarint32Length
     definition: int WriteVarint32Length(uint propertyID, uint value)
+  - name: WriteVarint64Length
+    definition: int WriteVarint64Length(uint propertyID, ulong value)
   - name: WriteFloatLength
     definition: int WriteFloatLength(uint propertyID)
   - name: WriteDoubleLength
@@ -58,6 +60,10 @@ class_members:
     definition: int LengthStructUInt(uint value)
   - name: LengthStructInt
     definition: int LengthStructInt(int value)
+  - name: LengthStructULong
+    definition: int LengthStructULong(ulong value)
+  - name: LengthStructLong
+    definition: int LengthStructLong(long value)
   - name: LengthStructFloat
     definition: int LengthStructFloat(float value)
   - name: LengthStructDouble
@@ -72,12 +78,22 @@ class_members:
     definition: int LengthPropertyHeader(PropertyHeader& header)
 - name: Methods
   members:
+  - name: WriteStructByte
+    definition: void WriteStructByte(byte value)
+  - name: WriteStructSByte
+    definition: void WriteStructSByte(sbyte value)
+  - name: WriteStructUShort
+    definition: void WriteStructUShort(ushort value)
   - name: WriteStructShort
     definition: void WriteStructShort(short value)
   - name: WriteStructUInt
     definition: void WriteStructUInt(uint value)
   - name: WriteStructInt
     definition: void WriteStructInt(int value)
+  - name: WriteStructULong
+    definition: void WriteStructULong(ulong value)
+  - name: WriteStructLong
+    definition: void WriteStructLong(long value)
   - name: WriteStructFloat
     definition: void WriteStructFloat(float value)
   - name: WriteStructDouble
@@ -94,6 +110,8 @@ class_members:
     definition: void WriteNull(uint propertyID)
   - name: WriteVarint32
     definition: void WriteVarint32(uint propertyID, uint value)
+  - name: WriteVarint64
+    definition: void WriteVarint64(uint propertyID, ulong value)
   - name: WriteFloat
     definition: void WriteFloat(uint propertyID, float value)
   - name: WriteDouble
@@ -110,12 +128,6 @@ class_members:
     definition: void WriteCollection(uint propertyID, ICollection value, StreamContext context, bool forceWriteFullModel = false)
   - name: WriteStructBool
     definition: void WriteStructBool(bool value)
-  - name: WriteStructByte
-    definition: void WriteStructByte(byte value)
-  - name: WriteStructSByte
-    definition: void WriteStructSByte(sbyte value)
-  - name: WriteStructUShort
-    definition: void WriteStructUShort(ushort value)
 
 ---
 import ReferencePage from '../_ReferencePage.mdx'

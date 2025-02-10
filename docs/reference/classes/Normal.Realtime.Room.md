@@ -24,12 +24,17 @@ class_members:
   members:
   - name: name
     definition: string name { get; }
+  - name: region
+    definition: RegionMetadata? region { get; }
+    summary: When Room moves to a ConnectingToRoom state, this will be filled in with metadata about the region being connected to, including an IP address that can be used to ping the region.
   - name: clientID
     definition: int clientID { get; }
   - name: time
     definition: double time { get; }
+    summary: The server time on this frame in unix epoch time format. This value can be used to drive animations and is backed by a monotonic clock with sub-millisecond precision. This value has latency from the server removed.
   - name: ping
     definition: float ping { get; }
+    summary: The local client's last known ping with the server in milliseconds.
   - name: connectionState
     definition: ConnectionState connectionState { get; }
     summary: The connection state of the room.
@@ -42,6 +47,9 @@ class_members:
   - name: disconnected
     definition: bool disconnected { get; }
     summary: True if the room is disconnected or in an error state.
+  - name: offlineMode
+    definition: bool offlineMode { get; }
+    summary: True if the client was started in offline mode with no networking capabilities.
   - name: datastoreFrameDuration
     definition: double datastoreFrameDuration { get; set; }
   - name: debugLogging
@@ -70,8 +78,6 @@ class_members:
     definition: AudioInputStream CreateAudioInputStream(bool voice, int sampleRate, int channels)
   - name: GetAudioOutputStream
     definition: AudioOutputStream GetAudioOutputStream(int clientID, int streamID)
-  - name: GetNetworkStatistics
-    definition: NetworkInfo GetNetworkStatistics()
 
 ---
 import ReferencePage from '../_ReferencePage.mdx'

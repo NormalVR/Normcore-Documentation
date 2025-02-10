@@ -20,8 +20,12 @@ class_members:
     definition: void ReadBytes(byte[] buffer, int offset, int length)
   - name: ReadVarint32
     definition: uint ReadVarint32()
+  - name: ReadVarint64
+    definition: ulong ReadVarint64()
   - name: SkipVarint32
     definition: void SkipVarint32()
+  - name: SkipVarint64
+    definition: void SkipVarint64()
   - name: ReadFloat
     definition: float ReadFloat()
   - name: ReadDouble

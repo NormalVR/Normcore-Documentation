@@ -11,6 +11,11 @@ class_members:
   - name: ReservedPropertyID
     definition: public uint ReservedPropertyID
     summary: The propertyID reserved for serializing metamodel instances inside of a RealtimeModel.
+- name: Events
+  members:
+  - name: ownerIDDidChange
+    definition: event OwnerIDDidChange ownerIDDidChange
+    summary: Called when [Normal.Realtime.Serialization.MetaModel.ownerID](Normal.Realtime.Serialization.MetaModel#ownerid) has changed.
 - name: Properties
   members:
   - name: ownerID

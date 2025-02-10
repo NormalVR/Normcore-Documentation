@@ -39,6 +39,14 @@ class_members:
   - name: isInterpolationWarmedUp
     definition: bool isInterpolationWarmedUp { get; }
     summary: True if the transform has caught up to the interpolation delay.
+- name: Methods
+  members:
+  - name: SnapTo
+    definition: void SnapTo(Vector3 localPosition)
+  - name: SnapTo
+    definition: void SnapTo(Vector3 localPosition, Quaternion localRotation)
+  - name: SnapTo
+    definition: void SnapTo(Vector3 localPosition, Quaternion localRotation, Vector3 localScale)
 
 ---
 import ReferencePage from '../_ReferencePage.mdx'

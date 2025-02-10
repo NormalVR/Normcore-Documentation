@@ -15,7 +15,7 @@ class_members:
     definition: void Unsubscribe(uint updateID, IConfirmedProperty property)
     summary: Unsubscribe a property from receiving acks.
   - name: AckUpdateID
-    definition: void AckUpdateID(uint updateID)
+    definition: void AckUpdateID(uint updateID, StreamContext& context)
     summary: Invoke all of the callbacks for a specific update ID. The callbacks will be removed after they invoked.
 
 ---

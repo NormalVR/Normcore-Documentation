@@ -22,7 +22,16 @@ class_members:
     summary: Dispatched after a deserialization pass.
   - name: OnDidReadProperties
     definition: public RealtimeModelEvent OnDidReadProperties
+    summary: Dispatched after a model reads property changes from a remote update.
+    remarks: If no properties were changed by the update (meaning, it was redundant) this event is not dispatched.
+  - name: OnDidReadModel
+    definition: public RealtimeModelEvent OnDidReadModel
     summary: Dispatched after a model reads properties from a remote update.
+    remarks: Unlike OnDidReadProperties, this event is dispatched for redundant updates.
+  - name: DynamicOnDidRead
+    definition: public RealtimeModelEvent DynamicOnDidRead
+    summary: Dispatched after a deserialization pass if the model called [Normal.Realtime.RealtimeModel.SubscribeToDynamicOnDidReadCallback(Normal.Realtime.Serialization.StreamContext@)](Normal.Realtime.RealtimeModel.SubscribeToDynamicOnDidReadCallback(Normal.Realtime.Serialization#streamcontext@)) during the pass.
+    remarks: Unlike the other OnDidRead variants, this variant adds zero overhead when the model isn't part of the deserialization pass.
 
 ---
 import ReferencePage from '../_ReferencePage.mdx'

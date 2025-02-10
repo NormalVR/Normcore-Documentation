@@ -14,10 +14,14 @@ class_members:
     definition: public bool fullModel
   - name: reliableChannel
     definition: public bool reliableChannel
+  - name: updateIsFromUs
+    definition: public bool updateIsFromUs
   - name: updateID
     definition: public uint updateID
   - name: packetRoomTime
     definition: public double packetRoomTime
+  - name: localID
+    definition: public uint localID
 - name: Properties
   members:
   - name: deltaUpdatesOnly

@@ -55,14 +55,18 @@ class_members:
     summary: An event that is fired when Realtime is disconnected from a room.
 - name: Properties
   members:
-  - name: roomToJoinOnStart
-    definition: string roomToJoinOnStart { get; }
-    summary: The name of the room to join on start if one was configured in the inspector.
-    remarks: This setting can only be configured in the editor inspector. If you'd like to change this name at runtime, disable join room on start, and use the Connect() method on Realtime instead.
   - name: joinRoomOnStart
     definition: bool joinRoomOnStart { get; }
     summary: A boolean indicating whether Realtime will try to automatically connect on Start().
     remarks: This setting can only be configured in the editor inspector. If you'd like to change this name at runtime, disable join room on start, and use the Connect() method on Realtime instead.
+  - name: roomToJoinOnStart
+    definition: string roomToJoinOnStart { get; }
+    summary: The name of the room to join on start if one was configured in the inspector.
+    remarks: This setting can only be configured in the editor inspector. If you'd like to change this name at runtime, disable join room on start, and use the Connect() method on Realtime instead.
+  - name: roomServerConfigurationToJoinOnStart
+    definition: string roomServerConfigurationToJoinOnStart { get; }
+    summary: The room server configuration to use when spinning up a fresh room if join room on start is enabled in the inspector.
+    remarks: This setting can only be configured in the editor inspector. If you'd like to change this name at runtime, disable join room on start, and use the Connect() method on Realtime instead along with a ConnectOptions struct.
   - name: normcoreAppSettings
     definition: NormcoreAppSettings normcoreAppSettings { get; set; }
     summary: The app settings object reference used when Realtime connects. Changing this while the Realtime instance is connected will not have any effect until the next time it connects.
@@ -82,10 +86,13 @@ class_members:
     summary: The local clientID of this Realtime instance.
   - name: roomTime
     definition: double roomTime { get; }
-    summary: The server time on this frame. This value has latency from the server removed.
+    summary: The server time on this frame in unix epoch time format. This value can be used to drive animations and is backed by a monotonic clock with sub-millisecond precision. This value has latency from the server removed.
   - name: ping
     definition: float ping { get; }
     summary: The local client's last known ping with the server in milliseconds.
+  - name: region
+    definition: RegionMetadata? region { get; }
+    summary: The region metadata for the current room server.
 - name: Methods
   members:
   - name: Connect

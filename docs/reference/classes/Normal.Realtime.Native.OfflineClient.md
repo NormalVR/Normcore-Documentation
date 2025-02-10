@@ -1,8 +1,8 @@
 ---
-title: Client
+title: OfflineClient
 layout: Reference
 category: API Reference
-class_name: Client
+class_name: OfflineClient
 class_members:
 - name: Events
   members:

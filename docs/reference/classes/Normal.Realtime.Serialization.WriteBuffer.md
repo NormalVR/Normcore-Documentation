@@ -22,6 +22,8 @@ class_members:
     definition: void WriteBytes(byte[] value, int offset, int length)
   - name: WriteVarint32
     definition: void WriteVarint32(uint value)
+  - name: WriteVarint64
+    definition: void WriteVarint64(ulong value)
   - name: WriteFloat
     definition: void WriteFloat(float value)
   - name: WriteDouble

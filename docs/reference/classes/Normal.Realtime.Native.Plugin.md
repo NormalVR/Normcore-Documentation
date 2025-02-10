@@ -10,6 +10,12 @@ class_members:
     definition: public LogLevel logLevel
 - name: Static Methods
   members:
+  - name: AudioInputStreamSendQueuedMessages
+    definition: void AudioInputStreamSendQueuedMessages(IntPtr audioInputStream)
+  - name: AudioOutputStreamGetClientID
+    definition: int AudioOutputStreamGetClientID(IntPtr audioOutputStream)
+  - name: AudioOutputStreamGetStreamID
+    definition: int AudioOutputStreamGetStreamID(IntPtr audioOutputStream)
   - name: AudioOutputStreamGetSampleRate
     definition: int AudioOutputStreamGetSampleRate(IntPtr audioOutputStream)
   - name: AudioOutputStreamSetSampleRate
@@ -44,6 +50,8 @@ class_members:
     definition: int MicrophoneGetChannels(IntPtr microphone)
   - name: MicrophoneGetAudioData
     definition: bool MicrophoneGetAudioData(IntPtr microphone, float[] audioData, int audioDataLength)
+  - name: ClientConnect
+    definition: void ClientConnect(IntPtr client, string serverAnswer)
   - name: ClientDisconnect
     definition: void ClientDisconnect(IntPtr client)
   - name: ClientBumpAutoDisconnectTime
@@ -76,6 +84,10 @@ class_members:
     definition: void ClientDeleteAudioOutputStream(IntPtr audioOutputStream)
   - name: ClientReceiveIncomingAudioStreamEvent
     definition: bool ClientReceiveIncomingAudioStreamEvent(IntPtr client, AudioStreamEvent& audioStreamEvent)
+  - name: ClientSetProfilingEnabled
+    definition: bool ClientSetProfilingEnabled(IntPtr client, bool enabled)
+  - name: ClientTryGetProfilingSample
+    definition: bool ClientTryGetProfilingSample(IntPtr client, ProfilingSample& profilingSample)
   - name: AudioInputStreamGetClientID
     definition: int AudioInputStreamGetClientID(IntPtr audioInputStream)
   - name: AudioInputStreamGetStreamID
@@ -84,12 +96,10 @@ class_members:
     definition: void AudioInputStreamClose(IntPtr audioInputStream)
   - name: AudioInputStreamSendRawAudioData
     definition: bool AudioInputStreamSendRawAudioData(IntPtr audioInputStream, float[] audioData, int audioDataLength)
-  - name: AudioInputStreamSendQueuedMessages
-    definition: void AudioInputStreamSendQueuedMessages(IntPtr audioInputStream)
-  - name: AudioOutputStreamGetClientID
-    definition: int AudioOutputStreamGetClientID(IntPtr audioOutputStream)
-  - name: AudioOutputStreamGetStreamID
-    definition: int AudioOutputStreamGetStreamID(IntPtr audioOutputStream)
+  - name: VerifyPluginVersion
+    definition: bool VerifyPluginVersion()
+  - name: CheckPluginVersion
+    definition: bool CheckPluginVersion(int major, int minor, int patch)
   - name: SetLogFunction
     definition: void SetLogFunction(IntPtr logFunction)
   - name: MatcherCreate
@@ -111,7 +121,7 @@ class_members:
   - name: MatcherClearRequest
     definition: void MatcherClearRequest(IntPtr matcher, string requestGUID)
   - name: MatcherConnectToRoom
-    definition: string MatcherConnectToRoom(IntPtr matcher, string requestType, string appKey, string roomName, string clientOffer, string webhookContext, Cluster[] clusterPingResults, int clusterPingResultsLength, Region[] preferredRegions, int preferredRegionsLength)
+    definition: string MatcherConnectToRoom(IntPtr matcher, string requestType, string appKey, string appMetadataJSONString, string roomName, string roomServerOptionsJSONString, string clientOffer, string webhookContext, Cluster[] clusterPingResults, int clusterPingResultsLength, Region[] preferredRegions, int preferredRegionsLength)
   - name: MatcherGetConnectToRoomRequestResponseType
     definition: string MatcherGetConnectToRoomRequestResponseType(IntPtr matcher, string requestGUID)
   - name: MatcherGetConnectToRoomRequestClustersToPingCount
@@ -120,8 +130,8 @@ class_members:
     definition: string MatcherGetConnectToRoomRequestClustersToPingNameAtIndex(IntPtr matcher, string requestGUID, int index)
   - name: MatcherGetConnectToRoomRequestClustersToPingAddressAtIndex
     definition: string MatcherGetConnectToRoomRequestClustersToPingAddressAtIndex(IntPtr matcher, string requestGUID, int index)
-  - name: MatcherGetConnectToRoomRequestServerAnswer
-    definition: string MatcherGetConnectToRoomRequestServerAnswer(IntPtr matcher, string requestGUID)
+  - name: MatcherGetConnectToRoomRequestFoundRoomResponse
+    definition: string MatcherGetConnectToRoomRequestFoundRoomResponse(IntPtr matcher, string requestGUID)
   - name: ClientSetUpNetworkStack
     definition: bool ClientSetUpNetworkStack()
   - name: ClientTearDownNetworkStack
@@ -132,8 +142,6 @@ class_members:
     definition: void ClientDelete(IntPtr client)
   - name: ClientStartConnection
     definition: string ClientStartConnection(IntPtr client)
-  - name: ClientConnect
-    definition: void ClientConnect(IntPtr client, string serverAnswer)
 
 ---
 import ReferencePage from '../_ReferencePage.mdx'

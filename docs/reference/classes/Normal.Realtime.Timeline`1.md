@@ -3,6 +3,8 @@ title: Timeline<T>
 layout: Reference
 category: API Reference
 class_name: Timeline<T>
+class_summary: A timeline is a time-ordered series of values. The timeline can interpolate between values and extrapolate beyond the bounds of the timeline.
+class_remarks: The timeline is a ring buffer with a fixed size. When the timeline is full, the oldest value is removed to make room for the newest value.
 class_members:
 - name: Properties
   members:

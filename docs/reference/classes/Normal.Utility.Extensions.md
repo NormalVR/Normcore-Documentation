@@ -7,7 +7,9 @@ class_members:
 - name: Static Methods
   members:
   - name: AddComponentIfNeeded
-    definition: T AddComponentIfNeeded(this GameObject gameObject)
+    definition: T AddComponentIfNeeded(this GameObject gameObject, Boolean& found)
+  - name: AddComponentToHierarchyIfNeeded
+    definition: T AddComponentToHierarchyIfNeeded(this GameObject gameObject, Boolean& found)
   - name: GetComponentInParent
     definition: T GetComponentInParent(this Component obj, bool includeInactive)
     summary: Returns the first component of type T in this GameObject or any of its parents.

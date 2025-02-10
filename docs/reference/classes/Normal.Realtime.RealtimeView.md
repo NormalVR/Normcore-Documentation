@@ -106,6 +106,7 @@ class_members:
   - name: SetOwnership
     definition: void SetOwnership(int clientID)
     summary: Set ownership of the component.
+    remarks: The only valid values for the client ID are the local client ID and -1 (unowned). The server will reject an update that changes the owner to a different client.
   - name: ClearOwnership
     definition: void ClearOwnership()
     summary: Clear ownership of the component.

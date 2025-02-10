@@ -54,8 +54,10 @@ class_members:
     definition: void Deserialize(byte[] buffer)
   - name: SerializeDeltaUpdates
     definition: void SerializeDeltaUpdates(bool reliable, uint updateID, double roomTime)
+  - name: GetNextDeserializationContextID
+    definition: uint GetNextDeserializationContextID()
   - name: DeserializeDeltaUpdates
-    definition: uint DeserializeDeltaUpdates(byte[] buffer, bool reliable, bool updateIsFromUs, double currentRoomTime)
+    definition: uint DeserializeDeltaUpdates(byte[] buffer, bool reliable, bool updateIsFromUs, double currentRoomTime, StreamContext& context)
   - name: WriteLength
     definition: int WriteLength(StreamContext context)
   - name: Write

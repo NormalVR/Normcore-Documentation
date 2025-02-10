@@ -1,8 +1,8 @@
 ---
-title: Client
+title: IClient
 layout: Reference
 category: API Reference
-class_name: Client
+class_name: IClient
 class_members:
 - name: Events
   members:
@@ -16,10 +16,6 @@ class_members:
     definition: event AudioOutputStreamClosed audioOutputStreamClosed
 - name: Methods
   members:
-  - name: Dispose
-    definition: void Dispose()
-  - name: GetNetworkStatistics
-    definition: NetworkInfo GetNetworkStatistics()
   - name: StartConnection
     definition: string StartConnection()
   - name: Connect

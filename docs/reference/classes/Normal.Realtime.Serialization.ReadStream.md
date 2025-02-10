@@ -46,8 +46,14 @@ class_members:
     definition: uint ReadUInt()
   - name: ReadInt
     definition: int ReadInt()
+  - name: ReadULong
+    definition: ulong ReadULong()
+  - name: ReadLong
+    definition: long ReadLong()
   - name: ReadVarint32
     definition: uint ReadVarint32()
+  - name: ReadVarint64
+    definition: ulong ReadVarint64()
   - name: ReadFloat
     definition: float ReadFloat()
   - name: ReadDouble
@@ -72,6 +78,8 @@ class_members:
     definition: void StartLengthDelimitedStruct()
   - name: ReadStructBytes
     definition: byte[] ReadStructBytes()
+  - name: ReadStructBytes
+    definition: void ReadStructBytes(Byte[]& buffer)
   - name: ReadStructBool
     definition: bool ReadStructBool()
   - name: ReadStructByte
@@ -86,6 +94,10 @@ class_members:
     definition: int ReadStructInt()
   - name: ReadStructUInt
     definition: uint ReadStructUInt()
+  - name: ReadStructLong
+    definition: long ReadStructLong()
+  - name: ReadStructULong
+    definition: ulong ReadStructULong()
   - name: ReadStructFloat
     definition: float ReadStructFloat()
   - name: ReadStructDouble

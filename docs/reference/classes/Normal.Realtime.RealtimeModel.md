@@ -63,6 +63,12 @@ class_members:
     summary: True if this model or any of its parents are owned locally.
 - name: Methods
   members:
+  - name: SubscribeToDynamicOnDidReadCallback
+    definition: void SubscribeToDynamicOnDidReadCallback(StreamContext& context)
+    summary: Call this during a deserialization pass to request that [Normal.Realtime.RealtimeModelEvent.DynamicOnDidRead](Normal.Realtime.RealtimeModelEvent#dynamicondidread) be invoked on this model at the end of the pass.
+    parameters:
+    - name: context
+      description: The current deserialization pass.
   - name: RequestOwnership
     definition: void RequestOwnership(bool sendRedundantUpdates = false)
     summary: Request ownership of the model. This has no effect if the model has no meta-model. This will throw an exception if the model is not part of a connected room, as it requires the local clientID.
@@ -72,6 +78,7 @@ class_members:
   - name: SetOwnership
     definition: void SetOwnership(int ownerID, bool sendRedundantUpdates = false)
     summary: Set ownership of the model to a specific client. This has no effect if the model has no meta-model.
+    remarks: The only valid values for the client ID are the local client ID and -1 (unowned). The server will reject an update that changes the owner to a different client.
     parameters:
     - name: ownerID
       description: The client ID of the new owner.

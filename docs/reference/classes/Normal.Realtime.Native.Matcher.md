@@ -23,13 +23,13 @@ class_members:
   - name: ClearRequest
     definition: void ClearRequest(string requestGUID)
   - name: ConnectToRoom
-    definition: string ConnectToRoom(string requestType, string appKey, string roomName, string clientOffer, string webhookContext, Cluster[] clusterPingResults = null, Region[] preferredRegions = null)
+    definition: string ConnectToRoom(string requestType, string appKey, string appMetadataJSONString, string roomName, string roomServerOptionsJSONString, string clientOffer, string webhookContext, Cluster[] clusterPingResults = null, Region[] preferredRegions = null)
   - name: GetConnectToRoomRequestResponseType
     definition: string GetConnectToRoomRequestResponseType(string requestGUID)
   - name: GetConnectToRoomRequestClustersToPing
     definition: Cluster[] GetConnectToRoomRequestClustersToPing(string requestGUID)
-  - name: GetConnectToRoomRequestServerAnswer
-    definition: string GetConnectToRoomRequestServerAnswer(string requestGUID)
+  - name: GetConnectToRoomRequestFoundRoomResponse
+    definition: string GetConnectToRoomRequestFoundRoomResponse(string requestGUID)
 
 ---
 import ReferencePage from '../_ReferencePage.mdx'

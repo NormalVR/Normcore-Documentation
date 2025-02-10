@@ -4,12 +4,6 @@ layout: Reference
 category: API Reference
 class_name: RealtimeTransformModel
 class_members:
-- name: Events
-  members:
-  - name: onWillWrite
-    definition: event TransformWriteHandler onWillWrite
-  - name: onDidRead
-    definition: event TransformReadHandler onDidRead
 - name: Properties
   members:
   - name: useGravity
@@ -45,6 +39,12 @@ class_members:
     definition: Vector3 velocity { get; set; }
   - name: angularVelocity
     definition: Vector3 angularVelocity { get; set; }
+  - name: rotation2D
+    definition: float rotation2D { get; set; }
+  - name: velocity2D
+    definition: Vector2 velocity2D { get; set; }
+  - name: angularVelocity2D
+    definition: float angularVelocity2D { get; set; }
   - name: physicsBodyTimeOffset
     definition: float physicsBodyTimeOffset { get; set; }
   - name: physicsState
@@ -57,6 +57,8 @@ class_members:
     definition: bool syncRotation { get; set; }
   - name: syncScale
     definition: bool syncScale { get; set; }
+  - name: skipInterpolation
+    definition: bool skipInterpolation { get; set; }
 - name: Methods
   members:
   - name: SetSafePosition
@@ -65,15 +67,24 @@ class_members:
   - name: SetSafeRotation
     definition: void SetSafeRotation(Quaternion r)
     summary: Set the rotation, while checking for NaN and custom epsilon.
+  - name: SetSafeRotation2D
+    definition: void SetSafeRotation2D(float r)
+    summary: Set the 2D rotation, while checking for NaN.
   - name: SetSafeScale
     definition: void SetSafeScale(Vector3 s)
     summary: Set the scale, while checking for NaN and custom epsilon.
   - name: SetSafeVelocity
     definition: void SetSafeVelocity(Vector3 v)
     summary: Set the velocity, while checking for NaN and custom epsilon.
+  - name: SetSafeVelocity2D
+    definition: void SetSafeVelocity2D(Vector2 v)
+    summary: Set the 2D velocity, while checking for NaN.
   - name: SetSafeAngularVelocity
     definition: void SetSafeAngularVelocity(Vector3 v)
     summary: Set the angular velocity, while checking for NaN and custom epsilon.
+  - name: SetSafeAngularVelocity2D
+    definition: void SetSafeAngularVelocity2D(float v)
+    summary: Set the angular velocity, while checking for NaN.
 
 ---
 import ReferencePage from '../_ReferencePage.mdx'

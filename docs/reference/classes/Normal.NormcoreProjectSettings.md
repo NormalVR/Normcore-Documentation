@@ -3,7 +3,7 @@ title: NormcoreProjectSettings
 layout: Reference
 category: API Reference
 class_name: NormcoreProjectSettings
-class_summary: A ScriptableObject that represents all settings related to a Normcore project.
+class_summary: NormcoreProjectSettings represents project-wide settings that apply to Normcore. These settings can be changed by going to Edit > Project Settings > Normcore.
 class_remarks: These settings are applied project-wide, regardless of how many Normcore Apps this project connects to.
 class_members:
 - name: Static Properties

@@ -6,6 +6,11 @@ class_name: ReliableProperty<T>
 class_summary: A ReliableProperty writes and reads primitives and structs on the reliable channel.
 class_remarks: ''
 class_members:
+- name: Events
+  members:
+  - name: onDidRevert
+    definition: event OnDidRevertDelegate<T> onDidRevert
+    summary: Called when an anticipated change was refused by the server, and the value has been reverted to the last value that was received from the server.
 - name: Properties
   members:
   - name: value
@@ -22,11 +27,13 @@ class_members:
   - name: Read
     definition: bool Read(ReadStream stream, StreamContext context)
   - name: Confirm
-    definition: void Confirm(uint updateID)
-    summary: Confirm an update ID.
+    definition: void Confirm(uint updateID, StreamContext& context)
+    summary: Confirm an update as received by the server. This is _not_ an acknowledgement that the property value was accepted, only that the update is no longer inflight. If the property value was accepted, it is sent back to the local client in the preceding read.
     parameters:
     - name: updateID
-      description: ''
+      description: The ID of the update to confirm.
+    - name: context
+      description: The context of the current deserialization pass.
   - name: UnsubscribeCallback
     definition: void UnsubscribeCallback()
     summary: Unsubscribe the inflight notification. The local value will remain unchanged.
