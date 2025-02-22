@@ -67,7 +67,7 @@ const config: Config = {
         },
         {
           label: 'Download',
-          href: '/download',
+          href: '/essentials/getting-started#download-normcore',
           position: 'right',
           className: 'navbar__item navbar__link custom_nav_time download_button',
         },
