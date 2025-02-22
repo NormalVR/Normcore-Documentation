@@ -17,9 +17,9 @@ Welcome to Normcore! This guide will show you how to get Normcore working in you
 
 ## Download Normcore
 
-You’ll need to grab a copy of the latest Normcore plugin. You can download it [here](https://dashboard.normcore.io/download) after [creating a Normcore account](https://dashboard.normcore.io/register).
+Download the latest version of Normcore here: [Normcore.unitypackage](https://dashboard.normcore.io/download)
 
-Import Normcore by dragging the **Normcore.unitypackage** file into the **Project** tab in the Unity editor.
+Import Normcore by dragging the **Normcore.unitypackage** file into the **Project** tab in the Unity editor:
 
 <video width="100%" title="Importing the Normcore unitypackage file." controls><source src={importNormcore} /></video>
 
