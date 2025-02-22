@@ -337,10 +337,10 @@ body {
 }
 
 .download_button {
-  border: 1px solid transparent;
+  border: 1px solid #f1f1f1;
   border-radius: 100px;
   padding: 0px 10px;
-  background: #eee;
+  background: #f1f1f1;
   color: black;
   font-size: 14px;
   transition: border 0.2s, background-color 0.2s, color 0.2s;
@@ -355,8 +355,20 @@ body {
 }
 
 .download_button:hover {
-  background-color: #f8f8f8;
+  background-color: #e5e5e5;
+  border: 1px solid #e5e5e5;
   color: black;
+}
+
+[data-theme='dark'] .download_button {
+  border: 1px solid #151515;
+  background: #151515;
+  color: white;
+}
+
+[data-theme='dark'] .download_button:hover {
+  border: 1px solid #383838;
+  background: #383838;
 }
 
 .dash_button {
