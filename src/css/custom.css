@@ -390,9 +390,21 @@ body {
 }
 
 .dash_button:hover {
-  background-color: #0054ff;
+  background-color: #0039ff;
   color: white;
-  border: 1px solid #0054ff;
+  border: 1px solid #0039ff;
+}
+
+[data-theme='dark'] .dash_button {
+  border: 1px solid white;
+  background: white;
+  color: black;
+}
+
+[data-theme='dark'] .dash_button:hover {
+  background-color: #0039ff;
+  color: white;
+  border: 1px solid #0039ff;
 }
 
 [data-theme='dark'] .navbar {
