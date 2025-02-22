@@ -13,8 +13,8 @@ We're always working to improve Normcore as much as we can. If you have any ques
 
 
 <span class="linkblocks">
-[![Download](readme/download.png)](http://normcore.io/download)
-[![Getting Started](readme/gettingstarted.png)](./essentials/getting-started)
+[![Download](readme/download.png)](/essentials/getting-started.md#download-normcore)
+[![Getting Started](readme/gettingstarted.png)](./essentials/getting-started.md)
 [![Discord](readme/discord.png)](https://normcore.io/discord)
 <!---[![Forum](readme/forum.png)](https://forum.normcore.io/)--->
 </span>
