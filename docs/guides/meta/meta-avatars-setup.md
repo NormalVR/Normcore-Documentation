@@ -8,7 +8,7 @@ import sceneSetup from './meta-avatars/scene-setup.mp4'
 import avatarThumbsUp from './meta-avatars/avatar-thumbs-up.mp4'
 
 # Meta Avatars
-<video width="100%" autoPlay loop muted><source src={avatarWaveGroup} /></video>
+<video width="100%" autoPlay playsInline loop muted><source src={avatarWaveGroup} /></video>
 
 **Normal** and **Meta** have worked together to provide rich prebuilt avatars that work with Normcore out of the box. This guide will demonstrate how to use the built-in **MetaAvatar** component to set up networked meta avatars with voice chat in a few minutes.
 

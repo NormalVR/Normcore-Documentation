@@ -13,7 +13,7 @@ import multiplayerBuild from './getting-started/multiplayer-build.mp4'
 
 Welcome to Normcore! This guide will show you how to get Normcore working in your project in just a few minutes.
 
-<video width="100%" autoPlay loop muted><source src={hoverbirdCompleted} /></video>
+<video width="100%" autoPlay playsInline loop muted><source src={hoverbirdCompleted} /></video>
 
 ## Download Normcore
 
