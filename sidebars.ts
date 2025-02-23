@@ -39,6 +39,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'guides/creating-a-player-controller',
         'guides/upgrading-from-normcore-1-to-normcore-2',
+        'guides/network-profiler',
         {
           type: 'category',
           label: 'Recipes',
