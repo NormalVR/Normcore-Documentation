@@ -1,7 +1,7 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/download",                                                    "destination": "/essentials/getting-started#download-normcore", "permanent": false },
+    { "source": "/download",                                                    "destination": "https://dashboard.normcore.io/download",        "permanent": false },
     { "source": "/getting-started",                                             "destination": "/essentials/getting-started",                   "permanent": true },
     { "source": "/core-concepts/how-normcore-works",                            "destination": "/essentials/what-is-normcore",                  "permanent": true },
     { "source": "/core-concepts/synchronizing-custom-data",                     "destination": "/realtime/synchronizing-custom-data",           "permanent": true },
