@@ -1,61 +1,67 @@
 ---
 layout: docs
-title: Profiling bandwidth with the Normcore profiler
+title: Using the Normcore Network Profiler
 ---
 import profilerSetUp                from './network-profiler/profiler-setup.mp4'
 import profileUnlimitedInstances    from './network-profiler/profile-unlimited-instances.mp4'
 import profilePooledInstances       from './network-profiler/profile-pooled-instances.mp4'
 import networkSaturated             from './network-profiler/network-saturated.mp4'
 
-# Profiling bandwidth with the Normcore profiler
+# Using the Normcore Network Profiler
 
-This guide will show you how to use the network profiler tool to find and fix issues with your Normcore project sending too much data over the network.
+This guide will show you how to use the network profiler tool to analyze bandwidth use in your Normcore application.
 
-## When to use the Normcore profiler
+Whether you're trying to reduce your bandwidth use for performance reasons or to reduce the cost of your application, the Network Profiler is a great way to see what your bandwidth usage is in real-time.
 
-When you create a lot of RigidBodies your project is going to use a lot of bandwidth over the network. The profiler is a great way to figure out how to identify the issue and lower the bandwidth usage:
+## Example Scenario
 
-<video width="100%" controls><source src={networkSaturated} /></video> 
+In this guide, we're going to start with an example project that spawns 10 basketball Rigidbodies every time you click the house. You can see in the video every time 10 basketballs are spawned, the amount of bandwidth increases until the application becomes slow to respond.
 
-Additionally, rigidbody instances with low friction might take a while to sleep. These active rigidbodies continue generating data and contribute to ongoing network traffic even if they don't affect the player experience.
+TODO: IS THIS THE BEST VIDEO? THE NETWORK NUMBERS LOOK FUNNY
+<video width="100%" controls><source src={networkSaturated} /></video>
 
-### Sample project
+We've created a sample project [here](TODO: PUT THIS IN THE NORMCORE-SAMPLES REPO!!). We're going to start with the **Unoptimized Scene** and use the Network Profiler to optimize our bandwidth and CPU use. Open the **Unoptimized Scene** file and hit Play to test it out. Each mouse click spawns 10 basketballs.
 
-In this guide we're going to debug an application that spawns too many RigidBodies. We provide a project [here](</downloads/Profiler_Sample.zip>). It contains two scenes: **Unoptimized Scene** and **Optimized Scene**. The video above illustrating the issue uses the **Unoptimized Scene**.
-
-In the Project window, open the **Unoptimized Scene** scene in the **Profiler Sample** folder. This scene spawns a basketball each time you click the mouse and lets them bounce until the network saturates.
+TODO: Video??
 
 The unoptimized code looks like this:
 
+TODO: Update the sample project in Normcore-Samples to match this. I updated the comments and things.
 ```csharp
 using Normal.Realtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ShooterUnoptimized : MonoBehaviour {
-    // Called once per frame
     private void Update() {
-        // Check if the left mouse button was pressed this frame
-        if (Mouse.current.leftButton.wasPressedThisFrame) ShootTenBasketballs();
+        // If the mouse was clicked, spawn 10 basketballs.
+        if (Mouse.current.leftButton.wasPressedThisFrame) {
+            ShootTenBasketballs();
+        }
     }
 
     // Shoot 10 basketballs
     private void ShootTenBasketballs() {
-        for (var i = 0; i < 10; i++) Shoot();
+        for (var i = 0; i < 10; i++) {
+            Shoot();
+        }
     }
 
-    // Shoot method to spawn a basketball
+    // Shoot a single basketball
     private void Shoot() {
-        var position = transform.position + transform.right * Random.Range(-4f, 4f);
+        // Aim it in a random direction
+        var position = transform.position + transform.right * Random.Range(-4.0f, 4.0f);
+
+        // Set ownedByClient to false so other clients can take over ownership on collision
         var instantiateOptions = Realtime.InstantiateOptions.defaults;
         instantiateOptions.ownedByClient = false;
 
-        // Spawn a basketball in the same location as the shooter component
+        // Spawn a basketball prefab
         var basketball = Realtime.Instantiate("Basketball", position, transform.rotation, instantiateOptions);
         
         // Set the velocity to a random forward/up velocity
-        basketball.GetComponent<Rigidbody>().velocity = transform.forward * 5f;
         basketball.GetComponent<RealtimeTransform>().RequestOwnership();
+        basketball.GetComponent<Rigidbody>().velocity = transform.forward * 5.0f;
     }
 }
 ```
@@ -95,6 +101,9 @@ To optimize we're going to reuse basketballs. Once we've instantiated 50 basketb
 
 The optimized code looks like this:
 
+
+TODO: Redo this code sample to match the above sample as closely as possible
+TODO: Highlight the lines of code that were changed to optimize it.
 ```csharp
 using System.Collections.Generic;
 using Normal.Realtime;
