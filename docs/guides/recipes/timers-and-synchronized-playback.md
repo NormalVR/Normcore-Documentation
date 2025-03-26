@@ -21,12 +21,12 @@ using Normal.Realtime;
 using Normal.Realtime.Serialization;
 
 [RealtimeModel]
-public class StopwatchModel {
+public partial class StopwatchModel {
     [RealtimeProperty(1, true)] private double _startTime;
 }
 ```
 
-After you compile the model, create a new class called **Stopwatch**:
+Next, create a new class called **Stopwatch**:
 
 ```csharp
 using Normal.Realtime;

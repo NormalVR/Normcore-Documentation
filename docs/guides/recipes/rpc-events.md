@@ -27,7 +27,7 @@ Now that we have this working, let's network it. We'll start by creating a model
 
 ```csharp
 [RealtimeModel]
-public class ExplosionEventModel {
+public partial class ExplosionEventModel {
     [RealtimeProperty(1, true)] private int     _trigger;
     [RealtimeProperty(2, true)] private int     _senderID;
     [RealtimeProperty(3, true)] private Vector3 _position;
@@ -37,9 +37,9 @@ public class ExplosionEventModel {
 
 This model includes the trigger integer that we'll use to trigger the event, the clientID that sent the event, the position to emit particles from, and the scale of the explosion.
 
-Go into the Unity editor and compile this model so we can start using the public properties on it. Once it's compiled, we'll add a method and C# event to let us fire the event and listen for when it's fired:
+Next, we'll add a method and C# event to let us fire the event and listen for when it's fired:
 
-```csharp{8-25}
+```csharp {8-25}
 [RealtimeModel]
 public partial class ExplosionEventModel {
     [RealtimeProperty(1, true)] private int     _trigger;
@@ -59,16 +59,14 @@ public partial class ExplosionEventModel {
     public delegate void EventHandler(int senderID, Vector3 position, float scale);
     public event EventHandler eventDidFire;
 
-    // A RealtimeCallback method that fires whenever we read any values from the server
-    [RealtimeCallback(RealtimeModelEvent.OnDidRead)]
+    // A RealtimeCallback method that fires whenever we read any values from the server for this model
+    [RealtimeCallback(RealtimeModelEvent.OnDidReadModel)]
     private void DidRead() {
         if (eventDidFire != null && trigger != 0)
             eventDidFire(senderID, position, scale);
     }
 }
 ```
-
-**Compile your model again** so that the `[RealtimeCallback]` functionality is added by the model compiler.
 
 Now we have a model with a `FireEvent()` method and a C# `eventDidFire` event that will be invoked when any client fires an event.
 
