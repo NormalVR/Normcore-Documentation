@@ -23,4 +23,4 @@ RealtimeAvatarVoice includes an AudioPreprocessor that automatically sets the ga
 
 In most cases the default settings are correct, but if you would like to make changes, the source code to RealtimeAvatarVoice is included and [can be forked](./avatars.md#modifying-realtimeavatar-scripts).
 
-It's worth noting that most platforms default to using hardware echo cancellation supplied by the operation system, so the AudioPreprocessor's echo cancellation functionality is not required.
+It's worth noting that most platforms default to using hardware echo cancellation supplied by the operating system, so the AudioPreprocessor's echo cancellation functionality is not required.

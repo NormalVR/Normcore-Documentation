@@ -19,7 +19,7 @@ For singleplayer games, this isn't a problem, but when it comes to multiplayer, 
 
 All it means is that Normcore needs to synchronize all objects between all clients all of the time. If physics were deterministic, all we would have to do is synchronize the initial conditions and each client would arrive at the same answer.
 
-That said, if we have a few clients all simulating the same object, when they eventually drift, whose physics scene should we use as the source of truth? Who's scene is the correct one? Well, this is where the concept of ownership comes in.
+That said, if we have a few clients all simulating the same object, when they eventually drift, whose physics scene should we use as the source of truth? Whose scene is the correct one? Well, this is where the concept of ownership comes in.
 
 ### Ownership + Physics
 

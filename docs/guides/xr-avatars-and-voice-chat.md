@@ -28,7 +28,7 @@ Let’s start by configuring our project for XR under XR Plug-in Management.
 
 <video width="100%" title="Enabling VR support in the Unity project settings." controls><source src={enableXRSupport} /></video> 
 
-Next, we’re going to move the camera back to the origin and drag a “Realtime + VR Player" prefab into the scene.
+Next, we’re going to move the camera back to the origin and drag a "Realtime + VR Player" prefab into the scene.
 
 <video width="100%" title="Reset the Main Camera transform, and add an instance of Realtime to your scene." controls><source src={setUpCameraAndRealtime} /></video> 
 
