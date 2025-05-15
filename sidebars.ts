@@ -96,6 +96,7 @@ const sidebars: SidebarsConfig = {
         'realtime/realtimetransform',
         'realtime/synchronizing-custom-data',
         'realtime/networked-physics',
+        'realtime/prefab-pooling',
         'realtime/common-questions',
         {
           type: 'category',
