@@ -20,7 +20,7 @@ We're going to start with a simple project that spawns a handful of basketballs 
 TODO: Update link to samples repo
 
 
-We're going to start by opening up the "Unoptimized" scene in the sample project.
+We're going to start by opening up the "Basketball Shooter (Unoptimized)" scene in the sample project.
 
 <video width="100%" controls><source src={networkSaturated} /></video>
 
@@ -31,6 +31,8 @@ Normcore's network profiler is available as a module within the Unity Profiler w
 1. Open Unity's Profiler window `Window > Analysis > Profiler`.
 2. In the Profiler window, click on the "Profiler Modules" dropdown.
 3. Select "Normcore" to see the total bandwidth use across the whole app or modules like "Normcore Audio" to see bandwidth for voice chat only.
+
+// TODO: Put a note that you may want to set the number of profiler frames in X > Y > Z in order to see enough historical data.
 
 <video width="100%" controls><source src={profilerSetUp} /></video>
 
@@ -60,6 +62,7 @@ Now that we can see our bandwidth usage, let's optimize it. From looking at the 
 using Normal.Realtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class ShooterUnoptimized : MonoBehaviour {
     private void Update() {
@@ -78,67 +81,69 @@ public class ShooterUnoptimized : MonoBehaviour {
 
     // Shoot a single basketball
     private void Shoot() {
-        // Aim it in a random direction
+        // Aim in a random direction
         var position = transform.position + transform.right * Random.Range(-4.0f, 4.0f);
 
         // Set ownedByClient to false so other clients can take over ownership on collision
-        var instantiateOptions = Realtime.InstantiateOptions.defaults;
-        instantiateOptions.ownedByClient = false;
+        var instantiateOptions = new Realtime.InstantiateOptions() {
+            ownedByClient = false,
+        };
 
         // Spawn a basketball prefab
         var basketball = Realtime.Instantiate("Basketball", position, transform.rotation, instantiateOptions);
-        
+
         // Set the velocity to a random forward/up velocity
         basketball.GetComponent<RealtimeTransform>().RequestOwnership();
-        basketball.GetComponent<Rigidbody>().velocity = transform.forward * 5.0f;
+        basketball.GetComponent<Rigidbody>().linearVelocity = transform.forward * 5.0f;
     }
 }
 ```
-TODO: Update the sample project in Normcore-Samples to match this. I updated the comments and things.
 
 Every time we shoot, we instantiate new basketball prefabs and each one has a RealtimeTransform that's consistently sending updates. A quick way to optimize this case is to reuse basketball instances. Once we've instantiated 50 basketballs, we'll start reusing existing instances, starting with the oldest one.
 
 TODO: Redo this code sample to match the above sample as closely as possible
 TODO: Highlight the lines of code that were changed to optimize it.
 ```csharp
-using System.Collections.Generic;
 using Normal.Realtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class ShooterOptimized : MonoBehaviour {
-    // A queue to store basketballs
-    private Queue<GameObject> _basketballPool = new Queue<GameObject>();
-
-    // Called once per frame
     private void Update() {
-        // Check if the left mouse button was pressed this frame
-        if (Mouse.current.leftButton.wasPressedThisFrame) ShootTenBasketballs();
+        // If the mouse was clicked, spawn 10 basketballs.
+        if (Mouse.current.leftButton.wasPressedThisFrame) {
+            ShootTenBasketballs();
+        }
     }
 
     // Shoot 10 basketballs
     private void ShootTenBasketballs() {
-        for (var i = 0; i < 10; i++) Shoot();
+        for (var i = 0; i < 10; i++) {
+            Shoot();
+        }
     }
 
-    // Shoot method to get an instance from the pool
+    // Shoot a single basketball
     private void Shoot() {
-        var position = transform.position + transform.right * Random.Range(-4f, 4f);
-        var rotation = transform.rotation;
+        // Aim in a random direction
+        var position = transform.position + transform.right * Random.Range(-4.0f, 4.0f);
 
-        // Spawn a basketball in the same location as the shooter component
-        var basketball = InstantiateBasketballFromPool(position, rotation);
-        
-        // Initialize the velocity
-        basketball.GetComponent<Rigidbody>().velocity = transform.forward * 5f;
+        // Spawn a basketball prefab
+        var basketball = InstantiateBasketballFromPool(position, transform.rotation);
+
+        // Set the velocity to a random forward/up velocity
         basketball.GetComponent<RealtimeTransform>().RequestOwnership();
+        basketball.GetComponent<Rigidbody>().linearVelocity = transform.forward * 5.0f;
     }
 
-    // Instantiate a basketball from the pool
+    // Create a queue to reuse basketballs
+    private Queue<GameObject> _basketballPool = new Queue<GameObject>();
+
     private GameObject InstantiateBasketballFromPool(Vector3 position, Quaternion rotation) {
         GameObject basketball;
 
-        // Once we hit 50 balls, reuse the oldest one.
+        // Once we hit 50 basketballs, reuse the oldest one.
         if (_basketballPool.Count >= 50) {
             // Grab the oldest basketball
             basketball = _basketballPool.Dequeue();
@@ -148,8 +153,9 @@ public class ShooterOptimized : MonoBehaviour {
             basketball.transform.rotation = rotation;
         } else {
             // Instantiate a fresh basketball
-            var instantiateOptions = Realtime.InstantiateOptions.defaults;
-            instantiateOptions.ownedByClient = false;
+            var instantiateOptions = new Realtime.InstantiateOptions() {
+                ownedByClient = false,
+            };
             basketball = Realtime.Instantiate("Basketball", position, rotation, instantiateOptions);
             basketball.GetComponent<RealtimeTransform>().RequestOwnership();
         }
@@ -161,7 +167,7 @@ public class ShooterOptimized : MonoBehaviour {
 }
 ```
 
-Let's try out this new version. We've included a copy of it in the "Optimize" scene in the sample project.
+Let's try out this new version. We've included a copy of it in the "Basketball Shooter (Optimized)" scene in the sample project.
 // TODO: Link the sample project again
 
 <video width="100%" controls><source src={profilePooledInstances} /></video>
