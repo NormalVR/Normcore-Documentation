@@ -2,63 +2,61 @@
 layout: docs
 title: Using the Network Profiler
 ---
-import profilerSetUp                from './network-profiler/profiler-setup.mp4'
-import profileUnlimitedInstances    from './network-profiler/profile-unlimited-instances.mp4'
-import profilePooledInstances       from './network-profiler/profile-pooled-instances.mp4'
-import networkSaturated             from './network-profiler/network-saturated.mp4'
+import launchProfiler     from './network-profiler/launch-profiler.mp4'
+import openProject        from './network-profiler/open-project.mp4'
+import profileUnoptimized from './network-profiler/profile-unoptimized.mp4'
+import profileOptimized   from './network-profiler/profile-optimized.mp4'
 
-# Using the Normcore Network Profiler
+# Using the Network Profiler
 
 This guide will show you how to use Normcore's network profiler tool to analyze bandwidth use in your application.
 
-Whether you're trying to reduce your bandwidth use to improve performance or reduce your networking costs, the Network Profiler is a great way to see what your bandwidth usage is in real-time.
+Whether you're trying to reduce bandwidth use to improve performance or reduce your networking costs, the network profiler is a great way to see your bandwidth usage is in real-time.
 
 
 ## Getting Started
 
-We're going to start with a simple project that spawns a handful of basketballs every time the mouse is clicked. If you'd like to follow along, you can download the sample project [here](https://google.com).
+We start with a simple project that spawns a handful of basketballs every time the mouse is clicked. If you'd like to follow along, you can download the sample project [here](https://google.com).
 TODO: Update link to samples repo
 
 
-We're going to start by opening up the "Basketball Shooter (Unoptimized)" scene in the sample project.
+Open up the "Basketball Shooter (Unoptimized)" scene in the sample project.
 
-<video width="100%" controls><source src={networkSaturated} /></video>
+<video width="100%" controls><source src={openProject} /></video>
+
+Hit Play, and once you're connected to the room server, click the mouse to shoot 10 basketballs at a time.
 
 ## Setting up the profiler
 
 Normcore's network profiler is available as a module within the Unity Profiler window. You can add or remove modules based on what you plan to profile:
 
-1. Open Unity's Profiler window `Window > Analysis > Profiler`.
+1. Open Unity's Profiler window by going to Window > Analysis > Profiler.
 2. In the Profiler window, click on the "Profiler Modules" dropdown.
 3. Select "Normcore" to see the total bandwidth use across the whole app or modules like "Normcore Audio" to see bandwidth for voice chat only.
 
-// TODO: Put a note that you may want to set the number of profiler frames in X > Y > Z in order to see enough historical data.
-
-<video width="100%" controls><source src={profilerSetUp} /></video>
+<video width="100%" controls><source src={launchProfiler} /></video>
 
 Every module has two metrics available:
 - **Sent**: The total data sent per frame to the server.
 - **Received**: The total data received per frame from the server.
 
+:::tip
+By default Unity's Profiler only stores 300 frames of data. We generally recommend setting this to 1000+ frames and disabling vsync in the editor.
+:::
+
 ## Profiling
 
-With the profiler up, let's run our test scene. You'll see every time the mouse is clicked, the amount of data sent increases. There's a small spike when basketballs are instantiated, followed by a consistent stream of data sent as the basketballs move around.
+Hit Play, wait to connect to the room, and then click the mouse to shoot 10 basketballs at a time. You'll notice every time the mouse is clicked, the amount of data sent increases. There's a spike when basketballs are instantiated, followed by a consistent stream of data as they move around.
 
-<video width="100%" controls><source src={profileUnlimitedInstances} /></video>
+<video width="100%" controls><source src={profileUnoptimized} /></video>
 
 :::tip
 Run multiple instances of the app if you're trying to optimize receive bandwidth. If you're only running one instance, Normcore's servers will not have any data to send you.
 :::
 
-## Optimizing bandwidth
+If we look at the code, it’s clear why we’re seeing this behavior. Each time we shoot, we instantiate a new basketball prefab and set its velocity:
 
-:::tip
-When optimizing the bandwidth of your application, focus on data that's sent over long periods of time. Spikes during instantiation do not have a significant impact on your costs or network performance.
-:::
-
-Now that we can see our bandwidth usage, let's optimize it. From looking at the video above, it's clear that our bandwidth use grows whenever we spawn new basketballs. If we take a look at the code for this, it becomes pretty clear why:
-
-```csharp
+```csharp {32}
 using Normal.Realtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -99,11 +97,11 @@ public class ShooterUnoptimized : MonoBehaviour {
 }
 ```
 
+## Optimizing bandwidth
+
 Every time we shoot, we instantiate new basketball prefabs and each one has a RealtimeTransform that's consistently sending updates. A quick way to optimize this case is to reuse basketball instances. Once we've instantiated 50 basketballs, we'll start reusing existing instances, starting with the oldest one.
 
-TODO: Redo this code sample to match the above sample as closely as possible
-TODO: Highlight the lines of code that were changed to optimize it.
-```csharp
+```csharp {27,34-60}
 using Normal.Realtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -149,8 +147,8 @@ public class ShooterOptimized : MonoBehaviour {
             basketball = _basketballPool.Dequeue();
 
             // Reset the basketball's position and rotation
-            basketball.transform.position = position;
-            basketball.transform.rotation = rotation;
+            basketball.GetComponent<Rigidbody>().position = position;
+            basketball.GetComponent<Rigidbody>().rotation = rotation;
         } else {
             // Instantiate a fresh basketball
             var instantiateOptions = new Realtime.InstantiateOptions() {
@@ -167,16 +165,15 @@ public class ShooterOptimized : MonoBehaviour {
 }
 ```
 
-Let's try out this new version. We've included a copy of it in the "Basketball Shooter (Optimized)" scene in the sample project.
+Let's try out this new version. We've included a copy of it in the "Basketball Shooter (Optimized)" scene in the sample project if you'd like to try it out.
 // TODO: Link the sample project again
 
-<video width="100%" controls><source src={profilePooledInstances} /></video>
+<video width="100%" controls><source src={profileOptimized} /></video>
 
-This looks much better. As basketballs are instantiated, our bandwidth use grows, but once we hit 50 basketballs, our bandwidth stops increasing.
+:::tip
+When optimizing the bandwidth of your application, focus on data that's sent over long periods of time. Spikes during instantiation do not have a significant impact on your costs or network performance.
+:::
 
-And that's all there is to it! The Network Profiler is a great way to see what's going on in your application and how to optimize it.
+This looks much better. As basketballs are instantiated, the amount of data sent grows, but once we hit 50 basketballs, the data sent stops increasing.
 
-Looking to learn more about Normcore? Check out our guides on synchronizing custom data and networked physics:
-
-- [Synchronizing Custom Data](../realtime/synchronizing-custom-data.md)
-- [Networked Physics](../realtime/networked-physics.md)
+And that's all there is to it! The network profiler is a great way to see what's going on in your application. As you start optimizing, check out the other Profiler modules. They break down bandwidth by audio, datastore, RPCs, and reliable/unreliable channels.

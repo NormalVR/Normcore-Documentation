@@ -10,7 +10,7 @@ const config: Config = {
   url: 'https://normcore.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/documentation/',
+  baseUrl: '/',
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
