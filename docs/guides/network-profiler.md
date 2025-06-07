@@ -16,9 +16,7 @@ Whether you're trying to reduce bandwidth use to improve performance or reduce y
 
 ## Getting Started
 
-We start with a simple project that spawns a handful of basketballs every time the mouse is clicked. If you'd like to follow along, you can download the sample project [here](https://google.com).
-TODO: Update link to samples repo
-
+We start with a simple project that spawns a handful of basketballs every time the mouse is clicked. If you'd like to follow along, download the [sample project](https://github.com/NormalVR/Normcore-Samples/releases/latest/download/Normcore-Network-Profiler.zip).
 
 Open up the "Basketball Shooter (Unoptimized)" scene in the sample project.
 
@@ -165,8 +163,7 @@ public class ShooterOptimized : MonoBehaviour {
 }
 ```
 
-Let's try out this new version. We've included a copy of it in the "Basketball Shooter (Optimized)" scene in the sample project if you'd like to try it out.
-// TODO: Link the sample project again
+Let's try out this new version. We've included a copy of it in the "Basketball Shooter (Optimized)" scene in the [sample project](https://github.com/NormalVR/Normcore-Samples/releases/latest/download/Normcore-Network-Profiler.zip) if you'd like to try it out.
 
 <video width="100%" controls><source src={profileOptimized} /></video>
 
