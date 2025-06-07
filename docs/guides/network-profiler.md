@@ -2,8 +2,8 @@
 layout: docs
 title: Using the Network Profiler
 ---
-import launchProfiler     from './network-profiler/launch-profiler.mp4'
 import openProject        from './network-profiler/open-project.mp4'
+import openProfiler       from './network-profiler/open-profiler.mp4'
 import profileUnoptimized from './network-profiler/profile-unoptimized.mp4'
 import profileOptimized   from './network-profiler/profile-optimized.mp4'
 
@@ -16,7 +16,7 @@ Whether you're trying to reduce bandwidth use to improve performance or reduce y
 
 ## Getting Started
 
-We start with a simple project that spawns a handful of basketballs every time the mouse is clicked. If you'd like to follow along, download the [sample project](https://github.com/NormalVR/Normcore-Samples/releases/latest/download/Normcore-Network-Profiler.zip).
+We'll start with a simple project that spawns a handful of basketballs every time the mouse is clicked. Download the [sample project](https://github.com/NormalVR/Normcore-Samples/releases/latest/download/Normcore-Network-Profiler.zip) if you'd like to follow along.
 
 Open up the "Basketball Shooter (Unoptimized)" scene in the sample project.
 
@@ -32,14 +32,14 @@ Normcore's network profiler is available as a module within the Unity Profiler w
 2. In the Profiler window, click on the "Profiler Modules" dropdown.
 3. Select "Normcore" to see the total bandwidth use across the whole app or modules like "Normcore Audio" to see bandwidth for voice chat only.
 
-<video width="100%" controls><source src={launchProfiler} /></video>
+<video width="100%" controls><source src={openProfiler} /></video>
 
 Every module has two metrics available:
 - **Sent**: The total data sent per frame to the server.
 - **Received**: The total data received per frame from the server.
 
 :::tip
-By default Unity's Profiler only stores 300 frames of data. We generally recommend setting this to 1000+ frames and disabling vsync in the editor.
+By default Unity's Profiler only stores 300 frames of data. We generally recommend setting this to 1000+ frames and disabling vsync in the editor to ensure framerate doesn't spike and spam profiler frames.
 :::
 
 ## Profiling
@@ -49,10 +49,10 @@ Hit Play, wait to connect to the room, and then click the mouse to shoot 10 bask
 <video width="100%" controls><source src={profileUnoptimized} /></video>
 
 :::tip
-Run multiple instances of the app if you're trying to optimize receive bandwidth. If you're only running one instance, Normcore's servers will not have any data to send you.
+Run multiple instances of the app if you're trying to optimize receive bandwidth. If you're only running one instance, Normcore's servers will not have any data to send to the profiling client.
 :::
 
-If we look at the code, it’s clear why we’re seeing this behavior. Each time we shoot, we instantiate a new basketball prefab and set its velocity:
+If we look at the code, it’s clear why we’re seeing this behavior. Every time we shoot, we instantiate a new basketball prefab and each one has a RealtimeTransform that's sending new updates every network frame:
 
 ```csharp {32}
 using Normal.Realtime;
@@ -97,7 +97,7 @@ public class ShooterUnoptimized : MonoBehaviour {
 
 ## Optimizing bandwidth
 
-Every time we shoot, we instantiate new basketball prefabs and each one has a RealtimeTransform that's consistently sending updates. A quick way to optimize this case is to reuse basketball instances. Once we've instantiated 50 basketballs, we'll start reusing existing instances, starting with the oldest one.
+A quick way to optimize this is to reuse basketball instances. Once we've instantiated 50 basketballs, we'll start reusing existing instances starting with the oldest one.
 
 ```csharp {27,34-60}
 using Normal.Realtime;
@@ -173,4 +173,4 @@ When optimizing the bandwidth of your application, focus on data that's sent ove
 
 This looks much better. As basketballs are instantiated, the amount of data sent grows, but once we hit 50 basketballs, the data sent stops increasing.
 
-And that's all there is to it! The network profiler is a great way to see what's going on in your application. As you start optimizing, check out the other Profiler modules. They break down bandwidth by audio, datastore, RPCs, and reliable/unreliable channels.
+That's all there is to it. The network profiler is a great way to see what's going on in your application. As you start optimizing, check out the other Profiler modules. They break down bandwidth by audio, datastore, RPCs, and reliable/unreliable channels.
