@@ -5,7 +5,9 @@ slug: /room/room
 ---
 # Room
 
-*If you're using the [Realtime API](../realtime/readme.md), you should rarely need to interact with the Room + Datastore API directly. Realtime is designed to manage a room and datastore for you. If you're calling `realtime.room.Connect()` you're making a mistake. Instead, call `realtime.Connect()` and use the Realtime API directly.*
+:::warning
+If you're using the [Realtime API](../realtime/readme.md), you should rarely need to interact with the Room + Datastore API directly. Realtime is designed to manage a room and datastore for you. If you're calling `realtime.room.Connect()` you're making a mistake. Instead, call `realtime.Connect()` and use the Realtime API directly.
+:::
 
 ## Intro
 Building on the **Room + Datastore API** overview, Room is the class that manages everything related to a room, including the connection to the room server, the local datastore snapshot, audio streams, and RPC messages.
