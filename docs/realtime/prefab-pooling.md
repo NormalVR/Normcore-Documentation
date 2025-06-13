@@ -3,44 +3,75 @@ layout: docs
 title: Prefab Pooling
 ---
 # Prefab Pooling
-RealtimePool is a component that manages object pooling for prefabs used with Normcore. Object pooling recycles GameObjects instead of destroying and recreating them, which improves performance and avoids frame drops by reducing instantiation and memory garbage collection costs.
+Prefab pooling is a feature that allows you to reuse prefabs instead of destroying and recreating them each time. This improves performance and avoids frame drops by reducing instantiation and garbage collection costs.
 
-## Getting started
-1. Add the RealtimePool component to the same GameObject as your Realtime component.
-2. That's it! The RealtimePool will automatically handle prefab pooling.
+## RealtimePool
+The easiest way to use prefab pooling with Normcore is to use the RealtimePool component. You can do this by adding a RealtimePool component on the same GameObject as your Realtime instance:
+
+![RealtimePool component](./prefab-pooling/realtime-pool-component.png)
 
 ## How it works
-When a prefab instance is requested by Realtime:
-* If available instances exist in the pool: The oldest instance is reactivated and returned.
-* If the pool is empty: A new instance is created automatically.
+When a realtime prefab is instantiated either by the local or remote client:
+1. If available instances exist in the pool: The oldest instance is enabled and reused.
+2. If the pool is empty: A new instance is created.
 
-When a prefab instance is destroyed by Realtime:
-* The instance is deactivated rather than truly destroyed.
-* The instance is returned to its pool for future reuse.
+When a realtime prefab is destroyed::
+1. The root GameObject is disabled instead of getting destroyed.
+2. The instance is returned to its pool for future reuse.
 
-Technical implementation:
-* Each prefab type maintains its own separate pool.
-* Object activation/deactivation uses Unity's standard `GameObject.SetActive()` method.
-* This triggers the typical `OnEnable()`/`OnDisable()` component lifecycle events, which is an excellent place to initialize or clear component state.
+A separate pool is created for each prefab name to ensure reused prefabs match what is being instantiated.
+
+:::warning
+Prefabs are never destroyed, which means `OnDestroy()` will not be called on pooled prefab instances. We recommend moving this logic over to `OnEnable()` and `OnDisable()` or the `IRealtimePoolCallbacks` methods (described below) instead.
+:::
 
 ## Preloading
-By default the pool for each prefab is empty, and grows to accommodate the current instance count. For optimal results it’s recommended to feed the pool an educated guess of the maximum instance count you might encounter in a game session:
+By default the pool for each prefab is empty. Every time a prefab is instantiated and there are no instances ready for reuse, the pool will grow automatically. This can lead to performance hitches the first time a player connects to a room. We recommend using the preload features of RealtimePool to avoid this.
+
+To preload the pool, use the `PreloadPrefab()` method. This will preload the pool with the specified number of instances:
 
 ```csharp
-// Preload 10 instances of a prefab using its name
-realtimePool.PreloadPrefab("PlayerPrefab", 10);
+    private void Start() {
+        // Preload 10 instances of a prefab using a prefab name
+        realtimePool.PreloadPrefab("PlayerPrefab", 10);
 
-// Preload 10 instances using a prefab reference
-realtimePool.PreloadPrefab(playerPrefab, 10);
-
-// Connect to room
-// Note: pools should be preloaded before connecting to a room, not after (as this would defeat the purpose)
-realtime.Connect("My Room");
+        // Preload 10 instances using a prefab reference
+        realtimePool.PreloadPrefab(playerPrefab, 10);
+    }
 ```
 
-## Advanced usage
-### Lifecycle callbacks
-Implement the `IRealtimePoolCallbacks` interface on your components to receive notifications when objects enter or exit the pool:
+### Asynchronous preloading
+In Unity 6 and later it's possible to preload the pool asynchronously to avoid frame drops during preloading.
+
+```csharp
+    private void Start() {
+        // Preload 100 basketball instances without blocking the main thread
+        var operation = realtimePool.PreloadPrefabAsync(basketballPrefab, 100);
+
+        // Connect to room after preloading completes
+        operation.completed += op => {
+            Debug.Log("Preloading complete! Connecting to room.");
+
+            realtime.Connect("My Room");
+        };
+    }
+```
+
+### Clearing
+When you need to reclaim memory or prepare for different game states, RealtimePool provides a `Clear()` method. This can be used to clear a pool for a specific prefab or all pools.
+
+```csharp
+    private void SwitchGameModes() {
+        // Clear a specific prefab's pool
+        realtimePool.Clear(playerPrefab);
+
+        // Clear all pools
+        realtimePool.Clear();
+    }
+```
+
+## Lifecycle callbacks
+One caveat to using prefab pooling is that `OnDestroy()` will never be called. If you have any logic that needs to run when a prefab is reused or returned to the pool, we recommend using the `IRealtimePoolCallbacks` interface instead:
 
 ```csharp
 public class MyComponent : MonoBehaviour, IRealtimePoolCallbacks {
@@ -55,42 +86,8 @@ public class MyComponent : MonoBehaviour, IRealtimePoolCallbacks {
 ```
 
 :::warning
-Only `IRealtimePoolCallbacks` components directly attached to the prefab's root GameObject will receive pool callbacks. Components on child GameObjects implementing this interface won't be notified. This design choice prioritizes performance by using `GetComponents()` rather than the more expensive `GetComponentsInChildren()` method, which would traverse the entire prefab hierarchy.
+The `PrefabWillReuseFromPool()` and `PrefabWillReturnToPool()` methods are only called on components on the root of the prefab for performance.
 :::
 
-### Clearing
-When you need to reclaim memory or prepare for different game states, you can clear specific pools or all pools at once:
-
-```csharp
-// Clear a specific prefab's pool
-realtimePool.Clear(playerPrefab);
-
-// Clear all pools
-realtimePool.Clear();
-```
-
-These methods destroy all inactive pooled objects, freeing memory while preserving active instances still in use.
-
-### Asynchronous preloading
-In Unity 6 and later it’s possible to preload the pool asynchronously to avoid frame drops during instantiation. This is useful when expecting a very large number of instances:
-
-```csharp
-// Preload 10,000 bullet instances without blocking the main thread
-AsyncInstantiateOperation<GameObject> operation = realtimePool.PreloadPrefabAsync(bulletPrefab, 10000);
-
-// Connect to room after preloading completes
-operation.completed += op => {
-    Debug.Log("Preloading complete - connecting to room");
-    realtime.Connect("My Room");
-};
-```
-
-:::info
-Preload pools before connecting to a room, but not after. Preloading after the connection defeats the purpose of avoiding hitches during gameplay when objects are spawned for the first time.
-:::
-
-## Low-level API
-RealtimePool is implemented using Normcore's [IRealtimePrefabInstantiateDelegate](../reference/classes/Normal.Realtime.IRealtimePrefabInstantiateDelegate.md) interface, which allows for complete control over prefab instantiation and destruction. Advanced users can create their own custom pooling systems by implementing this interface with different strategies for object reuse, memory management, or specialized behaviors.
-
-## Modifying RealtimePool
-RealtimePool supports most cases out of the box, but if you would like to make changes, the source code to RealtimePool is included.
+## Advanced prefab pooling
+RealtimePool is implemented using Normcore's [IRealtimePrefabInstantiateDelegate](../reference/classes/Normal.Realtime.IRealtimePrefabInstantiateDelegate.md) interface, which allows for complete control over prefab instantiation and destruction. For more advanced pooling, we recommend forking RealtimePool to use this API directly. All source code for RealtimePool is included in the Normcore package.
