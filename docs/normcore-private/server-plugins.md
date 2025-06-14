@@ -3,7 +3,7 @@ layout: docs
 title: Server Plugins
 ---
 # Server Plugins
-For most titles, Normcore's [Ownership + Lifetime Flags](../room/ownership-and-lifetime-flags.md) API is sufficient for enforcing server authority. However, there are cases where you may want to run your own C# logic on the server. Common use cases include physics simulations, in-app purchases, moderation, and more.
+Normcore Private includes a rich server-side plugin API that lets you run everything from simple C# scripts to a full copy of your Unity game in the cloud. Common use cases include physics simulations, in-app purchases, moderation, and more. Anything you can do in Unity can also be done on the server.
 
 ## How it works
 Normcore's server plugins are implemented using Unity. This means they have full access to all of Unity's APIs, including the ability to simulate Rigidbodies and even an entire game scene.
