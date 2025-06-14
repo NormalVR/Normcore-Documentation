@@ -8,7 +8,7 @@ RealtimeComponent subclasses are the most common way to synchronize data in your
 
 The flow of data looks something like this:
 
-![](./synchronizing-custom-data/data-flow.svg "The flow of data in a Normcore application")
+![](../guides/synchronizing-custom-data/data-flow.svg "The flow of data in a Normcore application")
 
 A RealtimeComponent subclass keeps a game object in sync with its corresponding RealtimeModel instance in the datastore. When the game object changes, the component updates the model, and when the model changes, the component updates the game object to match. This means that in the diagram above, when Player 1 moves a game object, RealtimeTransform can set the new position on its model in the datastore. When Player 2 gets a notification that the model has changed, it can update the position of the same game object in its scene.
 
@@ -47,7 +47,7 @@ private void Update() {
 }
 ```
 
-When you're ready to write your own realtime components, check out our [Synchronizing custom data](./synchronizing-custom-data.md) guide.
+When you're ready to write your own realtime components, check out our [Synchronizing custom data](../guides/synchronizing-custom-data.md) guide.
 
 #### Setting default values
 We recommend that the code that calls `Realtime.Instantiate()` is responsible for setting default values. However, if you would like to synchronize unique default values (such as the initial position of an object), you can set them inside of `OnRealtimeModelReplaced` like so:

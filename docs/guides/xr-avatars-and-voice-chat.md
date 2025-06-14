@@ -111,7 +111,7 @@ Perfect! The mouth animates nicely now :)
 
 This is still a pretty simple example, but using these tools, you should be able to make any avatar you’d like.
 
-If you’d like to synchronize more than the head and hand positions, check out our guide: [Synchronizing Custom Data](../realtime/synchronizing-custom-data).
+If you’d like to synchronize more than the head and hand positions, check out our guide: [Synchronizing Custom Data](../guides/synchronizing-custom-data).
 
 We’ve also got a few other guides that you might be interested in checking out after this one:
 

@@ -53,6 +53,6 @@ That’s it! You’re now up and running with Normcore. Want to learn how to cre
 
 If you're ready to dive into more, check out some of our other guides on Normcore:
 - [XR Avatars and Voice Chat](../guides/xr-avatars-and-voice-chat.md)
-- [Synchronizing Custom Data](../realtime/synchronizing-custom-data.md)
+- [Synchronizing Custom Data](../guides/synchronizing-custom-data.md)
 
 Until next time  :)

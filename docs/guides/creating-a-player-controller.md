@@ -957,5 +957,5 @@ For future reference, the complete project is included in the Normcore unitypack
 
 Looking to learn more about Normcore? Check out our guides on synchronizing custom data and networked physics:
 
-- [Synchronizing Custom Data](../realtime/synchronizing-custom-data.md)
+- [Synchronizing Custom Data](../guides/synchronizing-custom-data.md)
 - [Networked Physics](../realtime/networked-physics.md)

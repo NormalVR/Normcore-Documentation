@@ -38,6 +38,7 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: [
         'guides/creating-a-player-controller',
+        'guides/synchronizing-custom-data',
         'guides/upgrading-from-normcore-1-to-normcore-2',
         'guides/network-profiler',
         {
@@ -95,7 +96,6 @@ const sidebars: SidebarsConfig = {
         'realtime/realtimeview',
         'realtime/realtimecomponent',
         'realtime/realtimetransform',
-        'realtime/synchronizing-custom-data',
         'realtime/networked-physics',
         'realtime/prefab-pooling',
         'realtime/common-questions',
