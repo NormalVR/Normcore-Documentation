@@ -164,7 +164,7 @@ On top of this, Normcore uses Google’s premium fiber network. When a packet is
 ### Networked Physics
 <video width="75%" autoPlay playsInline loop muted><source src={networkedPhysics} /></video>
 
-#### Problem: Physics in Unity is not deterministic and true server authority is not possible.
+#### Problem: Physics in Unity is not deterministic.
 
 Networked physics is difficult to get right. Clients can interact with multiple objects at the same time, and accurately predicting collisions is hard. It's especially difficult in Unity where each device's PhysX simulation will slowly drift apart.
 

@@ -134,6 +134,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'normcore-private/readme',
         'normcore-private/authoritative-servers',
+        'normcore-private/server-plugins',
         'normcore-private/webhooks',
         'normcore-private/on-premises/google-cloud-installation',
         'normcore-private/common-questions',

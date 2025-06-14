@@ -93,7 +93,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.vsLight,
       darkTheme: prismThemes.vsDark,
-      additionalLanguages: ['csharp'],
+      additionalLanguages: ['csharp', 'bash', 'docker'],
     },
     algolia: {
       // The appID and API Key are public and safe to commit
