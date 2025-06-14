@@ -2,12 +2,12 @@
 layout: docs
 title: Ownership + Lifetime Flags
 ---
-# Server Authority + Ownership + Lifetime Flags
-At some point, every multiplayer application requires the server to act as an authority on the state of a room. You may have objects that only specific users can access, a physics state that you would like to enforce, or data that should be reset when a user disconnects from a room.
+# Ownership + Lifetime Flags
+Every multiplayer application requires the server to act as an authoritative source for a room’s state. You may have objects that only specific users can access, a physics state that you would like to enforce, or data that should be reset when a user disconnects from a room.
 
-Traditionally this is done by writing custom, server-side logic that needs to be deployed alongside the server. However, this slows iteration time significantly and requires you to redeploy your server with each update. Normcore instead provides an API that makes the most common server-authoritative operations possible without deploying a custom server.
+This can be done by writing [custom server-side logic](../normcore-private/server-plugins.md) that needs to be deployed alongside the server. However, this significantly slows iteration time and requires you to redeploy your server with each update. Normcore provides an API that makes the most common server-authoritative operations possible without deploying a custom server or server plugin.
 
-The two most useful tools regarding server authority are ownership and lifetime flags. Ownership lets you control who has the ability to modify a model, and lifetime flags tell the server when a model should be automatically deleted and when it should persist between sessions.
+Two key tools are ownership and lifetime flags. Ownership lets you control who can modify a model, and lifetime flags tell the server when to delete a model automatically and when to persist it between sessions.
 
 ## Ownership
 

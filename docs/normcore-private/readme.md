@@ -9,7 +9,7 @@ Normcore Private is a private copy of Normcore's hosting infrastructure designed
 With Normcore Private, you can:
 * Run Normcore yourself
 * Tweak scaling settings
-* Run authoritative game servers
+* Run authoritative game servers and server plugins
 * Get metrics about usage (Want to charge users when they are on your app? Track usage with the Normcore Private metrics API.)
 * Use the Webhooks API to authenticate users before they can join a room
 * Host Normcore yourself to ensure complete control over your data
