@@ -14,7 +14,7 @@ This guide is also available as a video if you'd prefer to watch instead:
 <video width="100%" controls><source src={videoGuide} /></video>
 
 ## Overview
-In this gude, we're going to use EasySync to synchronize the color the Hoverbird player from our [Creating a player controller](../creating-a-player-controller.md) guide.
+In this gude, we're going to use EasySync to synchronize the color the Hoverbird player from our [Creating a player controller](./creating-a-player-controller.md) guide.
 
 To start, let's open up the "Hoverbird Player" sample scene, program in our app key, and make sure everything is working correctly.
 
