@@ -123,6 +123,7 @@ const sidebars: SidebarsConfig = {
         'room/collections',
         'room/ownership-and-lifetime-flags',
         'room/room-server-options',
+        'room/disconnect-events',
         'room/offline-mode',
         'room/common-questions',
       ]
