@@ -37,6 +37,7 @@ const sidebars: SidebarsConfig = {
       label: 'Guides',
       collapsible: false,
       items: [
+        'guides/easysync',
         'guides/creating-a-player-controller',
         'guides/synchronizing-custom-data',
         'guides/upgrading-from-normcore-1-to-normcore-2',
@@ -96,6 +97,7 @@ const sidebars: SidebarsConfig = {
         'realtime/realtimeview',
         'realtime/realtimecomponent',
         'realtime/realtimetransform',
+        'realtime/realtimeanimator',
         'realtime/networked-physics',
         'realtime/prefab-pooling',
         'realtime/common-questions',

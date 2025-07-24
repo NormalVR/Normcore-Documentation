@@ -13,6 +13,8 @@ import changeCubeColor         from './synchronizing-custom-data/change-cube-col
 
 [Realtime components](../realtime/realtimecomponent.md) synchronize state between the Unity scene and a model in the Normcore datastore.
 
+TODO: Add a banner about checking out EasySync first!!
+
 ## Creating a realtime component
 
 For this example, we're going to make a realtime component that synchronizes the color of an object. We'll need to create two scripts, one for the component and one for the model. We’ll call these `ColorSync.cs` and `ColorSyncModel.cs` respectively.
