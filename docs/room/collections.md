@@ -28,4 +28,6 @@ RealtimeSet is the collection used by Realtime to represent instantiated prefabs
 
 RealtimeArray is generally used for operations such as drawing brush strokes, where a series of models need to be added in order.
 
-*Tip: If you need a sorted collection that supports random removal, we generally recommend using either RealtimeDictionary with the key as the item index, or a RealtimeSet of models that can be sorted deterministically on all clients when the contents change.*
+:::tip
+If you need a sorted collection that supports random removal, we generally recommend using either RealtimeDictionary with the key as the item index, or a RealtimeSet of models that can be sorted deterministically on all clients when the contents change. It can also be worth looking at StringKeyDictionary depending on your use case.
+:::
