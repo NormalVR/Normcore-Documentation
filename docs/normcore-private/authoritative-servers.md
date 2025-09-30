@@ -11,4 +11,4 @@ A custom authoritative server works just like any other Unity client in the room
 
 This allows you as a developer to prototype an authoritative game server by running a build locally. Once you're ready to deploy, you can export a headless Linux build and deploy it to your Normcore Private cluster.
 
-To learn more about creating authoriative servers and server plugins, see the [Server Plugins](./server-plugins.md) page.
+To learn more about creating authoritative servers and server plugins, see the [Server Plugins](./server-plugins.md) page.
