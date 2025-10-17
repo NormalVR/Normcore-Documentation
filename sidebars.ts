@@ -127,6 +127,7 @@ const sidebars: SidebarsConfig = {
         'room/room-server-options',
         'room/disconnect-events',
         'room/offline-mode',
+        'room/connection-statistics',
         'room/common-questions',
       ]
     },
