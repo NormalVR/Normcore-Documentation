@@ -98,6 +98,7 @@ const sidebars: SidebarsConfig = {
         'realtime/realtimecomponent',
         'realtime/realtimetransform',
         'realtime/realtimeanimator',
+        'realtime/autoreconnect',
         'realtime/networked-physics',
         'realtime/prefab-pooling',
         'realtime/common-questions',
