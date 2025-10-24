@@ -100,6 +100,10 @@ float receiveRate      = s.channel.receiveRate;      // Bytes per second over th
 float jitter = s.channel.receiveJitter;
 ```
 
+:::note
+Connection values update once every second, while channel values are updated continuously.
+:::
+
 ## Display Connection Statistics
 
 The code snippet below outlines how to use the Connection Statistics API to display the current user's stats in-game:
