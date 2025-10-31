@@ -7,39 +7,26 @@ import videoGuide from './network-profiler/profile-unoptimized.mp4'
 
 # Using EasySync
 
-EasySync is a component that allows you to sync objects in your Unity scene without writing any code. EasySync can synchronize public fields and properties, and when you need to drop down to code, it can be converted to a custom C# script for more advanced use cases.
-
-## Video
-This guide is also available as a video if you'd prefer to watch instead:
-<video width="100%" controls><source src={videoGuide} /></video>
+EasySync is a component that allows you to sync objects in your Unity scene without writing any code. EasySync can synchronize public fields and properties, and when you need to drop down to code, it can be converted in-place to a custom C# [RealtimeComponent](./synchronizing-custom-data.md) subclass that you can customize for more advanced use cases.
 
 ## Overview
-In this gude, we're going to use EasySync to synchronize the color the Hoverbird player from our [Creating a player controller](./creating-a-player-controller.md) guide.
+In this gude, we're going to use EasySync to synchronize the color of the Hoverbird player from our [Creating a player controller](./creating-a-player-controller.md) guide.
 
-To start, let's open up the "Hoverbird Player" sample scene, program in our app key, and make sure everything is working correctly.
-
-<video width="100%" controls><source src={videoGuide} /></video>
-
-Now we're going to add EasySync to the "birdMesh" game object within the Hoverbird Player prefab:
+Open up the "Realtime + Hoverbird Player" scene (or the URP variant if you're on Unity 6+ using URP), locate the "Hoverbird Player" prefab and open it up, and let's add the EasySync component to the "birdMesh" game object:
 
 <video width="100%" controls><source src={videoGuide} /></video>
 
-You'll notice as soon as EasySync is added, we get a list of the public fields and properties that we can synchronize. Let's go ahead and select the Albedo color property of the Bird and Bird Belly materials on the MeshRenderer component:
+You'll notice as soon as EasySync is added, we get a list of the public fields and properties that we can synchronize. If we open up the **Bird** material we can find the new Normcore section and check the box for "Base Color".
 
 <video width="100%" controls><source src={videoGuide} /></video>
 
 Technically, that's all we need to do. Let's test this out, we're going to run the example using [Multiplayer Play Mode](https://google.com).
-TODO: Fix the multiplayer play mode link.
 
-Both instances will connect to the same room, and we can see a hoverbird player for each instance. Let's use the inspector to change the colors of one of the players. You'll notice the color updates immediately in the other instance.
-
-TODO: add note about requiring ownership for interpolation to work.
-
-Once thing you may notice is that the color updates are not smooth. This is because Normcore synchronizes updates at 20Hz by default. Rather than increasing the send rate, we can enable interpolation on the EasySync component:
+Both instances will connect to the same room and we can see a hoverbird player for each instance. Let's use the inspector to change the colors of of the local player (Make sure the RealtimeView shows that it's owned by the local client). You'll notice the color updates immediately in the other instance:
 
 <video width="100%" controls><source src={videoGuide} /></video>
 
-Now let's re-enter play mode and try this out:
+One thing you may notice is that the color updates are not smooth. This is because Normcore synchronizes updates at 20Hz by default. Rather than increasing the send rate, we can enable interpolation on the EasySync component to smooth out these updates:
 
 <video width="100%" controls><source src={videoGuide} /></video>
 
@@ -57,9 +44,11 @@ This will create a new script with the same synchronization functionality as our
 
 <video width="100%" controls><source src={videoGuide} /></video>
 
-TODO: Stop saying, that's all there is to it.
+This script functions the exact same way as if you had written a RealtimeComponent and RealtimeModel subclass by hand.
 
 And that's all there is to it. We believe EasySync will greatly improve how fast you can synchronize objects in your multiplayer game. And for the more advanced use cases, it can save you time by automatically generating the code needed for your RealtimeComponents.
+
+TODO: Stop saying, that's all there is to it.
 
 ## What can by synchronized
 TODO: Clean up the language around fields vs properties and make sure it's accurate.
@@ -82,5 +71,5 @@ TODO:
 
 
 
-
+TODO: There are tons of spelling and grammar issues. Make sure to fix!!
 
