@@ -42,6 +42,7 @@ const sidebars: SidebarsConfig = {
         'guides/synchronizing-custom-data',
         'guides/upgrading-from-normcore-1-to-normcore-2',
         'guides/network-profiler',
+        'guides/testing-multiplayer-locally',
         {
           type: 'category',
           label: 'Recipes',
