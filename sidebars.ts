@@ -40,9 +40,9 @@ const sidebars: SidebarsConfig = {
         'guides/easy-sync',
         'guides/creating-a-player-controller',
         'guides/synchronizing-custom-data',
-        'guides/upgrading-from-normcore-1-to-normcore-2',
         'guides/network-profiler',
         'guides/testing-multiplayer-locally',
+        'guides/upgrading-normcore',
         {
           type: 'category',
           label: 'Recipes',
@@ -72,7 +72,7 @@ const sidebars: SidebarsConfig = {
             'guides/meta/meta-avatars-setup',
             'guides/meta/meta-avatars-customization'
           ],
-        }
+        },
       ]
     },
     {
