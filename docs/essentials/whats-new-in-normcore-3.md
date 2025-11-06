@@ -1,0 +1,69 @@
+---
+layout: docs
+title: What's new in Normcore 3
+---
+import datastore from './why-normcore/datastore.mp4'
+import fastTransport from './why-normcore/fast-transport.mp4'
+import deltaUpdates from './why-normcore/delta-updates.mp4'
+import intelligentSerialization from './why-normcore/intelligent-serialization.mp4'
+import secureTransport from './why-normcore/secure-transport.mp4'
+import highQualityAudioVideo from './why-normcore/high-quality-audio-video.mp4'
+import serverScaling from './why-normcore/server-scaling.mp4'
+import serverPlacement from './why-normcore/server-placement.mp4'
+import networkedPhysics from './why-normcore/networked-physics.mp4'
+
+# Normcore 3
+Normcore has hosted over 100,000,000+ games and we're on track to hit 1,000,000,000. We couldn't be more proud of the titles everyone has created using our product.
+
+Normcore 3 marks the newest release of our industry-leading multiplayer networking plugin. You can now synchronize your scenes without writing any code, automatically scale up to 100+ players in VR with voice chat, automatically matchmake players to available rooms, and more! Best of all, if you're already using Normcore, you can upgrade without having to change any code in your project. Simply update to the latest version and you can immediately start taking advantage of these new features!
+
+This page outlines in detail some of the new features that we're really excited about with Normcore 3
+
+## Large-scale Rooms
+<video width="75%" autoPlay playsInline loop muted><source src={datastore} /></video>
+
+Normcore 3 includes a brand new packet transport system. Still built on the rock solid WebRTC protocol, Normcore 3 can now scale to 100+ VR players in a single room without reducing the send rate of any objects. And with our upcoming interest management API, you'll be able to push this even further. However, if you want 100 players to exist in the same space, you can do that trivially with Normcore.
+
+## Easy Sync
+<video width="75%" autoPlay playsInline loop muted><source src={fastTransport} /></video>
+
+Easy Sync is our new no-code feature that lets you synchronize any component in Unity without writing any code. Add an Easy Sync component to your prefab, and Normcore will show a checkbox on every component that allows you to synchronize those properties. And when you're ready to dive into code, Easy Sync can be converted to a RealtimeComponent and RealtimeModel in two clicks!
+
+We think Easy Sync is going to be the perfect tool for prototyping, design, and improving the workflow for things like cosmetics. Now your artsts can create cosmetics and network them without leaving the Unity Editor.
+
+## RealtimeAnimator
+<video width="75%" autoPlay playsInline loop muted><source src={deltaUpdates} /></video>
+
+Normcore now ships a component that automatically synchronizes the state of a Unity Animator component. It supports traditional timeline animations, biped animations (TODO: what's the actual Unity term?), and it works with triggers without requiring you to rewrite your code.
+
+RealtimeAnimator is the most robust animator synchronization component on the market. We think it's results are flawless and joins RealtimeTransform by outperforming every other solution on the market.
+
+## Quickmatch
+<video width="75%" autoPlay playsInline loop muted><source src={intelligentSerialization} /></video>
+
+Quickmatch allows you to create social games that automatically match players with the next available room that has capacity. Create your own shard groups (TODO: Is this the correct term still? I'd like to call it something else.) and automatically join the next available room. And the best part, you don't need to integrate a complex matchmaking API, simply change your `realtime.Connect()` call to a `realtime.QuickmatchConnect()` call and Normcore will automatically connect you to the next available room for that quickmatch group.
+
+We've seen an explosion of social games VR games and "friendslop" games on our platform (TODO: Better name than friendslop). And we now provide our own [GorillaTemplate](https://github.com/NormalVR/GorillaTemplate) for quickly making these titles in VR. We think this API is going to allow developers to prototype and launch social titles even more quickly.
+
+## Connection Statistics
+<video width="75%" autoPlay playsInline loop muted><source src={secureTransport} /></video>
+
+Normcore 3 includes a new [Connection Statistics](../room/connection-statistics.md) API. This API can be used to measure ping, jitter, bandwidth, and more in real-time. This API can be used at runtime for matchmaking, to determine if clients have a poor connection, debug connection issues in the field, or report connection stats to analytics.
+
+## Autoreconnect
+<video width="75%" autoPlay playsInline loop muted><source src={highQualityAudioVideo} /></video>
+
+We now bundle an Autoreconnect component that can be used to automatically reconnect to a multiplayer room if a player gets disconnected. This component is great for reconnecting after a device goes to sleep. Autoreconnect is intelligent enough to know what types of network errors warrant a reconnect, and it will automatically perform exponential backoff to prevent your application from getting rate limited.
+
+It comes with a full-featured UI component that can be replaced entirely or customized to fit the look and feel of your game.
+
+## Realtime Reference
+<video width="75%" autoPlay playsInline loop muted><source src={serverScaling} /></video>
+
+Normcore 3 now allows you to store references to other RealtimeView and RealtimeComponents directly in your models. These references are synchronized over the network and allow you to make modular components that can work together.
+
+
+We can't wait to see what you all build with Normcore 3! If you want to try it out, [Sign Up](https://normcore.io/register) and if you're already a Normcore customer, update Normcore in the UPM package manager to take advantage of the new features today!
+
+TODO: Move this to the marketing site instead?
+TODO: Make a bigger call to action (Ideally a big sign-up button / log-in button like we do on the homepage)

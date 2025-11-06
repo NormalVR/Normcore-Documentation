@@ -20,6 +20,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'essentials/what-is-normcore',
         'essentials/why-normcore',
+        'essentials/whats-new-in-normcore-3',
         'essentials/getting-started',
         'essentials/common-questions',
       ],
