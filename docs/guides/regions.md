@@ -28,7 +28,7 @@ Normcore provides a set of high-level regions designed to make sense when displa
 
 ## Requesting available regions
 
-Use `Realtime.GetRegionsList()` to fetch a list of available server regions along with latency measurements:
+Use `Realtime.GetRegionsListAsync()` to fetch a list of available server regions along with latency measurements:
 
 ```csharp
 using UnityEngine;
@@ -39,7 +39,7 @@ public class RegionsExample : MonoBehaviour {
 
     private async void Start() {
         // Send the GetRegionsList request and measure ping to each region.
-        var response = await _realtime.GetRegionsList();
+        var response = await _realtime.GetRegionsListAsync();
 
         // Normcore will provide the local client's public IP and GeoIP location for matchmaking.
         var client = response.client;
@@ -90,7 +90,7 @@ public class RegionsExample : MonoBehaviour {
 
     private async void Start() {
         // Send the GetRegionsList request and measure ping to each region.
-        var response = await _realtime.GetRegionsList();
+        var response = await _realtime.GetRegionsListAsync();
 
         // Normcore will provide the local client's public IP and GeoIP location for matchmaking.
         var client = response.client;
