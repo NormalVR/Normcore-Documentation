@@ -43,6 +43,7 @@ const sidebars: SidebarsConfig = {
         'guides/synchronizing-custom-data',
         'guides/network-profiler',
         'guides/testing-multiplayer-locally',
+        'guides/regions',
         'guides/upgrading-normcore',
         {
           type: 'category',
