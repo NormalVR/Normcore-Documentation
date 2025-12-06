@@ -58,21 +58,21 @@ The response structure looks like this:
 ```csharp
 GetRegionsListResponse {
     ClientMetadata client {
-        string   address             // Client's public IP address
-        Location location {          // Client's approximate location
+        string   address        // Client's public IP address
+        Location location {     // Client's approximate location
             float latitude
             float longitude
         }
     }
-    RegionMetadata[] regions {       // Sorted by ping, lowest first
-        string   name                // Region identifier (e.g., "us-east")
-        string   displayName         // User-friendly name (e.g., "US East")
-        string   address             // IP address for pinging
-        Location location {          // Datacenter coordinates
+    RegionMetadata[] regions {  // Sorted by ping, lowest first
+        string   name           // Region identifier (e.g., "us-east")
+        string   displayName    // User-friendly name (e.g., "US East")
+        string   address        // IP address for pinging
+        Location location {     // Datacenter coordinates
             float latitude
             float longitude
         }
-        float?   ping                // Latency in ms, or null if unavailable
+        float?   ping           // Latency in ms, or null if unavailable
     }
 }
 ```
