@@ -41,9 +41,10 @@ const sidebars: SidebarsConfig = {
         'guides/easy-sync',
         'guides/creating-a-player-controller',
         'guides/synchronizing-custom-data',
+        'guides/quickmatch',
+        'guides/regions',
         'guides/network-profiler',
         'guides/testing-multiplayer-locally',
-        'guides/regions',
         'guides/upgrading-normcore',
         {
           type: 'category',
