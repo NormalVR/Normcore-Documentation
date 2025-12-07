@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Normcore Documentation',
+  title: 'Normcore',
   tagline: 'Seamless multiplayer for Unity.',
   favicon: '/favicon.ico',
 
@@ -41,7 +41,20 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/NormalVR/Normcore-Documentation/tree/main/',
-          routeBasePath: '/' // Serve docs from the root
+          routeBasePath: '/', // Serve docs from the root
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: 'Normcore 3',
+              badge: false,
+            },
+            '2': {
+              label: 'Normcore 2',
+              path: 'legacy/normcore-2',
+              banner: 'none',
+              badge: true,
+            }
+          },
         },
         blog: false,
         theme: {
@@ -55,6 +68,10 @@ const config: Config = {
     navbar: {
       title: 'Normcore.',
       items: [
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+        },
         {
           type: 'search',
           position: 'right',
