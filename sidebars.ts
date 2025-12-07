@@ -105,6 +105,7 @@ const sidebars: SidebarsConfig = {
         'realtime/autoreconnect',
         'realtime/networked-physics',
         'realtime/prefab-pooling',
+        'realtime/realtimeref',
         'realtime/common-questions',
         {
           type: 'category',
