@@ -2,11 +2,13 @@
 layout: docs
 title: Quickmatch
 ---
+import quickmatchOverview from './quickmatch/quickmatch-overview.mp4'
+
 # Quickmatch
 
-Quickmatch lets you automatically connect players to the next available room. Quickmatch scans available rooms and if all rooms are full, it creates a new one.
+<video width="100%" autoPlay playsInline loop muted><source src={quickmatchOverview} /></video>
 
-// TODO: It would be sweet to have some kind of diagram or image here.
+Quickmatch lets you automatically connect players to the next available room. Quickmatch scans available rooms and if all rooms are full, it creates a new one.
 
 ## How it works
 
@@ -19,7 +21,6 @@ Quickmatch prioritizes filling rooms to capacity before creating new ones. When 
 ## Join Room On Start
 
 ![](./quickmatch/quickmatch-inspector.png)
-// TODO: REPLACE IMAGE!
 
 The Realtime component's "Join Room On Start" setting now includes a **Next Available Room (Quickmatch)** mode:
 
