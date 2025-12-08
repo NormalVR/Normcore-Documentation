@@ -2,22 +2,24 @@
 layout: docs
 title: AutoReconnect
 ---
+import autoReconnectGuide from './assets/autoreconnect-guide.mp4'
+
 # AutoReconnect
 
-![](./assets/autoreconnect-placeholder1.png)
+![](./assets/autoreconnect-ui.png)
 
 **AutoReconnect** automatically reconnects to the last room after network disruptions like a device going to sleep. It provides events for building reconnect UI and implements exponential backoff with jitter to prevent your application from being rate-limited.
 
-Normcore includes an optional Reconnect UI prefab (pictured above) that integrates with AutoReconnect.
+Normcore includes an optional AutoReconnect UI prefab (pictured above) that integrates with AutoReconnect.
 
 ### Usage
 Add the **AutoReconnect** component next to the **Realtime** component that you would like it to operate on. It will automatically connect to Realtime and reconnect for you.
 
-![](./assets/autoreconnect-placeholder2.png)
+![](./assets/autoreconnect-component.png)
 
 Most developers will want to display a dialog to users allowing them to cancel the reconnect or to reconnect instantly without waiting for the delay. Normcore includes a Reconnect UI prefab that integrates the AutoReconnect API as a UPM Sample.
 
-![](./assets/autoreconnect-placeholder2.png)
+<video width="100%" controls><source src={autoReconnectGuide} /></video>
 
 Once imported, drag a reference to AutoReconnect into the AutoReconnectUI's AutoReconnect slot. If you hit Play and disconnect from wifi, you'll see that the dialog is displayed automatically, allowing the user to reconnect immediately or cancel the reconnect operation.
 
