@@ -7,8 +7,7 @@ Normcore automatically selects the optimal region for the first client that conn
 
 ## Available Regions
 
-// TODO: REPLACE THIS IMAGE!!!
-![](./regions/regions-map.jpg)
+![](./regions/regions-map.png)
 
 Normcore provides a set of high-level regions designed to make sense when displayed to users. Each region is backed by multiple datacenters across multiple cloud providers for redundancy.
 
