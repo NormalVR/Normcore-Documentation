@@ -43,6 +43,10 @@ By default, Normcore synchronizes model properties at 20 Hz (see [Datastore](../
 
 It's worth noting that when Interpolation is enabled, a small interpolation delay will be introduced in order to allow enough data to be received to smoothly interpolate between values.
 
+:::note
+Enabling interpolation on boolean properties adds the same interpolation delay as other interpolated properties.
+:::
+
 ## Convert to code
 EasySync can easily be converted to a [RealtimeComponent](./synchronizing-custom-data.md) script. Open the context menu on EasySync and select "Convert to RealtimeComponent". This will create RealtimeComponent and RealtimeModel scripts that synchronize the same properties and replace this instance of EasySync.
 
