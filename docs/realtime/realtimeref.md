@@ -14,7 +14,7 @@ In your RealtimeModel, declare a property with a **RealtimeView** or **RealtimeC
 
 ```csharp
 [RealtimeModel]
-public partial class TargetingModel {
+public partial class RealtimeRefExampleModel {
     [RealtimeProperty(1, true, true)]
     private RealtimeView _target;
 }
@@ -45,7 +45,7 @@ public class RealtimeRefExample : RealtimeComponent<RealtimeRefExampleModel> {
         set => model.target = value;
     }
 
-    protected override void OnRealtimeModelReplaced(TargetingModel previousModel, TargetingModel currentModel) {
+    protected override void OnRealtimeModelReplaced(RealtimeRefExampleModel previousModel, RealtimeRefExampleModel currentModel) {
         if (previousModel != null) {
             previousModel.targetDidChange -= OnTargetChanged;
         }
@@ -55,7 +55,7 @@ public class RealtimeRefExample : RealtimeComponent<RealtimeRefExampleModel> {
         }
     }
 
-    private void OnTargetChanged(TargetingModel model, RealtimeView value) {
+    private void OnTargetChanged(RealtimeRefExampleModel model, RealtimeView value) {
         Debug.Log($"Target changed to: {value}");
     }
 }
