@@ -3,7 +3,7 @@ layout: docs
 title: EasySync
 ---
 import easySyncHeader from './easy-sync/easy-sync-overview.mp4'
-import walkthrough from './easy-sync/walkthrough.mp4'
+import usingEasySync from './easy-sync/using-easy-sync.mp4'
 import convertToRealtimeComponent from './easy-sync/convert-to-realtimecomponent.mp4'
 
 # EasySync
@@ -14,11 +14,11 @@ EasySync is a component that allows you to sync objects in your Unity scene with
 
 EasySync can synchronize public fields and properties, and when you need to drop down to code, it can be converted in-place to a custom C# [RealtimeComponent](./synchronizing-custom-data.md) subclass that you can customize for more advanced use cases.
 
-## Walkthrough
+## Using EasySync
 
-For this guide, we'll synchronize the color of the player from the [Creating a player controller](./creating-a-player-controller.md) guide:
+As a quick example, we'll synchronize the color of the player from the [Creating a player controller](./creating-a-player-controller.md) guide:
 
-<video width="100%" controls><source src={walkthrough} /></video>
+<video width="100%" controls><source src={usingEasySync} /></video>
 
 1. Open up the "Realtime + Hoverbird Player" scene (or the URP variant if using Unity 6+)
 2. Open the "Hoverbird Player" prefab and locate the "birdMesh" game object.
