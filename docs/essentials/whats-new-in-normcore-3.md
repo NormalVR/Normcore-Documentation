@@ -19,12 +19,12 @@ This page outlines in detail some of the new features that we're really excited 
 
 Normcore 3 includes a brand new packet transport system. Still built on the rock solid WebRTC protocol, Normcore 3 can now scale to [100+ VR players](../room/room-server-options.md) in a single room without reducing the send rate of any objects. And with our upcoming interest management API, you'll be able to push this even further. However, if you want 100 players to exist in the same space, you can do that trivially with Normcore.
 
-## Easy Sync
+## EasySync
 <video width="100%" autoPlay playsInline loop muted><source src={easySync} /></video>
 
-[Easy Sync](../guides/easy-sync.md) is our new no-code feature that lets you synchronize any component in Unity without writing any code. Add an Easy Sync component to your prefab, and Normcore will show a checkbox on every component that allows you to synchronize those properties. And when you're ready to dive into code, Easy Sync can be converted to a RealtimeComponent and RealtimeModel in two clicks!
+[EasySync](../guides/easy-sync.md) is our new no-code feature that lets you synchronize any component in Unity without writing any code. Add an EasySync component to your prefab, and Normcore will show a checkbox on every component that allows you to synchronize those properties. And when you're ready to dive into code, EasySync can be converted to a RealtimeComponent and RealtimeModel in two clicks!
 
-We think Easy Sync is going to be the perfect tool for prototyping, design, and improving the workflow for things like cosmetics. Now your artsts can create cosmetics and network them without leaving the Unity Editor.
+We think EasySync is going to be the perfect tool for prototyping, design, and improving the workflow for things like cosmetics. Now your artsts can create cosmetics and network them without leaving the Unity Editor.
 
 ## RealtimeAnimator
 <video width="100%" autoPlay playsInline loop muted><source src={realtimeAnimator} /></video>

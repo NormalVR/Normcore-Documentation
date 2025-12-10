@@ -55,7 +55,7 @@ EasySync can easily be converted to a [RealtimeComponent](./synchronizing-custom
 This script functions the exact same way as if you had written a RealtimeComponent and RealtimeModel subclass by hand.
 
 ## Supported types
-EasySync supports Public fields and properties of Components on the game object. Public and internal component types are supported with the exception of Component types living in precompiled DLLs, where only public fields or properties are supported.
+EasySync supports public fields and properties of components on the same game object. Public and internal component types are supported, however, if a component resides in a precompiled DLL, it needs to be public and EasySync can only synchronize the public fields and properties on it.
 
 EasySync supports the following types out of the box. If you have a custom type that you would like to synchronize with EasySync, Normcore supports writing a custom type serializer that will allow it to be used by EasySync.
 - Primitive types: `bool`, `byte`, `sbyte`, `ushort`, `short`, `uint`, `int`, `ulong`, `long`, `float`, `double`.
