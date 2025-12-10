@@ -138,7 +138,7 @@ We recommend providing Normcore with a list of preferred regions in case your fi
 Unity WebGL does not support pinging regions. We recommend using the provided GeoIP location of each client and region to measure physical distance as a fallback when ping is unavailable. 
 :::
 
-## Reading the region of your current room
+## Reading the region of the connected room
 
 To check which region you're connected to, use the `region` field:
 
