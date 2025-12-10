@@ -29,16 +29,16 @@ We think EasySync is going to be the perfect tool for prototyping, design, and i
 ## RealtimeAnimator
 <video width="100%" autoPlay playsInline loop muted><source src={realtimeAnimator} /></video>
 
-Normcore now ships a component that automatically synchronizes the state of a Unity Animator component. It supports traditional timeline animations, biped animations (TODO: what's the actual Unity term?), and it works with triggers without requiring you to rewrite your code.
+Normcore now ships a component that automatically synchronizes the state of a Unity Animator component. It supports traditional timeline animations, humanoid animations, and it works with triggers without requiring you to rewrite your code.
 
 [RealtimeAnimator](../realtime/realtimeanimator.md) is the most robust animator synchronization component on the market. We think it's results are flawless and joins RealtimeTransform by outperforming every other solution on the market.
 
 ## Quickmatch
 <video width="100%" autoPlay playsInline loop muted><source src={quickmatch} /></video>
 
-[Quickmatch](../guides/quickmatch.md) allows you to create social games that automatically match players with the next available room that has capacity. Create your own shard groups (TODO: Is this the correct term still? I'd like to call it something else.) and automatically join the next available room. And the best part, you don't need to integrate a complex matchmaking API, simply change your `realtime.Connect()` call to a `realtime.QuickmatchConnect()` call and Normcore will automatically connect you to the next available room for that quickmatch group.
+[Quickmatch](../guides/quickmatch.md) allows you to create social games that automatically match players with the next available room that has capacity. Create your own room groups and automatically join the next available room. And the best part, you don't need to integrate a complex matchmaking API, simply change your `realtime.Connect()` call to a `realtime.QuickmatchConnect()` call and Normcore will automatically connect you to the next available room for that quickmatch group.
 
-We've seen an explosion of social games VR games and "friendslop" games on our platform (TODO: Better name than friendslop). And we now provide our own [GorillaTemplate](https://github.com/NormalVR/GorillaTemplate) for quickly making these titles in VR. We think this API is going to allow developers to prototype and launch social titles even more quickly.
+With the explosion of social multiplyer games like Among Us, Lethal Company, Content Warning, Chained Together, Peak, and Gorilla Tag, we've seen many titles in this genre start using Normcore. We think this API is going to allow developers to prototype and launch social titles even more quickly. We now provide our own [GorillaTemplate](https://github.com/NormalVR/GorillaTemplate) for quickly making titles like this in VR.
 
 ## Preferred Regions
 ![](./whats-new-in-normcore-3/preferred-regions.png)
