@@ -20,6 +20,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'essentials/what-is-normcore',
         'essentials/why-normcore',
+        'essentials/whats-new-in-normcore-3',
         'essentials/getting-started',
         'essentials/common-questions',
       ],
@@ -37,10 +38,14 @@ const sidebars: SidebarsConfig = {
       label: 'Guides',
       collapsible: false,
       items: [
+        'guides/easy-sync',
         'guides/creating-a-player-controller',
         'guides/synchronizing-custom-data',
-        'guides/upgrading-from-normcore-1-to-normcore-2',
+        'guides/quickmatch',
+        'guides/regions',
         'guides/network-profiler',
+        'guides/testing-multiplayer-locally',
+        'guides/upgrading-normcore',
         {
           type: 'category',
           label: 'Recipes',
@@ -70,7 +75,7 @@ const sidebars: SidebarsConfig = {
             'guides/meta/meta-avatars-setup',
             'guides/meta/meta-avatars-customization'
           ],
-        }
+        },
       ]
     },
     {
@@ -96,8 +101,11 @@ const sidebars: SidebarsConfig = {
         'realtime/realtimeview',
         'realtime/realtimecomponent',
         'realtime/realtimetransform',
+        'realtime/realtimeanimator',
+        'realtime/autoreconnect',
         'realtime/networked-physics',
         'realtime/prefab-pooling',
+        'realtime/realtimeref',
         'realtime/common-questions',
         {
           type: 'category',
@@ -125,6 +133,7 @@ const sidebars: SidebarsConfig = {
         'room/room-server-options',
         'room/disconnect-events',
         'room/offline-mode',
+        'room/connection-statistics',
         'room/common-questions',
       ]
     },

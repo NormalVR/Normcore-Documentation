@@ -3,7 +3,12 @@ layout: docs
 title: Synchronizing Custom Data
 ---
 # Synchronizing Custom Data
-In this guide, I’m going to walk you through how to synchronize custom data in your Unity application using custom [realtime components](../realtime/realtimecomponent.md).
+
+:::tip
+We recommend folks that are new to Normcore try out [EasySync](./easy-sync.md). It's a much easier way to synchronize custom data and can always be converted to a RealtimeComponent with one click.
+:::
+
+In this guide, we'll walk you through how to synchronize custom data in your Unity application using custom [realtime components](../realtime/realtimecomponent.md).
 
 ## RealtimeComponents
 import createCubeWithColorSync from './synchronizing-custom-data/create-cube-with-colorsync.mp4'

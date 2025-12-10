@@ -3,18 +3,13 @@ title: Room Server Options
 ---
 # Room Server Options
 
-:::warning
-This API is currently in private beta. If you would like to try it out, shoot us an email to help@normalvr.com with info about your project.
-:::
-
-
-Normcore v2.8.0 introduced the Room Server Options API. This API enables the ability to configure various server-side options, including things like the allocation of CPU and memory resources.
+This API enables the ability to configure various server-side options, including things like the allocation of CPU and memory resources.
 
 ## Using room server options on connect
 
-When you connect to a room server using either `Connect()` on **Realtime** or **Room**, you can pass an optional `ConnectOptions` struct, This struct supports an optional `RoomServerOptions` struct.
+When you connect to a room server using either `Connect()` on **Realtime** or **Room**, you can pass an optional `ConnectOptions` struct, this struct supports an optional `RoomServerOptions` struct.
 
-For example, if we wanted to connect to a room server with more capacity, we can switch from the default **Small-Flexible** size to a **Medium** instance like so:
+For example, if we wanted to connect to a room server with more capacity, we can switch from the default **Small** size to a **Medium** instance like so:
 
 ```csharp
 class ConnectionManager {
@@ -42,37 +37,35 @@ Normcore dynamically provisions room servers on-demand. When a player initiates 
 
 The room server options `configuration` variable allows you to pick a configuration for your room server. The main purpose of this setting is to provide different size room servers, but on Normcore Private, this can be used to configure different authoritative servers, sidecar versions, etc. Just about any setting can be put into a named configuration for clients to select.
 
-**Normcore Public** provides the following room server configuration settings: **default**, **small**, **medium**, **large**, and **X Large**:
+**Normcore Public** provides the following room server configuration settings: **Small**, **Medium**, **Large**, **X Large**, and **2X Large**:
 
 | Name                     | Configuration Key | CPU Capacity | Memory        | Room Hours Multiplier |
 |--------------------------|-------------------|--------------|---------------|-----------------------|
-| Default (Small-Flexible) | default           | 0.5x-2.5x    | 100MB - 250MB | 1x                    |
-| Small                    | small             | 1.0x         | 100MB         | 1x                    |
+| Small (Default)          | default           | 1.0x         | 250MB         | 1x                    |
 | Medium                   | medium            | 5.0x         | 500MB         | 5x                    |
 | Large                    | large             | 10.0x        | 1GB           | 10x                   |
 | X Large                  | xlarge            | 20.0x        | 2GB           | 20x                   |
-
-In the **Default** configuration, we ensure a baseline capacity of 0.5x that of a **Small** room server, with the ability to burst up to 2.5x this capacity if resources are available. While the default configuration provides flexibility, it's essential to note that the additional capacity is not guaranteed. For optimal and consistent performance across all room servers, we strongly advise utilizing a non-default configuration for the launch of your title, reserving the default configuration primarily for development purposes.
+| 2X Large                 | 2xlarge           | 40.0x        | 4GB           | 40x                   |
 
 **Room hours multiplayer:** Larger rooms consume more cloud compute resources, so their billing is scaled by a room hours multiplier. For example, a Large room server, which reserves 10x the CPU of a Small server, will consume room hours at 10x the rate.
 
 ### How many players can I fit in a single room?
-Normcore regularly hosts rooms of 4 - 250 players. The headcount per room will vary based on how much bandwidth your application uses. For instance, VR applications typically use 5-10 times more bandwidth than a typical FPS or racing game.
+Normcore regularly hosts rooms of 4 - 250+ players. The headcount per room will vary based on how much bandwidth your application uses. For instance, VR applications typically use 5-10 times more bandwidth than a typical console FPS title.
 
 However, when using Normcore Public, we generally see the following performance among existing Normcore applications for each room server configuration:
 
-|                       | Default (Small-Flexible)          | Small           | Medium           | Large             | X Large           |
-|-----------------------|-----------------------------------|-----------------|------------------|-------------------|-------------------|
-| Console Title         | 30 Players (Burst up to 80)       | 50 Players      | 120 Players      | 160 Players       | 260 Players       |
-| Spectators            | 500 Spectators (Burst up to 2500) | 1000 Spectators | 5,000 Spectators | 10,000 Spectators | 20,000 Spectators |
-| VR Title              | 8 Players (Burst up to 32)        | 16 Players      | 40 Players       | 64 Players        | 100 Players       |
-| VR Title + Voice Chat | 4 Players (Burst up to 16)        | 8 Players       | 20 Players       | 32 Players        | 50 Players        |
+|                       | Small (Default) | Medium           | Large             | X Large           | 2X Large          |
+|-----------------------|-----------------|------------------|-------------------|-------------------|-------------------|
+| Console Title         | 40 Players      | 100 Players      | 200 Players       | 280 Players       | 400 Players       |
+| Spectators            | 100 Spectators  | 500 Spectators   | 1,000 Spectators  | 2,000 Spectators  | 4,000 Spectators  |
+| VR Title              | 12 Players      | 30 Players       | 60 Players        | 84 Players        | 120 Players       |
+| VR Title + Voice Chat | 8 Players       | 20 Players       | 40 Players        | 56 Players        | 80 Players        |
 
 :::note
 Spectators build here refers to a build where spectators do not send any data. Typically the number of data streams for any multiplayer game scales **O(n<sup>2</sup>)**. However, when data is only flowing from a single player to a set of spectators, it scales linearly, allowing far more spectators in the same room server.
 :::
 
-For extreme cases—such as MMORPGs, or VR apps with 50+ players—there are still options: you can split large spaces across multiple Normcore [rooms](../architecture/client.md#rooms), or you can use [Normcore Private](https://normcore.io/normcore-private), which supports even larger room servers.
+For extreme cases—such as MMORPGs, or VR apps with 150+ players—there are still options: you can split large spaces across multiple Normcore [rooms](../architecture/client.md#rooms), or you can use [Normcore Private](https://normcore.io/normcore-private), which supports even larger room servers.
 
 
 ### How room servers scale

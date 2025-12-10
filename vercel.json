@@ -14,6 +14,7 @@
     { "source": "/reference/webgl",                                             "destination": "/platforms/webgl",                              "permanent": true },
     { "source": "/normcore-private/cloud-architecture",                         "destination": "/architecture/cloud",                           "permanent": true },
     { "source": "/architecture/why-normcore",                                   "destination": "/essentials/why-normcore",                      "permanent": true },
+    { "source": "/guides/upgrading-from-normcore-1-to-normcore-2",              "destination": "/guides/upgrading-normcore",                    "permanent": true },
     {
       "source": "/downloads/Normcore%20Addressables%20Recipe.zip",
       "destination": "https://github.com/NormalVR/Normcore-Samples/releases/latest/download/Normcore-Addressables-Recipe.zip",
