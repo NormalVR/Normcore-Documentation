@@ -50,17 +50,16 @@ The room server options `configuration` variable allows you to pick a configurat
 **Room hours multiplayer:** Larger rooms consume more cloud compute resources, so their billing is scaled by a room hours multiplier. For example, a Large room server, which reserves 10x the CPU of a Small server, will consume room hours at 10x the rate.
 
 ### How many players can I fit in a single room?
-Normcore regularly hosts rooms of 4 - 250 players. The headcount per room will vary based on how much bandwidth your application uses. For instance, VR applications typically use 5-10 times more bandwidth than a typical FPS or racing game.
+Normcore regularly hosts rooms of 4 - 250+ players. The headcount per room will vary based on how much bandwidth your application uses. For instance, VR applications typically use 5-10 times more bandwidth than a typical console FPS title.
 
 However, when using Normcore Public, we generally see the following performance among existing Normcore applications for each room server configuration:
 
-// TODO: THESE STATS NEED TO BE UPDATED BASED ON LATEST MEASUREMENTS!!!
 |                       | Small (Default) | Medium           | Large             | X Large           | 2X Large          |
 |-----------------------|-----------------|------------------|-------------------|-------------------|-------------------|
-| Console Title         | 50 Players      | 120 Players      | 160 Players       | 260 Players       | 400 Players       |
-| Spectators            | 100 Spectators  | 5,00 Spectators  | 1,000 Spectators  | 2,000 Spectators  | 4,000 Spectators  |
-| VR Title              | 16 Players      | 32 Players       | 64 Players        | 100 Players       | 200 Players       |
-| VR Title + Voice Chat | 8 Players       | 16 Players       | 32 Players        | 50 Players        | 100 Players       |
+| Console Title         | 40 Players      | 100 Players      | 200 Players       | 280 Players       | 400 Players       |
+| Spectators            | 100 Spectators  | 500 Spectators   | 1,000 Spectators  | 2,000 Spectators  | 4,000 Spectators  |
+| VR Title              | 12 Players      | 30 Players       | 60 Players        | 84 Players        | 120 Players       |
+| VR Title + Voice Chat | 8 Players       | 20 Players       | 40 Players        | 56 Players        | 80 Players        |
 
 :::note
 Spectators build here refers to a build where spectators do not send any data. Typically the number of data streams for any multiplayer game scales **O(n<sup>2</sup>)**. However, when data is only flowing from a single player to a set of spectators, it scales linearly, allowing far more spectators in the same room server.

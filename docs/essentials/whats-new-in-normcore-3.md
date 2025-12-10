@@ -10,7 +10,7 @@ import quickmatch from './whats-new-in-normcore-3/quickmatch.mp4'
 # Normcore 3
 Normcore has hosted over 100,000,000+ games and we're on track to hit 1,000,000,000. We couldn't be more proud of the titles everyone has created using our product.
 
-Normcore 3 marks the newest release of our industry-leading multiplayer networking plugin. You can now synchronize your scenes without writing any code, automatically scale up to 100+ players in VR with voice chat, automatically matchmake players to available rooms, and more! Best of all, if you're already using Normcore, you can upgrade without having to change any code in your project. Simply update to the latest version and you can immediately start taking advantage of these new features!
+Normcore 3 marks the newest release of our industry-leading multiplayer networking plugin. You can now synchronize your scenes without writing any code, automatically scale up to 100+ players in VR or console, automatically matchmake players to available rooms, and more! Best of all, if you're already using Normcore, you can upgrade without having to change any code in your project. Simply update to the latest version and you can immediately start taking advantage of these new features!
 
 This page outlines in detail some of the new features that we're really excited about with Normcore 3
 
