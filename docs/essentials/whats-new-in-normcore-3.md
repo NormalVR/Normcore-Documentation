@@ -8,7 +8,7 @@ import realtimeAnimator from './whats-new-in-normcore-3/realtime-animator.mp4'
 import quickmatch from './whats-new-in-normcore-3/quickmatch.mp4'
 
 # Normcore 3
-Normcore has hosted over 100,000,000+ games and we're on track to hit 1,000,000,000. We couldn't be more proud of the titles everyone has created using our product.
+Normcore has hosted over 1,000,000,000+ games. We couldn't be more proud of the titles everyone has created using our product.
 
 Normcore 3 marks the newest release of our industry-leading multiplayer networking plugin. You can now synchronize your scenes without writing any code, automatically scale up to 100+ players in VR or console, automatically matchmake players to available rooms, and more! Best of all, if you're already using Normcore, you can upgrade without having to change any code in your project. Simply update to the latest version and you can immediately start taking advantage of these new features!
 
@@ -17,7 +17,7 @@ This page outlines in detail some of the new features that we're really excited 
 ## Large-scale Rooms
 <video width="100%" autoPlay playsInline loop muted><source src={largeScaleRooms} /></video>
 
-Normcore 3 includes a brand new packet transport system. Still built on the rock solid WebRTC protocol, Normcore 3 can now scale to [100+ VR players](../room/room-server-options.md) in a single room without reducing the send rate of any objects. And with our upcoming interest management API, you'll be able to push this even further. However, if you want 100 players to exist in the same space, you can do that trivially with Normcore.
+Normcore 3 includes a brand new packet transport system. Still built on the rock solid WebRTC protocol, Normcore 3 servers can now scale to [100+ players](../room/room-server-options.md) in a single room without reducing the send rate of any objects. And with our upcoming interest management API, you'll be able to push this even further.
 
 ## EasySync
 <video width="100%" autoPlay playsInline loop muted><source src={easySync} /></video>

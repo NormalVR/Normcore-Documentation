@@ -36,7 +36,7 @@ The model compiler generates three members for each reference property:
 
 - **`target`**: The resolved view or component. Returns `null` if the reference is unassigned or unresolved.
 - **`targetDidChange`**: An event that fires when the resolved value changes.
-- **`targetRef`**: A `RealtimeRef<T>` with state information and more detailed change events.
+- **`targetRef`**: An `IRealtimeRef<T>` with state information and more detailed change events.
 
 ```csharp
 public class RealtimeRefExample : RealtimeComponent<RealtimeRefExampleModel> {
@@ -73,8 +73,7 @@ The `Unresolved` state handles timing issues that occur when a reference is set 
 
 ## Change events
 
-// TODO: Outline all of the change events / public properties on the RealtimeRef&lt;T&gt; object.
+The `IRealtimeRef` object provides two change events that can give you more precise control over references:
 
-## Cleanup
-
-When a referenced object is destroyed, the reference automatically transitions to `Unresolved` (TODO: Is this what we landed on?). The `didChange` event fires with the new state, allowing you to react appropriately. For example, you might clear UI elements or release resources associated with the reference.
+- **`didChange`**: Fires whenever the state or value changes. Use this when you need to know when a reference becomes resolved or unresolved.
+- **`valueDidChange`**: Fires only when the resolved value changes. Use this like a traditional change event when you only care about the actual object reference changing.
