@@ -2,7 +2,7 @@
 layout: docs
 title: What's new in Normcore 3
 ---
-import datastore from './why-normcore/datastore.mp4'
+import largeScaleRooms from './whats-new-in-normcore-3/large-scale-rooms.mp4'
 import easySync from './whats-new-in-normcore-3/easy-sync.mp4'
 import realtimeAnimator from './whats-new-in-normcore-3/realtime-animator.mp4'
 import quickmatch from './whats-new-in-normcore-3/quickmatch.mp4'
@@ -15,7 +15,7 @@ Normcore 3 marks the newest release of our industry-leading multiplayer networki
 This page outlines in detail some of the new features that we're really excited about with Normcore 3
 
 ## Large-scale Rooms
-<video width="100%" autoPlay playsInline loop muted><source src={datastore} /></video>
+<video width="100%" autoPlay playsInline loop muted><source src={largeScaleRooms} /></video>
 
 Normcore 3 includes a brand new packet transport system. Still built on the rock solid WebRTC protocol, Normcore 3 can now scale to [100+ VR players](../room/room-server-options.md) in a single room without reducing the send rate of any objects. And with our upcoming interest management API, you'll be able to push this even further. However, if you want 100 players to exist in the same space, you can do that trivially with Normcore.
 
