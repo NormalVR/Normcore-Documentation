@@ -5,6 +5,10 @@ sidebar_label: Home
 
 ![](./readme/normcore-logo-header.png)
 
+<span class="banner-homepage">
+[![](./readme/normcore-3-banner.jpg)](./essentials/whats-new-in-normcore-3)
+</span>
+
 Normcore is a complete networking solution for Unity. It's easy to use and scales to millions of users.
 
 If you're new to Normcore, we recommend starting with the [Getting Started](./essentials/getting-started.md) guide. It's a great place to get familiar with setting up Normcore in a fresh project.

@@ -337,6 +337,10 @@ body {
   display: none;
 }
 
+.navbar__item {
+  font-size: .875rem;
+}
+
 .download_button {
   border: 1px solid #f1f1f1;
   border-radius: 100px;
@@ -646,4 +650,9 @@ nav.menu {
 
 .docusaurus-mermaid-container {
   margin-bottom: 20px;
+}
+
+.banner-homepage  a {
+  text-decoration: none;
+  border-bottom: none;
 }
