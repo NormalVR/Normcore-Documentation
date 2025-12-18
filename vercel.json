@@ -8,6 +8,7 @@
     { "source": "/realtime/synchronizing-custom-data",                          "destination": "/guides/synchronizing-custom-data",             "permanent": true },
     { "source": "/core-concepts/server-authority-ownership-and-lifetime-flags", "destination": "/room/ownership-and-lifetime-flags",            "permanent": true },
     { "source": "/core-concepts/networked-physics",                             "destination": "/realtime/networked-physics",                   "permanent": true },
+    { "source": "/guides/adding-vr-ar-avatars",                                 "destination": "/guides/xr-avatars-and-voice-chat",             "permanent": true },
     { "source": "/xr-guides/xr-avatars-and-voice-chat",                         "destination": "/guides/xr-avatars-and-voice-chat",             "permanent": true },
     { "source": "/xr-guides/creating-a-multiplayer-drawing-app",                "destination": "/guides/creating-a-multiplayer-drawing-app",    "permanent": true },
     { "source": "/xr-guides/using-ar-as-a-spectator-view",                      "destination": "/guides/using-ar-as-a-spectator-view",          "permanent": true },
