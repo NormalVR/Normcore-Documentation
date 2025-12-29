@@ -61,7 +61,7 @@ public partial class ExplosionEventModel {
 
     // A RealtimeCallback method that fires whenever we read any values from the server for this model
     [RealtimeCallback(RealtimeModelEvent.OnDidReadModel)]
-    private void DidRead() {
+    private void DidRead(PropertyChangeSet changeSet) {
         if (eventDidFire != null && trigger != 0)
             eventDidFire(senderID, position, scale);
     }
