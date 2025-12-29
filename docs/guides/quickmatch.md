@@ -42,17 +42,12 @@ public class QuickmatchExample : MonoBehaviour {
     public void JoinSocialLobby() {
         // Join the next available room in the "lobby" room group.
         // If no room is available, create one with a capacity of 8 players.
-        var options = new Room.QuickmatchConnectOptions {
-            roomGroupName = "lobby",
-            capacity = 8,
-        };
-        
-        _realtime.ConnectToNextAvailableQuickmatchRoom(options);
+        _realtime.ConnectToNextAvailableQuickmatchRoom(roomGroupName: "lobby", capacity: 8);
     }
 }
 ```
 
-The `QuickmatchConnectOptions` struct has two required fields:
+The `ConnectToNextAvailableQuickmatchRoom` method has two required fields:
 
 - **`roomGroupName`**: The name of the room group. Must be 1-32 characters, start with a letter, and contain only letters, numbers, hyphens, and underscores.
 - **`capacity`**: The maximum number of players per room (1-500). Used when creating new rooms.
