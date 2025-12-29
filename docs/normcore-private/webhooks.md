@@ -16,6 +16,13 @@ In the future, this will be configurable using the Normcore Private Dashboard.
 ### On-Premises
 The webhook URL can be specified using the `webhook-url` property of `matcher-config.yaml`. The URL must use `https` and a valid certificate authority. If this URL is unreachable or does not have a valid certificate, all requests will be denied.
 
+## Actions
+Normcore sends webhook requests for the following actions:
+
+- **GetRegionsList**: Fired whenever a client requests a list of available regions.
+- **ConnectToNextAvailableQuickmatchRoom**: Called when a client requests connecting to the next available quickmatch room. The webhook can approve or deny the request before Normcore reserves space or spins up a fresh room. This action includes `roomGroupName` and `capacity` values.
+- **ConnectToRoom**: Called whenever a client attempts to connect to a room server. This action is also called after a `ConnectToNextAvailableQuickmatchRoom` request is approved and a room has been selected for the client.
+
 ## Request format
 When the matcher needs to authenticate one or more requests, it sends a POST request to the webhook endpoint. The request includes a JSON-serialized body with a map of requests to verify.
 
