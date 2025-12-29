@@ -12,11 +12,11 @@ Quickmatch lets you automatically connect players to the next available room. Qu
 
 ## How it works
 
-When a player connects using Quickmatch, Normcore finds the room with the most players that still has space available. If all rooms are full (or none exist), Normcore creates a new room.
+When a player connects using Quickmatch, **Normcore places them in a room with the most players that still has space available.** If all rooms are full (or none exist), Normcore creates a new room.
 
 Quickmatch uses a **room group** to organize rooms. A room group is a named collection of rooms, like "lobby" or "game-2v2". 
 
-Quickmatch prioritizes filling rooms to capacity before creating new ones. When multiple rooms have space, it joins the most recently created room. This ensures rooms fill up efficiently and older empty rooms cycle out after peak hours.
+Quickmatch prioritizes filling rooms to capacity before creating new ones. When multiple rooms have space, Quickmatch joins the room with the most players. If multiple rooms match, it picks the one that was created most recently. This means your players always encounter lobbies with as many players as possible, rooms fill up efficiently, and older empty rooms cycle out after peak hours.
 
 ## Join Room On Start
 
