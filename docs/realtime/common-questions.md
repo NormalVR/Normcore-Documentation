@@ -16,9 +16,7 @@ No. Scene RealtimeViews register with Realtime in `Start()`. If they are disable
 Instead, you can use a custom RealtimeComponent to enable/disable child game objects, scripts, or renderers directly.
 
 #### Is there a UUID that I can use to find a RealtimeView reference at runtime?
-No. RealtimeViews that are in the scene sometimes have a Scene View UUID, which is used to synchronize that same view when the scene is loaded on multiple clients, but Normcore doesn’t use UUIDs to synchronize views internally. 
-
-If you’d like to introduce this functionality, create a RealtimeComponent that assigns a UUID in `OnRealtimeModelReplaced()` when getting a fresh model. This will ensure that the component has a unique UUID and that existing models don’t have their UUIDs reassigned by new clients.
+Take a look at [RealtimeRef](./realtimeref.md), which allows you to store references to other RealtimeViews and RealtimeComponent subclasses directly in your models.
 
 #### Why do I get the error “This view doesn't have a model yet. Wait until the model is present before interacting with the ownership,” when interacting with RealtimeView? 
 
@@ -53,7 +51,7 @@ Instead, try storing data like health and scores in a `RealtimeDictionary` or a 
 RealtimeTransform cannot support reparenting. Take a look at the [RealtimeTransform](./realtimetransform.md#extra-notes) docs for more information.
 
 #### My RealtimeTransform gets stuck and I can't move it. What can I do about this?
-RealtimeTransform requires an owner in order to designate which client is responsible for its movement. Try calling `RequestOwnership()`; this should help. Take a look at the [RealtimeTransform](./realtimetransform.md) docs for more information.
+RealtimeTransform requires an owner in order to designate which client is responsible for its movement. Try calling `RequestOwnership()`. Take a look at the [RealtimeTransform](./realtimetransform.md) docs for more information.
 
 #### Why doesn’t my RealtimeTransform properly transfer ownership on collision?
 You most likely requested ownership of the transform and the view. You only need to request ownership of the transform. If you would like a RealtimeTransform to support ownership handoff, you need to ensure the view has no owner. See [Ownership and Lifetime Flags](../room/ownership-and-lifetime-flags.md) for more information.

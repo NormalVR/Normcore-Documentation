@@ -9,7 +9,7 @@ title: Common Questions
 Make sure your project has no compilation errors. If your project has any errors, any changes you make to the model will not be visible to the model editor.
 
 #### Sometimes, when I log the values on my model from inside of valueDidChange, not all the values that I set on another client update. When are updates sent out, and how are they applied?
-Normcore serializes all updates once per network frame (~20hz) and groups them into the same packet. When model updates are applied, they’re applied one at a time, and a change event fires for that value. However, it’s possible the other values from that packet hadn’t yet been applied. In order to get an event that fires once all updates have been applied to a model, use RealtimeCallback: 
+Normcore serializes all updates once per network frame (~20hz) and groups them into the same packet. All model updates that are made on the same frame will be serialized and sent in the same packet. This means you can be certain all updates will be received at the same time on remote clients.
 
 ## Datastore
 
