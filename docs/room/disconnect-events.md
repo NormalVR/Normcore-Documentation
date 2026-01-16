@@ -64,6 +64,12 @@ Here is a list of all DisconnectEvent subclasses, along with a brief description
 ### NativePluginVersionMismatch
 Occurs when the Normcore native plugin version doesn't match the Unity package version.
 
+### ClientServerVersionMismatch
+Occurs when the client's Normcore version is incompatible with the server version.
+
+- **clientVersion**: The version of the Normcore client SDK.
+- **serverVersion**: The version of the Normcore server the client attempted to connect to.
+
 ### RoomNameEmpty
 Triggered when attempting to connect to a room with an empty room name.
 
@@ -148,3 +154,46 @@ Occurs when a newer client connects to an older Normcore backend using the v1 er
 Triggered when an older client receives a new error type it doesn't recognize.
 
 - **errorCode**; A string containing the error code that was returned by the server.
+
+## Quickmatch Events
+
+These disconnect events are specific to [Quickmatch](../guides/quickmatch) connections.
+
+### QuickmatchRoomGroupNameEmpty
+Triggered when attempting to connect with an empty room group name.
+
+### QuickmatchRoomGroupNameInvalidLength
+Occurs when a room group name exceeds the valid length of 1-32 characters.
+
+- **length**: The length of the room group name supplied.
+
+### QuickmatchRoomGroupNameFormatInvalid
+Triggered when a room group name contains invalid characters. Room group names must start with a letter and contain only letters, numbers, hyphens, and underscores.
+
+- **reason**: A string containing the reason the room group name was rejected.
+
+### QuickmatchRoomCodeEmpty
+Triggered when attempting to connect with an empty room code.
+
+### QuickmatchRoomCodeInvalidLength
+Occurs when a room code has an invalid length.
+
+- **length**: The length of the room code supplied.
+
+### QuickmatchRoomCodeFormatInvalid
+Triggered when a room code has an invalid format.
+
+- **roomCode**: The room code that was rejected.
+
+### QuickmatchCapacityInvalid
+Occurs when the specified room capacity is outside the valid range of 1-500.
+
+- **capacity**: The capacity value that was rejected.
+
+### QuickmatchRoomNotFound
+Triggered when attempting to join a Quickmatch room that no longer exists. This can only occur when directly joining an existing room using `ConnectDirectlyToQuickmatchRoom()` or `Connect()` with a Quickmatch room name. It will not occur when using `ConnectToNextAvailableQuickmatchRoom()`.
+
+- **requestedRoomName**: The name of the room that was requested.
+
+### QuickmatchRoomFull
+Occurs when attempting to join a Quickmatch room that is already at maximum capacity.

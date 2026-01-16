@@ -52,13 +52,33 @@ The `ConnectToNextAvailableQuickmatchRoom` method has two required fields:
 - **`roomGroupName`**: The name of the room group. Must be 1-32 characters, start with a letter, and contain only letters, numbers, hyphens, and underscores.
 - **`capacity`**: The maximum number of players per room (1-500). Used when creating new rooms.
 
-### Direct Join
+### Join with Room Code
+
+Quickmatch rooms have a short room code that's easy to share with friends. You can use `ConnectDirectlyToQuickmatchRoom()` to join a room using its room code:
+
+```csharp
+// Player B joins directly using the room code shared by Player A
+_realtime.ConnectDirectlyToQuickmatchRoom(roomGroupName: "lobby", roomCode: "ABC123");
+```
+
+The `ConnectDirectlyToQuickmatchRoom` method has two required fields:
+
+- **`roomGroupName`**: The name of the room group. Must match the room group used when the room was created.
+- **`roomCode`**: The short room code to join. This is available via `Room.quickmatchRoomCode` after connecting.
+
+You can also pass `ConnectOptions` as an optional third parameter.
+
+:::note
+If all players have left the room and it has been cleaned up by the system, this method will result in a [`QuickmatchRoomNotFound`](../room/disconnect-events#quickmatchroomnotfound) disconnect event. See [Error Handling](#error-handling) for how to handle this case.
+:::
+
+### Join with Room Name
 
 Quickmatch rooms function as regular Normcore rooms. After connecting, the room name is available via `Realtime.roomName`. Players can share this name with friends, who can join directly using the standard `Connect()` method:
 
 ```csharp
 // Player A joins via Quickmatch
-_realtime.ConnectToNextAvailableQuickmatchRoom(options);
+_realtime.ConnectToNextAvailableQuickmatchRoom(roomGroupName: "lobby", capacity: 8);
 
 // Later, get the room name to share with friends
 string roomName = _realtime.roomName;
@@ -67,14 +87,72 @@ string roomName = _realtime.roomName;
 _realtime.Connect(roomName);
 ```
 
-As long as the room has capacity, anyone can join. However, if the room is full, or all players have left and the room no longer exists, you'll want to use the corresponding Quickmatch event to handle that edge case:
+As long as the room has capacity, anyone can join.
+
+:::note
+If all players have left the room and it has been cleaned up by the system, this method will result in a [`QuickmatchRoomNotFound`](../room/disconnect-events#quickmatchroomnotfound) disconnect event. See [Error Handling](#error-handling) for how to handle this case.
+:::
+
+### Room Properties
+
+After connecting to a Quickmatch room, you can access the room code and capacity via the `Room` object:
+
+```csharp
+_realtime.didConnectToRoom += (realtime) => {
+    // Get the room code to share with friends
+    string roomCode = realtime.room.quickmatchRoomCode;
+    Debug.Log($"Share this code with friends: {roomCode}");
+
+    // Get the room capacity
+    int capacity = realtime.room.quickmatchRoomCapacity;
+    Debug.Log($"Room capacity: {capacity}");
+};
+```
+
+- **`quickmatchRoomCode`**: A short, shareable code for the room. Players can use this code with `ConnectDirectlyToQuickmatchRoom()` to join.
+- **`quickmatchRoomCapacity`**: The maximum number of players allowed in the room.
+
+## Error Handling
+
+Quickmatch connections can fail for various reasons. You can handle these using [disconnect events](../room/disconnect-events#quickmatch-events):
 
 ```csharp
 _realtime.didDisconnectFromRoomWithEvent += (realtime, disconnectEvent) => {
-    if (disconnectEvent is QuickmatchRoomFull) {
-        Debug.Log("Quickmatch room is full.");
-    } else if (disconnectEvent is QuickmatchRoomNotFound) {
-        Debug.Log("Quickmatch room not found.");
+    switch (disconnectEvent) {
+        // Room availability errors
+        case QuickmatchRoomFull:
+            Debug.Log("Room is full. Try again or join a different room.");
+            break;
+        case QuickmatchRoomNotFound roomNotFound:
+            Debug.Log($"Room '{roomNotFound.requestedRoomName}' no longer exists.");
+            break;
+
+        // Room group name validation errors
+        case QuickmatchRoomGroupNameEmpty:
+            Debug.Log("Room group name cannot be empty.");
+            break;
+        case QuickmatchRoomGroupNameInvalidLength invalidLength:
+            Debug.Log($"Room group name length {invalidLength.length} is invalid. Must be 1-32 characters.");
+            break;
+        case QuickmatchRoomGroupNameFormatInvalid formatInvalid:
+            Debug.Log($"Room group name format invalid: {formatInvalid.reason}");
+            break;
+
+        // Room code validation errors
+        case QuickmatchRoomCodeEmpty:
+            Debug.Log("Room code cannot be empty.");
+            break;
+        case QuickmatchRoomCodeInvalidLength codeLength:
+            Debug.Log($"Room code length {codeLength.length} is invalid.");
+            break;
+        case QuickmatchRoomCodeFormatInvalid codeInvalid:
+            Debug.Log($"Room code '{codeInvalid.roomCode}' is invalid.");
+            break;
+
+        // Capacity validation error
+        case QuickmatchCapacityInvalid capacityInvalid:
+            Debug.Log($"Capacity {capacityInvalid.capacity} is invalid. Must be 1-500.");
+            break;
     }
 };
 ```
