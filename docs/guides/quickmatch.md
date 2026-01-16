@@ -99,18 +99,23 @@ After connecting to a Quickmatch room, you can access the room code and capacity
 
 ```csharp
 _realtime.didConnectToRoom += (realtime) => {
+    // Get the room group name
+    string roomGroupName = realtime.room.quickmatchRoomGroupName;
+    Debug.Log($"Room group: {roomGroupName}");
+
     // Get the room code to share with friends
     string roomCode = realtime.room.quickmatchRoomCode;
     Debug.Log($"Share this code with friends: {roomCode}");
 
     // Get the room capacity
-    int capacity = realtime.room.quickmatchRoomCapacity;
+    int? capacity = realtime.room.quickmatchRoomCapacity;
     Debug.Log($"Room capacity: {capacity}");
 };
 ```
 
-- **`quickmatchRoomCode`**: A short, shareable code for the room. Players can use this code with `ConnectDirectlyToQuickmatchRoom()` to join.
-- **`quickmatchRoomCapacity`**: The maximum number of players allowed in the room.
+- **`quickmatchRoomGroupName`**: The name of the room group this room belongs to. Null if not a Quickmatch room.
+- **`quickmatchRoomCode`**: A short, shareable code for the room. Players can use this code with `ConnectDirectlyToQuickmatchRoom()` to join. Null if not a Quickmatch room.
+- **`quickmatchRoomCapacity`**: The maximum number of players allowed in the room. Null if not a Quickmatch room.
 
 ## Error Handling
 

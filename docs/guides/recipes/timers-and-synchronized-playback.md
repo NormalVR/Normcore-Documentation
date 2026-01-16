@@ -10,9 +10,19 @@ A common need in Normcore is to synchronize a timeline across all clients for mu
 
 In Normcore, all clients are able to access a synchronized clock to drive animation. This clock is set to match the room server's clock exactly with no added latency.
 
-Once connected a room, the room time is available via the `realtime.room.time` property.
+Once connected a room, the room time is available via the `realtime.room.time` property. This returns the time as a `double` representing seconds since the Unix epoch.
 
-To demonstrate how to use it, let's put together a recipe for a stopwatch:
+For convenience, Normcore also provides `realtime.room.dateTime` (or `realtime.roomDateTime`) which returns the same synchronized time as a `DateTime?` object. This is useful for implementing features like day/night cycles:
+
+```csharp
+DateTime? roomTime = realtime.roomDateTime;
+if (roomTime.HasValue) {
+    int hour = roomTime.Value.Hour;
+    bool isNightTime = hour < 6 || hour >= 20;
+}
+```
+
+To demonstrate how to use room time, let's put together a recipe for a stopwatch:
 
 Start with a model to hold the room time when the watch was started. Put this in a file called **StopwatchModel.cs**:
 
