@@ -15,12 +15,16 @@ class_members:
     summary: True if the property has local changes.
 - name: Methods
   members:
+  - name: SetRedundantWritesEnabled
+    definition: void SetRedundantWritesEnabled(bool value)
   - name: WriteLength
     definition: int WriteLength(StreamContext context)
   - name: Write
     definition: bool Write(WriteStream stream, StreamContext context)
   - name: Read
     definition: bool Read(ReadStream stream, StreamContext context)
+  - name: ReadValue
+    definition: bool ReadValue(ReadStream stream, StreamContext context)
 
 ---
 import ReferencePage from '../_ReferencePage.mdx'

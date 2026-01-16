@@ -34,6 +34,8 @@ class_members:
     definition: SerializationException SuppliedBufferNotLargeEnough(int length, int maxLength)
   - name: MetaModelSuppliedMismatchedModelType
     definition: SerializationException MetaModelSuppliedMismatchedModelType(uint serverModelType, uint localModelType)
+  - name: WriteReliablePropertyOnUnreliableChannel
+    definition: SerializationException WriteReliablePropertyOnUnreliableChannel()
 
 ---
 import ReferencePage from '../_ReferencePage.mdx'

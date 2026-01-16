@@ -8,6 +8,12 @@ class_members:
   members:
   - name: Register
     definition: void Register(IInterpolator interpolator)
+  - name: HasInterpolator
+    definition: bool HasInterpolator(Type type)
+  - name: HasInterpolator
+    definition: bool HasInterpolator()
+  - name: GetInterpolator
+    definition: IInterpolator GetInterpolator(Type type)
   - name: GetInterpolator
     definition: IInterpolator<T> GetInterpolator()
 

@@ -28,8 +28,8 @@ class_members:
     definition: void BumpAutoDisconnectTime()
   - name: Type
     definition: ClientType Type()
-  - name: State
-    definition: ClientState State()
+  - name: GetStateEvent
+    definition: bool GetStateEvent(ClientStateEvent& clientStateEvent)
   - name: ClientID
     definition: int ClientID()
   - name: RoomTime
@@ -50,6 +50,8 @@ class_members:
     definition: bool SetProfilingEnabled(bool enabled)
   - name: TryGetProfilingSample
     definition: bool TryGetProfilingSample(ProfilingSample& profilingSample)
+  - name: GetConnectionStatistics
+    definition: ConnectionStatistics? GetConnectionStatistics(ChannelFlags channels)
 
 ---
 import ReferencePage from '../_ReferencePage.mdx'

@@ -16,8 +16,13 @@ class_members:
   - name: ownerIDDidChange
     definition: event OwnerIDDidChange ownerIDDidChange
     summary: Called when [Normal.Realtime.Serialization.MetaModel.ownerID](Normal.Realtime.Serialization.MetaModel#ownerid) has changed.
+  - name: reliableLengthShouldInvalidate
+    definition: event OnLengthShouldInvalidate reliableLengthShouldInvalidate
 - name: Properties
   members:
+  - name: isFreshModel
+    definition: bool isFreshModel { get; }
+    summary: True if this model was just locally created. This flag can be used to apply component settings or initial values to a newly instantiated model.
   - name: ownerID
     definition: int ownerID { get; set; }
     summary: The client ID of the model owner. A value of -1 is unowned, anything greater is a client ID.

@@ -51,7 +51,7 @@ class_members:
   - name: RemovePrefabRealtimeViewModel
     definition: bool RemovePrefabRealtimeViewModel(RealtimeViewModel model)
   - name: Deserialize
-    definition: void Deserialize(byte[] buffer)
+    definition: void Deserialize(byte[] buffer, StreamContext& context)
   - name: SerializeDeltaUpdates
     definition: void SerializeDeltaUpdates(bool reliable, uint updateID, double roomTime)
   - name: GetNextDeserializationContextID

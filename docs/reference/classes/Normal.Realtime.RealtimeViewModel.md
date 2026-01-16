@@ -8,8 +8,8 @@ class_members:
   members:
   - name: realtimeView
     definition: RealtimeView realtimeView { get; }
-  - name: sceneViewUUID
-    definition: string sceneViewUUID { get; }
+  - name: UUID
+    definition: string UUID { get; }
   - name: prefabName
     definition: string prefabName { get; }
   - name: componentsModel

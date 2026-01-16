@@ -10,6 +10,8 @@ class_members:
     definition: public StreamEventDispatcher dispatcher
   - name: inflightUpdateNotifier
     definition: public InflightUpdateNotifier inflightUpdateNotifier
+  - name: refManager
+    definition: public RealtimeRefManager refManager
   - name: fullModel
     definition: public bool fullModel
   - name: reliableChannel
@@ -22,6 +24,8 @@ class_members:
     definition: public double packetRoomTime
   - name: localID
     definition: public uint localID
+  - name: model
+    definition: public RealtimeModel model
 - name: Properties
   members:
   - name: deltaUpdatesOnly

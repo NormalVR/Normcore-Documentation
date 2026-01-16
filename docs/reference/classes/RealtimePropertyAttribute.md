@@ -8,8 +8,8 @@ class_members:
   members:
   - name: propertyID
     definition: public uint propertyID
-  - name: reliable
-    definition: public bool reliable
+  - name: propertyType
+    definition: public RealtimePropertyType propertyType
   - name: createDidChangeEvent
     definition: public bool createDidChangeEvent
   - name: didChangeEvent

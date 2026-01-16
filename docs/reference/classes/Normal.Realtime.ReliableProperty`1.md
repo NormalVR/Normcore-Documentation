@@ -9,8 +9,8 @@ class_members:
 - name: Events
   members:
   - name: onDidRevert
-    definition: event OnDidRevertDelegate<T> onDidRevert
-    summary: Called when an anticipated change was refused by the server, and the value has been reverted to the last value that was received from the server.
+    definition: event OnDidRevertDelegate onDidRevert
+    summary: Called when an anticipated change was rejected by the server, and the value has been reverted to the last value that was received from the server.
 - name: Properties
   members:
   - name: value

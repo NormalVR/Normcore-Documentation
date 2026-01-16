@@ -17,7 +17,9 @@ class_members:
 - name: Methods
   members:
   - name: GetEnumerator
-    definition: IEnumerator<KeyValuePair<uint, RealtimeModel>> GetEnumerator()
+    definition: Enumerator<KeyValuePair<uint, RealtimeModel>> GetEnumerator()
+    summary: Get an enumerator for the models in this collection.
+    returns: An enumerator for the models in this collection.
 
 ---
 import ReferencePage from '../_ReferencePage.mdx'

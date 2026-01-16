@@ -78,6 +78,30 @@ class_members:
     definition: int LengthPropertyHeader(PropertyHeader& header)
 - name: Methods
   members:
+  - name: SerializeModel
+    definition: void SerializeModel(IStreamWriter model, StreamContext context)
+  - name: WriteNull
+    definition: void WriteNull(uint propertyID)
+  - name: WriteVarint32
+    definition: void WriteVarint32(uint propertyID, uint value)
+  - name: WriteVarint64
+    definition: void WriteVarint64(uint propertyID, ulong value)
+  - name: WriteFloat
+    definition: void WriteFloat(uint propertyID, float value)
+  - name: WriteDouble
+    definition: void WriteDouble(uint propertyID, double value)
+  - name: WriteBytes
+    definition: void WriteBytes(uint propertyID, byte[] value)
+  - name: WriteBytes
+    definition: void WriteBytes(uint propertyID, byte[] value, int offset, int length)
+  - name: WriteString
+    definition: void WriteString(uint propertyID, string value)
+  - name: WriteModel
+    definition: void WriteModel(uint propertyID, IStreamWriter value, StreamContext context, bool forceWriteFullModel = false)
+  - name: WriteCollection
+    definition: void WriteCollection(uint propertyID, ICollection value, StreamContext context, bool forceWriteFullModel = false)
+  - name: WriteStructBool
+    definition: void WriteStructBool(bool value)
   - name: WriteStructByte
     definition: void WriteStructByte(byte value)
   - name: WriteStructSByte
@@ -104,30 +128,6 @@ class_members:
     definition: void WriteStructBytes(byte[] value)
   - name: WritePropertyHeader
     definition: void WritePropertyHeader(PropertyHeader& header)
-  - name: SerializeModel
-    definition: void SerializeModel(IStreamWriter model, StreamContext context)
-  - name: WriteNull
-    definition: void WriteNull(uint propertyID)
-  - name: WriteVarint32
-    definition: void WriteVarint32(uint propertyID, uint value)
-  - name: WriteVarint64
-    definition: void WriteVarint64(uint propertyID, ulong value)
-  - name: WriteFloat
-    definition: void WriteFloat(uint propertyID, float value)
-  - name: WriteDouble
-    definition: void WriteDouble(uint propertyID, double value)
-  - name: WriteBytes
-    definition: void WriteBytes(uint propertyID, byte[] value)
-  - name: WriteBytes
-    definition: void WriteBytes(uint propertyID, byte[] value, int offset, int length)
-  - name: WriteString
-    definition: void WriteString(uint propertyID, string value)
-  - name: WriteModel
-    definition: void WriteModel(uint propertyID, IStreamWriter value, StreamContext context, bool forceWriteFullModel = false)
-  - name: WriteCollection
-    definition: void WriteCollection(uint propertyID, ICollection value, StreamContext context, bool forceWriteFullModel = false)
-  - name: WriteStructBool
-    definition: void WriteStructBool(bool value)
 
 ---
 import ReferencePage from '../_ReferencePage.mdx'

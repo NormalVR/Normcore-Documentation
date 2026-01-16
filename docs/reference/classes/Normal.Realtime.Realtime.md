@@ -53,20 +53,15 @@ class_members:
   - name: didDisconnectFromRoom
     definition: event RealtimeEvent didDisconnectFromRoom
     summary: An event that is fired when Realtime is disconnected from a room.
+  - name: didDisconnectFromRoomWithEvent
+    definition: event RealtimeDisconnectEvent didDisconnectFromRoomWithEvent
+    summary: An event that is fired when Realtime is disconnected from a room. Provides detailed information about the disconnect.
 - name: Properties
   members:
-  - name: joinRoomOnStart
-    definition: bool joinRoomOnStart { get; }
-    summary: A boolean indicating whether Realtime will try to automatically connect on Start().
-    remarks: This setting can only be configured in the editor inspector. If you'd like to change this name at runtime, disable join room on start, and use the Connect() method on Realtime instead.
-  - name: roomToJoinOnStart
-    definition: string roomToJoinOnStart { get; }
-    summary: The name of the room to join on start if one was configured in the inspector.
-    remarks: This setting can only be configured in the editor inspector. If you'd like to change this name at runtime, disable join room on start, and use the Connect() method on Realtime instead.
-  - name: roomServerConfigurationToJoinOnStart
-    definition: string roomServerConfigurationToJoinOnStart { get; }
-    summary: The room server configuration to use when spinning up a fresh room if join room on start is enabled in the inspector.
-    remarks: This setting can only be configured in the editor inspector. If you'd like to change this name at runtime, disable join room on start, and use the Connect() method on Realtime instead along with a ConnectOptions struct.
+  - name: joinRoomOnStartOptions
+    definition: JoinRoomOnStartOptions joinRoomOnStartOptions { get; }
+    summary: The options that configure if and how [Normal.Realtime.Realtime](Normal.Realtime#realtime) will connect on Start().
+    remarks: These settings can only be configured in the editor inspector. If you'd like more control over joining rooms at runtime, disable "Join Room On Start" and use the or methods instead.
   - name: normcoreAppSettings
     definition: NormcoreAppSettings normcoreAppSettings { get; set; }
     summary: The app settings object reference used when Realtime connects. Changing this while the Realtime instance is connected will not have any effect until the next time it connects.
@@ -84,9 +79,17 @@ class_members:
   - name: clientID
     definition: int clientID { get; }
     summary: The local clientID of this Realtime instance.
+  - name: roomName
+    definition: string roomName { get; }
+    summary: The name of the room.
   - name: roomTime
     definition: double roomTime { get; }
-    summary: The server time on this frame in unix epoch time format. This value can be used to drive animations and is backed by a monotonic clock with sub-millisecond precision. This value has latency from the server removed.
+    summary: The server time on this frame in unix epoch time format (seconds since 00:00:00 UTC on January 1, 1970).
+    remarks: This value can be used to drive animations and is backed by a monotonic clock with sub-millisecond precision. This value has latency from the server removed.
+  - name: roomDateTime
+    definition: DateTime? roomDateTime { get; }
+    summary: The server date and time on this frame (UTC).
+    remarks: This value can be used to drive day/night cycles, for example. It is directly derived from . Will be null when the room is not yet in the state.
   - name: ping
     definition: float ping { get; }
     summary: The local client's last known ping with the server in milliseconds.
@@ -95,6 +98,8 @@ class_members:
     summary: The region metadata for the current room server.
 - name: Methods
   members:
+  - name: GetRegionsListAsync
+    definition: Task<GetRegionsListResponse> GetRegionsListAsync(GetRegionsListOptions options = null, CancellationToken cancellationToken = null)
   - name: Connect
     definition: void Connect(string roomName, RealtimeModel roomModel)
     summary: Connect to a room.
@@ -111,6 +116,10 @@ class_members:
       description: The name of the room to connect to. All clients that connect to the same room name will end up on the same room server. Names must be less than 512 characters long.
     - name: roomModel
       description: An optional RealtimeModel to use as the root model in the datastore.
+  - name: ConnectDirectlyToQuickmatchRoom
+    definition: void ConnectDirectlyToQuickmatchRoom(string roomGroupName, string roomCode, ConnectOptions connectOptions = null)
+  - name: ConnectToNextAvailableQuickmatchRoom
+    definition: void ConnectToNextAvailableQuickmatchRoom(string roomGroupName, int capacity, ConnectOptions connectOptions = null)
   - name: Disconnect
     definition: void Disconnect()
     summary: Disconnect from a room.

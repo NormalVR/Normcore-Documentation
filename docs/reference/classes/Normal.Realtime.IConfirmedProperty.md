@@ -4,6 +4,11 @@ layout: Reference
 category: API Reference
 class_name: IConfirmedProperty
 class_members:
+- name: Events
+  members:
+  - name: onDidRevert
+    definition: event OnDidRevertDelegate onDidRevert
+    summary: Called when an anticipated change was rejected by the server, and the value has been reverted to the last value that was received from the server.
 - name: Methods
   members:
   - name: Confirm
