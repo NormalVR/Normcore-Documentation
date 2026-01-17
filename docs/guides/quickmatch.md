@@ -69,7 +69,7 @@ The `ConnectDirectlyToQuickmatchRoom` method has two required fields:
 You can also pass `ConnectOptions` as an optional third parameter.
 
 :::note
-If all players have left the room and it has been cleaned up by the system, this method will result in a [`QuickmatchRoomNotFound`](../room/disconnect-events#quickmatchroomnotfound) disconnect event. See [Error Handling](#error-handling) for how to handle this case.
+This method can result in a [`QuickmatchRoomNotFound`](../room/disconnect-events#quickmatchroomnotfound) disconnect event if the room has been cleaned up, or a [`QuickmatchRoomFull`](../room/disconnect-events#quickmatchroomfull) event if the room is at capacity. See [Error Handling](#error-handling) for how to handle these cases.
 :::
 
 ### Join with Room Name
@@ -90,7 +90,7 @@ _realtime.Connect(roomName);
 As long as the room has capacity, anyone can join.
 
 :::note
-If all players have left the room and it has been cleaned up by the system, this method will result in a [`QuickmatchRoomNotFound`](../room/disconnect-events#quickmatchroomnotfound) disconnect event. See [Error Handling](#error-handling) for how to handle this case.
+This method can result in a [`QuickmatchRoomNotFound`](../room/disconnect-events#quickmatchroomnotfound) disconnect event if the room has been cleaned up, or a [`QuickmatchRoomFull`](../room/disconnect-events#quickmatchroomfull) event if the room is at capacity. See [Error Handling](#error-handling) for how to handle these cases.
 :::
 
 ### Room Properties
@@ -124,12 +124,14 @@ Quickmatch connections can fail for various reasons. You can handle these using 
 ```csharp
 _realtime.didDisconnectFromRoomWithEvent += (realtime, disconnectEvent) => {
     switch (disconnectEvent) {
-        // Room availability errors
+        // Room availability errors - join a different room
         case QuickmatchRoomFull:
-            Debug.Log("Room is full. Try again or join a different room.");
+            Debug.Log("Room is full. Joining a different room.");
+            _realtime.ConnectToNextAvailableQuickmatchRoom(roomGroupName: "lobby", capacity: 8);
             break;
         case QuickmatchRoomNotFound roomNotFound:
-            Debug.Log($"Room '{roomNotFound.requestedRoomName}' no longer exists.");
+            Debug.Log($"Room '{roomNotFound.requestedRoomName}' no longer exists. Joining a different room.");
+            _realtime.ConnectToNextAvailableQuickmatchRoom(roomGroupName: "lobby", capacity: 8);
             break;
 
         // Room group name validation errors
