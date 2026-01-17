@@ -5,7 +5,7 @@ title: Networked Physics
 import realtimeTransformSync from './networked-physics/realtime-transform-sync.mp4'
 
 # Networked Physics
-Unless you're casually perusing the docs, you're probably here because you put a [`RealtimeTransform`](./realtimetransform.md) component on something and it's not working the way you expect. Well, you're in luck. This page is designed to explain how `RealtimeTransform` works and some of the thinking necessary to get it to do what you want.
+If you're reading this, it's likely because you've added a [`RealtimeTransform`](./realtimetransform.md) component to something and it's not working the way you expect. This page explains how `RealtimeTransform` works and some of the thinking necessary to get it to do what you want.
 
 ## How physics works in Unity
 
@@ -62,7 +62,7 @@ The first change is that rather than synchronizing the `localPosition` and `loca
 
 Let's say you're holding a ball that has a Rigidbody and `RealtimeTransform` component on it. If you throw it, `RealtimeTransform` will automatically call `RequestOwnership()` when it collides with another object, as long as the other object has a Rigidbody and `RealtimeTransform` component on it, and it is not owned by anyone already. This will ensure that the collision works smoothly for local and remote players.
 
-This also means that `RealtimeTransform` will automatically call `ClearOwnership()` when the Rigidbody comes to rest in order to allow other clients to take it over and simulate it.
+`RealtimeTransform` automatically clears ownership when the Rigidbody comes to rest, allowing other clients to take over simulation.
 
 If you're trying to directly move an object, make sure to mark it kinematic. Doing so lets PhysX know that you're controlling its position and it should not simulate the object directly. It also tells `RealtimeTransform` that it should not clear ownership when the object goes to sleep.
 
