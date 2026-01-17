@@ -10,7 +10,7 @@ import realtimeTransformAndAnimator from './assets/realtime-transform-and-animat
 
 **RealtimeAnimator** is a built-in RealtimeComponent that synchronizes the built-in **Animator** component. It supports timeline animations, state machines (with triggers), and humanoid IK.
 
-Normcore is the only networking solution that supports triggers out of the box without any modifications to your code. Rather than having to update your code to run triggers through a proprietary `Network.SetTrigger()` API, Normcore is able to detect `Animator.SetTrigger()` calls directly without relying on watching for state changes that can be error prone.
+Normcore is the only networking solution that supports triggers out of the box without any modifications to your code. Rather than having to update your code to run triggers through a proprietary `Network.SetTrigger()` API, Normcore is able to detect `Animator.SetTrigger()` calls directly without relying on watching for state changes that can be error-prone.
 
 ### Usage
 1. Add a RealtimeAnimator component to any game object that has an **Animator** component and **RealtimeAnimator** will take care of the rest.

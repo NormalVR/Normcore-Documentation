@@ -15,7 +15,7 @@ When a realtime prefab is instantiated either by the local or remote client:
 1. If available instances exist in the pool: The oldest instance is enabled and reused.
 2. If the pool is empty: A new instance is created.
 
-When a realtime prefab is destroyed::
+When a realtime prefab is destroyed:
 1. The root GameObject is disabled instead of getting destroyed.
 2. The instance is returned to its pool for future reuse.
 

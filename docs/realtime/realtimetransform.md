@@ -62,7 +62,7 @@ Check out the [Networked Physics](./networked-physics.md) guide for more detaile
 :::
 
 ### Rigidbody2D
-Unity's built-in **Rigibody2D** component is also supported by RealtimeTransform out of the box. It is functionally identical to the RealtimeTransform with a regular 3D **Rigidbody** component.
+Unity's built-in **Rigidbody2D** component is also supported by RealtimeTransform out of the box. It is functionally identical to the RealtimeTransform with a regular 3D **Rigidbody** component.
 
 ## Extra notes
 

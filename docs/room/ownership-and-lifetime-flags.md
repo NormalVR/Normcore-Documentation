@@ -138,7 +138,7 @@ public void CreatePersistentObject() {
 }
 ```
 
-Overall, then, this is pretty simple! And the same applies to `RealtimeView` components in the scene. If you'd like their state to persist between sessions, just flip the "Destroy When Owner Or Last Client Leaves" option to false under Advanced Settings.
+The same applies to `RealtimeView` components in the scene. If you'd like their state to persist between sessions, set "Destroy When Last Client Leaves" to false under Advanced Settings.
 
 ### Destroy a prefab when a client disconnects
 
@@ -174,7 +174,6 @@ This example gets a reference to the `Realtime` component and registers for the 
 And that's it. No custom logic is needed to destroy the prefab; the server takes care of that for us and notifies the remaining clients.
 
 ## What is a meta-model?
-I am so glad you asked. We at Normal work hard on this stuff, and if we do our jobs perfectly, no one will even notice all of our effort. This isn't the coolest hidden gem of Normcore, but it is a neat implementation detail. (Yes, I am encouraging you to ask me more questions about how the internals of Normcore work if you ever see me on the street. There are a lot of cool details hidden in Normcore!)
 
 Models in Normcore store state, and as far as the server is concerned, it doesn't really matter what that state represents. The server just needs to ensure that the state is in sync with all other clients. However, there comes a time in every model's life when it has some state that the server does care about. Maybe it's instructions on how to add an item to a collection or on which client can make changes to a model. This is where the meta-model comes in.
 

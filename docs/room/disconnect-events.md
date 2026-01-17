@@ -153,7 +153,7 @@ Occurs when a newer client connects to an older Normcore backend using the v1 er
 ### UnknownMatcherError
 Triggered when an older client receives a new error type it doesn't recognize.
 
-- **errorCode**; A string containing the error code that was returned by the server.
+- **errorCode**: A string containing the error code that was returned by the server.
 
 ## Quickmatch Events
 

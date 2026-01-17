@@ -55,4 +55,3 @@ If you're ready to dive into more, check out some of our other guides on Normcor
 - [XR Avatars and Voice Chat](../guides/xr-avatars-and-voice-chat.md)
 - [Synchronizing Custom Data](../guides/synchronizing-custom-data.md)
 
-Until next time  :)

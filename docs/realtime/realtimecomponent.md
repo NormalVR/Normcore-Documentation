@@ -53,7 +53,7 @@ When you're ready to write your own realtime components, check out our [Synchron
 We recommend that the code that calls `Realtime.Instantiate()` is responsible for setting default values. However, if you would like to synchronize unique default values (such as the initial position of an object), you can set them inside of `OnRealtimeModelReplaced` like so:
 
 ```csharp
-void OnRealtimeModelReplaced(blah) {
+void OnRealtimeModelReplaced(ColorSyncModel previousModel) {
   if (currentModel != null) {
     if (currentModel.isFreshModel) {
       // Set initial values here

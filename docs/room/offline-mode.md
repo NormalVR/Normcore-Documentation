@@ -9,7 +9,7 @@ Normcore supports connecting to an offline room which can be useful for singlepl
 RealtimeComponents and other scripts that were developed for online Normcore use will continue to function in this mode with no additional changes. This allows content and scripts to be re-used across online and offline experiences.
 
 ## Using offline mode
-When using `Connect()` on **Realtime** or **Room**, you can pass an optional `ConnectOptions` struct, This struct supports an optional `offlineMode` boolean:
+When using `Connect()` on **Realtime** or **Room**, you can pass an optional `ConnectOptions` struct. This struct supports an optional `offlineMode` boolean:
 
 
 :::tip

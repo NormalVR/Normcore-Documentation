@@ -35,7 +35,7 @@ The three properties here are only applicable to the RealtimeViews that exist in
 
 “Owned by Creating Client”: This is a boolean that specifies whether Realtime should request ownership when this view is created. It can be useful for establishing a main client if needed.
 
-“Prevent Ownership Takeover”: At runtime, clients can call `RequestOwnership()` on the RealtimeView to take over ownership of the model. You can use this checkbox to prevent that. When checked, only models that have no owner can be taken over. This is a setting that you can change at runtime.
+“Prevent Ownership Takeover”: At runtime, clients can call `RequestOwnership()` on the RealtimeView to take over ownership of the model. You can use this checkbox to prevent ownership takeover. When checked, only models that have no owner can be taken over. This is a setting that you can change at runtime.
 
 “Destroy Last Client Leaves”: This is a boolean that specifies whether to destroy this RealtimeView when the last client leaves. If you have a RealtimeView that manages the state of your multiplayer game, such as whose turn it is and what level you’re on, you can choose to clear the view and its models from the datastore when the last client leaves. It will then be recreated by the first client to join in a new session.
 

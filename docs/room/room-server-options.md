@@ -47,7 +47,7 @@ The room server options `configuration` variable allows you to pick a configurat
 | X Large                  | xlarge            | 20.0x        | 2GB           | 20x                   |
 | 2X Large                 | 2xlarge           | 40.0x        | 4GB           | 40x                   |
 
-**Room hours multiplayer:** Larger rooms consume more cloud compute resources, so their billing is scaled by a room hours multiplier. For example, a Large room server, which reserves 10x the CPU of a Small server, will consume room hours at 10x the rate.
+**Room hours multiplier:** Larger rooms consume more cloud compute resources, so their billing is scaled by a room hours multiplier. For example, a Large room server, which reserves 10x the CPU of a Small server, will consume room hours at 10x the rate.
 
 ### How many players can I fit in a single room?
 Normcore regularly hosts rooms of 4 - 250+ players. The headcount per room will vary based on how much bandwidth your application uses. For instance, VR applications typically use 5-10 times more bandwidth than a typical console FPS title.
@@ -69,7 +69,7 @@ For extreme cases—such as MMORPGs, or VR apps with 150+ players—there are st
 
 
 ### How room servers scale
-A common misconception is that if you can host 20 concurrent users on a **Small** room server, if you upgrade to a **Medium** room server which has 5x the capacity, you'll be able to host 100 concurrent users. Typical game server traffic does not scale linearly, it scales **O(n<sup>2</sup>)** if all players are sending the same data.
+A common misconception is that if you can host 20 concurrent users on a **Small** room server and you upgrade to a **Medium** room server which has 5x the capacity, you'll be able to host 100 concurrent users. Typical game server traffic does not scale linearly, it scales **O(n<sup>2</sup>)** if all players are sending the same data.
 
 In a room with 2 players, the server manages 4 total streams: 2 incoming and 2 outgoing. For a room with 4 players, the number of streams increases to 16 (4 incoming, 12 outgoing). This scaling continues exponentially: a room with 8 players handles 64 streams. Following this pattern, a room accommodating 60 players would use 3600 streams.
 

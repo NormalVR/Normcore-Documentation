@@ -11,7 +11,7 @@ import profileOptimized   from './network-profiler/profile-optimized.mp4'
 
 This guide will show you how to use Normcore's network profiler tool to analyze bandwidth use in your application.
 
-Whether you're trying to reduce bandwidth use to improve performance or reduce your networking costs, the network profiler is a great way to see your bandwidth usage is in real-time.
+Whether you're trying to reduce bandwidth usage to improve performance or lower networking costs, the network profiler is a great way to see your bandwidth usage in real-time.
 
 
 ## Getting Started
