@@ -38,7 +38,10 @@ The next option marks whether the property should be synced reliably or unreliab
 Reliable properties are good for things that you update once and that should therefore be resent if the packet is dropped in transit. This is great for state updates, such as whether your game has started or not. When you change the value, Normcore ensures this value is received by all clients and applied to the datastore in order.
 
 ### Change event
-The last option is an optional argument that specifies whether you would like a change event added to the model. When this is set to true, a C# event that will fire when a property is changed locally or remotely is added to the model by the model compiler. This is a useful signal to update your scene to match the model.
+This is an optional argument that specifies whether you would like a change event added to the model. When this is set to true, a C# event that will fire when a property is changed locally or remotely is added to the model by the model compiler. This is a useful signal to update your scene to match the model.
+
+### Include Equality Check
+The last option is an optional argument that specifies whether you would like the change event to fire even if the property hasn't changed. By default no message is sent if you set the property to the same value it was before. e.g. Setting an int property from 1 to 1 would not fire a change event because it didn't change value but if you set this argument to false then it would send a change event.
 
 ## `[Interpolate]`
 By default, Normcore synchronizes model properties at 20 Hz (see [Datastore](../room/datastore.md#delta-updates)). For properties that are updated frequently, you can use the `[Interpolate]` attribute to smoothly animate the property:
