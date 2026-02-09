@@ -93,6 +93,10 @@ As long as the room has capacity, anyone can join.
 This method can result in a [`QuickmatchRoomNotFound`](../room/disconnect-events#quickmatchroomnotfound) disconnect event if the room has been cleaned up, or a [`QuickmatchRoomFull`](../room/disconnect-events#quickmatchroomfull) event if the room is at capacity. See [Error Handling](#error-handling) for how to handle these cases.
 :::
 
+:::note
+If you're using [Normcore Private webhooks](../normcore-private/webhooks), all quickmatch connection methods are verified by the webhook before a room slot is reserved. See the [webhooks documentation](../normcore-private/webhooks#quickmatch-webhook-behavior) for details.
+:::
+
 ### Room Properties
 
 After connecting to a Quickmatch room, you can access the room code and capacity via the `Room` object:
