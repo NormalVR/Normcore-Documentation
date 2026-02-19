@@ -95,6 +95,9 @@ Triggered when the local client explicitly calls disconnect.
 ### DeviceIdleTimeout
 Occurs when the client hasn't processed incoming packets for more than 60 seconds.
 
+### RoomInstanceChanged
+Occurs when the Room object instance on a Realtime component is replaced via `realtime.room = <newRoom>` without first disconnecting from the previous room.
+
 ### ConnectionFailedWithNetworkError
 Network failure error that occurs during an active connection.
 
