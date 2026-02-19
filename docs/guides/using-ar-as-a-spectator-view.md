@@ -5,7 +5,7 @@ description: This guide walks you through using mobile AR to spectate on XR appl
 ---
 import welcome                      from './using-ar-as-a-spectator-view/welcome.mp4'
 import addARFoundationAndARKit      from './using-ar-as-a-spectator-view/add-ar-foundation-and-arkit.mp4'
-import importNormcoreARUnitypackage from './using-ar-as-a-spectator-view/import-normcore-ar-unitypackage.mp4'
+import importNormcoreARSpectatorUPM from './using-ar-as-a-spectator-view/import-normcore-ar-spectator-upm.mp4'
 import copySceneDisableFloor        from './using-ar-as-a-spectator-view/copy-scene-disable-floor.mp4'
 import addARCameraRig               from './using-ar-as-a-spectator-view/add-ar-camera-rig.mp4'
 import connectCameraToAvatarManager from './using-ar-as-a-spectator-view/connect-camera-to-avatar-manager.mp4'
@@ -29,9 +29,9 @@ Awesome! Now that we’ve got that working, let’s get started on the mobile AR
 
 <video width="100%" title="Adding AR Foundation and ARKit via Package Manager." controls><source src={addARFoundationAndARKit} /></video> 
 
-Next, we’re going to import the [AR Spectator Example](</downloads/Normcore%20AR%20Spectator.unitypackage>) unitypackage from Normal, which includes a few utilities and the scene you’ll end up with at the end of this guide.
+Next, we’re going to import the AR Spectator Example via Package Manager, which includes a few utilities and the scene you’ll end up with at the end of this guide.
 
-<video width="100%" title="Importing the 'AR Foundation Example' Unity package." controls><source src={importNormcoreARUnitypackage} /></video> 
+<video width="100%" title="Importing the 'AR Spectator' UPM package." controls><source src={importNormcoreARSpectatorUPM} /></video>
 
 Perfect. Let’s save a copy of the Realtime + VR Player scene to use for our AR Spectator app. Here I’m going to call it “VR Player (AR Spectator)”.
 
