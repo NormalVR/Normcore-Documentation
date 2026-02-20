@@ -52,6 +52,8 @@ The `ConnectToNextAvailableQuickmatchRoom` method has two required fields:
 - **`roomGroupName`**: The name of the room group. Must be 1-32 characters, start with a letter, and contain only letters, numbers, hyphens, and underscores.
 - **`capacity`**: The maximum number of players per room (1-500). Used when creating new rooms.
 
+You can also pass `ConnectOptions` and `QuickmatchOptions` as optional parameters.
+
 ### Join with Room Code
 
 Quickmatch rooms have a short room code that's easy to share with friends. You can use `ConnectDirectlyToQuickmatchRoom()` to join a room using its room code:
@@ -66,10 +68,34 @@ The `ConnectDirectlyToQuickmatchRoom` method has two required fields:
 - **`roomGroupName`**: The name of the room group. Must match the room group used when the room was created.
 - **`roomCode`**: The short room code to join. This is available via `Room.quickmatchRoomCode` after connecting.
 
-You can also pass `ConnectOptions` as an optional third parameter.
+You can also pass `ConnectOptions` and `QuickmatchOptions` as optional parameters.
 
 :::note
 This method can result in a [`QuickmatchRoomNotFound`](../room/disconnect-events#quickmatchroomnotfound) disconnect event if the room has been cleaned up, or a [`QuickmatchRoomFull`](../room/disconnect-events#quickmatchroomfull) event if the room is at capacity. See [Error Handling](#error-handling) for how to handle these cases.
+:::
+
+### Excluding Rooms
+
+You can prevent players from being matched into specific rooms by passing a `QuickmatchOptions` struct with an `excludeRoomCodes` list. This is useful when a player has left a room and you don't want them to be placed back into the same room:
+
+```csharp
+// Player leaves a room — save the room code before disconnecting
+string previousRoomCode = _realtime.room.quickmatchRoomCode;
+_realtime.Disconnect();
+
+// Reconnect, excluding the previous room
+var quickmatchOptions = new Room.QuickmatchOptions {
+    excludeRoomCodes = new[] { previousRoomCode },
+};
+_realtime.ConnectToNextAvailableQuickmatchRoom(
+    roomGroupName: "lobby",
+    capacity: 8,
+    quickmatchOptions: quickmatchOptions
+);
+```
+
+:::note
+`excludeRoomCodes` only has an effect when using `ConnectToNextAvailableQuickmatchRoom()`. It is ignored when using `ConnectDirectlyToQuickmatchRoom()` or `Connect()`.
 :::
 
 ### Join with Room Name
