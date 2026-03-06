@@ -21,7 +21,16 @@ Normcore sends webhook requests for the following actions:
 
 - **GetRegionsList**: Fired whenever a client requests a list of available regions.
 - **ConnectToNextAvailableQuickmatchRoom**: Called when a client requests connecting to the next available quickmatch room. The webhook can approve or deny the request before Normcore reserves space or spins up a fresh room. This action includes `roomGroupName` and `capacity` values.
-- **ConnectToRoom**: Called whenever a client attempts to connect to a room server. This action is also called after a `ConnectToNextAvailableQuickmatchRoom` request is approved and a room has been selected for the client.
+- **ConnectDirectlyToQuickmatchRoom**: Called when a client connects to a specific quickmatch room, whether by room code or room name. The webhook can approve or deny the request before Normcore reserves a spot. This action includes `roomGroupName` and `roomCode` values.
+- **ConnectToRoom**: Called whenever a client attempts to connect to a room server. This action is also called after a quickmatch request is approved and a room has been selected for the client.
+
+### Quickmatch webhook behavior
+When a client connects to a quickmatch room, Normcore sends two webhook requests in sequence:
+
+1. A quickmatch-specific webhook (`ConnectToNextAvailableQuickmatchRoom` or `ConnectDirectlyToQuickmatchRoom`) — this fires first, before any room slot is reserved.
+2. A `ConnectToRoom` webhook — this fires after the quickmatch request is approved and a room has been assigned.
+
+If either webhook denies the request, the connection is rejected. This applies regardless of which API method the client used to connect — even if a client connects to a quickmatch room using `Connect()` with the room name, the quickmatch webhook fires first.
 
 ## Request format
 When the matcher needs to authenticate one or more requests, it sends a POST request to the webhook endpoint. The request includes a JSON-serialized body with a map of requests to verify.
@@ -38,6 +47,18 @@ An example request looks like this:
     "appKey": "f0b89d74-a4bb-4dc6-8bcb-0dc063c38e7c",
     "action": "ConnectToRoom",
     "roomName": "Mike's Room"
+  }
+}
+```
+
+A quickmatch webhook request includes the room group name and either the capacity or room code, depending on the action:
+```json
+{
+  "a1b2c3d4-e5f6-7890-abcd-ef1234567890": {
+    "appKey": "f0b89d74-a4bb-4dc6-8bcb-0dc063c38e7c",
+    "action": "ConnectDirectlyToQuickmatchRoom",
+    "roomGroupName": "lobby",
+    "roomCode": "ABC123"
   }
 }
 ```
