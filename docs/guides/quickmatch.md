@@ -95,7 +95,7 @@ _realtime.ConnectToNextAvailableQuickmatchRoom(
 ```
 
 :::note
-`excludeRoomCodes` only has an effect when using `ConnectToNextAvailableQuickmatchRoom()`. It is ignored when using `ConnectDirectlyToQuickmatchRoom()` or `Connect()`.
+`excludeRoomCodes` only has an effect when using `ConnectToNextAvailableQuickmatchRoom()`. It is ignored when calling `ConnectDirectlyToQuickmatchRoom()`.
 :::
 
 ### Join with Room Name
